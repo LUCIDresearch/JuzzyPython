@@ -12,7 +12,7 @@ class T1MF_Union(T1MF_Prototype):
     Class T1MF_Union
     The union membership function between 2 sets
 
-    Parameters: None
+    Parameters: SetA and SetB both implementing the T1MF interface
 
     Functions:
         getFS
