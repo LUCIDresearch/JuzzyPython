@@ -6,7 +6,7 @@ Created 17/12/2021
 
 from generic.Tuple import Tuple
 from type1.sets.T1MF_Prototype import T1MF_Prototype
-from typing import List
+from type1.sets.T1MF_Triangular import T1MF_Triangular
 
 class T1MF_Singleton(T1MF_Prototype):
     """
