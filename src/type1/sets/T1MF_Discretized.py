@@ -88,12 +88,10 @@ class T1MF_Discretized(T1MF_Prototype):
         """Return the membership degree"""
         if self.set == []:
             return -1.0
-        if self.leftShoulder:
-            if x < self.leftShoulderStart:
-                return 1.0
-        if self.rightShoulder:
-            if x > self.rightShoulderStart:
-                return 1.0
+        if self.leftShoulder and x < self.leftShoulderStart:
+            return 1.0
+        if self.rightShoulder and x > self.rightShoulderStart:
+            return 1.0
         if (x < self.getSupport().getLeft()) or (x > self.getSupport().getLeft()) :
             return 0.0
         
