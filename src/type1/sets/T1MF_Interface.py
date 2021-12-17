@@ -36,7 +36,7 @@ class T1MF_Interface(MF_Interface):
     def getAlphaCut(self,alpha) -> Tuple:
         pass
 
-    def getPeak() -> float:
+    def getPeak(self) -> float:
         pass    
 
     def getName(self) -> str:
@@ -69,5 +69,10 @@ class T1MF_Interface(MF_Interface):
     def getDefuzzifiedCOS(self) -> float:
         pass
 
+    def toString(self) -> str:
+        pass
+    
+    def compareTo(self,o) -> int:
+        pass
 
 
