@@ -129,7 +129,7 @@ class T1MF_Trapezoidal(T1MF_Prototype):
     
     def compareTo(self,o) -> int:
         """Compare to another trapezoidal object"""
-        if not o is T1MF_Trapezoidal:
+        if not type(o) is T1MF_Trapezoidal:
             raise Exception("A T1MF_Trapezoidal object is expected for comparison with another T1MF_Trapezoidal object.")
         
         if (self.getA() == o.getA()) and (self.getB() == o.getB()) and (self.getC() == o.getC()) and (self.getD() == o.getD()):
