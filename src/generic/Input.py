@@ -53,18 +53,23 @@ class Input:
             self.x = inputMF.getPeak()
         
     def getName(self) -> str:
+        """Return the name of the Input"""
         return self.name
     
     def setName(self,name) -> None:
+        """Set the name of the input"""
         self.name = name
     
     def getInput(self) -> float:
+        """Get the value of the input"""
         return self.x
     
     def getDomain(self) -> Tuple:
+        """Get the range of the input"""
         return self.domain
     
     def setDomain(self,domain) -> None:
+        """Set the range of the input"""
         self.domain = domain
     
     def setInput(self,x) -> None:
