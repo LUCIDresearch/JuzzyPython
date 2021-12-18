@@ -159,9 +159,9 @@ class T1MF_Trapezoidal(T1MF_Prototype):
     def toString(self) -> str:
         """Convert membership function to string"""
         s = "T1MF_Trapezoidal:  "+ self.name() +"  -  "+str(self.a)+"  "+str(self.b)+" (y="+str(self.yLevels[0])+")  "+str(self.c)+" (y="+str(self.yLevels[1])+")  "+str(self.d)
-        if self.isLeftShoulder:
+        if self.isLeftShoulder():
             s += " (LeftShoulder)"
-        if self.isRightShoulder:
+        if self.isRightShoulder():
             s += " (RightShoulder)"
         return s
 

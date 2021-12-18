@@ -74,9 +74,9 @@ class T1MF_Triangular(T1MF_Prototype):
     def toString(self) -> str:
         """Convert membership function to string"""
         s = self.name+"  -  "+str(self.start)+"  "+str(self.peak)+"  "+str(self.end)
-        if self.isLeftShoulder:
+        if self.isLeftShoulder():
             s += " (LeftShoulder)"
-        if self.isRightShoulder:
+        if self.isRightShoulder():
             s += " (RightShoulder)"
         return s
 

@@ -59,9 +59,9 @@ class T1MF_Gaussian(T1MF_Prototype):
     def toString(self) -> float:
         """Convert membership function to string"""
         s = self.name() + " - Gaussian with mean "+str(self.mean)+", standard deviation: "+str(self.spread)
-        if self.isLeftShoulder:
+        if self.isLeftShoulder():
             s += " (LeftShoulder)"
-        if self.isRightShoulder:
+        if self.isRightShoulder():
             s += " (RightShoulder)"
         return s
     
