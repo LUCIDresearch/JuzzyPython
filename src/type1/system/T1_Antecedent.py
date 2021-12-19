@@ -5,8 +5,6 @@ Created 18/12/2021
 """
 
 from generic.Input import Input
-from generic.Tuple import Tuple
-from generic.Output import Output
 from type1.sets.T1MF_Gauangle import T1MF_Gauangle
 from type1.sets.T1MF_Gaussian import T1MF_Gaussian
 from type1.sets.T1MF_Interface import T1MF_Interface

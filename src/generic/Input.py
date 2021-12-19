@@ -4,7 +4,6 @@ Input.py
 Created 18/12/2021
 """
 
-from typing import List
 from generic.MF_Interface import MF_Interface
 from type1.sets.T1MF_Interface import T1MF_Interface
 from type1.sets.T1MF_Singleton import T1MF_Singleton
