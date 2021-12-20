@@ -16,10 +16,28 @@ from type1.system.T1_Rule import T1_Rule
 class T1_Rulebase:
     """
     Class T1_Rulebase: 
+    Class Capturing an entire Type-1 FLS through its rules.
 
-    Parameters:
+    Parameters:None
         
     Functions: 
+        addRule
+        getNumberOfOutputs
+        getNumberOfRules
+        getInferenceMethod
+        setInferenceMethod
+        getImplicationMethod
+        setImplicationMethod
+        getRule
+        getInputs
+        getOutputSetBuffers
+        evaluate
+        centroidDefuzzification
+        heightDefuzzification
+        getRules
+        changeRule
+        removeRule
+        toString
       
     """
 
@@ -30,10 +48,11 @@ class T1_Rulebase:
         self.MINIMUM = 1
         self.DEBUG = False
         self.rules = []
-        self.outputSetBuffers = OrderedDict()
-        self.outputBuffers = OrderedDict()
+        self.outputSetBuffers = OrderedDict() #a buffer for the discretised output sets (yLevels) of each output
+        self.outputBuffers = OrderedDict() #buffers the actual outputs of the rulebase (one per output)
     
     def addRule(self,r) -> None:
+        """add a rule to the set and buffers"""
         self.rules.append(r)
         for c in r.getConsequents():
             if not c.getOutput() in self.outputSetBuffers.keys():
@@ -41,18 +60,24 @@ class T1_Rulebase:
                 self.outputBuffers[c.getOutput()] = None
             
     def getNumberOfOutputs(self) -> int:
+        """Get the number of output buffers"""
         return len(self.outputBuffers)
     
     def getNumberOfRules(self) -> int:
+        """Get the number of rules"""
         return len(self.rules)
     
     def getInferenceMethod(self) -> str:
+        """Returns the current Inference Method as used for all rules."""
         if self.inferenceMethod == self.PRODUCT:
             return "product"
         else:
             return "minimum"
     
     def setInferenceMethod(self,inferenceMethod) -> None:
+        """Sets the inference method, where by inference, we mean the implementation
+        of applying the rule's firing strength to the consequent.
+        The desired inference method is applied for all rules."""
         if inferenceMethod == self.PRODUCT:
             self.inferenceMethod = self.PRODUCT
         elif inferenceMethod == self.MINIMUM:
@@ -61,12 +86,16 @@ class T1_Rulebase:
             raise Exception("Only product (0) and minimum (1) inference is currently supported.")
 
     def getImplicationMethod(self) -> str:
+        """Returns the current Implication Method as used for all rules."""
         if self.implicationMethod == self.PRODUCT:
             return "product"
         else:
             return "minimum"
     
     def setImplicationMethod(self,implicationMethod) -> None:
+        """Sets the implication method, where by implication, we mean the implementation
+        of the AND logical connective between parts of the antecedent.
+        The desired implication method is applied for all rules."""
         if implicationMethod == self.PRODUCT:
             self.implicationMethod = self.PRODUCT
         elif implicationMethod == self.MINIMUM:
@@ -75,15 +104,26 @@ class T1_Rulebase:
             raise Exception("Only product (0) and minimum (1) implication is currently supported.")
     
     def getRule(self,r) -> T1_Rule:
+        """Return a specific rule"""
         return self.rules[r]
     
     def getInputs(self) -> List[Input]:
+        """This method assumes all rules use the same (and all) inputs. 
+        The first rule is queried to identify the inputs and return them.
+        return An array of the inputs used in the rulebase (retrieved from the 
+        antecedents of the first rule in the rulebase!)."""
         return self.rules[0].getInputs()
     
     def getOutputSetBuffers(self) -> dict:
+        """Returns the outputSetBuffers"""
         return self.outputSetBuffers
     
     def evaluate(self,defuzzType) -> dict:
+        """ Returns defuzzified result of evaluating all rules in the rulebase.
+        -param defuzzificationType The type of defuzzifier to be used: 0-Height 
+        Defuzzification, 1-Centroid Defuzzification.
+        -param discretizationLevel The discretization level to be employed (only
+        applies to centroid defuzzification)"""
         if defuzzType == 0:
             return self.heightDefuzzification()
         elif defuzzType == 1:
@@ -92,6 +132,7 @@ class T1_Rulebase:
             raise Exception("The T1 evaluate() method only supports height defuzzification (0) and centroid defuzzification (1).")
     
     def centroidDefuzzification(self) -> dict:
+        """Inference and Centroid Defuzzification"""
         for output in self.outputSetBuffers.keys():
             self.outputSetBuffers[output] = [0.0] * output.getDiscretisationLevel()
             
@@ -131,6 +172,7 @@ class T1_Rulebase:
         return self.outputBuffers
     
     def heightDefuzzification(self) -> dict:
+        """Inference and Height  Defuzzification"""
         for o in self.outputSetBuffers.keys():
             self.outputSetBuffers[o] == [0.0] *2
       
@@ -144,9 +186,34 @@ class T1_Rulebase:
             consequentRule = self.rules[r].getConsequents()
             for c in consequentRule:
                 o = c.getOutput()
-                self.outputSetBuffers[0][0] = self.outputSetBuffers
+                self.outputSetBuffers[o][0] = self.outputSetBuffers[o][0] + fStrengths[r] * c.getMF().getPeak()
+                self.outputSetBuffers[o][1] = self.outputSetBuffers[o][1] + fStrengths[r]
+        
+        for o in self.outputBuffers.keys():
+            self.outputBuffers[o] = self.outputBuffers[o][0]/self.outputBuffers[o][1]
+        
+        return self.outputBuffers
+    
+    def getRules(self) -> List[T1_Rule]:
+        """Get the list of rules"""
+        return self.rules
+    
+    def changeRule(self,ruleNum,newRule) -> None:
+        """Change a current rule"""
+        self.rules[ruleNum] = newRule
+    
+    def removeRule(self,ruleNum) -> None:
+        """Remove a rule from the set"""
+        del self.rules[ruleNum]
+    
+    def toString(self) -> str:
+        """Convert all the rules to string"""
+        s="Type-1 Fuzzy Logic System with "+self.getNumberOfRules()+" rules:\n"
+        for i in range(self.getNumberOfRules):
+            s+= str(self.rules[i]) + "\n"
+        return s
 
-
+    
     
 
 
