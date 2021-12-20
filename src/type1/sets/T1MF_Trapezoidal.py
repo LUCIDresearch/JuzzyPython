@@ -3,6 +3,8 @@
 T1MF_Trapezoidal.py
 Created 17/12/2021
 """
+import sys
+sys.path.append("..")
 
 from generic.Tuple import Tuple
 from type1.sets.T1MF_Prototype import T1MF_Prototype

@@ -3,6 +3,8 @@
 MF_Interface.py
 Created 10/12/2021
 """
+import sys
+sys.path.append("..")
 
 class MF_Interface:
     """

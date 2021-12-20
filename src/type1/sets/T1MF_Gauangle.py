@@ -3,11 +3,14 @@
 T1MF_Gauangle.py
 Created 18/12/2021
 """
+import sys
+sys.path.append("..")
 
 from generic.Tuple import Tuple
 from type1.sets.T1MF_Prototype import T1MF_Prototype
 from typing import List
 import math
+from numpy import float64 as f
 
 class T1MF_Gauangle(T1MF_Prototype):
     """
@@ -56,12 +59,12 @@ class T1MF_Gauangle(T1MF_Prototype):
         self.transitionPointLeft = center-((center-start)*self.similarToGaussian)
         ab = self.getLineEquationParameters(Tuple(start,0.0),
                 Tuple(self.transitionPointLeft,
-                math.exp(-0.5*math.pow((self.transitionPointLeft-center)/self.spreadForLeft,2))))
+                math.exp(-0.5*math.pow(f(self.transitionPointLeft-center)/self.spreadForLeft,2))))
         self.leftCalculationPoint = self.getXForYOnLine(1.0,ab)
         
         self.transitionPointRight = center+((end-center)*self.similarToGaussian)
         ab = self.getLineEquationParameters(Tuple(self.transitionPointRight,
-                math.exp(-0.5*math.pow((self.transitionPointRight-center)/self.spreadForRight,2)))
+                math.exp(-0.5*math.pow(f(self.transitionPointRight-center)/self.spreadForRight,2)))
                 ,Tuple(end,0.0))
         self.rightCalculationPoint = self.getXForYOnLine(1.0,ab)
 
@@ -75,14 +78,14 @@ class T1MF_Gauangle(T1MF_Prototype):
             if (self.isLeftShoulder and x<=self.center) or (self.isRightShoulder and x>=self.center):
                 return 1.0
             elif x<=self.transitionPointLeft:
-                return (x-self.start)/(self.leftCalculationPoint-self.start)
+                return f(x-self.start)/(self.leftCalculationPoint-self.start)
             elif x<=self.transitionPointRight:
                 if x<=self.center:
-                    return math.exp(-0.5*math.pow((x-self.center)/self.spreadForLeft,2))
+                    return math.exp(-0.5*math.pow(f(x-self.center)/self.spreadForLeft,2))
                 else:
-                    return math.exp(-0.5*math.pow((x-self.center)/self.spreadForRight,2))
+                    return math.exp(-0.5*math.pow(f(x-self.center)/self.spreadForRight,2))
             else:
-                return (self.end-x)/(self.end-self.rightCalculationPoint)
+                return f(self.end-x)/(self.end-self.rightCalculationPoint)
         else:
             return 0.0
     
@@ -116,16 +119,16 @@ class T1MF_Gauangle(T1MF_Prototype):
         The first point (x), the Tuple consists of the x and y coordinates of the point in this order.
         The second point (y), the Tuple consists of the x and y coordinates of the point in this order."""
         ab = []
-        ab.append((y.getRight()-x.getRight())/(y.getLeft()-x.getLeft()))
+        ab.append(f(y.getRight()-x.getRight())/(y.getLeft()-x.getLeft()))
         ab.append(x.getRight()-ab[0]*x.getLeft())
         if self.DEBUG:
             print("x = "+str(x)+"   y = "+str(y))
             print("Line equation: "+str(ab[0])+" * x + "+str(ab[1]))
         return ab
     
-    def getXForYOnLine(y,ab) -> float:
+    def getXForYOnLine(self,y,ab) -> float:
         """Returns the x coordinate for a specified y coordinate when considering the given line equation."""
-        return (y-ab[1])/ab[0]
+        return f(y-ab[1])/ab[0]
     
     def compareTo(self, o) -> int:
         """Compare to another gauangle object """

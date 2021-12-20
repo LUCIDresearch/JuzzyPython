@@ -3,6 +3,8 @@
 T1_Consequent.py
 Created 18/12/2021
 """
+import sys
+sys.path.append("..")
 
 from generic.Output import Output
 from type1.sets.T1MF_Interface import T1MF_Interface

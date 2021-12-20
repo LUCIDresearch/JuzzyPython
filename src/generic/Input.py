@@ -3,6 +3,8 @@
 Input.py
 Created 18/12/2021
 """
+import sys
+sys.path.append("..")
 
 from generic.MF_Interface import MF_Interface
 from type1.sets.T1MF_Interface import T1MF_Interface
@@ -11,7 +13,7 @@ from type1.sets.T1MF_Gaussian import T1MF_Gaussian
 from type1.sets.T1MF_Gauangle import T1MF_Gauangle
 from type1.sets.T1MF_Triangular import T1MF_Triangular
 from type1.sets.T1MF_Trapezoidal import T1MF_Trapezoidal
-import Tuple
+from generic.Tuple import Tuple
 
 class Input: 
     """

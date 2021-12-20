@@ -3,6 +3,8 @@
 T1MF_Discretized.py
 Created 11/12/2021
 """
+import sys
+sys.path.append("..")
 
 from generic.Tuple import Tuple
 from type1.sets.T1MF_Prototype import T1MF_Prototype

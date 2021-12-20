@@ -5,6 +5,9 @@ Created 10/12/2021
 """
 from __future__ import annotations
 
+import sys
+sys.path.append("..")
+
 class Tuple:
     """
     Class Tuple: 

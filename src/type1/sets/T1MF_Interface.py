@@ -3,6 +3,8 @@
 T1MF_Interface.py
 Created 10/12/2021
 """
+import sys
+sys.path.append("..")
 
 from generic.MF_Interface import MF_Interface
 from generic.Tuple import Tuple

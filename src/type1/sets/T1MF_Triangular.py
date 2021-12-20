@@ -2,10 +2,12 @@
 T1MF_Triangular.py
 Created 17/12/2021
 """
+import sys
+sys.path.append("..")
 
 from generic.Tuple import Tuple
 from type1.sets.T1MF_Prototype import T1MF_Prototype
-from type1.sets.T1MF_Singleton import T1MF_Singleton
+import type1.sets.T1MF_Singleton 
 
 class T1MF_Triangular(T1MF_Prototype):
     """
@@ -88,7 +90,7 @@ class T1MF_Triangular(T1MF_Prototype):
             if self.getEnd() <= o.getEnd() and self.getStart() <= o.getStart() and self.getPeak() <= o.getPeak():
                 return -1
             return 1
-        elif type(o) is T1MF_Singleton:
+        elif type(o) is type1.sets.T1MF_Singleton.T1MF_Singleton:
             if self.getPeak() < o.getValue():
                 return -1
             return 1

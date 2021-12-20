@@ -3,14 +3,12 @@
 T1_Rulebase.py
 Created 19/12/2021
 """
+import sys
+sys.path.append("..")
 
 from generic.Input import Input
-from type1.sets.T1MF_Singleton import T1MF_Singleton
 from typing import List
 from collections import OrderedDict
-
-from type1.system.T1_Antecedent import T1_Antecedent
-from type1.system.T1_Consequent import T1_Consequent
 from type1.system.T1_Rule import T1_Rule
 
 class T1_Rulebase:

@@ -3,6 +3,8 @@
 T1_Rule.py
 Created 19/12/2021
 """
+import sys
+sys.path.append("..")
 
 from generic.Input import Input
 from type1.sets.T1MF_Singleton import T1MF_Singleton

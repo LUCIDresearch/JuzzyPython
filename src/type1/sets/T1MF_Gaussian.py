@@ -3,6 +3,8 @@
 T1MF_Gaussian.py
 Created 17/12/2021
 """
+import sys
+sys.path.append("..")
 
 from typing import MutableMapping
 from generic.Tuple import Tuple

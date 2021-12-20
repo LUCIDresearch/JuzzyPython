@@ -3,7 +3,10 @@
 Output.py
 Created 10/12/2021
 """
-import Tuple
+import sys
+sys.path.append("..")
+
+from generic.Tuple import Tuple
 from typing import List
 
 class Output: 

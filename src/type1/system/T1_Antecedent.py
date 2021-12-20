@@ -3,6 +3,8 @@
 T1_Antecedent.py
 Created 18/12/2021
 """
+import sys
+sys.path.append("..")
 
 from generic.Input import Input
 from type1.sets.T1MF_Gauangle import T1MF_Gauangle
@@ -64,7 +66,7 @@ class T1_Antecedent:
     
     def getFS(self) -> float:
         """Returns the firing strength for the given antecedent using the current input supplied."""
-        return self.mF.getFs(self.input.getInput())
+        return self.mF.getFS(self.input.getInput())
 
     def getMax(self,tNorm) -> float:
         """Returns the arg sup of the t-norm between the membership function of the antecedent and the 
