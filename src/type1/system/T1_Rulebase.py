@@ -143,7 +143,7 @@ class T1_Rulebase:
         
         for r in range(len(self.rules)):
             if self.DEBUG:
-                print("Rule: " + str(r) + "\n" + self.rules[r] )
+                print("Rule: " + str(r) + "\n" + self.rules[r].toString() )
             
             consequentRule = self.rules[r].getConsequents()
             for c in consequentRule:
@@ -156,7 +156,9 @@ class T1_Rulebase:
                             "  o.getDisc[i]="+str(o.getDiscretisations()[i])+"     result: "+str(fStrengths[r] * c.getMF().getFS(o.getDiscretisations()[i])))
                         self.outputSetBuffers[o][i] = max(self.outputSetBuffers[o][i], fStrengths[r] * c.getMF().getFS(o.getDiscretisations()[i]))
                     else:
-                        self.outputSetBuffers[o][i] = max(self.outputSetBuffers[o][i], min(fStrengths[r] , c.getMF().getFS(o.getDiscretisations()[i])))
+                        self.outputSetBuffers[o][i] = max(self.outputSetBuffers[o][i], 
+                        min(fStrengths[r] ,
+                        c.getMF().getFS(o.getDiscretisations()[i])))
 
         
         for o in self.outputBuffers.keys():
@@ -188,7 +190,7 @@ class T1_Rulebase:
                 self.outputSetBuffers[o][1] = self.outputSetBuffers[o][1] + fStrengths[r]
         
         for o in self.outputBuffers.keys():
-            self.outputBuffers[o] = self.outputBuffers[o][0]/self.outputBuffers[o][1]
+            self.outputBuffers[o] = self.outputSetBuffers[o][0]/self.outputSetBuffers[o][1]
         
         return self.outputBuffers
     
@@ -206,9 +208,9 @@ class T1_Rulebase:
     
     def toString(self) -> str:
         """Convert all the rules to string"""
-        s="Type-1 Fuzzy Logic System with "+self.getNumberOfRules()+" rules:\n"
-        for i in range(self.getNumberOfRules):
-            s+= str(self.rules[i]) + "\n"
+        s="Type-1 Fuzzy Logic System with "+str(self.getNumberOfRules())+" rules:\n"
+        for i in range(self.getNumberOfRules()):
+            s+= str(self.rules[i].toString()) + "\n"
         return s
 
     

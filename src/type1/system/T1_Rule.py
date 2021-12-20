@@ -61,7 +61,7 @@ class T1_Rule:
     
     def getConsequents(self) -> List[T1_Consequent]:
         """Return the list of consequents"""
-        return self.consequents.values()
+        return list(self.consequents.values())
     
     def getInputs(self) -> List[Input]:
         """Return the list of inputs"""

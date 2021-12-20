@@ -67,14 +67,15 @@ class Output:
         is kept, it is efficient to use the array from the output object (e.g. in rule-based
         inference)."""
         if self.discretisedDomain == None or len(self.discretisedDomain) != self.discretisationLevel:
-            self.discretisationDomain = [0] * self.discretisationLevel
+            self.discretisedDomain = [0] * self.discretisationLevel
             stepsize = self.domain.getSize()/(self.discretisationLevel-1.0)
-            self.discretisationDomain[0] = self.domain.getLeft()
-            self.discretisationDomain[self.discretisationLevel-1] = self.domain.getRight()
+            self.discretisedDomain[0] = self.domain.getLeft()
+            self.discretisedDomain[self.discretisationLevel-1] = self.domain.getRight()
             for i in range(1,self.discretisationLevel-1):
-                self.discretisationDomain[i] = self.domain.getLeft()+i*stepsize
+                self.discretisedDomain[i] = self.domain.getLeft()+i*stepsize
+            return self.discretisedDomain
         else:
-            return self.discretisationDomain
+            return self.discretisedDomain
     
     def compareTo(self,o) -> int:
         """Enables simple name-based ordering of outputs.
