@@ -61,7 +61,7 @@ class SimpleT1FLS:
         mediumTipMF = T1MF_Gaussian("Medium tip", 15.0, 6.0)
         highTipMF = T1MF_Gaussian("High tip", 30.0, 6.0)
 
-        #Set up the antecedents and consequents - note how the inputs are associated...
+        #Set up the antecedents and consequents
         badFood = T1_Antecedent(badFoodMF, self.food,"BadFood")
         greatFood = T1_Antecedent(greatFoodMF, self.food,"GreatFood")
 
@@ -91,6 +91,8 @@ class SimpleT1FLS:
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
         self.getControlSurfaceData(True,100,100)
+        self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100); 
+        self.plot.show()
     
     def getTip(self,foodQuality,serviceLevel) -> None:
         """Calculate the output based on the two inputs"""
@@ -128,15 +130,10 @@ class SimpleT1FLS:
         
         self.plot.plotControlSurface(x,y,z,self.food.getName(),self.service.getName(),self.tip.getName())
     
-    def plotMFs(self):
-        pass
-
-        
-        
-
-                
-
-
+    def plotMFs(self,name,sets,xAxisRange,discretizationLevel):
+        self.plot.figure()
+        for i in range(len(sets)):
+            self.plot.plotMF(sets[i].getName(),sets[i],discretizationLevel,xAxisRange,Tuple(0.0,1.0),False)
 
 if __name__ == "__main__":
     SimpleT1FLS()
