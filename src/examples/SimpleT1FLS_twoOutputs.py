@@ -25,7 +25,10 @@ from type1.sets.T1MF_Gauangle import T1MF_Gauangle
 class SimpleT1FLS_twoOutputs:
     """
     Class SimpleT1FLS_twoOutputs: 
-
+    A simple example of a type-1 FLS based on the "How much to tip the waiter"
+    scenario which has been augmented to showcase the use of two outputs.
+    We have two inputs: food quality and service level and as an output we would
+    like to generate the applicable tip as well as a recommended smile as a sign of satisfaction.
 
     Parameters:None
         
@@ -42,7 +45,7 @@ class SimpleT1FLS_twoOutputs:
         self.service = Input("Service Level",Tuple(0,10)) #Rating from 0-10
         #Output
         self.tip = Output(("Tip"),Tuple(0,30)) #Tip from 0-30%
-        self.smile = Output(("Smile"),Tuple(0,1))
+        self.smile = Output(("Smile"),Tuple(0,1)) #Smile from 0-1
 
         self.plot = Plot()
 
@@ -92,11 +95,13 @@ class SimpleT1FLS_twoOutputs:
         self.getOutput(7,8)
         self.getOutput(0,2.5)
         self.getOutput(10,1.0)
+        print("--> Note that for smile the output is -Not a Number- (nan). This is because no rule was defined for the given input combination and the -smile- output")
 
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
         self.getControlSurfaceData(self.tip,True,10,10)
         self.getControlSurfaceData(self.smile,True,10,10)
+        print("--> Note that in the control surfaces any areas which would result in NaN are replaced by 0 by convention.")
 
         self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
         self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, okServiceMF, friendlyServiceMF], self.service.getDomain(), 100)
