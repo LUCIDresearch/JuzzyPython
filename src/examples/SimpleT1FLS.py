@@ -91,7 +91,10 @@ class SimpleT1FLS:
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
         self.getControlSurfaceData(True,100,100)
-        self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100); 
+        self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
+        self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, okServiceMF, friendlyServiceMF], self.service.getDomain(), 100)
+        self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100)
+
         self.plot.show()
     
     def getTip(self,foodQuality,serviceLevel) -> None:
@@ -132,8 +135,10 @@ class SimpleT1FLS:
     
     def plotMFs(self,name,sets,xAxisRange,discretizationLevel):
         self.plot.figure()
+        self.plot.title(name)
         for i in range(len(sets)):
             self.plot.plotMF(sets[i].getName(),sets[i],discretizationLevel,xAxisRange,Tuple(0.0,1.0),False)
+        self.plot.legend()
 
 if __name__ == "__main__":
     SimpleT1FLS()

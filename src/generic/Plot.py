@@ -40,6 +40,12 @@ class Plot:
     def figure(self):
         plt.figure()
     
+    def title(self,title):
+        plt.title(title)
+    
+    def legend(self):
+        plt.legend()
+    
     def plotMF(self,name,sets,xDisc,xAxisRange,yAxisRange,addExtraEndPoints) -> None:
         x = self.discretize(sets.getSupport(),xDisc)
         y = [0] * xDisc
@@ -57,6 +63,8 @@ class Plot:
             x = x2
             y = y2
         plt.plot(x,y,label=name)
+        plt.xlim(xAxisRange.getLeft(),xAxisRange.getRight())
+        plt.ylim(yAxisRange.getLeft(),yAxisRange.getRight())
 
     def discretize(self,support,discLevel) -> List[float]:
         d = [0] * discLevel
