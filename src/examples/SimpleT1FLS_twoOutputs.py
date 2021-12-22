@@ -36,6 +36,8 @@ class SimpleT1FLS_twoOutputs:
         getTip
         PlotMFs
         getControlSurfaceData
+        getOutput
+        getSmile
         
     """
 
@@ -133,8 +135,10 @@ class SimpleT1FLS_twoOutputs:
         print("Using centroid defuzzification, the FLS recommends a tip of"
                 + "tip of: "+str(tip) + " and a smile of: "+str(smile))
     
-    def getControlSurfaceData(self,o,useCentroidDefuzz,input1Discs,input2Discs) -> None:
+    def getControlSurfaceData(self,o,useCentroidDefuzz,input1Discs,input2Discs,unit = False) -> None:
         """Get the data to plot the control surface"""
+        if unit:
+            test = []
         incrX = self.food.getDomain().getSize()/(input1Discs-1.0)
         incrY = self.service.getDomain().getSize()/(input2Discs-1.0)
         x = []
@@ -156,9 +160,14 @@ class SimpleT1FLS_twoOutputs:
                     out = self.rulebase.evaluate(0).get(o)
                 if out == None or math.isnan(out):
                     z[y_][x_] = 0.0
+                    if unit:
+                        test.append(0.0)
                 else:
                     z[y_][x_] = out
-        
+                    if unit:
+                        test.append(out)
+        if unit:
+            return test
         self.plot.plotControlSurface(x,y,z,self.food.getName(),self.service.getName(),o.getName())
     
     def plotMFs(self,name,sets,xAxisRange,discretizationLevel):
@@ -168,6 +177,12 @@ class SimpleT1FLS_twoOutputs:
         for i in range(len(sets)):
             self.plot.plotMF(sets[i].getName(),sets[i],discretizationLevel,xAxisRange,Tuple(0.0,1.0),False)
         self.plot.legend()
+    
+    def getTip(self) -> Output:
+        return self.tip
+    
+    def getSmile(self) -> Output:
+        return self.smile
 
 if __name__ == "__main__":
     SimpleT1FLS_twoOutputs()

@@ -111,8 +111,10 @@ class SimpleNST1FLS:
         print("Using centroid defuzzification, the FLS recommends a tip of"
                 + "tip of: "+str(self.rulebase.evaluate(1)[self.tip]))
     
-    def getControlSurfaceData(self,useCentroidDefuzz,input1Discs,input2Discs) -> None:
+    def getControlSurfaceData(self,useCentroidDefuzz,input1Discs,input2Discs,unit = False) -> None:
         """Get the data to plot the control surface"""
+        if unit:
+            test = []
         incrX = self.food.getDomain().getSize()/(input1Discs-1.0)
         incrY = self.service.getDomain().getSize()/(input2Discs-1.0)
         x = []
@@ -134,11 +136,16 @@ class SimpleNST1FLS:
                     out = self.rulebase.evaluate(0).get(self.tip)
                 if out == None or math.isnan(out):
                     z[y_][x_] = 0.0
+                    if unit:
+                        test.append(0.0)
                 else:
                     z[y_][x_] = out
-        
+                    if unit:
+                        test.append(out)
+        if unit:
+            return test
         self.plot.plotControlSurface(x,y,z,self.food.getName(),self.service.getName(),self.tip.getName())
-    
+        
     def plotMFs(self,name,sets,xAxisRange,discretizationLevel):
         """Plot the lines for each membership function of the sets"""
         self.plot.figure()
