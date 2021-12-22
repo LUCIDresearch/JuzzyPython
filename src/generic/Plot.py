@@ -19,14 +19,37 @@ class Plot:
 
     Funtions:
         plotControlSurface
+        show
+        figure
+        title
+        legend
+        discretize
+        plotMF
     """
 
     def __init__(self) -> None:
         pass
+    
+    def show(self):
+        """Show all the figures created"""
+        plt.show()
+    
+    def figure(self):
+        """Create a new plot to draw upon"""
+        plt.figure()
+    
+    def title(self,title):
+        """Set the title of the current figure"""
+        plt.title(title)
+    
+    def legend(self):
+        """Add legend to the current figure"""
+        plt.legend()
 
     def plotControlSurface(self,x,y,z,xLabel,yLabel,zLabel) -> None:
         """Plot a 3D surface showcasing the relationship between input (x,y) and output z"""
         fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
+        
         x,y = np.meshgrid(x,y)
         ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(z))
         ax.set_xlabel(xLabel)
@@ -34,19 +57,8 @@ class Plot:
         ax.set_zlabel(zLabel)
         plt.title("Control Surface")
     
-    def show(self):
-        plt.show()
-    
-    def figure(self):
-        plt.figure()
-    
-    def title(self,title):
-        plt.title(title)
-    
-    def legend(self):
-        plt.legend()
-    
     def plotMF(self,name,sets,xDisc,xAxisRange,yAxisRange,addExtraEndPoints) -> None:
+        """Plot a membership function on the current figure"""
         x = self.discretize(sets.getSupport(),xDisc)
         y = [0] * xDisc
         for i in range(xDisc):
@@ -67,6 +79,7 @@ class Plot:
         plt.ylim(yAxisRange.getLeft(),yAxisRange.getRight())
 
     def discretize(self,support,discLevel) -> List[float]:
+        """Discretize the support values"""
         d = [0] * discLevel
         stepSize = (support.getSize())/(discLevel-1.0)
         d[0] = support.getLeft()

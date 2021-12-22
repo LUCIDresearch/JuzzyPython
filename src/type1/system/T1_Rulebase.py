@@ -10,6 +10,7 @@ from generic.Input import Input
 from typing import List
 from collections import OrderedDict
 from type1.system.T1_Rule import T1_Rule
+from numpy import float64 as f
 
 class T1_Rulebase:
     """
@@ -167,14 +168,14 @@ class T1_Rulebase:
             for i in range(o.getDiscretisationLevel()):
                 numerator += o.getDiscretisations()[i] * self.outputSetBuffers[o][i]
                 denominator += self.outputSetBuffers[o][i]
-            self.outputBuffers[o] = numerator/denominator
+            self.outputBuffers[o] = f(numerator)/denominator
         
         return self.outputBuffers
     
     def heightDefuzzification(self) -> dict:
         """Inference and Height  Defuzzification"""
         for o in self.outputSetBuffers.keys():
-            self.outputSetBuffers[o] == [0.0] *2
+            self.outputSetBuffers[o] = [0.0] *2
       
         fStrengths = []
         for i in range(len(self.rules)):
@@ -186,11 +187,15 @@ class T1_Rulebase:
             consequentRule = self.rules[r].getConsequents()
             for c in consequentRule:
                 o = c.getOutput()
+                if self.DEBUG:
+                    print(c.getMF().getPeak())
+                
                 self.outputSetBuffers[o][0] = self.outputSetBuffers[o][0] + fStrengths[r] * c.getMF().getPeak()
                 self.outputSetBuffers[o][1] = self.outputSetBuffers[o][1] + fStrengths[r]
         
+        
         for o in self.outputBuffers.keys():
-            self.outputBuffers[o] = self.outputSetBuffers[o][0]/self.outputSetBuffers[o][1]
+            self.outputBuffers[o] = f(self.outputSetBuffers[o][0])/self.outputSetBuffers[o][1]
         
         return self.outputBuffers
     
