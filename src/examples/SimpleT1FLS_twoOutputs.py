@@ -95,15 +95,15 @@ class SimpleT1FLS_twoOutputs:
 
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
-        #self.getControlSurfaceData(self.tip,True,10,10)
-        #self.getControlSurfaceData(self.smile,True,10,10)
+        self.getControlSurfaceData(self.tip,True,10,10)
+        self.getControlSurfaceData(self.smile,True,10,10)
 
-        #self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
-        #self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, okServiceMF, friendlyServiceMF], self.service.getDomain(), 100)
-        #self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100)
-        #self.plotMFs("Satisfaction Smile Membership Functions", [smallSmileMF, bigSmileMF], self.smile.getDomain(), 100)
+        self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
+        self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, okServiceMF, friendlyServiceMF], self.service.getDomain(), 100)
+        self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100)
+        self.plotMFs("Satisfaction Smile Membership Functions", [smallSmileMF, bigSmileMF], self.smile.getDomain(), 100)
 
-        #self.plot.show()
+        self.plot.show()
     
     def getOutput(self,foodQuality,serviceLevel) -> None:
         """Calculate the output based on the two inputs"""
