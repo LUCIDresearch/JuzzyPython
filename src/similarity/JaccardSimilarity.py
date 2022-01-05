@@ -16,11 +16,10 @@ class JaccardSimilarity():
     Implementation of Jaccard Similarity for Type-1, Type-2 and zGT2 Sets
 
     Parameters: None
-
+    
     Functions:
         getSimilarity
         getDiscretisationValues
-    
     """
     
     def getSimilarity(self,setA,setB,numberOfDiscretisations) -> float:
