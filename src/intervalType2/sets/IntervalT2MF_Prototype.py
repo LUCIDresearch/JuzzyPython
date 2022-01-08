@@ -8,6 +8,7 @@ sys.path.append("..")
 from generic.Tuple import Tuple
 from type1.sets.T1MF_Interface import T1MF_Interface
 from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
+from intervalType2.sets.IntervalT2Engine_Centroid import IntervalT2Engine_Centroid
 
 class IntervalT2MF_Prototype(IntervalT2MF_Interface):
     """
@@ -103,6 +104,6 @@ class IntervalT2MF_Prototype(IntervalT2MF_Interface):
     def getFSAverage(self,x) -> float:
         return self.getFS(x).getAverage()
     
-    def getCentroid(primaryDiscretisationLevel) -> Tuple:
-        pass
-        #TODO
+    def getCentroid(self,primaryDiscretisationLevel) -> Tuple:
+        iec = IntervalT2Engine_Centroid(primaryDiscretisationLevel)
+        return iec.getCentroid(self)
