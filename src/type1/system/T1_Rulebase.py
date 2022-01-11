@@ -168,7 +168,10 @@ class T1_Rulebase:
             for i in range(o.getDiscretisationLevel()):
                 numerator += o.getDiscretisations()[i] * self.outputSetBuffers[o][i]
                 denominator += self.outputSetBuffers[o][i]
-            self.outputBuffers[o] = f(numerator)/denominator
+            if denominator == 0:
+                self.outputBuffers[o] = float("nan")
+            else:
+                self.outputBuffers[o] = f(numerator)/denominator
         
         return self.outputBuffers
     
@@ -195,7 +198,10 @@ class T1_Rulebase:
         
         
         for o in self.outputBuffers.keys():
-            self.outputBuffers[o] = f(self.outputSetBuffers[o][0])/self.outputSetBuffers[o][1]
+            if self.outputSetBuffers[o][1] == 0:
+                self.outputBuffers[o] = float("nan")
+            else:
+                self.outputBuffers[o] = f(self.outputSetBuffers[o][0])/self.outputSetBuffers[o][1]
         
         return self.outputBuffers
     

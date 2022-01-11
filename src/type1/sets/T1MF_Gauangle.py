@@ -45,26 +45,33 @@ class T1MF_Gauangle(T1MF_Prototype):
         self.center = center
         self.end = end
         self.similarToGaussian = 0.5 
-        
-        if start == center:
-            self.isLeftShoulder = True
-        if center == end:
-            self.isRightShoulder = True
-        
+
         self.spreadForLeft = (center-start)*(1.0-self.similarToGaussian)
         self.spreadForRight = (end-center)*(1.0-self.similarToGaussian)
-
+        self.transitionPointLeft = center-((center-start)*self.similarToGaussian)
+        self.transitionPointRight = center+((end-center)*self.similarToGaussian)
+    
+        if start == center:
+            self.isLeftShoulder = True
+            divLeft = float("nan")
+            divRight = f(self.transitionPointRight-center)/self.spreadForRight
+        elif center == end:
+            self.isRightShoulder = True
+            divRight = float("nan")
+            divLeft = f(self.transitionPointLeft-center)/self.spreadForLeft
+        else:
+            divLeft = f(self.transitionPointLeft-center)/self.spreadForLeft
+            divRight = f(self.transitionPointRight-center)/self.spreadForRight
+        
         self.support = Tuple(start,end)
 
-        self.transitionPointLeft = center-((center-start)*self.similarToGaussian)
         ab = self.getLineEquationParameters(Tuple(start,0.0),
                 Tuple(self.transitionPointLeft,
-                math.exp(-0.5*math.pow(f(self.transitionPointLeft-center)/self.spreadForLeft,2))))
+                math.exp(-0.5*math.pow(divLeft,2))))
         self.leftCalculationPoint = self.getXForYOnLine(1.0,ab)
         
-        self.transitionPointRight = center+((end-center)*self.similarToGaussian)
         ab = self.getLineEquationParameters(Tuple(self.transitionPointRight,
-                math.exp(-0.5*math.pow(f(self.transitionPointRight-center)/self.spreadForRight,2)))
+                math.exp(-0.5*math.pow(divRight,2)))
                 ,Tuple(end,0.0))
         self.rightCalculationPoint = self.getXForYOnLine(1.0,ab)
 
@@ -115,7 +122,7 @@ class T1MF_Gauangle(T1MF_Prototype):
         return s
     
     def getLineEquationParameters(self,x,y) -> List[float]:
-        """eturns the line equation parameters a and be (line equation = ax*b) for a line passing through the points defined by the tuples x and y.
+        """returns the line equation parameters a and be (line equation = ax*b) for a line passing through the points defined by the tuples x and y.
         The first point (x), the Tuple consists of the x and y coordinates of the point in this order.
         The second point (y), the Tuple consists of the x and y coordinates of the point in this order."""
         ab = []
