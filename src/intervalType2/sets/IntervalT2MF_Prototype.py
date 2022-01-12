@@ -43,6 +43,7 @@ class IntervalT2MF_Prototype(IntervalT2MF_Interface):
         self.LeftShoulder = False
         self.RightShoulder = False
         self.DEBUG = False
+        self.support = None
         if uMF != None and lMF != None:
             self.uMF = uMF
             self.lMF = lMF
