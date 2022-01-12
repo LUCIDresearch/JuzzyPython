@@ -44,7 +44,8 @@ class Plot:
     
     def legend(self):
         """Add legend to the current figure"""
-        plt.legend()
+        plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+        plt.tight_layout()
 
     def plotControlSurface(self,x,y,z,xLabel,yLabel,zLabel) -> None:
         """Plot a 3D surface showcasing the relationship between input (x,y) and output z"""
@@ -57,7 +58,7 @@ class Plot:
         ax.set_zlabel(zLabel)
         plt.title("Control Surface")
     
-    def plotMF(self,name,sets,xDisc,xAxisRange,yAxisRange,addExtraEndPoints) -> None:
+    def plotMF(self,xaxis,name,sets,xDisc,xAxisRange,yAxisRange,addExtraEndPoints) -> None:
         """Plot a membership function on the current figure"""
         x = self.discretize(sets.getSupport(),xDisc)
         y = [0] * xDisc
@@ -77,6 +78,8 @@ class Plot:
         plt.plot(x,y,label=name)
         plt.xlim(xAxisRange.getLeft(),xAxisRange.getRight())
         plt.ylim(yAxisRange.getLeft(),yAxisRange.getRight())
+        plt.ylabel("μ")
+        plt.xlabel(xaxis)
 
     def discretize(self,support,discLevel) -> List[float]:
         """Discretize the support values"""

@@ -147,7 +147,7 @@ class SimpleT1FLS:
         self.plot.figure()
         self.plot.title(name)
         for i in range(len(sets)):
-            self.plot.plotMF(sets[i].getName(),sets[i],discretizationLevel,xAxisRange,Tuple(0.0,1.0),False)
+            self.plot.plotMF(name.replace("Membership Functions",""),sets[i].getName(),sets[i],discretizationLevel,xAxisRange,Tuple(0.0,1.0),False)
         self.plot.legend()
 
 if __name__ == "__main__":
