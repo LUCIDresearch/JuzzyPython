@@ -8,7 +8,9 @@ sys.path.append("..")
 
 from generic.Tuple import Tuple
 from typing import List
+import functools
 
+@functools.total_ordering
 class Output: 
     """
     Class Output: 
@@ -83,9 +85,14 @@ class Output:
         Compare the value of the output names and return an int from -1 to 1"""
         if self.getName() < o.getName():
             return -1
-        elif  self.getName() < o.getName():
+        elif  self.getName() > o.getName():
             return 1
         else:
             return 0
+    
+    def __eq__(self, o):
+        return self.getName() == o.getName()
 
+    def __lt__(self, o):
+        return self.getName() < o.getName()
 

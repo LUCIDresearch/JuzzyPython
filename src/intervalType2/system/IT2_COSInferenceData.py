@@ -10,6 +10,9 @@ from generic.Tuple import Tuple
 from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
 from intervalType2.sets.IntervalT2Engine_Centroid import IntervalT2Engine_Centroid
 
+import functools
+
+@functools.total_ordering
 class IT2_COSInferenceData():
     """
     Class IT2_COSInferenceData
