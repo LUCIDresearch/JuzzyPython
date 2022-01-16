@@ -7,9 +7,12 @@ import sys
 sys.path.append("..")
 
 from generic.Tuple import Tuple
+from generic.Input import Input
 from type1.sets.T1MF_Interface import T1MF_Interface
-from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
-from intervalType2.sets.IntervalT2Engine_Centroid import IntervalT2Engine_Centroid
+from intervalType2.system.IT2_Antecedent import IT2_Antecedent
+from intervalType2.system.IT2_Consequent import IT2_Consequent
+from type1.sets.T1MF_Singleton import T1MF_Singleton
+from typing import List
 
 class IT2_Rule():
     """
@@ -53,11 +56,11 @@ class IT2_Rule():
         """Return the number of consequents"""
         return len(self.consequents)
     
-    def getAntecedents(self) -> List[T1_Antecedent]:
+    def getAntecedents(self) -> List[IT2_Antecedent]:
         """Return the list of antecedents"""
         return self.antecedents
     
-    def getConsequents(self) -> List[T1_Consequent]:
+    def getConsequents(self) -> List[IT2_Consequent]:
         """Return the list of consequents"""
         return list(self.consequents.values())
     
