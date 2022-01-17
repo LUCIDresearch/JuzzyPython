@@ -3,6 +3,7 @@ IT2_Rulebase.py
 Created 16/1/2022
 """
 import sys
+from intervalType2.sets.IntervalT2Engine_Centroid import IntervalT2Engine_Centroid
 from intervalType2.sets.IntervalT2MF_Intersection import IntervalT2MF_Intersection
 
 from intervalType2.system.IT2_Rule import IT2_Rule
@@ -16,6 +17,7 @@ from type1.sets.T1MF_Interface import T1MF_Interface
 from intervalType2.system.IT2_Antecedent import IT2_Antecedent
 from intervalType2.system.IT2_COSInferenceData import IT2_COSInferenceData
 from intervalType2.sets.IntervalT2MF_Cylinder import IntervalT2MF_Cylinder
+from intervalType2.sets.IntervalT2MF_Union import IntervalT2MF_Union
 from type1.sets.T1MF_Singleton import T1MF_Singleton
 from typing import List
 
@@ -225,6 +227,24 @@ class IT2_Rulebase():
                     o = c.getOutput()
                     if firstFiredForOutput[o]:
                         overallOutputSet[o] = IntervalT2MF_Intersection(IntervalT2MF_Cylinder("FiringInterval",fStrength),c.getMembershipFunction())
+                        if not overallOutputSet[o].intersectionExists():
+                            print("PUTTING NONE")
+                            overallOutputSet[o] = None
+                        firstFiredForOutput[o] = False
+                    else:
+                        if overallOutputSet[o] == None:
+                            overallOutputSet[o] = IntervalT2MF_Intersection(IntervalT2MF_Cylinder("FiringInterval",fStrength),c.getMembershipFunction())
+                            if not overallOutputSet[o].intersectionExists():
+                                print("PUTTING NONE")
+                                overallOutputSet[o] = None
+                        else:
+                            overallOutputSet[o] = IntervalT2MF_Union(IntervalT2MF_Intersection(
+                            IntervalT2MF_Cylinder("FiringInterval",fStrength),
+                            c.getMembershipFunction()),overallOutputSet[o])
+        
+        iT2EC = IntervalT2Engine_Centroid()
+        returnValue = OrderedDict()
+        for o in self.outputs:
 
 
 
