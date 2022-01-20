@@ -13,22 +13,37 @@ from collections import OrderedDict
 import math
 from generic.Tuple import Tuple
 from generic.Input import Input
-from type1.sets.T1MF_Interface import T1MF_Interface
-from intervalType2.system.IT2_Antecedent import IT2_Antecedent
 from intervalType2.system.IT2_COSInferenceData import IT2_COSInferenceData
 from intervalType2.sets.IntervalT2MF_Cylinder import IntervalT2MF_Cylinder
 from intervalType2.sets.IntervalT2MF_Union import IntervalT2MF_Union
-from type1.sets.T1MF_Singleton import T1MF_Singleton
 from typing import List
 
 class IT2_Rulebase():
     """
-    Class 
+    Class IT2_Rulebase
+    Keeps track of rules and generates results
 
     Parameters:
+        initialNumberOfRules = Starting rules for the logic set
       
-        
     Functions: 
+        getInputs
+        getFuzzyLogicType
+        addRule
+        addRules
+        getRules
+        getNumberOfRules
+        getOutputIterator
+        evaluateGetCentroid
+        evaluate
+        doCOSTypeReduction
+        getFiringIntervalsForCOS_TR
+        doReductionCentroid
+        weightedSigma
+        removeRule
+        setImplicationMethod
+        getImplicationMethod
+        toString
         
     """
 
@@ -46,12 +61,17 @@ class IT2_Rulebase():
         self.MINIMUM = 1
     
     def getInputs(self) -> List[Input]:
+        """This method assumes all rules use the same (and all) inputs. The first rule is queried to identify the inputs and return them.
+        return An array of the inputs used in the rulebase (retrieved from the actecedents of the firts rule in the rulebase!)"""
         return self.rules[0].getInputs()
     
     def getFuzzyLogicType(self) -> int:
+        """Returns the type of fuzzy logic that is employed.
+        return 0: type-1, 1: interval type-2, 2: zSlices based general type-2"""
         return 1
 
     def addRule(self,r) -> None:
+        """Add a new rule to the rule set"""
         self.rules.append(r)
         it = r.getConsequents()
         for i in it:
@@ -60,16 +80,24 @@ class IT2_Rulebase():
                 self.outputs.append(o)
     
     def addRules(self,r) -> None:
+        """Add multiple new rules to the rule set"""
         for i in range(len(r)):
             self.addRule(i)
     
     def getRules(self) -> List[IT2_Rule]:
+        """Return all the rules in the set"""
         return self.rules
     
     def getNumberOfRules(self) -> int:
+        """Get the number of rules in the set"""
         return len(self.rules)
     
     def evaluateGetCentroid(self,typeReductionType) -> dict:
+        """Returns the output of the FLS after type-reduction, i.e. the centroid.
+        return A TreeMap where Output is used as key and the value is an Object[]
+        where Object[0] is a Tuple (the centroid) and Object[1] is a Double holding
+        the associated yValue for the centroid. If not rule fired for the given input(s),
+        then null is returned as an Object[]."""
         returnValue = OrderedDict()
         
         if typeReductionType == self.CENTEROFSETS:
@@ -86,6 +114,11 @@ class IT2_Rulebase():
         return returnValue
 
     def evaluate(self,typeReductionType) -> dict:
+        """Returns typereduced & defuzzified result of evaluating all rules in the rulebase.
+        typeReductionType: The type of type reducer to be used: 0-Center-Of-Sets, 
+        1-Centroid.
+        discretizationLevel: The discretization level to be employed (only applies to centroid type reducer)
+        return The type-reduced and defuzzified output."""
         returnValue = OrderedDict()
 
         if typeReductionType == self.CENTEROFSETS:
@@ -102,6 +135,7 @@ class IT2_Rulebase():
         return returnValue
     
     def doCOSTypeReduction(self) -> dict:
+        """Reduce based on center of sets reduction type"""
         returnValue = OrderedDict()
         data = self.getFiringIntervalsForCOS_TR()
 
@@ -196,7 +230,8 @@ class IT2_Rulebase():
                 returnValue.put(o,Tuple(yl,yr))
         return returnValue
     
-    def getFiringIntervalsForCOS_TR(self):
+    def getFiringIntervalsForCOS_TR(self) -> dict:
+        """Get the firing intervals for cos type reduction"""
         returnValue = OrderedDict()
         if self.DEBUG:
             print("Number of rules in rulebase: "+str(len(self.rules)))
@@ -214,7 +249,8 @@ class IT2_Rulebase():
             ruleCounter += 1
         return returnValue
         
-    def doReductionCentroid(self):
+    def doReductionCentroid(self) -> dict:
+        """Do reduction based on the centroid type"""
         overallOutputSet = OrderedDict()
         firstFiredForOutput = OrderedDict()
         for o in self.outputs:
@@ -245,6 +281,50 @@ class IT2_Rulebase():
         iT2EC = IntervalT2Engine_Centroid()
         returnValue = OrderedDict()
         for o in self.outputs:
+            iT2EC.setPrimaryDiscretizationLevel(o.getDiscretisationLevel())
+            returnValue[o] = iT2EC.getCentroid(overallOutputSet[o])
+        return returnValue
+
+    def weightedSigma(self,w,y) -> float:
+        """Return the sigma based on COS inference data"""
+        numerator = 0.0
+        denominator = 0.0
+
+        for i in range(len(w)):
+            numerator += (w[i]*y[i].getSelectedCentroidEndpoint())
+            denominator += w[i]
+        
+        if denominator == 0.0:
+            return 0.0
+        else:
+            return numerator/denominator
+    
+    def removeRule(self,ruleNumber) -> None:
+        """Remove a rule based on its index"""
+        del self.rules[ruleNumber]
+    
+    def getImplicationMethod(self) -> str:
+        """Return if the implication is product or minimum"""
+        if self.implicationMethod == self.PRODUCT:
+            return "product"
+        else:
+            return "minimum"
+    
+    def setImplicationMethod(self,implicationMethod) -> None:
+        """Set the product or minimum implication method"""
+        if implicationMethod == self.PRODUCT:
+            self.implicationMethod = self.PRODUCT
+        elif implicationMethod == self.MINIMUM:
+            self.implicationMethod = self.MINIMUM
+        else:
+            raise Exception("Only product (0) and minimum (1) implication is currentlyt supported.")
+    
+    def toString(self) -> str:
+        """Convert the class to string"""
+        s = "Interval Type-2 Fuzzy Logic System with "+str(self.getNumberOfRules())+" rules:\n"
+        for i in range(self.getNumberOfRules()):
+            s += str(self.rules[i])+"\n"
+        return s
 
 
 
