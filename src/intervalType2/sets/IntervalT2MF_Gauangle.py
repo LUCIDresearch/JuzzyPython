@@ -28,7 +28,7 @@ class IntervalT2MF_Gauangle(IntervalT2MF_Prototype):
         super().__init__(name)
         self.uMF = uMF
         self.lMF = lMF
-        self.support = Tuple(min(uMF.getSupport().getLeft(),lMF.getSupport.getLeft()),max(uMF.getSupport().getRight(),lMF.getSupport().getRight()))
+        self.support = Tuple(min(uMF.getSupport().getLeft(),lMF.getSupport().getLeft()),max(uMF.getSupport().getRight(),lMF.getSupport().getRight()))
     
     def toString(self) -> str:
         """Convert the membership function to string"""

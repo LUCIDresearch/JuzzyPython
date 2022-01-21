@@ -55,8 +55,8 @@ class IT2_Antecedent():
         if self.DEBUG:
             print("Input = "+str(self.input.getInput()))
             print("MF is:  "+str(self.mF.getName()))
-            print("Result is: "+self.mF.getFS(input.getInput()).toString())
-        return self.mF.getFS(input.getInput())
+            print("Result is: "+self.mF.getFS(self.input.getInput()).toString())
+        return self.mF.getFS(self.input.getInput())
     
     def setInput(self,input_) -> None:
         """Set the input"""

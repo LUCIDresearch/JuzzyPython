@@ -227,7 +227,7 @@ class IT2_Rulebase():
             
                 if self.DEBUG:
                     print("returning yl = "+str(yl)+" and yr = "+str(yr))
-                returnValue.put(o,Tuple(yl,yr))
+                returnValue[o]=Tuple(yl,yr)
         return returnValue
     
     def getFiringIntervalsForCOS_TR(self) -> dict:
@@ -243,7 +243,7 @@ class IT2_Rulebase():
             if firingStrength.getRight()>0.0:
                 for cons in ruleCons:
                     if not cons.getOutput() in returnValue.keys():
-                        returnValue.put(cons.getOutput(),[None,None])
+                        returnValue[cons.getOutput()]=[None,None]
                     returnValue[cons.getOutput()][0]=IT2_COSInferenceData(firingStrength,r.getConsequentCentroid(cons.getOutput()).getLeft())
                     returnValue[cons.getOutput()][1]=IT2_COSInferenceData(firingStrength,r.getConsequentCentroid(cons.getOutput()).getRight())
             ruleCounter += 1

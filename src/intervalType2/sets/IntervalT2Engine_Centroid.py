@@ -7,7 +7,9 @@ sys.path.append("..")
 import math
 
 from generic.Tuple import Tuple
-import intervalType2.sets
+import intervalType2.sets.IntervalT2MF_Intersection 
+import intervalType2.sets.IntervalT2MF_Union
+
 
 #TODO Classes 
 
@@ -60,7 +62,7 @@ class IntervalT2Engine_Centroid():
         """Centroid using the Karnikmendel method"""
         if mf == None:
             return Tuple(float("nan"),float("nan"))
-        if isinstance(mf,IntervalT2MF_Intersection and not mf.intersectionExists()):
+        if isinstance(mf,intervalType2.sets.IntervalT2MF_Intersection.IntervalT2MF_Intersection) and not mf.intersectionExists():
             return Tuple(float("nan"),float("nan"))
         y_l = 0 
         y_r = 0
@@ -68,7 +70,7 @@ class IntervalT2Engine_Centroid():
         iterationCounterRight = 0
         if self.DEBUG:
             print("MF Name: "+mf.getName())
-        if isinstance(mf,IntervalT2MF_Union and mf.isNull()):
+        if isinstance(mf,intervalType2.sets.IntervalT2MF_Union.IntervalT2MF_Union) and mf.isNull():
             return None
         if self.DEBUG:
             print("domain left point is: " + str(mf.getSupport().getLeft()) + "  and right point is: "+ str(mf.getSupport().getRight()))

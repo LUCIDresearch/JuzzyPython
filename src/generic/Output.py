@@ -91,8 +91,10 @@ class Output:
             return 0
     
     def __eq__(self, o):
-        return self.getName() == o.getName()
+        return isinstance(o,Output) and self.getName() == o.getName()
 
     def __lt__(self, o):
-        return self.getName() < o.getName()
+        return isinstance(o,Output) and self.getName() < o.getName()
 
+    def __hash__(self) -> int:
+        return hash(self.getName())

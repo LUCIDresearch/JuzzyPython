@@ -57,7 +57,7 @@ class IntervalT2MF_Gaussian(IntervalT2MF_Prototype):
         #If means are same
         if self.lMF.getMean() == self.uMF.getMean():
             return Tuple(math.exp(-0.5*math.pow((x-self.lMF.getMean())/self.lMF.getSpread(),2))
-            ,math.exp((x-self.uMF.getMean())/self.uMF.getSpread(),2))
+            ,math.exp(-0.5*math.pow((x-self.uMF.getMean())/self.uMF.getSpread(),2)))
         else:
             #with uncertain mean things are a bit more complicated...rely on innerMean being <= outerMean!
             #UPPER
