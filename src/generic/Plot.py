@@ -58,6 +58,45 @@ class Plot:
         ax.set_zlabel(zLabel)
         plt.title("Control Surface")
     
+    def plotMF2(self,xaxis,name,sets,xDisc,addExtraEndPoints) -> None:
+        pass
+        x = self.discretize(sets.getSupport(),xDisc)
+        y1 = [0] * xDisc
+        y2 = [0] * xDisc
+        
+        for i in range(xDisc):
+            temp = sets.getFS(x[i])
+            y1[i] = temp.getRight()
+            y2[i] = temp.getLeft()
+        
+        if addExtraEndPoints:
+            x2 = [0.0] * (len(x)+2)
+            y1b = [0.0] * (len(y1)+2)
+            y2b = [0.0] * (len(y2)+2)
+
+            x2[0] = sets.getSupport().getLeft()
+            x2[-1] = set.getSupport().getRight()
+
+            y1b[0] = 0.0
+            y1b[len(y1)-1] = 0.0
+            y2b[0] = 0.0
+            y2b[len(y2)-1] = 0.0
+
+            for i in range(len(x)):
+                x2[i+1] = x[i]
+                y1b[i+1] = y1[i]
+                y2b[i+1] = y2[i]
+            x = x2
+            y1 = y1b
+            y2 = y2b
+
+        plt.plot(x,y1,label=name+"_upper")
+        plt.plot(x,y2,label=name+"_lower")
+        #plt.xlim(xAxisRange.getLeft(),xAxisRange.getRight())
+        #plt.ylim(yAxisRange.getLeft(),yAxisRange.getRight())
+        plt.ylabel("μ")
+        plt.xlabel(xaxis)
+        
     def plotMF(self,xaxis,name,sets,xDisc,xAxisRange,yAxisRange,addExtraEndPoints) -> None:
         """Plot a membership function on the current figure"""
         x = self.discretize(sets.getSupport(),xDisc)

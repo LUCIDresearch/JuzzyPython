@@ -27,13 +27,13 @@ class IntervalT2MF_Union(IntervalT2MF_Prototype):
     
     def __init__(self, a,b) -> None:
         self.DEBUG = False
-        self.isNull = False
+        self.isNull_ = False
         self.sets = {}
 
-        super.__init__("Union of  ("+a.getName()+" and "+b.getName()+")")
+        super().__init__("Union of  ("+a.getName()+" and "+b.getName()+")")
         self.uMF = T1MF_Union(a.getUMF(),b.getUMF())
         self.lMF = T1MF_Union(a.getLMF(),b.getLMF())
-        self.support = Tuple(min(a.getSupport().getLeft(),b.getSupport.getLeft()),max(a.getSupport().getRight(),b.getSupport().getRight()))
+        self.support = Tuple(min(a.getSupport().getLeft(),b.getSupport().getLeft()),max(a.getSupport().getRight(),b.getSupport().getRight()))
     
     def getSets(self) -> set:
         """Return sets"""
@@ -41,7 +41,7 @@ class IntervalT2MF_Union(IntervalT2MF_Prototype):
     
     def isNull(self) -> bool:
         """Return if null"""
-        return self.isNull
+        return self.isNull_
     
     def getPeak(self) -> float:
         """Unsupported Function"""

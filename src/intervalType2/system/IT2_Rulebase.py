@@ -3,6 +3,7 @@ IT2_Rulebase.py
 Created 16/1/2022
 """
 import sys
+from turtle import right
 from intervalType2.sets.IntervalT2Engine_Centroid import IntervalT2Engine_Centroid
 from intervalType2.sets.IntervalT2MF_Intersection import IntervalT2MF_Intersection
 
@@ -47,12 +48,9 @@ class IT2_Rulebase():
         
     """
 
-    def __init__(self,initialNumberOfRule = None) -> None:
+    def __init__(self) -> None:
         self.rules = []
-        if initialNumberOfRule != None:
-            self.outputs = [0]* initialNumberOfRule
-        else:
-            self.outputs = []
+        self.outputs = []
         self.DEBUG = False
         self.CENTEROFSETS = 0
         self.CENTROID = 1
@@ -158,7 +156,7 @@ class IT2_Rulebase():
                 stopFlag = False
                 R = 0
                 L = 0
-
+            
                 for i in range(len(fir)):
                     fir[i] = rightData[i].getFStrength().getAverage()
                 
@@ -172,9 +170,9 @@ class IT2_Rulebase():
                             break
                     
                     for i in range(R+1):
-                        fir[i] = rightData[i].getFStrength.getLeft()
+                        fir[i] = rightData[i].getFStrength().getLeft()
                     for i in range(R+1,len(fir)):
-                        fir[i] = rightData[i].getFStrength.getRight()
+                        fir[i] = rightData[i].getFStrength().getRight()
 
                     if len(fir) == 1 and fir[0] == 0:
                         fir[0] = 0.00001
@@ -190,7 +188,7 @@ class IT2_Rulebase():
                 
                 stopFlag = False
                 for i in range(len(fir)):
-                    fir[i] = leftData[i].getFStrength.getAverage()
+                    fir[i] = leftData[i].getFStrength().getAverage()
                 
                 yl = self.weightedSigma(fir,leftData)
                 yDash = yl
@@ -204,9 +202,9 @@ class IT2_Rulebase():
                             break
                     
                     for i in range(L+1):
-                        fir[i] = leftData[i].getFStrength.getRight()
+                        fir[i] = leftData[i].getFStrength().getRight()
                     for i in range(L+1,len(fir)):
-                        fir[i] = leftData[i].getFStrength.getLeft()
+                        fir[i] = leftData[i].getFStrength().getLeft()
                     
                     yl = self.weightedSigma(fir,leftData)
 
@@ -243,9 +241,9 @@ class IT2_Rulebase():
             if firingStrength.getRight()>0.0:
                 for cons in ruleCons:
                     if not cons.getOutput() in returnValue.keys():
-                        returnValue[cons.getOutput()]=[None,None]
-                    returnValue[cons.getOutput()][0]=IT2_COSInferenceData(firingStrength,r.getConsequentCentroid(cons.getOutput()).getLeft())
-                    returnValue[cons.getOutput()][1]=IT2_COSInferenceData(firingStrength,r.getConsequentCentroid(cons.getOutput()).getRight())
+                        returnValue[cons.getOutput()]=[],[]
+                    returnValue[cons.getOutput()][0].append(IT2_COSInferenceData(firingStrength,r.getConsequentCentroid(cons.getOutput()).getLeft()))
+                    returnValue[cons.getOutput()][1].append(IT2_COSInferenceData(firingStrength,r.getConsequentCentroid(cons.getOutput()).getRight()))
             ruleCounter += 1
         return returnValue
         
@@ -323,7 +321,7 @@ class IT2_Rulebase():
         """Convert the class to string"""
         s = "Interval Type-2 Fuzzy Logic System with "+str(self.getNumberOfRules())+" rules:\n"
         for i in range(self.getNumberOfRules()):
-            s += str(self.rules[i])+"\n"
+            s += str(self.rules[i].toString())+"\n"
         return s
 
 

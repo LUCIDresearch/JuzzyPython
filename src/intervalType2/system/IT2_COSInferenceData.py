@@ -52,14 +52,14 @@ class IT2_COSInferenceData():
         else:
             return 0
     
-    def toString(self) -> str:
+    def __str__(self) -> str:
         """Return class as string"""
         return "FiringStrength = ["+str(self.firingStrength.getLeft())+","+str(self.firingStrength.getRight())+"   centroidValue = "+str(self.centroidValue)
     
     #Comparable methods
     
     def __eq__(self,other):
-        return self.getSelectedCentroidEndpoint() == other.getSelectedCentroidEndpoint()
+        return isinstance(other,IT2_COSInferenceData) and self.getSelectedCentroidEndpoint() == other.getSelectedCentroidEndpoint()
 
     def __lt__(self,other):
-        return self.getSelectedCentroidEndpoint() < other.getSelectedCentroidEndpoint()
+        return isinstance(other,IT2_COSInferenceData) and self.getSelectedCentroidEndpoint() < other.getSelectedCentroidEndpoint()

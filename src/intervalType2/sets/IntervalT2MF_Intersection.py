@@ -32,21 +32,21 @@ class IntervalT2MF_Intersection(IntervalT2MF_Prototype):
     def __init__(self,a,b) -> None:
         #Intersection a and b
         super().__init__("dummy-intersect")#Updated at the end
-        self.intersectionExists = False # if false, no intersection
-        self.sets = {}
+        self.intersectionExists_ = False # if false, no intersection
+        self.sets = set()
 
         if isinstance(a,IntervalT2MF_Cylinder) or isinstance(b,IntervalT2MF_Cylinder):
             if not (isinstance(a,IntervalT2MF_Cylinder) and a.getUpperBound(0)==0.0) and not(isinstance(b,IntervalT2MF_Cylinder) and b.getUpperBound(0) == 0.0):
-                self.intersectionExists = True
+                self.intersectionExists_ = True
             elif a.getSupport().getLeft() == b.getSupport().getLeft():
-                self.intersectionExists = True
+                self.intersectionExists_ = True
             elif a.getSupport().getLeft() < b.getSupport().getLeft():
                 if a.getSupport().getRight() >= b.getSupport().getLeft():
-                    self.intersectionExists = True
+                    self.intersectionExists_ = True
             elif a.getSupport().getLeft() <= b.getSupport().getRight():
-                self.intersectionExists = True
+                self.intersectionExists_ = True
         
-        if self.intersectionExists:
+        if self.intersectionExists_:
             if isinstance(a,IntervalT2MF_Intersection):
                 self.sets.update(a.getSets())
             else:
@@ -68,7 +68,7 @@ class IntervalT2MF_Intersection(IntervalT2MF_Prototype):
                 else:
                     if not isinstance(s,IntervalT2MF_Cylinder):
                         if self.support == None:
-                            self.support - s.getSupport()
+                            self.support = s.getSupport()
                         else:
                             self.support.setLeft(min(self.support.getLeft(),s.getSupport().getLeft()))
                             self.support.setRight(max(self.support.getRight(),s.getSupport().getRight()))
@@ -92,7 +92,7 @@ class IntervalT2MF_Intersection(IntervalT2MF_Prototype):
     
     def getFS(self, x) -> float:
         """Get the firing strength if there is an intersection"""
-        if not self.intersectionExists:
+        if not self.intersectionExists_:
             return None
         else:
             returnValue = Tuple(1.0,1.0)
@@ -104,4 +104,4 @@ class IntervalT2MF_Intersection(IntervalT2MF_Prototype):
     
     def intersectionExists(self) -> bool:
         """Return if an intersection exists"""
-        return self.intersectionExists
+        return self.intersectionExists_

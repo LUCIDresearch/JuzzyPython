@@ -30,9 +30,9 @@ class IntervalT2MF_Cylinder(IntervalT2MF_Prototype):
     
     def __init__(self, name,primer = None,uMF = None,lMF = None) -> None:
         if uMF != None and lMF != None:
-            super.__init__(name,uMF,lMF)
+            super().__init__(name,uMF,lMF)
         else:
-            super.__init__(name)
+            super().__init__(name)
             if primer == None:
                 raise Exception("IntervalT2MF_Cylinder primer is NONE!")
             if primer.getLeft() > primer.getRight():
