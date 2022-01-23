@@ -104,7 +104,7 @@ class SimpleIT2FLS:
 
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
-        #self.getControlSurfaceData(False,100,100)
+        self.getControlSurfaceData(False,100,100)
         self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
         self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, friendlyServiceMF], self.service.getDomain(), 100)
         self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100)

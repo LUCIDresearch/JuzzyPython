@@ -89,9 +89,10 @@ class Plot:
             x = x2
             y1 = y1b
             y2 = y2b
-
-        plt.plot(x,y1,label=name+"_upper")
-        plt.plot(x,y2,label=name+"_lower")
+        ax = plt.gca()
+        color = next(ax._get_lines.prop_cycler)['color']
+        plt.plot(x,y1,label=name+"_upper", color = color)
+        plt.plot(x,y2,label=name+"_lower", color = color, alpha=0.5)
         #plt.xlim(xAxisRange.getLeft(),xAxisRange.getRight())
         #plt.ylim(yAxisRange.getLeft(),yAxisRange.getRight())
         plt.ylabel("μ")
