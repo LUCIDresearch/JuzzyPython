@@ -4,6 +4,8 @@ Input.py
 Created 18/12/2021
 """
 import sys
+
+from numpy import isin
 sys.path.append("..")
 
 from generic.MF_Interface import MF_Interface
@@ -13,6 +15,11 @@ from type1.sets.T1MF_Gaussian import T1MF_Gaussian
 from type1.sets.T1MF_Gauangle import T1MF_Gauangle
 from type1.sets.T1MF_Triangular import T1MF_Triangular
 from type1.sets.T1MF_Trapezoidal import T1MF_Trapezoidal
+from intervalType2.sets.IntervalT2MF_Gauangle import IntervalT2MF_Gauangle
+from intervalType2.sets.IntervalT2MF_Gaussian import IntervalT2MF_Gaussian
+from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
+from intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
+from intervalType2.sets.IntervalT2MF_Trapezoidal import IntervalT2MF_Trapezoidal
 from generic.Tuple import Tuple
 
 class Input: 
@@ -106,6 +113,16 @@ class Input:
                     for i in params:
                         i += d
                     self.inputMF = T1MF_Trapezoidal(nameMF,params)
+            elif isinstance(inMF,IntervalT2MF_Interface):
+                if isinstance(inMF,IntervalT2MF_Gaussian):
+                    lmf = inMF.getLMF()
+                    namel = lmf.getName()
+                    spreadl = lmf.getSpread()
+                    umf = inMF.getUMF()
+                    nameu = umf.getName()
+                    spreadu = umf.getSpread()
+                    print(str(x))
+                    self.inputMF = IntervalT2MF_Gaussian(nameMF,T1MF_Gaussian(nameu,x,spreadu),T1MF_Gaussian(namel,x,spreadl))
         else:
             raise Exception("The input value "+str(x)+" was rejected "
                     + "as it is outside of the domain for this input: "

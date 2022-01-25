@@ -128,8 +128,8 @@ class IT2_Rulebase():
             if not o in typeReductionOutput.keys():
                 returnValue[o] = 0.0
             else:
+                print(typeReductionOutput[o].toString())
                 returnValue[o] = typeReductionOutput[o].getAverage()
-
         return returnValue
     
     def doCOSTypeReduction(self) -> dict:
@@ -275,12 +275,19 @@ class IT2_Rulebase():
                             overallOutputSet[o] = IntervalT2MF_Union(IntervalT2MF_Intersection(
                             IntervalT2MF_Cylinder("FiringInterval",fStrength),
                             c.getMembershipFunction()),overallOutputSet[o])
-        
+            else:
+                #print(r.toString())
+                pass
+    
         iT2EC = IntervalT2Engine_Centroid()
         returnValue = OrderedDict()
         for o in self.outputs:
             iT2EC.setPrimaryDiscretizationLevel(o.getDiscretisationLevel())
-            returnValue[o] = iT2EC.getCentroid(overallOutputSet[o])
+            try:
+                current = iT2EC.getCentroid(overallOutputSet[o])
+            except:
+                current = Tuple(float("nan"),float("nan"))
+            returnValue[o] = current
         return returnValue
 
     def weightedSigma(self,w,y) -> float:
@@ -315,7 +322,7 @@ class IT2_Rulebase():
         elif implicationMethod == self.MINIMUM:
             self.implicationMethod = self.MINIMUM
         else:
-            raise Exception("Only product (0) and minimum (1) implication is currentlyt supported.")
+            raise Exception("Only product (0) and minimum (1) implication is currently supported.")
     
     def toString(self) -> str:
         """Convert the class to string"""

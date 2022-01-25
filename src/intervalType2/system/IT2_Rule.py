@@ -106,17 +106,22 @@ class IT2_Rule():
                     fStrength.setRight(fStrength.getRight()*self.antecedents[i].getMF().getUMF().getFS(xmax.getRight())*self.antecedents[i].getInput().getInputMF().getUMF().getFS(xmax.getRight()))
         else:
             for i in range(self.getNumberOfAntecedents()):
+                
                 if isinstance(self.antecedents[i].getInput().getInputMF(),T1MF_Singleton):
                     fStrength.setLeft(min(fStrength.getLeft(),self.antecedents[i].getFS().getLeft()))
                     fStrength.setRight(min(fStrength.getRight(),self.antecedents[i].getFS().getRight()))
+                    print(fStrength.toString())
+
                 elif isinstance(self.antecedents[i].getInput().getInputMF(),T1MF_Interface):
-                    xmax = self.antecedents[i].getMax(self.PRODUCT)
+                    xmax = self.antecedents[i].getMax(self.MINIMUM)
                     fStrength.setLeft(min(fStrength.getLeft(),min(self.antecedents[i].getMF().getLMF().getFS(xmax.getLeft()),self.antecedents[i].getInput().getInputMF().getFS(xmax.getLeft()))))
                     fStrength.setRight(min(fStrength.getRight(),min(self.antecedents[i].getMF().getUMF().getFS(xmax.getRight()),self.antecedents[i].getInput().getInputMF().getFS(xmax.getRight()))))
+
                 else:
-                    xmax = self.antecedents[i].getMax(self.PRODUCT)
+                    xmax = self.antecedents[i].getMax(self.MINIMUM)
                     fStrength.setLeft(min(fStrength.getLeft(),min(self.antecedents[i].getMF().getLMF().getFS(xmax.getLeft()),self.antecedents[i].getInput().getInputMF().getLMF().getFS(xmax.getLeft()))))
                     fStrength.setRight(min(fStrength.getRight(),min(self.antecedents[i].getMF().getUMF().getFS(xmax.getRight()),self.antecedents[i].getInput().getInputMF().getUMF().getFS(xmax.getRight()))))
+
         return fStrength
 
     def toString(self) -> str:

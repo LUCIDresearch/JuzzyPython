@@ -1,6 +1,6 @@
 """
-SimpleIT2FLS_twoOutputs.py
-Created 23/1/2022
+SimpleNSIT2_IT2FLS.py
+Created 25/1/2022
 """
 import sys
 sys.path.append("..")
@@ -22,10 +22,10 @@ from intervalType2.sets.IntervalT2MF_Gaussian import IntervalT2MF_Gaussian
 from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
 from intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
 
-class SimpleIT2FLS_twoOutputs:
+class SimpleNSIT2_IT2FLS:
     """
-    Class SimpleIT2FLS_twoOutputs: 
-    A simple example of an interval Type-2 FLS based on the "How much to tip the waiter"
+    Class SimpleNSIT2_IT2FLS: 
+    A simple example of a non singleton Type-1 interval Type-2 FLS based on the "How much to tip the waiter"
     scenario.
     The example is an extension of the Type-1 FLS example where we extend the MFs
     and use the Interval Type-2 System classes. Note that in contrast to the type-1
@@ -44,12 +44,13 @@ class SimpleIT2FLS_twoOutputs:
 
     def __init__(self) -> None:
         #Inputs to the FLS
-        self.food = Input("Food Quality",Tuple(0,10)) #Rating from 0-10
+        inputumf = T1MF_Gaussian("inputumf",7,3)
+        inputlmf = T1MF_Gaussian("inputlmf",7,2)
+        inputMf = IntervalT2MF_Gaussian("inputmf",inputumf,inputlmf)
+        self.food = Input("Food Quality",Tuple(0,10),inputMF=inputMf) #Rating from 0-10
         self.service = Input("Service Level",Tuple(0,10)) #Rating from 0-10
         #Output
         self.tip = Output(("Tip"),Tuple(0,30)) #Tip from 0-30%
-        self.smile = Output(("Smile"),Tuple(0,1)) #Tip from 0-30%
-
 
         self.plot = Plot()
 
@@ -82,14 +83,6 @@ class SimpleIT2FLS_twoOutputs:
         highTipLMF = T1MF_Gaussian("Lower MF high tip", 30.0, 4.0)
         highTipMF = IntervalT2MF_Gaussian("IT2MF for high Tip",highTipUMF,highTipLMF) 
 
-        smallSmileUMF = T1MF_Triangular("Upper MF for small smile",0.0,0.0,1.0)
-        smallSmileLMF = T1MF_Triangular("Lower MF for small smile",0.0,0.0,0.8)
-        smallSmileMF = IntervalT2MF_Triangular("IT2MF for small smile",smallSmileUMF,smallSmileLMF)
-
-        bigSmileUMF = T1MF_Triangular("Upper MF for small smile",0.0,1.0,1.0)
-        bigSmileLMF = T1MF_Triangular("Lower MF for small smile",0.2,1.0,1.0)
-        bigSmileMF = IntervalT2MF_Triangular("IT2MF for small smile",bigSmileUMF,bigSmileLMF)
-
         #Set up the antecedents and consequents
         badFood = IT2_Antecedent(badFoodMF, self.food,"BadFood")
         greatFood = IT2_Antecedent(greatFoodMF, self.food,"GreatFood")
@@ -101,44 +94,40 @@ class SimpleIT2FLS_twoOutputs:
         mediumTip =  IT2_Consequent( mediumTipMF, self.tip, "MediumTip")
         highTip =  IT2_Consequent(highTipMF, self.tip , "HighTip")
 
-        smallSmile =  IT2_Consequent( smallSmileMF, self.smile,  "SmallSmile")
-        bigSmile =  IT2_Consequent( bigSmileMF, self.smile, "BigSmile")
-
         #Set up the rulebase and add rules
         self.rulebase = IT2_Rulebase()
-        self.rulebase.addRule(IT2_Rule([badFood, unfriendlyService], consequents = [lowTip,smallSmile]))
+        self.rulebase.addRule(IT2_Rule([badFood, unfriendlyService], consequent = lowTip))
         self.rulebase.addRule(IT2_Rule([badFood, friendlyService],consequent = mediumTip))
         self.rulebase.addRule(IT2_Rule([greatFood, unfriendlyService], consequent =lowTip))
-        self.rulebase.addRule(IT2_Rule([greatFood, friendlyService], consequents =[highTip,bigSmile]))
+        self.rulebase.addRule(IT2_Rule([greatFood, friendlyService], consequent =highTip))
 
         #get some outputs
         self.getTip(7,8)
-        self.getTip(0,0)
+        self.getTip(5,5)
 
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
-        self.getControlSurfaceData(self.tip,False,100,100)
-        self.getControlSurfaceData(self.smile,True,100,100)
+        #self.getControlSurfaceData(False,100,100)
+        #self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
+        #self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, friendlyServiceMF], self.service.getDomain(), 100)
+        #self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100)
 
-        self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
-        self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, friendlyServiceMF], self.service.getDomain(), 100)
-        self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100)
-
-        self.plot.show()
+        #self.plot.show()
     
     def getTip(self,foodQuality,serviceLevel) -> None:
         """Calculate the output based on the two inputs"""
         self.food.setInput(foodQuality)
         self.service.setInput(serviceLevel)
 
-        print("The food was: "+str(self.food.getInput()))
+        print("The food was: "+str(self.food.getInput())+" (gaussian IT2 with a spread of : "+str(self.food.getInputMF().getUMF().getSpread())+" for UMF and " + str(self.food.getInputMF().getLMF().getSpread())+" for LMF)")
         print("The service was: "+str(self.service.getInput()))
         print("Using center of sets type reduction, the IT2 FLS recommends a"
-                + "tip of: "+str(self.rulebase.evaluate(0)[self.tip]) +" and a smile of: "+str(self.rulebase.evaluate(0).get(self.smile)))
+                + "tip of: "+str(self.rulebase.evaluate(0)[self.tip]))
+       
         print("Using centroid type reduction, the IT2 FLS recommends a"
-                + "tip of: "+str(self.rulebase.evaluate(1)[self.tip])+" and a smile of: "+str(self.rulebase.evaluate(1).get(self.smile)))
-
-        """ print("Centroid of the output for TIP (based on centroid type reduction):")
+                + "tip of: "+str(self.rulebase.evaluate(1)[self.tip]))
+        sys.exit(0)
+        print("Centroid of the output for TIP (based on centroid type reduction):")
         centroid = self.rulebase.evaluateGetCentroid(1)
         centroidTip = list(centroid[self.tip])
         if isinstance(centroidTip[0],Tuple):
@@ -147,10 +136,9 @@ class SimpleIT2FLS_twoOutputs:
         else:
             centroidTipXValues = centroidTip[1]
             centroidTipYValues = centroidTip[0]
-        print(centroidTipXValues.toString()+" at y= "+str(centroidTipYValues))"""
-       
+        print(centroidTipXValues.toString()+" at y= "+str(centroidTipYValues))
         
-    def getControlSurfaceData(self,o,useCentroidDefuzz,input1Discs,input2Discs,unit = False) -> None:
+    def getControlSurfaceData(self,useCentroidDefuzz,input1Discs,input2Discs,unit = False) -> None:
         """Get the data to plot the control surface"""
         if unit:
             test = []
@@ -169,10 +157,11 @@ class SimpleIT2FLS_twoOutputs:
             self.food.setInput(x[x_])
             for y_ in range(input2Discs):
                 self.service.setInput(y[y_])
+
                 if useCentroidDefuzz:
-                    out = self.rulebase.evaluate(1).get(o)
+                    out = self.rulebase.evaluate(1).get(self.tip)
                 else:
-                    out = self.rulebase.evaluate(0).get(o)
+                    out = self.rulebase.evaluate(0).get(self.tip)
                 if out == None or math.isnan(out):
                     z[y_][x_] = 0.0
                     if unit:
@@ -183,7 +172,7 @@ class SimpleIT2FLS_twoOutputs:
                         test.append(out)
         if unit:
             return test
-        self.plot.plotControlSurface(x,y,z,self.food.getName(),self.service.getName(),o.getName())
+        self.plot.plotControlSurface(x,y,z,self.food.getName(),self.service.getName(),self.tip.getName())
         
 
     def plotMFs(self,name,sets,xAxisRange,discretizationLevel):
@@ -195,4 +184,4 @@ class SimpleIT2FLS_twoOutputs:
         self.plot.legend()
 
 if __name__ == "__main__":
-    SimpleIT2FLS_twoOutputs()
+    SimpleNSIT2_IT2FLS()
