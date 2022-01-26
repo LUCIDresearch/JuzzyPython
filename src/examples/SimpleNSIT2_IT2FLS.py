@@ -107,10 +107,10 @@ class SimpleNSIT2_IT2FLS:
 
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
-        #self.getControlSurfaceData(False,100,100)
-        #self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
-        #self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, friendlyServiceMF], self.service.getDomain(), 100)
-        #self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100)
+        self.getControlSurfaceData(False,100,100)
+        self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
+        self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, friendlyServiceMF], self.service.getDomain(), 100)
+        self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100)
 
         #self.plot.show()
     
@@ -126,7 +126,6 @@ class SimpleNSIT2_IT2FLS:
        
         print("Using centroid type reduction, the IT2 FLS recommends a"
                 + "tip of: "+str(self.rulebase.evaluate(1)[self.tip]))
-        sys.exit(0)
         print("Centroid of the output for TIP (based on centroid type reduction):")
         centroid = self.rulebase.evaluateGetCentroid(1)
         centroidTip = list(centroid[self.tip])

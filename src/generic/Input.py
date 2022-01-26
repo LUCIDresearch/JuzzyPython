@@ -121,8 +121,59 @@ class Input:
                     umf = inMF.getUMF()
                     nameu = umf.getName()
                     spreadu = umf.getSpread()
-                    print(str(x))
                     self.inputMF = IntervalT2MF_Gaussian(nameMF,T1MF_Gaussian(nameu,x,spreadu),T1MF_Gaussian(namel,x,spreadl))
+                elif isinstance(inMF,IntervalT2MF_Gauangle):
+                    lmf = inMF.getLMF()
+                    namel = lmf.getName()
+                    startl = lmf.getStart()
+                    endl = lmf.getEnd()
+                    meanl = lmf.getMean()
+                    umf = inMF.getUMF()
+                    nameu = umf.getName()
+                    startu = umf.getStart()
+                    endu = umf.getEnd()
+                    meanu = umf.getMean()
+                    self.inputMF = IntervalT2MF_Gauangle(nameMF,T1MF_Gauangle(nameu,startu+(x-meanu),x,endu+(x-meanu)),T1MF_Gauangle(namel,startl+(x-meanl),x,endl+(x-meanl)))
+                elif isinstance(inMF,IntervalT2MF_Triangular):
+                    lmf = inMF.getLMF()
+                    namel = lmf.getName()
+                    startl = lmf.getStart()
+                    endl = lmf.getEnd()
+                    meanl = lmf.getPeak()
+                    umf = inMF.getUMF()
+                    nameu = umf.getName()
+                    startu = umf.getStart()
+                    endu = umf.getEnd()
+                    meanu = umf.getPeak()
+                    self.inputMF = IntervalT2MF_Triangular(nameMF,T1MF_Triangular(nameu,startu+(x-meanu),x,endu+(x-meanu)),T1MF_Triangular(namel,startl+(x-meanl),x,endl+(x-meanl)))
+                elif isinstance(inMF,IntervalT2MF_Trapezoidal):
+                    params = [0] * 4
+                    lmf = inMF.getLMF()
+                    params[0] = lmf.getA()
+                    params[1] = lmf.getB()
+                    params[2] = lmf.getC()
+                    params[3] = lmf.getD()
+                    mid = (params[1]+params[2])/2
+                    d = x-mid
+                    params[0] = params[0] + d
+                    params[1] = params[1] + d
+                    params[2] = params[2] + d
+                    params[3] = params[3] + d
+                    LMF = T1MF_Trapezoidal(lmf.getName(),params)
+                    umf = inMF.getUMF()
+                    params[0] = umf.getA()
+                    params[1] = umf.getB()
+                    params[2] = umf.getC() 
+                    params[3] = umf.getD()
+                    mid = (params[1]+params[2])/2
+                    d = x-mid
+                    params[0] = params[0] + d
+                    params[1] = params[1] + d
+                    params[2] = params[2] + d
+                    params[3] = params[3] + d
+                    UMF = T1MF_Trapezoidal(umf.getName(),params)
+                    self.inputMF = IntervalT2MF_Trapezoidal(nameMF,UMF,LMF)
+
         else:
             raise Exception("The input value "+str(x)+" was rejected "
                     + "as it is outside of the domain for this input: "

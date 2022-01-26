@@ -110,7 +110,6 @@ class IT2_Rule():
                 if isinstance(self.antecedents[i].getInput().getInputMF(),T1MF_Singleton):
                     fStrength.setLeft(min(fStrength.getLeft(),self.antecedents[i].getFS().getLeft()))
                     fStrength.setRight(min(fStrength.getRight(),self.antecedents[i].getFS().getRight()))
-                    print(fStrength.toString())
 
                 elif isinstance(self.antecedents[i].getInput().getInputMF(),T1MF_Interface):
                     xmax = self.antecedents[i].getMax(self.MINIMUM)

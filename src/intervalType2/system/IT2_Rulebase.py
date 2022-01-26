@@ -128,7 +128,6 @@ class IT2_Rulebase():
             if not o in typeReductionOutput.keys():
                 returnValue[o] = 0.0
             else:
-                print(typeReductionOutput[o].toString())
                 returnValue[o] = typeReductionOutput[o].getAverage()
         return returnValue
     
