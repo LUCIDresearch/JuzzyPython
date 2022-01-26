@@ -1,6 +1,6 @@
 """
-SimpleNSIT2_IT2FLS.py
-Created 25/1/2022
+SimpleNST1IT2FLS.py
+Created 26/1/2022
 """
 import sys
 sys.path.append("..")
@@ -22,9 +22,9 @@ from intervalType2.sets.IntervalT2MF_Gaussian import IntervalT2MF_Gaussian
 from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
 from intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
 
-class SimpleNSIT2_IT2FLS:
+class SimpleNST1IT2FLS:
     """
-    Class SimpleNSIT2_IT2FLS: 
+    Class SimpleNST1IT2FLS: 
     A simple example of a non singleton Type-1 interval Type-2 FLS based on the "How much to tip the waiter"
     scenario.
     The example is an extension of the Type-1 FLS example where we extend the MFs
@@ -44,10 +44,8 @@ class SimpleNSIT2_IT2FLS:
 
     def __init__(self) -> None:
         #Inputs to the FLS
-        inputumf = T1MF_Gaussian("inputumf",7,3)
-        inputlmf = T1MF_Gaussian("inputlmf",7,2)
-        inputMf = IntervalT2MF_Gaussian("inputmf",inputumf,inputlmf)
-        self.food = Input("Food Quality",Tuple(0,10),inputMF=inputMf) #Rating from 0-10
+        inputmf = T1MF_Gaussian("inputumf",7,2)
+        self.food = Input("Food Quality",Tuple(0,10),inputMF=inputmf) #Rating from 0-10
         self.service = Input("Service Level",Tuple(0,10)) #Rating from 0-10
         #Output
         self.tip = Output(("Tip"),Tuple(0,30)) #Tip from 0-30%
@@ -103,7 +101,7 @@ class SimpleNSIT2_IT2FLS:
 
         #get some outputs
         self.getTip(7,8)
-        self.getTip(5,5)
+        self.getTip(9,2.3)
 
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
@@ -119,7 +117,7 @@ class SimpleNSIT2_IT2FLS:
         self.food.setInput(foodQuality)
         self.service.setInput(serviceLevel)
 
-        print("The food was: "+str(self.food.getInput())+" (gaussian IT2 with a spread of : "+str(self.food.getInputMF().getUMF().getSpread())+" for UMF and " + str(self.food.getInputMF().getLMF().getSpread())+" for LMF)")
+        print("The food was: "+str(self.food.getInput())+" (gaussian with a spread of : "+str(self.food.getInputMF().getSpread())+")")
         print("The service was: "+str(self.service.getInput()))
         print("Using center of sets type reduction, the IT2 FLS recommends a"
                 + "tip of: "+str(self.rulebase.evaluate(0)[self.tip]))
@@ -183,4 +181,4 @@ class SimpleNSIT2_IT2FLS:
         self.plot.legend()
 
 if __name__ == "__main__":
-    SimpleNSIT2_IT2FLS()
+    SimpleNST1IT2FLS()
