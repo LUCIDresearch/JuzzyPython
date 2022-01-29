@@ -255,6 +255,7 @@ class IT2_Rulebase():
         
         for r in self.rules:
             fStrength = r.getFStrength(self.implicationMethod)
+            #print(fStrength.toString())
             if fStrength.getRight()>0.0:
                 for c in r.getConsequents():
                     o = c.getOutput()
@@ -282,10 +283,12 @@ class IT2_Rulebase():
         returnValue = OrderedDict()
         for o in self.outputs:
             iT2EC.setPrimaryDiscretizationLevel(o.getDiscretisationLevel())
+        
             try:
                 current = iT2EC.getCentroid(overallOutputSet[o])
             except:
                 current = Tuple(float("nan"),float("nan"))
+            
             returnValue[o] = current
         return returnValue
 

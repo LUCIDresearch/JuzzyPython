@@ -112,9 +112,8 @@ class SimpleIT2FLS_twoOutputs:
         self.rulebase.addRule(IT2_Rule([greatFood, friendlyService], consequents =[highTip,bigSmile]))
 
         #get some outputs
-        self.getTip(7,8)
-        self.getTip(0,0)
-
+        self.getOutput(7,8)
+        self.getOutput(0,0)
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
         self.getControlSurfaceData(self.tip,False,100,100)
@@ -126,7 +125,14 @@ class SimpleIT2FLS_twoOutputs:
 
         self.plot.show()
     
-    def getTip(self,foodQuality,serviceLevel) -> None:
+      
+    def getTip(self) -> Output:
+        return self.tip
+    
+    def getSmile(self) -> Output:
+        return self.smile
+
+    def getOutput(self,foodQuality,serviceLevel) -> None:
         """Calculate the output based on the two inputs"""
         self.food.setInput(foodQuality)
         self.service.setInput(serviceLevel)
@@ -138,7 +144,7 @@ class SimpleIT2FLS_twoOutputs:
         print("Using centroid type reduction, the IT2 FLS recommends a"
                 + "tip of: "+str(self.rulebase.evaluate(1)[self.tip])+" and a smile of: "+str(self.rulebase.evaluate(1).get(self.smile)))
 
-        """ print("Centroid of the output for TIP (based on centroid type reduction):")
+        print("Centroid of the output for TIP (based on centroid type reduction):")
         centroid = self.rulebase.evaluateGetCentroid(1)
         centroidTip = list(centroid[self.tip])
         if isinstance(centroidTip[0],Tuple):
@@ -147,7 +153,7 @@ class SimpleIT2FLS_twoOutputs:
         else:
             centroidTipXValues = centroidTip[1]
             centroidTipYValues = centroidTip[0]
-        print(centroidTipXValues.toString()+" at y= "+str(centroidTipYValues))"""
+        print(centroidTipXValues.toString()+" at y= "+str(centroidTipYValues))
        
         
     def getControlSurfaceData(self,o,useCentroidDefuzz,input1Discs,input2Discs,unit = False) -> None:
@@ -181,6 +187,7 @@ class SimpleIT2FLS_twoOutputs:
                     z[y_][x_] = out
                     if unit:
                         test.append(out)
+                #print(str(z[y_][x_]))
         if unit:
             return test
         self.plot.plotControlSurface(x,y,z,self.food.getName(),self.service.getName(),o.getName())

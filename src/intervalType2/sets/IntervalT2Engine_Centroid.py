@@ -139,7 +139,7 @@ class IntervalT2Engine_Centroid():
                         print("Is using NAN in KM the right thing to avoid divide by zero? " + str(mf))
                     step = mf.getSupport().getSize()/9
                     for i in range(10):
-                        value = i*step+mf.getSupport.getLeft()
+                        value = i*step+mf.getSupport().getLeft()
                         if self.DEBUG:
                             print("FS for set at " + str(value) + " is: " + str(mf.getFS(value)))
                     yDash = y
