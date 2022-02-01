@@ -9,11 +9,15 @@ from generic.MF_Interface import MF_Interface
 from generic.Tuple import Tuple
 from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
 from type1.sets.T1MF_Discretized import T1MF_Discretized
+from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
 from typing import List
 
-class GenT2MF_Interface(MF_Interface):
+class GenT2MF_Prototype(GenT2MF_Interface):
     """
-    Class GenT2MF_Interface
+    Class GenT2MF_Prototype
+    Prototype class for zSlices based general type-2 fuzzy sets. This class should
+    not be instantiated directly but extended by the specific fuzzy set classes
+    such as triangular, Gaussian, etc.
 
     Parameters: None
 
@@ -34,56 +38,123 @@ class GenT2MF_Interface(MF_Interface):
         getCentroid
         getPeak
         toString
+        setZValues
   
        
     """
 
+    def __init__(self,name) -> None:
+        self.name = name
+        self.isLeftShoulder_ = False
+        self.isRightShoulder_ = False
+        self.DEBUG = False
+
+    def setLeftShoulder(self,isLeftShoulder):
+        self.isLeftShoulder_ = isLeftShoulder
+    
+    def setRightShoulder(self,isRightShoulder):
+        self.isRightShoulder_ = isRightShoulder
+        
     def getFS(self,x) -> float:
-        pass
+        slice_ = T1MF_Discretized("VerticalSlice_at"+x+"_of_"+self.getName(), self.numberOfzLevels)
+
+        for i in range(self.numberOfzLevels):
+            temp = self.getZSlice(i).getFS(x)
+            if self.DEBUG:
+                print("On slice "+i+" with x = "+x+", getFS() returns: "+temp)
+                print("Adding Tuple: "+Tuple(self.getZValue(i),temp.getLeft()).toString())
+                print("Adding Tuple: "+Tuple(self.getZValue(i),temp.getRight()).toString())
+            slice_.addPoint(Tuple(self.getZValue(i),temp.getLeft()))
+            slice_.addPoint(Tuple(self.getZValue(i),temp.getRight()))
+        if slice_.getNumberOfPoints()>0:
+            return slice_
+        return None
 
     def getPeak(self) -> float:
-        pass    
+        average = 0
+        for i in range(self.getNumberOfSlices()):
+            average += self.getZSlice(i).getPeak()
+        average = average/self.getNumberOfSlices()
+        return average
 
     def getName(self) -> str:
-        pass
+        return self.name
 
     def setName(self, name) -> None:
-        pass
+        self.name = name
 
     def getSupport(self) -> Tuple:
-        pass
+        return self.support
 
     def setSupport(self, support) -> None:
-        pass
+        self.support = support
 
     def isLeftShoulder(self) -> bool:
-        pass
+        return self.isLeftShoulder_
 
     def isRightShoulder(self) -> bool:
-        pass
+        return self.isRightShoulder_
 
     def toString(self) -> str:
-        pass
+        s = "zMF(noSlices:"+str(self.getNumberOfSlices())+"):["
+        for i in range (self.getNumberOfSlices()):
+            s+= str(self.getZSlice(i))
+        s+="]\n"
+        return s
     
     def getFSWeightedAverage(self,x) -> float:
-        pass
+        numerator = 0.0
+        denominator = 0.0
+        for i in range(self.getNumberOfSlices()):
+            numerator += self.getZSlice(i).getFSAverage(x)*self.getZValue(i)
+            denominator += self.getZValue(i)
+        return numerator/denominator
     
     def getCentroid(self,primaryDiscretisationLevel) -> Tuple:
-        pass
+        slice_ = T1MF_Discretized("Centroid of"+self.getName(), self.numberOfzLevels)
+
+        for i in range(self.numberOfzLevels):
+            temp = self.getZSlice(i).getCentroid(primaryDiscretisationLevel)
+            if self.DEBUG:
+                print("On slice number"+i+" ("+self.getZSlice(i).getName()+") with primaryDiscretizationLevel = "+ str(primaryDiscretisationLevel)+" getCentroid() returns: "+temp)
+            slice_.addPoint(Tuple(self.getZValue(i),temp.getLeft()))
+            slice_.addPoint(Tuple(self.getZValue(i),temp.getRight()))
+        if slice_.getNumberOfPoints()>0:
+            return slice_
+        return None
     
     def getZValues(self) -> List[float]:
-        pass
+        try:
+            return self.slices_zValues
+        except:
+            self.setZValues()
+            return self.slices_zValues
+
+    def setZValues(self):
+        stepSize = 1.0/self.getNumberOfSlices()
+        firstStep = stepSize
+        slices_zValues = [0.0] * self.getNumberOfSlices()
+        for i in range(len(slices_zValues)):
+            slices_zValues[i] = firstStep+i*stepSize
     
     def getZValue(self,slice_number) -> float:
-        pass
+        if slice_number >= self.getNumberOfSlices():
+            raise Exception("The zSlice reference "+str(slice_number)+" is invalid as the set has only "+str(self.getNumberOfSlices())+" zSlices.")
+        try:
+            return self.slices_zValues[slice_number] 
+        except:
+            self.setZValues()
+            return self.slices_zValues[slice_number] 
 
     def setZSlice(self,zSlice,zLevel) -> None:
-        pass
+        self.zSlices[zLevel] = zSlice
 
     def getZSlice(self,slice_number) -> IntervalT2MF_Interface:
-        pass
+        if slice_number >= self.getNumberOfSlices():
+            raise Exception("The zSlice reference "+str(slice_number)+" is invalid as the set has only "+str(self.getNumberOfSlices())+" zSlices.")
+        return self.zSlices[slice_number]
 
     def getNumberOfSlices(self) -> int:
-        pass
+        return self.numberOfzLevels
 
     
