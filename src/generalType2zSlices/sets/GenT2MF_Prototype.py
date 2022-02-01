@@ -50,12 +50,15 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         self.DEBUG = False
 
     def setLeftShoulder(self,isLeftShoulder):
+        """Set the left shoulder"""
         self.isLeftShoulder_ = isLeftShoulder
     
     def setRightShoulder(self,isRightShoulder):
+        """Set the right shoulder"""
         self.isRightShoulder_ = isRightShoulder
-        
+
     def getFS(self,x) -> float:
+        """Return the firing strength"""
         slice_ = T1MF_Discretized("VerticalSlice_at"+x+"_of_"+self.getName(), self.numberOfzLevels)
 
         for i in range(self.numberOfzLevels):
@@ -71,6 +74,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         return None
 
     def getPeak(self) -> float:
+        """Average of the peaks of each slice"""
         average = 0
         for i in range(self.getNumberOfSlices()):
             average += self.getZSlice(i).getPeak()
@@ -78,24 +82,31 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         return average
 
     def getName(self) -> str:
+        """Return the name"""
         return self.name
 
     def setName(self, name) -> None:
+        """Set the name"""
         self.name = name
 
     def getSupport(self) -> Tuple:
+        """Get the support Tuple"""
         return self.support
 
     def setSupport(self, support) -> None:
+        """Set the support tuple"""
         self.support = support
 
     def isLeftShoulder(self) -> bool:
+        """Check left shoulder"""
         return self.isLeftShoulder_
 
     def isRightShoulder(self) -> bool:
+        """Check right shoulder"""
         return self.isRightShoulder_
 
     def toString(self) -> str:
+        """Convert class to string"""
         s = "zMF(noSlices:"+str(self.getNumberOfSlices())+"):["
         for i in range (self.getNumberOfSlices()):
             s+= str(self.getZSlice(i))
@@ -103,6 +114,9 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         return s
     
     def getFSWeightedAverage(self,x) -> float:
+        """Returns the weighted average of the firing strength of the zSlices of this
+        set. Employed for example in order to compare the firing strength for a
+        given input of mutliple zSlices based general type-2 fuzzy sets."""
         numerator = 0.0
         denominator = 0.0
         for i in range(self.getNumberOfSlices()):
@@ -111,6 +125,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         return numerator/denominator
     
     def getCentroid(self,primaryDiscretisationLevel) -> Tuple:
+        """Get the centroid tuple"""
         slice_ = T1MF_Discretized("Centroid of"+self.getName(), self.numberOfzLevels)
 
         for i in range(self.numberOfzLevels):
@@ -124,6 +139,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         return None
     
     def getZValues(self) -> List[float]:
+        """Get all z values"""
         try:
             return self.slices_zValues
         except:
@@ -131,6 +147,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
             return self.slices_zValues
 
     def setZValues(self):
+        """Set new z values"""
         stepSize = 1.0/self.getNumberOfSlices()
         firstStep = stepSize
         slices_zValues = [0.0] * self.getNumberOfSlices()
@@ -138,6 +155,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
             slices_zValues[i] = firstStep+i*stepSize
     
     def getZValue(self,slice_number) -> float:
+        """Return a specific slice """
         if slice_number >= self.getNumberOfSlices():
             raise Exception("The zSlice reference "+str(slice_number)+" is invalid as the set has only "+str(self.getNumberOfSlices())+" zSlices.")
         try:
@@ -147,14 +165,21 @@ class GenT2MF_Prototype(GenT2MF_Interface):
             return self.slices_zValues[slice_number] 
 
     def setZSlice(self,zSlice,zLevel) -> None:
+        """Method to set or swap a specific zSlice. The method replaces a specific 
+        zSlice with the given zSlice respectively IT2 set. Note that currently
+        NO checks whether a 
+        provided zSlices results in the violation of the general type-2 fuzzy set
+        restrictions are done - no exceptions are thrown!"""
         self.zSlices[zLevel] = zSlice
 
     def getZSlice(self,slice_number) -> IntervalT2MF_Interface:
+        """Get a specific z slice"""
         if slice_number >= self.getNumberOfSlices():
             raise Exception("The zSlice reference "+str(slice_number)+" is invalid as the set has only "+str(self.getNumberOfSlices())+" zSlices.")
         return self.zSlices[slice_number]
 
     def getNumberOfSlices(self) -> int:
+        """Total number of slices"""
         return self.numberOfzLevels
 
     
