@@ -36,9 +36,11 @@ class GenT2MF_Union(GenT2MF_Prototype):
         self.support = Tuple(zSlices[0].getSupport().getLeft(),zSlices[0].getSupport().getRight())
     
     def clone(self) -> GenT2MF_Union:
+        """Clone the class"""
         return GenT2MF_Union(self.name,self.numberOfzLevels,self.slices_zValues,self.zSlices)
     
     def getFS(self, x) -> float:
+        """Return the firing strength"""
         slice_ = T1MF_Discretized("VSlice",len(self.zSlices))
 
         for i in range(len(self.zSlices)):
@@ -53,18 +55,22 @@ class GenT2MF_Union(GenT2MF_Prototype):
         return slice_
     
     def isLeftShoulder(self) -> bool:
+        """Not implemented"""
         print("Shoulder methods not implemented")
         return False
     
     def isRightShoulder(self) -> bool:
+        """Not implemented"""
         print("Shoulder methods not implemented")
         return False
     
     def getLeftShoulderStart(self) -> float:
+        """Not implemented"""
         print("Shoulder methods not implemented")
         return float("nan")
     
     def getRightShoulderStart(self) -> float:
+        """Not implemented"""
         print("Shoulder methods not implemented")
         return float("nan")
 
