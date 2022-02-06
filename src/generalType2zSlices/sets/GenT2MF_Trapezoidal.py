@@ -37,7 +37,7 @@ class GenT2MF_Trapezoidal(GenT2MF_Prototype):
             self.support = primer.getSupport()
             self.primer = primer
             slices_fs = [0] * numberOfzLevels
-            slices_zValues = [0] * numberOfzLevels
+            self.slices_zValues = [0] * numberOfzLevels
 
             z_stepSize = 1.0/numberOfzLevels
             self.zSlices = [0] * numberOfzLevels
@@ -50,12 +50,12 @@ class GenT2MF_Trapezoidal(GenT2MF_Prototype):
             outer = primer.getUMF().getParameters().copy()
 
             self.zSlices[0] = IntervalT2MF_Trapezoidal("Slice 0",primer.getUMF(),primer.getLMF())
-            slices_zValues[0] = z_stepSize
+            self.slices_zValues[0] = z_stepSize
             if self.DEBUG:
-                print(self.zSlices[0].toString()+"  Z-Value = "+str(slices_zValues[0]))
+                print(self.zSlices[0].toString()+"  Z-Value = "+str(self.slices_zValues[0]))
             
             for i in range(1,numberOfzLevels):
-                slices_zValues[i] = slices_zValues[i-1]+z_stepSize
+                self.slices_zValues[i] = self.slices_zValues[i-1]+z_stepSize
                 inner[0]-=stepsize[0]
                 inner[1]-=stepsize[1]
                 inner[2]+=stepsize[2]
@@ -77,7 +77,7 @@ class GenT2MF_Trapezoidal(GenT2MF_Prototype):
                 self.zSlices[i] = IntervalT2MF_Trapezoidal("Slice "+i, T1MF_Trapezoidal("upper_slice "+i,outer),T1MF_Trapezoidal("lower_slice "+i,inner))
 
                 if self.DEBUG:
-                    print(self.zSlices[i].toString()+"  Z-Value = "+str(slices_zValues[i]))
+                    print(self.zSlices[i].toString()+"  Z-Value = "+str(self.slices_zValues[i]))
                 
         elif primer0 != None and primer1 != None:
             if self.DEBUG:
@@ -86,7 +86,7 @@ class GenT2MF_Trapezoidal(GenT2MF_Prototype):
             self.numberOfzLevels = numberOfzLevels
             self.support = primer0.getSupport()
             slices_fs = [0] * numberOfzLevels
-            slices_zValues = [0] * numberOfzLevels
+            self.slices_zValues = [0] * numberOfzLevels
             self.zSlices = [0] * numberOfzLevels
 
             self.zSlices[0] = primer0
@@ -94,8 +94,8 @@ class GenT2MF_Trapezoidal(GenT2MF_Prototype):
             self.zSlices[-1] = primer1
 
             z_stepSize = 1.0/(numberOfzLevels)
-            slices_zValues[0] = z_stepSize
-            slices_zValues[-1] = 1.0
+            self.slices_zValues[0] = z_stepSize
+            self.slices_zValues[-1] = 1.0
 
             lsu = (primer1.getUMF().getParameters()[0]-primer0.getUMF().getParameters()[0])/(numberOfzLevels-1)
             lsl = (primer0.getLMF().getParameters()[0]-primer1.getLMF().getParameters()[0])/(numberOfzLevels-1)
@@ -110,7 +110,7 @@ class GenT2MF_Trapezoidal(GenT2MF_Prototype):
             outer = primer0.getUMF().getParameters().copy()
 
             for i in range(1,numberOfzLevels-1):
-                slices_zValues[i] = slices_zValues[i-1]+z_stepSize
+                self.slices_zValues[i] = self.slices_zValues[i-1]+z_stepSize
                 inner[0]-=lsl
                 inner[3]+=rsl
                 outer[0]+=lsu
@@ -121,22 +121,22 @@ class GenT2MF_Trapezoidal(GenT2MF_Prototype):
                 self.zSlices[i] = IntervalT2MF_Trapezoidal(self.getName()+"_Slice_"+str(i),T1MF_Trapezoidal("upper_slice "+i,outer),T1MF_Trapezoidal("lower_slice "+i,inner))
 
                 if self.DEBUG:
-                    print(self.zSlices[i].toString()+"  Z-Value = "+str(slices_zValues[i]))
+                    print(self.zSlices[i].toString()+"  Z-Value = "+str(self.slices_zValues[i]))
 
         elif primers != None:
             self.numberOfzLevels = len(primers)
             self.support = primers[0].getSupport()
 
             slices_fs = [0] * numberOfzLevels
-            slices_zValues = [0] * numberOfzLevels
+            self.slices_zValues = [0] * numberOfzLevels
             z_stepSize = 1.0/numberOfzLevels
-            slices_zValues[0] = z_stepSize
+            self.slices_zValues[0] = z_stepSize
             self.zSlices = primers.copy()
 
             for i in range(numberOfzLevels):
-                slices_zValues[i] = z_stepSize*(i+1)
+                self.slices_zValues[i] = z_stepSize*(i+1)
                 if self.DEBUG:
-                    print(self.zSlices[i].toString()+"  Z-Value = "+str(slices_zValues[i]))
+                    print(self.zSlices[i].toString()+"  Z-Value = "+str(self.slices_zValues[i]))
 
 
     def clone(self) -> GenT2MF_Trapezoidal:
