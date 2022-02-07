@@ -64,7 +64,7 @@ class GenT2_Antecedent():
         """Returns this antecedent as a series of antecedents (each based on a single zSlice) for interval type-2 FLSs."""
         ants = [0] * self.getSet().getNumberOfSlices()
         for i in range(len(ants)):
-            ants[i] = IT2_Antecedent(self.getName()+"_zSlices:"+str(i),self.getSet().getZSlice(i),self.getInput())
+            ants[i] = IT2_Antecedent(self.getSet().getZSlice(i),self.getInput(),self.getName()+"_zSlices:"+str(i))
         return ants
     
     def getInput(self) -> Input:
