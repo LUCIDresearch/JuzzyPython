@@ -6,6 +6,7 @@ import sys
 
 from generic.Output import Output
 from generic.Tuple import Tuple
+from type1.sets.T1MF_Discretized import T1MF_Discretized
 sys.path.append("..")
 
 from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
@@ -17,11 +18,15 @@ from typing import List
 class GenT2Engine_Defuzzification():
     """
     Class GenT2Engine_Defuzzification
+    Creates a new instance of GenT2zEngine_Defuzzification 
 
     Parameters: 
-        None
+        primaryDiscretizationLevel
 
     Functions:
+        typeReduce
+        typeReduce_standard
+        printSlices
        
     """
 
@@ -34,6 +39,7 @@ class GenT2Engine_Defuzzification():
         self.IEC = IntervalT2Engine_Centroid(primaryDiscretizationLevel)
     
     def typeReduce(self,s) -> Tuple:
+        """Returns a typle of the type reduced set"""
         if s == None:
             if self.DEBUG:
                 print("Set is null at defuzzification stage")
@@ -65,6 +71,10 @@ class GenT2Engine_Defuzzification():
         return Tuple(dividend_left/divisor_left,dividend_right/divisor_right)
     
     def typeReduce_standard(self,s,xRes,yRes) -> float:
+        """Returns a typereduced and defuzzified set using the standard general type-2 wavy slice centroid method.
+        param set The Type 2 set to type reduce.
+        param xResolution Determines how fine the type 2 set should be discretised along the x-axis.
+        param yResolution Determines how fine the type 2 set should be discretised along the y-axis."""
         self.dset = GenT2MF_Discretized(s,xRes,yRes)
         self.dPoints_real = [0] * xRes
 
@@ -119,4 +129,66 @@ class GenT2Engine_Defuzzification():
             print("Wavy slices:")
             self.printSlices(wavySlices)
 
-            
+        wavycentroids = [0] * int(numberOfRows)
+        for i in range(numberOfRows):
+            dividend = 0
+            divisor = 0
+            for j in range(xRes):
+                if wavySlices[i][j] == None:
+                    if self.DEBUG_S:
+                        print("Skip wavy slice, at "+str(i)+" as it is not defined at "+str(j))
+                else:
+                    dividend += (self.dset.getPrimaryDiscretizationValues()[j]*wavySlices[i][j].getRight())
+                    divisor += wavySlices[i][j].getRight()
+            if self.DEBUG_S:
+                print("wavySlices - Dividend: "+str(dividend)+"  Divisior: "+str(divisor))
+            wavycentroids[i] = dividend/divisor
+            if self.DEBUG_S:
+                print("Centroid of wavyslice "+str(i)+" is: "+str(wavycentroids[i]))
+        
+        if self.DEBUG_S:
+            print("Final type-reduced tuples:")
+        min_ = 1.0
+        reduced = [0] * int(numberOfRows)
+
+        for i in range(numberOfRows):
+            if self.tnorm == self.MINIMUM:
+                min = 1.0
+                for j in range(xRes):
+                    if wavySlices[i][j] != None:
+                        min_ = min(min_,wavySlices[i][j].getLeft())
+            elif self.tnorm == self.PRODUCT:
+                min = 1.0
+                for j in range(xRes):
+                    if wavySlices[i][j] != None:
+                        min_ *= wavySlices[i][j].getLeft()
+            reduced[i] = Tuple(min_,wavycentroids[i])
+            if self.DEBUG_S:
+                print(str(reduced[i]))
+            print(str(reduced[i].getRight())+","+str(reduced[i].getLeft()))
+        
+        tRset = T1MF_Discretized("output",len(reduced))
+        tRset.addPoints(reduced)
+        dividend = 0
+        divisor = 0
+
+        for i in range(len(reduced)):
+            dividend += reduced[i].getLeft()*reduced[i].getRight()
+            divisor += reduced[i].getLeft()
+        
+        if self.DEBUG_S:
+            print("Dividend: "+str(dividend)+"  Divisior: "+str(divisor))
+        self.crisp_output = dividend/divisor
+
+        return self.crisp_output
+    
+    def printSlices(self,o) -> None:
+        """Print the slices in the set"""
+        for i in range(len(o)):
+            print("Slice "+str(i)+" with length "+str(len(o[i])))
+            for j in range(len(o[i])):
+                if o[i][j] != None:
+                    print("Point "+str(j)+": "+str(o[i][j].getLeft())+"/"+str(o[i][j].getRight())+" ")
+                else:
+                    print("None")
+
