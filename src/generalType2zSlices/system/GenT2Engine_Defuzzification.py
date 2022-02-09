@@ -39,7 +39,7 @@ class GenT2Engine_Defuzzification():
         self.IEC = IntervalT2Engine_Centroid(primaryDiscretizationLevel)
     
     def typeReduce(self,s) -> Tuple:
-        """Returns a typle of the type reduced set"""
+        """Returns a tuple of the type reduced set"""
         if s == None:
             if self.DEBUG:
                 print("Set is null at defuzzification stage")
