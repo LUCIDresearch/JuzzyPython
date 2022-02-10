@@ -3,19 +3,15 @@ GenT2_Rule.py
 Created 8/1/2022
 """
 import sys
-from cv2 import MergeExposures
+sys.path.append("..")
 
-from numpy import number
 from generalType2zSlices.system.GenT2Engine_Intersection import GenT2Engine_Intersection
 from generalType2zSlices.system.GenT2_Antecedent import GenT2_Antecedent
 from generalType2zSlices.system.GenT2_Consequent import GenT2_Consequent
 
-
 from generic.Input import Input
 from generic.Output import Output
 from generic.Tuple import Tuple
-sys.path.append("..")
-
 from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
 from generalType2zSlices.sets.GenT2MF_CylExtension import GenT2MF_CylExtension
 from generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype

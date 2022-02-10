@@ -3,6 +3,7 @@ SimpleNST1IT2FLS.py
 Created 26/1/2022
 """
 import sys
+import time
 sys.path.append("..")
 import math
 
@@ -43,6 +44,10 @@ class SimpleNST1IT2FLS:
     """
 
     def __init__(self) -> None:
+
+        self.PRINTTIME = True
+        self.start = time.time()
+
         #Inputs to the FLS
         inputmf = T1MF_Gaussian("inputumf",7,2)
         self.food = Input("Food Quality",Tuple(0,10),inputMF=inputmf) #Rating from 0-10
@@ -103,13 +108,19 @@ class SimpleNST1IT2FLS:
         self.getTip(7,8)
         self.getTip(9,2.3)
 
+        if self.PRINTTIME:
+            print("Found single tip results in (seconds):")
+            print(str(time.time()-self.start))
+
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
-        self.getControlSurfaceData(False,100,100)
+        self.getControlSurfaceData(True,100,100)
         self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
         self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, friendlyServiceMF], self.service.getDomain(), 100)
         self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100)
-
+        if self.PRINTTIME:
+            print("Generated graphs for tip results in (seconds):")
+            print(str(time.time()-self.start))
         self.plot.show()
     
     def getTip(self,foodQuality,serviceLevel) -> None:
@@ -169,6 +180,9 @@ class SimpleNST1IT2FLS:
                         test.append(out)
         if unit:
             return test
+        if self.PRINTTIME:
+            print("Generated plot surface tip results in (seconds):")
+            print(str(time.time()-self.start))
         self.plot.plotControlSurface(x,y,z,self.food.getName(),self.service.getName(),self.tip.getName())
         
 
