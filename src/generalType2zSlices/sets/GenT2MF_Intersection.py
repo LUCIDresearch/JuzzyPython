@@ -2,9 +2,10 @@
 GenT2MF_Intersection.py
 Created 3/1/2022
 """
+from __future__ import annotations
+
 import sys
 sys.path.append("..")
-
 from generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
 
 class GenT2MF_Intersection(GenT2MF_Prototype):

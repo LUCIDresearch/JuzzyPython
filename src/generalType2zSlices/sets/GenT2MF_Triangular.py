@@ -70,7 +70,7 @@ class GenT2MF_Triangular(GenT2MF_Prototype):
                 if(abs(inner[2]-outer[2])<0.000001):
                     outer[2] = inner[2]
                 
-                self.zSlices[i] = IntervalT2MF_Triangular("Slice_"+i,T1MF_Triangular("Slice_"+i+"_UMF", outer[0], outer[1], outer[2]),T1MF_Triangular("Slice_"+i+"_LMF", inner[0], inner[1], inner[2]))
+                self.zSlices[i] = IntervalT2MF_Triangular("Slice_"+str(i),T1MF_Triangular("Slice_"+str(i)+"_UMF", outer[0], outer[1], outer[2]),T1MF_Triangular("Slice_"+str(i)+"_LMF", inner[0], inner[1], inner[2]))
 
                 if self.DEBUG:
                      print(self.zSlices[i].toString()+"  zValue = "+str(self.slices_zValues[i]))

@@ -2,6 +2,8 @@
 GenT2MF_Gaussian.py
 Created 3/1/2022
 """
+from __future__ import annotations
+
 import sys
 
 from numpy import number

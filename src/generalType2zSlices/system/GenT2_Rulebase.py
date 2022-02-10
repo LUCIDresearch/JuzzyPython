@@ -166,7 +166,7 @@ class GenT2_Rulebase():
         then null is returned as an Object[]."""
         returnValue = OrderedDict()
         rbsIT2 = self.getIT2Rulebases()
-        zValues = self.rules.get(0).getAntecedents()[0].getSet().getZValues()
+        zValues = self.rules[0].getAntecedents()[0].getSet().getZValues()
 
         for i in range(len(rbsIT2)):
             temp = rbsIT2[i].evaluateGetCentroid(typeReductionType)
@@ -210,7 +210,7 @@ class GenT2_Rulebase():
         param discretizationLevelXAxis: The number of discretizations to be used at the IT2 level."""
         rbs = [0] * self.rules[0].getAntecedents()[0].getSet().getNumberOfSlices()
         for i in range(len(rbs)):
-            rbs[i] = IT2_Rulebase(self.getNumberOfRules())
+            rbs[i] = IT2_Rulebase()
             for currentRule in range(self.getNumberOfRules()):
                 rbs[i].addRule(self.rules[currentRule].getRuleasIT2Rules()[i])
             rbs[i].setImplicationMethod(self.implicationMethod)

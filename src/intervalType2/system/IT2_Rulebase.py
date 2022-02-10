@@ -105,9 +105,9 @@ class IT2_Rulebase():
         
         for o in self.outputs:
             if not o in typeReductionOutput.keys():
-                returnValue[o] = {None,1.0}
+                returnValue[o] = [None,1.0]
             else:
-                returnValue[o] = {typeReductionOutput[o],1.0}
+                returnValue[o] = [typeReductionOutput[o],1.0]
 
         return returnValue
 

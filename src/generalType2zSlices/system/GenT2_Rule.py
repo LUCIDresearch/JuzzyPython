@@ -142,10 +142,10 @@ class GenT2_Rule():
                     mf = temp.getInputMF().getZSlice(i)         	
                     As[a].setInput(Input(nameInput, domain, mf))
             c = 0
-            for con in self.getConsequents:
+            for con in self.getConsequents():
                 Cs[c] = con.getConsequentsIT2Sets()[i]
                 c+=1
-            rs[i] = IT2_Rule(As,Cs)
+            rs[i] = IT2_Rule(As,consequents=Cs)
         return rs
     
     def equals(self,rule) -> bool:

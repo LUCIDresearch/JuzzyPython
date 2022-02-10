@@ -2,6 +2,8 @@
 GenT2MF_Union.py
 Created 2/1/2022
 """
+from __future__ import annotations
+
 import sys
 sys.path.append("..")
 

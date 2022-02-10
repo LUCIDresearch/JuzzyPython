@@ -34,8 +34,8 @@ class GenT2_Consequent():
        
     """
 
-    def __init__(self,name,set,output) -> None:
-        self.set = set
+    def __init__(self,name,set_,output) -> None:
+        self.set = set_
         self.name = name
         self.output = output
         self.set.setSupport(Tuple(max(self.set.getSupport().getLeft(), self.output.getDomain().getLeft()),min(self.set.getSupport().getRight(), self.output.getDomain().getRight())))
