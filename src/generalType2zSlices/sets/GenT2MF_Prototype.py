@@ -150,9 +150,9 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         """Set new z values"""
         stepSize = 1.0/self.getNumberOfSlices()
         firstStep = stepSize
-        slices_zValues = [0.0] * self.getNumberOfSlices()
-        for i in range(len(slices_zValues)):
-            slices_zValues[i] = firstStep+i*stepSize
+        self.slices_zValues = [0.0] * self.getNumberOfSlices()
+        for i in range(len(self.slices_zValues)):
+            self.slices_zValues[i] = firstStep+i*stepSize
     
     def getZValue(self,slice_number) -> float:
         """Return a specific slice """

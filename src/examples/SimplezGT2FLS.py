@@ -93,7 +93,6 @@ class SimplezGT2FLS:
         highTipIT2MF = IntervalT2MF_Gaussian("IT2MF for high Tip",highTipUMF,highTipLMF) 
         highTipMF = GenT2MF_Gaussian("zGT2MF for high tip", highTipIT2MF, self.numberOfzLevels)
 
-
         #Set up the antecedents and consequents
         badFood = GenT2_Antecedent("BadFood",badFoodMF, self.food)
         greatFood = GenT2_Antecedent("GreatFood",greatFoodMF, self.food)
@@ -115,17 +114,16 @@ class SimplezGT2FLS:
         #get some outputs
         self.getTip(7,8)
         self.getTip(0.0,0.0)
-        """
+       
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
-        self.getControlSurfaceData(False,100,100)
-        self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
-        self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, friendlyServiceMF], self.service.getDomain(), 100)
-        self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100)
+        self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100,False,True)
+        self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, friendlyServiceMF], self.service.getDomain(), 100,False,True)
+        self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100,False,True)
+        #self.getControlSurfaceData(False,100,100)
 
         self.plot.show()
-        """
-    
+        
     def getTip(self,foodQuality,serviceLevel) -> None:
         """Calculate the output based on the two inputs"""
         self.food.setInput(foodQuality)
@@ -133,21 +131,18 @@ class SimplezGT2FLS:
 
         print("The food was: "+str(self.food.getInput()))
         print("The service was: "+str(self.service.getInput()))
-        print("Using center of sets type reduction, the IT2 FLS recommends a"
+        print("Using height center of sets type reduction, the zSlices based general type-2 FLS recommends a "
                 + "tip of: "+str(self.rulebase.evaluate(0)[self.tip]))
-        print("Using centroid type reduction, the IT2 FLS recommends a"
+        print("Using centroid type reduction, the zSlices based general type-2 FLS recommends a"
                 + "tip of: "+str(self.rulebase.evaluate(1)[self.tip]))
         
         print("Centroid of the output for TIP (based on centroid type reduction):")
         centroid = self.rulebase.evaluateGetCentroid(1)
         centroidTip = list(centroid[self.tip])
-        if isinstance(centroidTip[0],Tuple):
-            centroidTipXValues = centroidTip[0]
-            centroidTipYValues = centroidTip[1]
-        else:
-            centroidTipXValues = centroidTip[1]
-            centroidTipYValues = centroidTip[0]
-        print(centroidTipXValues.toString()+" at y= "+str(centroidTipYValues))
+        centroidTipXValues = centroidTip[0]
+        centroidTipYValues = centroidTip[1]
+        for zLevel in range(len(centroidTipXValues)):
+            print(centroidTipXValues[zLevel].toString()+" at y= "+str(centroidTipYValues[zLevel]))
         
     def getControlSurfaceData(self,useCentroidDefuzz,input1Discs,input2Discs,unit = False) -> None:
         """Get the data to plot the control surface"""
@@ -184,14 +179,18 @@ class SimplezGT2FLS:
             return test
         self.plot.plotControlSurface(x,y,z,self.food.getName(),self.service.getName(),self.tip.getName())
         
-
-    def plotMFs(self,name,sets,xAxisRange,discretizationLevel):
+    def plotMFs(self,name,sets,xAxisRange,discretizationLevel,plotAsLines,plotAsSurface):
         """Plot the lines for each membership function of the sets"""
-        self.plot.figure()
-        self.plot.title(name)
-        for i in range(len(sets)):
-            self.plot.plotMF2(name.replace("Membership Functions",""),sets[i].getName(),sets[i],discretizationLevel,False)
-        self.plot.legend()
+        if plotAsLines:
+            self.plot.figure3d()
+            self.plot.title(name)
+            for i in range(len(sets)):
+                self.plot.plotMFasLines(sets[i],discretizationLevel)
+        if plotAsSurface:
+            self.plot.figure3d()
+            self.plot.title(name)
+            for i in range(len(sets)):
+                self.plot.plotMFasSurface(sets[i].getName(),sets[i],xAxisRange,discretizationLevel,False)
 
 if __name__ == "__main__":
     SimplezGT2FLS()

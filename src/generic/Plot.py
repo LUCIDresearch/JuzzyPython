@@ -3,8 +3,12 @@ Plot.py
 Created 21/12/2021
 """
 import sys
+
 sys.path.append("..")
 
+from generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
+
+from generalType2zSlices.sets.GenT2MF_Trapezoidal import GenT2MF_Trapezoidal
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D  
 import matplotlib.pyplot as plt
@@ -36,8 +40,12 @@ class Plot:
     
     def figure(self):
         """Create a new plot to draw upon"""
-        plt.figure()
+        self.fig = plt.figure()
     
+    def figure3d(self):
+        """Create a new 3d plot to draw upon"""
+        self.fig, self.ax = plt.subplots(subplot_kw={"projection": "3d"})
+
     def title(self,title):
         """Set the title of the current figure"""
         plt.title(title)
@@ -59,7 +67,6 @@ class Plot:
         plt.title("Control Surface")
     
     def plotMF2(self,xaxis,name,sets,xDisc,addExtraEndPoints) -> None:
-        pass
         x = self.discretize(sets.getSupport(),xDisc)
         y1 = [0] * xDisc
         y2 = [0] * xDisc
@@ -120,6 +127,155 @@ class Plot:
         plt.ylim(yAxisRange.getLeft(),yAxisRange.getRight())
         plt.ylabel("μ")
         plt.xlabel(xaxis)
+    
+    def plotMFasLines(self,sets,xDisc) -> None:
+        self.ax.set_xlabel("x")
+        self.ax.set_ylabel("y")
+        self.ax.set_zlabel("z")
+        x = self.discretize(sets.getSupport(),xDisc)
+        y1 = [[0 for c in range(xDisc)] for r in range(sets.getNumberOfSlices())]
+        y2 = [[0 for c in range(xDisc)] for r in range(sets.getNumberOfSlices())]
+        z1 = [[0 for c in range(xDisc)] for r in range(sets.getNumberOfSlices())]
+        z2 = [[0 for c in range(xDisc)] for r in range(sets.getNumberOfSlices())]
+
+        for zLevel in range(sets.getNumberOfSlices()):
+            for i in range(xDisc):
+                temp = sets.getZSlice(zLevel).getFS(x[i])
+                y1[zLevel][i] = temp.getRight()
+                y2[zLevel][i] = temp.getLeft()
+                if zLevel==0:
+                    z1[zLevel][i] = 0.0
+                else:
+                    z1[zLevel][i] = sets.getZValue(zLevel-1)
+                z2[zLevel][i] = sets.getZValue(zLevel)
+
+        for zLevel in range(sets.getNumberOfSlices()):
+            self.ax.plot3D(x,y1[zLevel],z1[zLevel],label=sets.getName()+"_upper")
+            self.ax.plot3D(x,y2[zLevel],z1[zLevel],label=sets.getName()+"_lower")
+            self.ax.plot3D(x,y1[zLevel],z2[zLevel],label=sets.getName()+"_upper")
+            self.ax.plot3D(x,y2[zLevel],z2[zLevel],label=sets.getName()+"_lower")
+
+    def plotMFasSurface(self,plotName,sets,xAxisRange,xDisc,addExtraPoints):
+        self.ax.set_xlabel("X-Axis")
+        self.ax.set_ylabel("Y-Axis")
+        self.ax.set_zlabel("Z-Axis")
+        if isinstance(sets,GenT2MF_Triangular):
+            for zLevel in range(sets.getNumberOfSlices()):
+                xUpper = [sets.getZSlice(zLevel).getUMF().getStart(), sets.getZSlice(zLevel).getUMF().getPeak(),sets.getZSlice(zLevel).getUMF().getEnd()]
+                zUpper = None
+                yUpper = [[0 for i in range(3)] for j in range(2)]
+
+                if zLevel == 0:
+                    zUpper = [0.0,sets.getZValue(zLevel)]
+                else:
+                    zUpper = [sets.getZValue(zLevel-1),sets.getZValue(zLevel)]
+                for xD in range(3):
+                    yUpper[0][xD] = sets.getZSlice(zLevel).getFS(xUpper[xD]).getRight()
+                    yUpper[1][xD] = yUpper[0][xD]
+                
+                xLower = [sets.getZSlice(zLevel).getLMF().getStart(), sets.getZSlice(zLevel).getLMF().getPeak(),sets.getZSlice(zLevel).getLMF().getEnd()]
+                zLower = None
+                yLower = [[0 for i in range(3)] for j in range(2)]
+
+                if zLevel == 0:
+                    zLower = [0.0,sets.getZValue(zLevel)]
+                else:
+                    zLower = [sets.getZValue(zLevel-1),sets.getZValue(zLevel)]
+                for xD in range(3):
+                    yLower[0][xD] = sets.getZSlice(zLevel).getFS(xLower[xD]).getLeft()
+                    yLower[1][xD] = yLower[0][xD]
+                x,y = np.meshgrid(xUpper,zUpper)
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper))
+                x,y = np.meshgrid(xLower,zLower)
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower))
+        elif isinstance(sets,GenT2MF_Trapezoidal):
+            for zLevel in range(sets.getNumberOfSlices()):
+                xUpper = [sets.getZSlice(zLevel).getUMF().getA(), sets.getZSlice(zLevel).getUMF().getB(),sets.getZSlice(zLevel).getUMF().getC(),sets.getZSlice(zLevel).getUMF().getD()]
+                zUpper = None
+                yUpper = [[0 for i in range(4)] for j in range(2)]
+
+                if zLevel == 0:
+                    zUpper = [0.0,sets.getZValue(zLevel)]
+                else:
+                    zUpper = [sets.getZValue(zLevel-1),sets.getZValue(zLevel)]
+                for xD in range(4):
+                    yUpper[0][xD] = sets.getZSlice(zLevel).getFS(xUpper[xD]).getRight()
+                    yUpper[1][xD] = yUpper[0][xD]
+                
+                xLower = [sets.getZSlice(zLevel).getLMF().getA(), sets.getZSlice(zLevel).getLMF().getB(),sets.getZSlice(zLevel).getLMF().getC(),sets.getZSlice(zLevel).getLMF().getD()]
+                zLower = None
+                yLower = [[0 for i in range(4)] for j in range(2)]
+
+                if zLevel == 0:
+                    zLower = [0.0,sets.getZValue(zLevel)]
+                else:
+                    zLower = [sets.getZValue(zLevel-1),sets.getZValue(zLevel)]
+                for xD in range(4):
+                    yLower[0][xD] = sets.getZSlice(zLevel).getFS(xLower[xD]).getLeft()
+                    yLower[1][xD] = yLower[0][xD]
+                x,y = np.meshgrid(xUpper,zUpper)
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper))
+                x,y = np.meshgrid(xLower,zLower)
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower))
+        else:
+            for zLevel in range(sets.getNumberOfSlices()):
+                xUpper = self.discretize(xAxisRange,xDisc)
+                zUpper = None
+                yUpper = [[0 for i in range(xDisc)] for j in range(2)]
+
+                if zLevel == 0:
+                    zUpper = [0.0,sets.getZValue(zLevel)]
+                else:
+                    zUpper = [sets.getZValue(zLevel-1),sets.getZValue(zLevel)]
+                for xD in range(xDisc):
+                    yUpper[0][xD] = sets.getZSlice(zLevel).getFS(xUpper[xD]).getRight()
+                    yUpper[1][xD] = yUpper[0][xD]
+                
+                xLower = self.discretize(xAxisRange,xDisc)
+                zLower = None
+                yLower = [[0 for i in range(xDisc)] for j in range(2)]
+
+                if zLevel == 0:
+                    zLower = [0.0,sets.getZValue(zLevel)]
+                else:
+                    zLower = [sets.getZValue(zLevel-1),sets.getZValue(zLevel)]
+                for xD in range(xDisc):
+                    yLower[0][xD] = sets.getZSlice(zLevel).getFS(xLower[xD]).getLeft()
+                    yLower[1][xD] = yLower[0][xD]
+            
+
+                if addExtraPoints:
+                    x_upper2 = [0.0] * (xUpper.length + 2)
+                    y_upper2 = [[0.0 for i in range(yUpper[0].length + 2)] for j in range(2)]
+                    x_Lower2 = [0.0] * (xLower.length + 2)
+                    y_Lower2 = [[0.0 for i in range(yLower[0].length + 2)] for j in range(2)]
+
+                    x_upper2[0] = sets.getSupport().getLeft()
+                    x_upper2[-1] = sets.getSupport().getRight()
+                    x_Lower2[0] = x_upper2[0]
+                    x_Lower2[-1] = x_upper2[-1]
+            
+                    for i in range(xUpper):
+                        x_upper2[i + 1] = xUpper[i]
+                        x_Lower2[i + 1] = xLower[i]
+                        y_upper2[0][i + 1] = yUpper[0][i]
+                        y_Lower2[0][i + 1] = yLower[0][i]
+                        y_upper2[1][i + 1] = yUpper[1][i]
+                        y_Lower2[1][i + 1] = yLower[1][i]
+                    
+                    xUpper = x_upper2
+                    xLower = x_Lower2
+                    yUpper = y_upper2
+                    yLower = y_Lower2
+                x,y = np.meshgrid(xUpper,zUpper)
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper))
+                x,y = np.meshgrid(xLower,zLower)
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower))
+
+                    
+
+
+                
 
     def discretize(self,support,discLevel) -> List[float]:
         """Discretize the support values"""
@@ -130,3 +286,4 @@ class Plot:
         for i in range(1,discLevel-1):
             d[i] = support.getLeft()+i*stepSize
         return d
+    
