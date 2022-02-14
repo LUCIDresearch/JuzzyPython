@@ -117,10 +117,10 @@ class SimplezGT2FLS:
        
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
-        self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100,False,True)
-        self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, friendlyServiceMF], self.service.getDomain(), 100,False,True)
-        self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100,False,True)
-        #self.getControlSurfaceData(False,100,100)
+        self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100,True,True)
+        self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, friendlyServiceMF], self.service.getDomain(), 100,True,True)
+        self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100,True,True)
+        #self.getControlSurfaceData(False,self.xDiscs,self.yDiscs)
 
         self.plot.show()
         
@@ -191,6 +191,5 @@ class SimplezGT2FLS:
             self.plot.title(name)
             for i in range(len(sets)):
                 self.plot.plotMFasSurface(sets[i].getName(),sets[i],xAxisRange,discretizationLevel,False)
-
 if __name__ == "__main__":
     SimplezGT2FLS()

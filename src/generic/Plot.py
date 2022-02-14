@@ -155,6 +155,9 @@ class Plot:
             self.ax.plot3D(x,y1[zLevel],z2[zLevel],label=sets.getName()+"_upper")
             self.ax.plot3D(x,y2[zLevel],z2[zLevel],label=sets.getName()+"_lower")
 
+    def turnOnInteraction(self):
+        plt.ion()
+
     def plotMFasSurface(self,plotName,sets,xAxisRange,xDisc,addExtraPoints):
         self.ax.set_xlabel("X-Axis")
         self.ax.set_ylabel("Y-Axis")
@@ -185,9 +188,9 @@ class Plot:
                     yLower[0][xD] = sets.getZSlice(zLevel).getFS(xLower[xD]).getLeft()
                     yLower[1][xD] = yLower[0][xD]
                 x,y = np.meshgrid(xUpper,zUpper)
-                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper))
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper),alpha = 0.5)
                 x,y = np.meshgrid(xLower,zLower)
-                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower))
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower),alpha = 0.5)
         elif isinstance(sets,GenT2MF_Trapezoidal):
             for zLevel in range(sets.getNumberOfSlices()):
                 xUpper = [sets.getZSlice(zLevel).getUMF().getA(), sets.getZSlice(zLevel).getUMF().getB(),sets.getZSlice(zLevel).getUMF().getC(),sets.getZSlice(zLevel).getUMF().getD()]
@@ -214,9 +217,9 @@ class Plot:
                     yLower[0][xD] = sets.getZSlice(zLevel).getFS(xLower[xD]).getLeft()
                     yLower[1][xD] = yLower[0][xD]
                 x,y = np.meshgrid(xUpper,zUpper)
-                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper))
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper),alpha = 0.5)
                 x,y = np.meshgrid(xLower,zLower)
-                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower))
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower),alpha = 0.5)
         else:
             for zLevel in range(sets.getNumberOfSlices()):
                 xUpper = self.discretize(xAxisRange,xDisc)
@@ -268,14 +271,9 @@ class Plot:
                     yUpper = y_upper2
                     yLower = y_Lower2
                 x,y = np.meshgrid(xUpper,zUpper)
-                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper))
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper),alpha = 0.5)
                 x,y = np.meshgrid(xLower,zLower)
-                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower))
-
-                    
-
-
-                
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower),alpha = 0.5)
 
     def discretize(self,support,discLevel) -> List[float]:
         """Discretize the support values"""
