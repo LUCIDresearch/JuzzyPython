@@ -94,16 +94,16 @@ class GenT2MF_Gaussian(GenT2MF_Prototype):
         else:
             self.numberOfzLevels = len(primers)
             self.support = primers[0].getSupport()
-            slices_fs = [0] * numberOfzLevels
-            slices_zValues = [0] * numberOfzLevels
+            slices_fs = [0] * self.numberOfzLevels
+            slices_zValues = [0] * self.numberOfzLevels
 
-            self.zSlices = [0] * numberOfzLevels
-            z_stepSize = 1.0/numberOfzLevels
+            self.zSlices = [0] * self.numberOfzLevels
+            z_stepSize = 1.0/self.numberOfzLevels
             slices_zValues[0] = z_stepSize
 
             self.zSlices = primers.copy()
 
-            for i in range(numberOfzLevels):
+            for i in range(self.numberOfzLevels):
                 slices_zValues[i] = z_stepSize*(i+1)
                 if self.DEBUG:
                     print(self.zSlices[i].toString()+"  Z-Value = "+str(slices_zValues[i]))

@@ -140,7 +140,7 @@ class GenT2_Rule():
                     domain = temp.getDomain()
                     nameInput = temp.getName()
                     mf = temp.getInputMF().getZSlice(i)         	
-                    As[a].setInput(Input(nameInput, domain, mf))
+                    As[a].setInput(Input(nameInput, domain, inputMF= mf))
             c = 0
             for con in self.getConsequents():
                 Cs[c] = con.getConsequentsIT2Sets()[i]

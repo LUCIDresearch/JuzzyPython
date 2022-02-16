@@ -1,6 +1,6 @@
 """
-SimplezGT2FLS.py
-Created 10/2/2022
+SimplezGT2FLSNSIT2.py
+Created 15/2/2022
 """
 import sys
 sys.path.append("..")
@@ -26,16 +26,16 @@ from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
 from generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
 
 
-class SimplezGT2FLS:
+class SimplezGT2FLSNSIT2:
     """
-    Class SimplezGT2FLS: 
+    Class SimplezGT2FLSNSIT2: 
     A simple example of a zSlices based general Type-2 FLS based on the "How much 
     to tip the waiter" scenario.
     The example is an extension of the Interval Type-2 FLS example where we extend the MFs
     and use zSlices based General Type-2 Fuzzy System classes.
-    We have two inputs: food quality and service level and as an output we would
+    It is the same example as SimpleGT2FLS with a non singleton input IT2.
+    We have two inputs: food quality (non singleton) and service level and as an output we would
     like to generate the applicable tip.
-
 
     Parameters:None
         
@@ -51,9 +51,11 @@ class SimplezGT2FLS:
         self.typeReduction = 0
         self.xDiscs = 50
         self.yDiscs = 10
-
+        inputumf = T1MF_Gaussian("inputumf",7,3)
+        inputlmf = T1MF_Gaussian("inputlmf",7,2)
+        inputMf = IntervalT2MF_Gaussian("inputmf",inputumf,inputlmf)
         #Inputs to the FLS
-        self.food = Input("Food Quality",Tuple(0,10)) #Rating from 0-10
+        self.food = Input("Food Quality",Tuple(0,10),inputMF=inputMf) #Rating from 0-10
         self.service = Input("Service Level",Tuple(0,10)) #Rating from 0-10
         #Output
         self.tip = Output(("Tip"),Tuple(0,30)) #Tip from 0-30%
@@ -198,4 +200,4 @@ class SimplezGT2FLS:
             for i in range(len(sets)):
                 self.plot.plotMFasSurface(sets[i].getName(),sets[i],xAxisRange,discretizationLevel,False)
 if __name__ == "__main__":
-    SimplezGT2FLS()
+    SimplezGT2FLSNSIT2()

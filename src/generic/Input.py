@@ -5,7 +5,6 @@ Created 18/12/2021
 """
 import sys
 
-from numpy import isin
 sys.path.append("..")
 
 from generic.MF_Interface import MF_Interface
@@ -20,6 +19,12 @@ from intervalType2.sets.IntervalT2MF_Gaussian import IntervalT2MF_Gaussian
 from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
 from intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
 from intervalType2.sets.IntervalT2MF_Trapezoidal import IntervalT2MF_Trapezoidal
+from generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
+from generalType2zSlices.sets.GenT2MF_Gaussian import GenT2MF_Gaussian
+from generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
+from generalType2zSlices.sets.GenT2MF_Trapezoidal import GenT2MF_Trapezoidal
+from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
+
 from generic.Tuple import Tuple
 
 class Input: 
@@ -173,7 +178,70 @@ class Input:
                     params[3] = params[3] + d
                     UMF = T1MF_Trapezoidal(umf.getName(),params)
                     self.inputMF = IntervalT2MF_Trapezoidal(nameMF,UMF,LMF)
-
+            elif isinstance(inMF,GenT2MF_Interface):
+                nZ = inMF.getNumberOfSlices()
+                if isinstance(inMF,GenT2MF_Gaussian):
+                    it2s = [0] * nZ
+                    for i in range(nZ):
+                        temp = inMF.getZSlice(i)
+                        lmf = temp.getLMF()
+                        namel = lmf.getName()
+                        spreadl = lmf.getSpread()
+                        umf = temp.getUMF()
+                        nameu = umf.getName()
+                        spreadu = umf.getSpread()
+                        temp = IntervalT2MF_Gaussian(nameMF,T1MF_Gaussian(nameu,x,spreadu),T1MF_Gaussian(namel,x,spreadl))
+                        it2s[i]=temp
+                    self.inputMF = GenT2MF_Gaussian(nameMF,primers=it2s)
+                if isinstance(inMF,GenT2MF_Triangular):
+                    it2s = [0] * nZ
+                    for i in range(nZ):
+                        temp = inMF.getZSlice(i)
+                        lmf = temp.getLMF()
+                        namel = lmf.getName()
+                        startl = lmf.getStart()
+                        endl = lmf.getEnd()
+                        meanl = lmf.getPeak()
+                        umf = temp.getUMF()
+                        nameu = umf.getName()
+                        startu = umf.getStart()
+                        endu = umf.getEnd()
+                        meanu = umf.getPeak()
+                        temp = IntervalT2MF_Triangular(nameMF,T1MF_Triangular(nameu,startu+(x-meanu),x,endu+(x-meanu)),T1MF_Triangular(namel,startl+(x-meanl),x,endl+(x-meanl)))         			
+                        it2s[i]=temp
+                    self.inputMF = GenT2MF_Triangular(nameMF,primers=it2s)
+                if isinstance(inMF,GenT2MF_Trapezoidal):
+                    it2s = [0] * nZ
+                    for i in range(nZ):
+                        temp = inMF.getZSlice(i)
+                        params = [0] * 4
+                        lmf = temp.getLMF()
+                        params[0] = lmf.getA()
+                        params[1] = lmf.getB()
+                        params[2] = lmf.getC()
+                        params[3] = lmf.getD()
+                        mid = (params[1]+params[2])/2
+                        d = x-mid
+                        params[0] = params[0] + d
+                        params[1] = params[1] + d
+                        params[2] = params[2] + d
+                        params[3] = params[3] + d
+                        LMF =   T1MF_Trapezoidal(lmf.getName(),params)
+                        umf =  temp.getUMF()
+                        params[0] = umf.getA()
+                        params[1] = umf.getB()
+                        params[2] = umf.getC()
+                        params[3] = umf.getD()
+                        mid = (params[1]+params[2])/2
+                        d = x-mid
+                        params[0] = params[0] + d
+                        params[1] = params[1] + d
+                        params[2] = params[2] + d
+                        params[3] = params[3] + d
+                        UMF = T1MF_Trapezoidal(umf.getName(),params)
+                        temp = IntervalT2MF_Trapezoidal(nameMF,UMF,LMF)
+                        it2s[i] = temp
+                    self.inputMF = GenT2MF_Trapezoidal(nameMF,primers=it2s)
         else:
             raise Exception("The input value "+str(x)+" was rejected "
                     + "as it is outside of the domain for this input: "
