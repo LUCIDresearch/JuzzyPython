@@ -6,7 +6,7 @@ import sys
 sys.path.append("..")
 from mpl_toolkits.mplot3d import Axes3D  
 import math
-
+import time
 from generic.Tuple import Tuple
 from generic.Output import Output
 from generic.Input import Input
@@ -38,7 +38,10 @@ class SimpleNST1FLS:
         
     """
 
-    def __init__(self) -> None:
+    def __init__(self,unit = False) -> None:
+        self.PRINTTIME = True
+        self.start = time.time()
+
         #Inputs to the FLS
         inputmf = T1MF_Gaussian("inputmf",7,2)
         self.food = Input("Food Quality",Tuple(0,10),inputMF=inputmf) #Rating from 0-10
@@ -91,14 +94,22 @@ class SimpleNST1FLS:
         self.getTip(7,8)
         self.getTip(0,2.5)
 
+        if self.PRINTTIME:
+            print("Found single results in (seconds):")
+            print(str(time.time()-self.start))
+
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
         self.getControlSurfaceData(True,100,100)
         self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
         self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, okServiceMF, friendlyServiceMF], self.service.getDomain(), 100)
         self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100)
+        if self.PRINTTIME:
+            print("Generated graphs for tip results in (seconds):")
+            print(str(time.time()-self.start))
+        if not unit:
+            self.plot.show()
 
-        self.plot.show()
     
     def getTip(self,foodQuality,serviceLevel) -> None:
         """Calculate the output based on the two inputs"""

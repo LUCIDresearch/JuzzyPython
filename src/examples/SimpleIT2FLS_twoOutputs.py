@@ -5,7 +5,7 @@ Created 23/1/2022
 import sys
 sys.path.append("..")
 import math
-
+import time
 from generic.Tuple import Tuple
 from generic.Output import Output
 from generic.Input import Input
@@ -42,7 +42,10 @@ class SimpleIT2FLS_twoOutputs:
         
     """
 
-    def __init__(self) -> None:
+    def __init__(self,unit = False) -> None:
+        self.PRINTTIME = True
+        self.start = time.time()
+
         #Inputs to the FLS
         self.food = Input("Food Quality",Tuple(0,10)) #Rating from 0-10
         self.service = Input("Service Level",Tuple(0,10)) #Rating from 0-10
@@ -114,7 +117,12 @@ class SimpleIT2FLS_twoOutputs:
         #get some outputs
         self.getOutput(7,8)
         self.getOutput(0,0)
+        if self.PRINTTIME:
+            print("Found single results in (seconds):")
+            print(str(time.time()-self.start))
+
         print(self.rulebase.toString())
+
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
         self.getControlSurfaceData(self.tip,False,100,100)
         self.getControlSurfaceData(self.smile,True,100,100)
@@ -122,8 +130,11 @@ class SimpleIT2FLS_twoOutputs:
         self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
         self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, friendlyServiceMF], self.service.getDomain(), 100)
         self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100)
-
-        self.plot.show()
+        if self.PRINTTIME:
+            print("Generated graphs for tip results in (seconds):")
+            print(str(time.time()-self.start))
+        if not unit:
+            self.plot.show()
     
       
     def getTip(self) -> Output:

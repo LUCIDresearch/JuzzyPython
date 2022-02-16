@@ -7,6 +7,7 @@ sys.path.append("..")
 from mpl_toolkits.mplot3d import Axes3D  
 import math
 
+import time
 from generic.Tuple import Tuple
 from generic.Output import Output
 from generic.Input import Input
@@ -41,7 +42,10 @@ class SimpleT1FLS_twoOutputs:
         
     """
 
-    def __init__(self) -> None:
+    def __init__(self,unit = False) -> None:
+        self.PRINTTIME = True
+        self.start = time.time()
+
         #Inputs to the FLS
         self.food = Input("Food Quality",Tuple(0,10)) #Rating from 0-10
         self.service = Input("Service Level",Tuple(0,10)) #Rating from 0-10
@@ -98,6 +102,9 @@ class SimpleT1FLS_twoOutputs:
         self.getOutput(0,2.5)
         self.getOutput(10,1.0)
         print("--> Note that for smile the output is -Not a Number- (nan). This is because no rule was defined for the given input combination and the -smile- output")
+        if self.PRINTTIME:
+            print("Found single tip results in (seconds):")
+            print(str(time.time()-self.start))
 
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
@@ -110,7 +117,11 @@ class SimpleT1FLS_twoOutputs:
         self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100)
         self.plotMFs("Satisfaction Smile Membership Functions", [smallSmileMF, bigSmileMF], self.smile.getDomain(), 100)
 
-        self.plot.show()
+        if self.PRINTTIME:
+            print("Generated graphs for tip results in (seconds):")
+            print(str(time.time()-self.start))
+        if not unit:
+            self.plot.show()
     
     def getOutput(self,foodQuality,serviceLevel) -> None:
         """Calculate the output based on the two inputs"""

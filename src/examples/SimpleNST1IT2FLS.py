@@ -43,7 +43,7 @@ class SimpleNST1IT2FLS:
         
     """
 
-    def __init__(self) -> None:
+    def __init__(self,unit = False) -> None:
 
         self.PRINTTIME = True
         self.start = time.time()
@@ -109,7 +109,7 @@ class SimpleNST1IT2FLS:
         self.getTip(9,2.3)
 
         if self.PRINTTIME:
-            print("Found single tip results in (seconds):")
+            print("Found single results in (seconds):")
             print(str(time.time()-self.start))
 
         print(self.rulebase.toString())
@@ -121,7 +121,8 @@ class SimpleNST1IT2FLS:
         if self.PRINTTIME:
             print("Generated graphs for tip results in (seconds):")
             print(str(time.time()-self.start))
-        self.plot.show()
+        if not unit:
+            self.plot.show()
     
     def getTip(self,foodQuality,serviceLevel) -> None:
         """Calculate the output based on the two inputs"""

@@ -5,7 +5,7 @@ Created 14/2/2022
 import sys
 sys.path.append("..")
 import math
-
+import time
 from generic.Tuple import Tuple
 from generic.Output import Output
 from generic.Input import Input
@@ -47,7 +47,10 @@ class SimplezGT2FLSNST1:
         
     """
 
-    def __init__(self) -> None:
+    def __init__(self,unit = False) -> None:
+        self.PRINTTIME = True
+        self.start = time.time()
+
         self.numberOfzLevels = 4
         self.typeReduction = 0
         self.xDiscs = 50
@@ -122,6 +125,10 @@ class SimplezGT2FLSNST1:
         self.getTip(7,8)
         self.getTip(0.0,0.0)
        
+        if self.PRINTTIME:
+            print("Found single tip results in (seconds):")
+            print(str(time.time()-self.start))
+
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
         self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100,True,True)
@@ -129,7 +136,11 @@ class SimplezGT2FLSNST1:
         self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100,True,True)
         self.getControlSurfaceData(False,self.xDiscs,self.yDiscs)
 
-        self.plot.show()
+        if self.PRINTTIME:
+            print("Generated graphs for tip results in (seconds):")
+            print(str(time.time()-self.start))
+        if not unit:
+            self.plot.show()
         
     def getTip(self,foodQuality,serviceLevel) -> None:
         """Calculate the output based on the two inputs"""
