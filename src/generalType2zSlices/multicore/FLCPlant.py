@@ -3,7 +3,6 @@ FLCPlant.py
 Created 19/2/2022
 """
 import sys
-from turtle import position
 
 sys.path.append("..")
 
@@ -15,7 +14,20 @@ from typing import List, OrderedDict
 
 class FLCPlant():
     """
+    Class FLCPlant
+    Runs a single IT2 Rulebase
 
+    Parameters:
+        rulebase: Single IT2 rulebase
+        results: Results dict
+        positionPointer: Int
+        typeReductionType: Int
+        lock: Multiprocessing lock
+      
+    Functions:
+        getTypeReductionType
+        setTypeReductionType
+        run
     """ 
 
     def __init__(self,rulebase,results,positionPointer,typeReductionType,lock) -> None:
