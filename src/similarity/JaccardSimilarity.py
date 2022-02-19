@@ -5,7 +5,6 @@ Created 5/1/2022
 """
 import sys
 
-from numpy import isin, number
 sys.path.append("..")
 
 from type1.sets.T1MF_Interface import T1MF_Interface

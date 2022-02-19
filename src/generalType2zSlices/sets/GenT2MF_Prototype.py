@@ -57,7 +57,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         """Set the right shoulder"""
         self.isRightShoulder_ = isRightShoulder
 
-    def getFS(self,x) -> float:
+    def getFS(self,x) -> T1MF_Discretized:
         """Return the firing strength"""
         slice_ = T1MF_Discretized("VerticalSlice_at"+x+"_of_"+self.getName(), self.numberOfzLevels)
 
@@ -124,8 +124,8 @@ class GenT2MF_Prototype(GenT2MF_Interface):
             denominator += self.getZValue(i)
         return numerator/denominator
     
-    def getCentroid(self,primaryDiscretisationLevel) -> Tuple:
-        """Get the centroid tuple"""
+    def getCentroid(self,primaryDiscretisationLevel) -> T1MF_Discretized:
+        """Get the discretized T1 MF function"""
         slice_ = T1MF_Discretized("Centroid of"+self.getName(), self.numberOfzLevels)
 
         for i in range(self.numberOfzLevels):

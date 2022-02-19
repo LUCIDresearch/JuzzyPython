@@ -79,17 +79,6 @@ class Output:
         else:
             return self.discretisedDomain
     
-    def compareTo(self,o) -> int:
-        """Enables simple name-based ordering of outputs.
-        This method is solely used to maintain an ordering of outputs.
-        Compare the value of the output names and return an int from -1 to 1"""
-        if self.getName() < o.getName():
-            return -1
-        elif  self.getName() > o.getName():
-            return 1
-        else:
-            return 0
-    
     def __eq__(self, o):
         return isinstance(o,Output) and self.getName() == o.getName()
 

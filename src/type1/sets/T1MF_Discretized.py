@@ -44,7 +44,7 @@ class T1MF_Discretized(T1MF_Prototype):
         compareTo
     """
 
-    def __init__(self, name, initialSize = None, points = None) -> None:
+    def __init__(self, name, points = None) -> None:
         super().__init__(name)
         self.sorted = False
         self.leftShoulder = False
@@ -94,7 +94,7 @@ class T1MF_Discretized(T1MF_Prototype):
             return 1.0
         if self.rightShoulder and x > self.rightShoulderStart:
             return 1.0
-        if (x < self.getSupport().getLeft()) or (x > self.getSupport().getLeft()) :
+        if (x < self.getSupport().getLeft()) or (x > self.getSupport().getRight()) :
             return 0.0
         
         self.sort()
