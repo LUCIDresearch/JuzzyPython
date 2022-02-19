@@ -7,7 +7,9 @@ from __future__ import annotations
 
 import sys
 sys.path.append("..")
+import functools
 
+@functools.total_ordering
 class Tuple:
     """
     Class Tuple: 
@@ -96,6 +98,16 @@ class Tuple:
             return 1
         else:
             return 0
+
+    def __eq__(self, o):
+        return isinstance(o,Tuple) and (not self.getRight() < o.getRight()) and (not  self.getRight() > o.getRight()) and (not self.getLeft() < o.getLeft()) and (not self.getLeft() > o.getLeft())
+
+    def __lt__(self, o):
+        return isinstance(o,Tuple) and (self.getRight() < o.getRight() or self.getLeft() < o.getLeft())
+
+    def __hash__(self) -> int:
+        return hash(self.getRight())
+
 
 
 
