@@ -3,7 +3,7 @@ IT2_Rulebase.py
 Created 16/1/2022
 """
 import sys
-from turtle import right
+from generic.Output import Output
 from intervalType2.sets.IntervalT2Engine_Centroid import IntervalT2Engine_Centroid
 from intervalType2.sets.IntervalT2MF_Intersection import IntervalT2MF_Intersection
 
@@ -34,7 +34,6 @@ class IT2_Rulebase():
         addRules
         getRules
         getNumberOfRules
-        getOutputIterator
         evaluateGetCentroid
         evaluate
         doCOSTypeReduction
@@ -44,6 +43,7 @@ class IT2_Rulebase():
         removeRule
         setImplicationMethod
         getImplicationMethod
+        getOutputs
         toString
         
     """
@@ -58,6 +58,10 @@ class IT2_Rulebase():
         self.PRODUCT = 0
         self.MINIMUM = 1
     
+    def getOutputs(self) ->List[Output]:
+        """Return list of outputs"""
+        return self.outputs
+        
     def getInputs(self) -> List[Input]:
         """This method assumes all rules use the same (and all) inputs. The first rule is queried to identify the inputs and return them.
         return An array of the inputs used in the rulebase (retrieved from the actecedents of the firts rule in the rulebase!)"""

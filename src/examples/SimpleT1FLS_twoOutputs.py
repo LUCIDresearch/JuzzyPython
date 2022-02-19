@@ -108,8 +108,8 @@ class SimpleT1FLS_twoOutputs:
 
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
-        self.getControlSurfaceData(self.tip,True,10,10)
-        self.getControlSurfaceData(self.smile,True,10,10)
+        self.getControlSurfaceData(self.tip,False,100,100)
+        self.getControlSurfaceData(self.smile,True,100,100)
         print("--> Note that in the control surfaces any areas which would result in NaN are replaced by 0 by convention.")
 
         self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100)
