@@ -3,9 +3,6 @@ FLCFactory.py
 Created 19/2/2022
 """
 import sys
-
-from numpy import zeros_like
-
 sys.path.append("..")
 
 from generic.Input import Input
@@ -39,4 +36,4 @@ class FLCFactory():
         self.rawReseults = OrderedDict()
         out = self.rulebases[0].getOutputs()
         for o in out:
-            
+

@@ -116,7 +116,7 @@ class Plot:
             x2 = [0.0] * (len(x)+2)
             y2 = [0.0] * (len(y)+2)
             x2[0] = sets.getSupport().getLeft()
-            x2[-1] = set.getSupport().getRight()
+            x2[-1] = sets.getSupport().getRight()
             for i in range(len(x)):
                 x2[i+1] = x[i]
                 y2[i+1] = y[i]
