@@ -103,7 +103,14 @@ class Tuple:
         return isinstance(o,Tuple) and self.getRight() == o.getRight() and self.getLeft() == o.getLeft()
 
     def __lt__(self, o):
-        return isinstance(o,Tuple) and (self.getRight() < o.getRight() or self.getLeft() < o.getLeft())
+        if isinstance(o,Tuple):
+            if self.getRight() < o.getRight():
+                return True
+            elif self.getRight() > o.getRight():
+                return False
+            elif self.getLeft() < o.getLeft():
+                return True
+        return False
 
     def __hash__(self) -> int:
         return hash(self.getRight())
