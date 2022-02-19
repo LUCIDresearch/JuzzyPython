@@ -100,7 +100,7 @@ class Tuple:
             return 0
 
     def __eq__(self, o):
-        return isinstance(o,Tuple) and (not self.getRight() < o.getRight()) and (not  self.getRight() > o.getRight()) and (not self.getLeft() < o.getLeft()) and (not self.getLeft() > o.getLeft())
+        return isinstance(o,Tuple) and self.getRight() == o.getRight() and self.getLeft() == o.getLeft()
 
     def __lt__(self, o):
         return isinstance(o,Tuple) and (self.getRight() < o.getRight() or self.getLeft() < o.getLeft())
