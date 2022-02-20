@@ -42,7 +42,8 @@ class T1MF_Meet(T1MF_Prototype):
             tempA = self.findMax(a)
             tempB = self.findMax(b)
 
-            self.support = Tuple(min(a.getSupport().getLeft(),b.getSupport().getLeft()),min(a.getSupport))
+            self.support = Tuple(min(a.getSupport().getLeft(),b.getSupport().getLeft())
+            ,min(a.getSupport().getRight(),b.getSupport().getRight()))
 
             if tempA < tempB:
                 self.v1 = tempA
@@ -75,7 +76,7 @@ class T1MF_Meet(T1MF_Prototype):
     def findMax(self, s) -> float:
         """Find the max step """
         currentStep = s.getSupport().getLeft()
-        stepSize = (s.getSupport().getRight()-s.getSupport.getLeft())/(self.maxResolution-1)
+        stepSize = (s.getSupport().getRight()-s.getSupport().getLeft())/(self.maxResolution-1)
         currentMax = 0
         maxStep = 0
 
@@ -109,7 +110,7 @@ class T1MF_Meet(T1MF_Prototype):
             if temp < 0.001:
                 right = currentStep
                 break
-            currentStep += stepSize
+            currentStep -= stepSize
 
         return Tuple(left,right)
     

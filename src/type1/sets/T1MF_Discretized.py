@@ -227,15 +227,16 @@ class T1MF_Discretized(T1MF_Prototype):
             self.support.setRight(self.set[-1].getRight())
             self.sorted = True
 
-            #CHECK FOR IF STATEMENT HERE VAGUE
             lastX = self.set[0].getRight()
-            for i in range(1,len(self.set)):
+            i = 1
+            while i < len(self.set):
                 if self.set[i].getRight() == lastX:
                     self.set[i-1].setLeft(max(self.set[i-1].getLeft(),self.set[i].getLeft()))
                     del self.set[i]
                     i -= 1
                 else:
                     lastX = self.set[i].getRight()
+                i+=1
     
     def writeToFile(self,filename) -> str:
         """Write out the discretized set into a file"""

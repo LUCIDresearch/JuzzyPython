@@ -4,7 +4,7 @@ Created 17/12/2021
 """
 import sys
 sys.path.append("..")
-
+import math
 from generic.Tuple import Tuple
 from type1.sets.T1MF_Prototype import T1MF_Prototype
 import type1.sets.T1MF_Singleton 
@@ -37,11 +37,11 @@ class T1MF_Triangular(T1MF_Prototype):
     def __init__(self, name,start,peak,end) -> None:
         super().__init__(name)
         #left and right "leg" slope
-        self.lS = None
-        self.rS = None
+        self.lS = float("nan")
+        self.rS = float("nan")
         #left and right "leg" intercept   
-        self.lI = None
-        self.rI = None
+        self.lI = float("nan")
+        self.rI = float("nan")
         self.start = start
         self.peak = peak
         self.end = end
@@ -117,14 +117,14 @@ class T1MF_Triangular(T1MF_Prototype):
         return hash(self.getName())
 
     def getAlphaCut(self, alpha) -> Tuple:
-        """Get the alpha cut as a tuple"""
+        """Get the alpha cut as a tuple with input float"""
         self.findLinearEquationParameters()
         return Tuple((alpha-self.lI)/self.lS,(alpha-self.rI)/self.rS)
     
     def findLinearEquationParameters(self) -> None:
         """Finds the slopes and intercepts for the left and right "leg" of the membership function.
         If the parameters for the given set have previously been computed, the method returns directly."""
-        if not self.lS == None:
+        if not math.isnan(self.lS):
             return
   
         self.lS = 1.0 / (self.peak-self.start)
