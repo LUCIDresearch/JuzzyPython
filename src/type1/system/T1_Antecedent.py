@@ -12,7 +12,9 @@ from type1.sets.T1MF_Gaussian import T1MF_Gaussian
 from type1.sets.T1MF_Interface import T1MF_Interface
 from type1.sets.T1MF_Singleton import T1MF_Singleton
 from type1.sets.T1MF_Triangular import T1MF_Triangular
+import functools
 
+@functools.total_ordering
 class T1_Antecedent:
     """
     Class T1_Antecedent: 
@@ -117,6 +119,23 @@ class T1_Antecedent:
             return self.mF.compareTo(o.getMF())
         else:
             raise Exception("Antecedent - compareTo has only not been implemented for the provided combination of sets.")
+
+    def __eq__(self, o):
+        val = self.compareTo(o)
+        if val == 0:
+            return True
+        else:
+            return False
+
+    def __lt__(self, o):
+        val = self.compareTo(o)
+        if val == -1:
+            return True
+        else:
+            return False
+
+    def __hash__(self) -> int:
+        return hash(self.getName())
 
     def toString(self) -> str:
         """Converts antecedent to string"""

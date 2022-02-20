@@ -108,10 +108,10 @@ class T1MF_Triangular(T1MF_Prototype):
         if not self.lS == None:
             return
   
-        self.lS = 1.0 / (self.peak-self.start);
-        self.lI = 0 - self.lS * self.start;
+        self.lS = 1.0 / (self.peak-self.start)
+        self.lI = 0 - self.lS * self.start
         
 
-        self.rS = -1.0 / (self.end-self.peak);
-        self.rI = 0 - self.rS * self.end;  
+        self.rS = -1.0 / (self.end-self.peak)
+        self.rI = 0 - self.rS * self.end 
     

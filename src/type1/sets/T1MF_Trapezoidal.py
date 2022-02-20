@@ -151,12 +151,12 @@ class T1MF_Trapezoidal(T1MF_Prototype):
         if not self.lS == None:
             return
   
-        self.lS = 1.0 / (self.b-self.a);
-        self.lI = 0 - self.lS * self.a;
+        self.lS = 1.0 / (self.b-self.a)
+        self.lI = 0 - self.lS * self.a
         
 
-        self.rS = -1.0 / (self.d-self.c);
-        self.rI = 0 - self.rS * self.d;  
+        self.rS = -1.0 / (self.d-self.c)
+        self.rI = 0 - self.rS * self.d
     
     def toString(self) -> str:
         """Convert membership function to string"""
