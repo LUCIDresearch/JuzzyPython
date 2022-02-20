@@ -11,7 +11,9 @@ from type1.sets.T1MF_Prototype import T1MF_Prototype
 from typing import List
 import math
 from numpy import float64 as f
+import functools
 
+@functools.total_ordering
 class T1MF_Gauangle(T1MF_Prototype):
     """
     Class T1MF_Gauangle
@@ -160,6 +162,23 @@ class T1MF_Gauangle(T1MF_Prototype):
             if self.getEnd() <= o.getEnd() and self.getStart() == o.getStart() and self.getPeak() <= o.getPeak():
                 return -1
             return 1
+
+    def __eq__(self, o):
+        val = self.compareTo(o)
+        if val == 0:
+            return True
+        else:
+            return False
+
+    def __lt__(self, o):
+        val = self.compareTo(o)
+        if val == -1:
+            return True
+        else:
+            return False
+
+    def __hash__(self) -> int:
+        return hash(self.getName())
     
     def getAlphaCut(self, alpha) -> Tuple:
         """Unsupported Function"""

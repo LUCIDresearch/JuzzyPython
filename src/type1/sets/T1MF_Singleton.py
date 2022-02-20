@@ -9,7 +9,8 @@ sys.path.append("..")
 from generic.Tuple import Tuple
 from type1.sets.T1MF_Prototype import T1MF_Prototype
 import type1.sets.T1MF_Triangular
-
+import functools
+@functools.total_ordering
 class T1MF_Singleton(T1MF_Prototype):
     """
     Class T1MF_Singleton
@@ -75,4 +76,21 @@ class T1MF_Singleton(T1MF_Prototype):
             return 1
         else:
             raise Exception("A T1MF_Triangular object is expected for comparison with another T1MF_Triangular ot T1MF_Singleton object.")
+    
+    def __eq__(self, o):
+        val = self.compareTo(o)
+        if val == 0:
+            return True
+        else:
+            return False
+
+    def __lt__(self, o):
+        val = self.compareTo(o)
+        if val == -1:
+            return True
+        else:
+            return False
+
+    def __hash__(self) -> int:
+        return hash(self.getName())
         
