@@ -18,8 +18,9 @@ class T1MF_Trapezoidal(T1MF_Prototype):
     The MF supports both normal MFs where the membership between b and c is 1.0,
     as well as non-normal MFs where this membership can be specified freely.
 
-    Parameters: parameters = Parameters array from left to right
-    yLevels= The specific yLevels for the second and third point of the trapezoid. Normally, both values are equal.
+    Parameters: 
+        parameters = Parameters list from left to right
+        yLevels= The specific yLevels for the second and third point of the trapezoid. Normally, both values are equal.
 
     Functions:
         getFS
@@ -103,7 +104,7 @@ class T1MF_Trapezoidal(T1MF_Prototype):
     
     def getParameters(self) -> List[float]:
         """Returns the MFs parameters
-        Return an array of type double, holding all 4 parameters in order from
+        Return a list of type float, holding all 4 parameters in order from
         left to right."""
         return [self.a,self.b,self.c,self.d]
     

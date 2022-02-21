@@ -15,7 +15,10 @@ class T1MF_Gaussian(T1MF_Prototype):
     Class T1MF_Gaussian
     The gaussian membership function for type 1 sets
 
-    Parameters: Mean: The mean, where (Spread) is the standard deviation
+    Parameters: 
+        Name: Name of the function
+        Mean: The mean
+        Spread: standard deviation
 
     Functions:
         getFS

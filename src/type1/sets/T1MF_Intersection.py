@@ -15,7 +15,9 @@ class T1MF_Intersection(T1MF_Prototype):
     Class T1MF_Intersection
     Creates an intersection between the two sets, A and B
 
-    Parameters: Membership functions setA and setB that you want to intersect
+    Parameters:
+        setA: T1MF
+        setB: T1MF
 
     Functions:
         getFS

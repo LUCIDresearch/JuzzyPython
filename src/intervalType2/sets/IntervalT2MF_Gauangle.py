@@ -21,7 +21,6 @@ class IntervalT2MF_Gauangle(IntervalT2MF_Prototype):
     Functions:
         toString
         getFS
-        compareTo
         
     """
     def __init__(self, name, uMF, lMF) -> None:
@@ -52,13 +51,3 @@ class IntervalT2MF_Gauangle(IntervalT2MF_Prototype):
             else:
                 return Tuple(min(l,u),max(l,u))
     
-    def compareTo(self, o) -> int:
-        """Compare to another IT2 gauangle function"""
-        if not isinstance(o,IntervalT2MF_Gauangle):
-            raise Exception("An IntervalT2MF_Gauangle object is expected for comparison with another IntervalT2MF_Gauangle object.")
-        else:
-            if self.uMF.compareTo(o.getUMF()) == 0 and self.lMF.compareTo(o.getLMF()) == 0:
-                return 0
-            if self.uMF.compareTo(o.getUMF()) < 0 and self.lMF.compareTo(o.getLMF()) < 0:
-                return -1
-            return 1

@@ -109,7 +109,7 @@ class T1_Rulebase:
     def getInputs(self) -> List[Input]:
         """This method assumes all rules use the same (and all) inputs. 
         The first rule is queried to identify the inputs and return them.
-        return An array of the inputs used in the rulebase (retrieved from the 
+        return a list of the inputs used in the rulebase (retrieved from the 
         antecedents of the first rule in the rulebase!)."""
         return self.rules[0].getInputs()
     
@@ -119,9 +119,9 @@ class T1_Rulebase:
     
     def evaluate(self,defuzzType) -> dict:
         """ Returns defuzzified result of evaluating all rules in the rulebase.
-        -param defuzzificationType The type of defuzzifier to be used: 0-Height 
+        param defuzzificationType The type of defuzzifier to be used: 0-Height 
         Defuzzification, 1-Centroid Defuzzification.
-        -param discretizationLevel The discretization level to be employed (only
+        param discretizationLevel The discretization level to be employed (only
         applies to centroid defuzzification)"""
         if defuzzType == 0:
             return self.heightDefuzzification()

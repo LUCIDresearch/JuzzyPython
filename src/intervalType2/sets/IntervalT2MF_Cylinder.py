@@ -17,7 +17,7 @@ class IntervalT2MF_Cylinder(IntervalT2MF_Prototype):
     defined by a single Tuple and can be seen as a cylinder from left to right.
     It does not vary in height/firing strength but its getFS() method will return
     the same FS for all x. (In the literature referred to as cylindrical extension
-    of a FS.
+    of a FS).
 
     Parameters: 
         primer : Tuple for creating T1MF cylinder MF

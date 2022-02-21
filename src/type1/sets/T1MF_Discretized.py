@@ -15,11 +15,11 @@ class T1MF_Discretized(T1MF_Prototype):
     Class T1MF_Discretized
     The class allows the specification of a type-1 MF based on single points alone, 
     i.e. in a discretised fashion. The points are specified using y-x coordinates.
-    All points are held in an ArrayList which requires resorting as points are 
+    All points are held in a list which requires resorting as points are 
     added.
 
     Parameters: Name: Name of the membership function
-    InitialSize: An int defining the size of the array
+    InitialSize: An int defining the size of the list
 
     Functions:
         addPoint
@@ -159,9 +159,9 @@ class T1MF_Discretized(T1MF_Prototype):
     
     def interpolate(self,x0,x1,x2) -> float:
         """Calculate f(s) for input x through interpolation
-        x0 = Identifier pointing to correct x0 in set array
+        x0 = Identifier pointing to correct x0 in set list
         x1 = x input
-        x2 = Identifier pointing to correct x2 in set array"""
+        x2 = Identifier pointing to correct x2 in set list"""
         a = (self.set[x2].getRight() - self.set[x0].getRight()) / (x1 - self.set[x0].getRight())
         return self.set[x0].getLeft() - ((self.set[x0].getLeft()-self.set[x2].getLeft())/a)
     

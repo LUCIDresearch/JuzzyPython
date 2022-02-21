@@ -15,8 +15,9 @@ class T1MF_Meet(T1MF_Prototype):
     Class T1MF_Meet
     Meet operation for 2 Type-1 sets, mostly used while computing general Type-2 FLSs.
 
-    Parameters: Name: Name of the membership function
-    InitialSize: An int defining the size of the array
+    Parameters: 
+        Name: Name of the membership function
+        InitialSize: An int defining the size of the array
 
     Functions:
         getFS

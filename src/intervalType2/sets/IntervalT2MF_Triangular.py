@@ -21,7 +21,6 @@ class IntervalT2MF_Triangular(IntervalT2MF_Prototype):
         getLMF
         getUMF
         getFS
-        compareTo
 
     """
     
@@ -53,16 +52,3 @@ class IntervalT2MF_Triangular(IntervalT2MF_Prototype):
                 return Tuple(min(l,u),1.0)
             else:
                 return Tuple(min(l,u),max(l,u))
-
-    def compareTo(self, o) -> int:
-        """Compare to another membership function"""
-        if not isinstance(o,IntervalT2MF_Triangular):
-            raise Exception("A IntervalT2MF_Triangular object is expected for comparison with another IntervalT2MF_Triangular object.")
-        if self.getLMF().getStart() == o.getLMF().getStart() and self.getLMF().getPeak() == o.getLMF().getPeak() and self.getLMF().getEnd() == o.getLMF().getEnd() and self.getUMF().getStart() == o.getUMF().getStart() and self.getUMF().getPeak() == o.getUMF().getPeak() and self.getUMF().getEnd() == o.getUMF().getEnd():
-            return 0
-        if self.getLMF().getStart() <= o.getLMF().getStart() and self.getLMF().getPeak() <= o.getLMF().getPeak() and self.getLMF().getEnd() <= o.getLMF().getEnd() and self.getUMF().getStart() <= o.getUMF().getStart() and self.getUMF().getPeak() <= o.getUMF().getPeak() and self.getUMF().getEnd() <= o.getUMF().getEnd():
-            return -1
-        return 1
-
-        
-        
