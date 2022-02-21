@@ -171,8 +171,8 @@ class IntervalT2Engine_Centroid():
         #stores the size of the domain over which the function is evaluated
         domainSize = mf.getSupport().getRight() - mf.getSupport().getLeft()
         #setup arrays for primaryDiscretizationLevel
-        w = [0] * self.primaryDiscretisationLevel+1
-        x = [0] * self.primaryDiscretisationLevel+1
+        w = [0] * (self.primaryDiscretisationLevel+1)
+        x = [0] * (self.primaryDiscretisationLevel+1)
         #stores various bits for efficiency purposes (avoid recalculation)
         temp = domainSize / self.primaryDiscretisationLevel
         #set x and calculate weights (membership values for left/right (bottom/top)
@@ -200,9 +200,9 @@ class IntervalT2Engine_Centroid():
             for kDash in range(self.primaryDiscretisationLevel):
                 if x[kDash] <= y and y <= x[kDash+1]:
                     break
-            print("kDash = " + str(kDash) + "   k = " + str(k))
+            print("kDash Left = " + str(kDash) + "   k = " + str(k))
             if kDash == k:
-                stopFlag = False
+                stopFlag = True
                 y_l = y
             else:
                 s = kDash - k
@@ -244,7 +244,7 @@ class IntervalT2Engine_Centroid():
             for kDash in range(self.primaryDiscretisationLevel):
                 if x[kDash] <= y and y <= x[kDash+1]:
                     break
-            print("kDash = " + str(kDash) + "   k = " + str(k))
+            print("kDash Right = " + str(kDash) + "   k = " + str(k))
             if kDash == k:
                 stopFlag = True
                 y_r = y

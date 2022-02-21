@@ -142,7 +142,7 @@ class T1MF_Gauangle(T1MF_Prototype):
     def compareTo(self, o) -> int:
         """Compare to another gauangle object """
         if not type(o) is T1MF_Gauangle:
-            raise Exception("A T1MF_Gauangle object is expected for comparison with another T1MF_Triangular object.")
+            return None
         
         if self.isLeftShoulder():
             if self.getEnd() == o.getEnd() and o.isLeftShoulder() and self.getPeak() == o.getPeak():

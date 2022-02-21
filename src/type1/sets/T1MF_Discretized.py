@@ -219,7 +219,7 @@ class T1MF_Discretized(T1MF_Prototype):
         return s
     
     def sort(self) -> None:
-        """Sorts the ArrayList holding all points defining the set.
+        """Sorts the list holding all points defining the set.
         No sort is performed if the set is already sorted."""
         if not self.sorted and not self.set == []:
             self.set = sorted(self.set) # CHECK HOW THIS IS SORTED

@@ -97,7 +97,7 @@ class T1MF_Triangular(T1MF_Prototype):
                 return -1
             return 1
         else:
-            raise Exception("A T1MF_Triangular object or T1MF_Singleton is expected for comparison with another T1MF_Triangular object.")
+            return None
 
     def __eq__(self, o):
         val = self.compareTo(o)
