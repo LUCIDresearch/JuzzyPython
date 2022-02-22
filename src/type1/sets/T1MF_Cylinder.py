@@ -28,18 +28,18 @@ class T1MF_Cylinder(T1MF_Prototype):
         getPeak
     """
 
-    def __init__(self, name,membershipDegree) -> None:
+    def __init__(self, name: str,membershipDegree: float) -> None:
         super().__init__(name)
         if membershipDegree < 0.0 or membershipDegree > 1.0:
             raise Exception("The membership degree should be between 0 and 1.")
         self.membershipDegree = membershipDegree
         self.support = Tuple(float('-inf'),float('inf'))
     
-    def getFS(self, x) -> float:
+    def getFS(self, x: float) -> float:
         """Return the membership degree"""
         return self.membershipDegree
     
-    def getAlphaCut(self, alpha) -> Tuple:
+    def getAlphaCut(self, alpha: float) -> Tuple:
         """Transform into basic belief assignment"""
         if alpha <= self.membershipDegree:
             return Tuple(float('-inf'),float('inf'))
@@ -50,10 +50,10 @@ class T1MF_Cylinder(T1MF_Prototype):
         """Return function to string"""
         return self.name + " - Cylindrical extension at :" + str(self.membershipDegree)
     
-    def compareTo(o) -> int:
+    def compareTo(self,o:object) -> int:
         """Unsupported method"""
         raise Exception("Unsupported Method")
     
-    def getPeak() -> float:
+    def getPeak(self) -> float:
         """Unsupported method"""
         raise Exception("Unsupported Method")

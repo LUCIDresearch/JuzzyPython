@@ -30,7 +30,7 @@ class T1_Consequent:
       
     """
 
-    def __init__(self,mF,output,name = None) -> None:
+    def __init__(self,mF: T1MF_Interface,output: Output,name: str = None) -> None:
         if name != None:
             self.name = name
         else:
@@ -38,7 +38,7 @@ class T1_Consequent:
         self.mF = mF
         self.output = output
 
-    def setMF(self,mF) -> None:
+    def setMF(self,mF: T1MF_Interface) -> None:
         """Set the membership function for the consequent"""
         self.mF = mF
     
@@ -50,7 +50,7 @@ class T1_Consequent:
         """Get the output for the consequent"""
         return self.output
     
-    def setOutput(self,out) -> None:
+    def setOutput(self,out: Output) -> None:
         """Set the output for the consequent"""
         self.output = out
     
@@ -58,7 +58,7 @@ class T1_Consequent:
         """Get the name of the consequent"""
         return self.name
     
-    def setName(self,name) -> None:
+    def setName(self,name: str) -> None:
         """Set the name of the consequent"""
         self.name = name
     

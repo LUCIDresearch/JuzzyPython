@@ -41,7 +41,7 @@ class T1MF_Gauangle(T1MF_Prototype):
      
     """
 
-    def __init__(self, name,start,center,end) -> None:
+    def __init__(self, name: str,start: float,center: float,end: float) -> None:
         super().__init__(name)
         self.start = start
         self.center = center
@@ -81,7 +81,7 @@ class T1MF_Gauangle(T1MF_Prototype):
             print("Transition points between triangular and gaussian functions are "
             +str(self.transitionPointLeft)+" and "+ str(self.transitionPointRight)+".")
         
-    def getFS(self, x) -> float:
+    def getFS(self, x: float) -> float:
         """Return the maximum FS between two sets"""
         if self.support.contains(x):
             if (self.isLeftShoulder and x<=self.center) or (self.isRightShoulder and x>=self.center):
@@ -123,7 +123,7 @@ class T1MF_Gauangle(T1MF_Prototype):
             s += " (RightShoulder)"
         return s
     
-    def getLineEquationParameters(self,x,y) -> List[float]:
+    def getLineEquationParameters(self,x: Tuple,y: Tuple) -> List[float]:
         """returns the line equation parameters a and be (line equation = ax*b) for a line passing through the points defined by the tuples x and y.
         The first point (x), the Tuple consists of the x and y coordinates of the point in this order.
         The second point (y), the Tuple consists of the x and y coordinates of the point in this order."""
@@ -135,11 +135,11 @@ class T1MF_Gauangle(T1MF_Prototype):
             print("Line equation: "+str(ab[0])+" * x + "+str(ab[1]))
         return ab
     
-    def getXForYOnLine(self,y,ab) -> float:
+    def getXForYOnLine(self,y: float,ab: List[float]) -> float:
         """Returns the x coordinate for a specified y coordinate when considering the given line equation."""
         return f(y-ab[1])/ab[0]
     
-    def compareTo(self, o) -> int:
+    def compareTo(self, o: object) -> int:
         """Compare to another gauangle object """
         if not type(o) is T1MF_Gauangle:
             return None
@@ -163,14 +163,14 @@ class T1MF_Gauangle(T1MF_Prototype):
                 return -1
             return 1
 
-    def __eq__(self, o):
+    def __eq__(self, o: object):
         val = self.compareTo(o)
         if val == 0:
             return True
         else:
             return False
 
-    def __lt__(self, o):
+    def __lt__(self, o: object):
         val = self.compareTo(o)
         if val == -1:
             return True
@@ -180,7 +180,7 @@ class T1MF_Gauangle(T1MF_Prototype):
     def __hash__(self) -> int:
         return hash(self.getName())
     
-    def getAlphaCut(self, alpha) -> Tuple:
+    def getAlphaCut(self, alpha: float) -> Tuple:
         """Unsupported Function"""
         raise Exception("Unsupported Function")
 

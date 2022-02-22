@@ -50,7 +50,7 @@ class T1_Rulebase:
         self.outputSetBuffers = OrderedDict() #a buffer for the discretised output sets (yLevels) of each output
         self.outputBuffers = OrderedDict() #buffers the actual outputs of the rulebase (one per output)
     
-    def addRule(self,r) -> None:
+    def addRule(self,r: T1_Rule) -> None:
         """add a rule to the set and buffers"""
         self.rules.append(r)
         for c in r.getConsequents():
@@ -73,7 +73,7 @@ class T1_Rulebase:
         else:
             return "minimum"
     
-    def setInferenceMethod(self,inferenceMethod) -> None:
+    def setInferenceMethod(self,inferenceMethod: int) -> None:
         """Sets the inference method, where by inference, we mean the implementation
         of applying the rule's firing strength to the consequent.
         The desired inference method is applied for all rules."""
@@ -91,7 +91,7 @@ class T1_Rulebase:
         else:
             return "minimum"
     
-    def setImplicationMethod(self,implicationMethod) -> None:
+    def setImplicationMethod(self,implicationMethod: int) -> None:
         """Sets the implication method, where by implication, we mean the implementation
         of the AND logical connective between parts of the antecedent.
         The desired implication method is applied for all rules."""
@@ -102,7 +102,7 @@ class T1_Rulebase:
         else:
             raise Exception("Only product (0) and minimum (1) implication is currently supported.")
     
-    def getRule(self,r) -> T1_Rule:
+    def getRule(self,r: T1_Rule) -> T1_Rule:
         """Return a specific rule"""
         return self.rules[r]
     
@@ -117,7 +117,7 @@ class T1_Rulebase:
         """Returns the outputSetBuffers"""
         return self.outputSetBuffers
     
-    def evaluate(self,defuzzType) -> dict:
+    def evaluate(self,defuzzType: int) -> dict:
         """ Returns defuzzified result of evaluating all rules in the rulebase.
         param defuzzificationType The type of defuzzifier to be used: 0-Height 
         Defuzzification, 1-Centroid Defuzzification.
@@ -209,11 +209,11 @@ class T1_Rulebase:
         """Get the list of rules"""
         return self.rules
     
-    def changeRule(self,ruleNum,newRule) -> None:
+    def changeRule(self,ruleNum: int,newRule: T1_Rule) -> None:
         """Change a current rule"""
         self.rules[ruleNum] = newRule
     
-    def removeRule(self,ruleNum) -> None:
+    def removeRule(self,ruleNum: int) -> None:
         """Remove a rule from the set"""
         del self.rules[ruleNum]
     

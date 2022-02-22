@@ -12,6 +12,8 @@ from typing import List
 
 from type1.system.T1_Antecedent import T1_Antecedent
 from type1.system.T1_Consequent import T1_Consequent
+from type1.system.T1_Rule import T1_Rule
+
 
 class T1_Rule:
     """
@@ -35,7 +37,7 @@ class T1_Rule:
       
     """
 
-    def __init__(self,antecedents,consequent = None, consequents = None) -> None:
+    def __init__(self,antecedents: List[T1_Antecedent],consequent:T1_Consequent = None, consequents: List[T1_Consequent] = None) -> None:
         self.DEBUG = False
         self.PRODUCT = 0
         self.MINIMUM = 1
@@ -70,7 +72,7 @@ class T1_Rule:
             inputs.append(self.antecedents[i].getInput())
         return inputs
     
-    def compareBasedOnAntecedents(self,r) -> bool:
+    def compareBasedOnAntecedents(self,r: T1_Rule) -> bool:
         """Performs a comparison operation by comparing the rule objects solely based 
         on their antecedents. The method returns true of the antecedents of both
         rules are the same."""
@@ -81,7 +83,7 @@ class T1_Rule:
                 return True
         return False
 
-    def getFStrength(self,tNorm) -> float:
+    def getFStrength(self,tNorm: int) -> float:
         """Returns the rule's firing strength. The method relies on the transparent 
         updating of the inputs of the fuzzy system through the Input classes 
         attached to the antecedents."""

@@ -4,10 +4,13 @@ T1MF_Meet.py
 Created 15/12/2021
 """
 import sys
+
 sys.path.append("..")
 
 from generic.Tuple import Tuple
 from type1.sets.T1MF_Prototype import T1MF_Prototype
+from type1.sets.T1MF_Interface import T1MF_Interface
+
 from typing import List
 
 class T1MF_Meet(T1MF_Prototype):
@@ -28,7 +31,7 @@ class T1MF_Meet(T1MF_Prototype):
         compareTo
     """
 
-    def __init__(self,a,b) -> None:
+    def __init__(self,a: T1MF_Interface,b: T1MF_Interface) -> None:
         super().__init__("T1MF_Meet")
         self.DEBUG = False
         self.resolution = 30
@@ -60,7 +63,7 @@ class T1MF_Meet(T1MF_Prototype):
             if self.DEBUG:
                 print("v1: "+str(self.v1)+" v2:" + str(self.v2))
             
-    def getFS(self, x) -> float:
+    def getFS(self, x: float) -> float:
         """Return the maximum FS between two sets"""
         if x < self.v1:
             return max(self.f1.getFS(x),self.f2.getFS(x))
@@ -74,7 +77,7 @@ class T1MF_Meet(T1MF_Prototype):
         """Return if an intersection exists between the sets """
         return self.intersectionExists
     
-    def findMax(self, s) -> float:
+    def findMax(self, s: T1MF_Interface) -> float:
         """Find the max step """
         currentStep = s.getSupport().getLeft()
         stepSize = (s.getSupport().getRight()-s.getSupport().getLeft())/(self.maxResolution-1)
@@ -91,7 +94,7 @@ class T1MF_Meet(T1MF_Prototype):
             currentStep += stepSize
         return maxStep
     
-    def getAlphaCut(self, alpha) -> Tuple:
+    def getAlphaCut(self, alpha: float) -> Tuple:
         """Return a new tuple with the alpha cut"""
         stepSize = self.getSupport().getSize()/(self.alphaCutDiscLevel-1.0)
         left = 0.0
@@ -119,7 +122,7 @@ class T1MF_Meet(T1MF_Prototype):
         """Currently unsupported function"""
         raise Exception("Unsupported Function")
 
-    def compareTo(o) -> int:
+    def compareTo(self, o: object) -> int:
         """Currently unsupported function"""
         raise Exception("Unsupported Function")
 

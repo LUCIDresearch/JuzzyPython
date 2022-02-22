@@ -44,7 +44,7 @@ class T1MF_Discretized(T1MF_Prototype):
         compareTo
     """
 
-    def __init__(self, name, points = None) -> None:
+    def __init__(self, name: str, points: List[Tuple] = None) -> None:
         super().__init__(name)
         self.sorted = False
         self.leftShoulder = False
@@ -60,14 +60,14 @@ class T1MF_Discretized(T1MF_Prototype):
             self.addPoints(points)
             self.sort()
         
-    def addPoint(self,p) -> None:
+    def addPoint(self,p: Tuple) -> None:
         """Adds a point to the discretized set - forces resorting.
       (add array of points in one go to avoid sorting overhead)
        p 2-D coordinates of the point in the order y,x."""
         self.set.append(p)
         self.sorted = False
     
-    def addPoints(self,ps) -> None:
+    def addPoints(self,ps: List[Tuple]) -> None:
         """Adds a series of points to the discretized set - forces resorting.
          p 2-D coordinates of the points in the order y,x."""
         for p in ps:
@@ -78,7 +78,7 @@ class T1MF_Discretized(T1MF_Prototype):
         """Return the current alpha cut discretization level"""
         return self.alphaCutDiscLevel
     
-    def setAlphaCutDiscretizationLevel(self,level) -> None:
+    def setAlphaCutDiscretizationLevel(self,level: int) -> None:
         """Set a new alpha cut discretization level"""
         self.alphaCutDiscLevel = level
     
@@ -86,7 +86,7 @@ class T1MF_Discretized(T1MF_Prototype):
         """Get the length of the set"""
         return len(self.set)
     
-    def getFS(self,x) -> float:
+    def getFS(self,x: float) -> float:
         """Return the membership degree"""
         if self.set == []:
             return -1.0
@@ -112,7 +112,7 @@ class T1MF_Discretized(T1MF_Prototype):
             
         return None
     
-    def getAlphaCut(self, alpha) -> Tuple:
+    def getAlphaCut(self, alpha: float) -> Tuple:
         """Returns the x values where the alpha cut using the alpha (y) value provided "cuts" the function curve"""
         left = 0.0
         right = 0.0
@@ -157,7 +157,7 @@ class T1MF_Discretized(T1MF_Prototype):
         
         return alphaCut
     
-    def interpolate(self,x0,x1,x2) -> float:
+    def interpolate(self,x0: int,x1: float,x2: int) -> float:
         """Calculate f(s) for input x through interpolation
         x0 = Identifier pointing to correct x0 in set list
         x1 = x input
@@ -170,7 +170,7 @@ class T1MF_Discretized(T1MF_Prototype):
         self.sort()
         return self.set()
     
-    def getPointAt(self,index) -> Tuple:
+    def getPointAt(self,index: int) -> Tuple:
         """Return a sorted point in the set"""
         self.sort()
         return self.set[index]
@@ -238,7 +238,7 @@ class T1MF_Discretized(T1MF_Prototype):
                     lastX = self.set[i].getRight()
                 i+=1
     
-    def writeToFile(self,filename) -> str:
+    def writeToFile(self,filename: str) -> str:
         """Write out the discretized set into a file"""
         self.sort()
         try:
@@ -250,7 +250,7 @@ class T1MF_Discretized(T1MF_Prototype):
         except:
             raise Exception("Error writing to output file " + str(filename))
     
-    def writeToFileHighRes(self,filename,resolution) -> str:
+    def writeToFileHighRes(self,filename: str,resolution: int) -> str:
         """Uses interpolation to supply high-res visualisation of the set."""
         self.sort()
         try:
@@ -265,19 +265,19 @@ class T1MF_Discretized(T1MF_Prototype):
         except:
             raise Exception("Error writing to output file " + str(filename))
         
-    def setLeftShoulderSet(self,shoulderStart) -> None:
+    def setLeftShoulderSet(self,shoulderStart: float) -> None:
         """Set the left shoulder of the set"""
         self.leftShoulder = True
         self.leftShoulderStart = shoulderStart
         self.support.setLeft(float('-inf'))
 
-    def setRightShoulderSet(self,shoulderStart) -> None:
+    def setRightShoulderSet(self,shoulderStart: float) -> None:
         """Set the right shoulder of the set"""
         self.rightShoulder = True
         self.rightShoulderStart = shoulderStart
         self.support.setRight(float('inf'))
     
-    def getDefuzzifiedCentroid(self, numberOfDiscretizations = None) -> float:
+    def getDefuzzifiedCentroid(self, numberOfDiscretizations: int = None) -> float:
         """Returns the defuzzified value of this set computed using the centroid algorithm.
         numberOfDiscretizations The number of discretizations to be employed.
         The number of discretizations is not used - instead the centroid is
@@ -297,6 +297,6 @@ class T1MF_Discretized(T1MF_Prototype):
         else:
             return numerator/denominator
 
-    def compareTo(self,o) -> int:
+    def compareTo(self,o: object) -> int:
         raise Exception("Unsupported Function")
     

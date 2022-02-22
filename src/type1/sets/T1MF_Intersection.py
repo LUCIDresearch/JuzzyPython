@@ -4,10 +4,13 @@ T1MF_Intersection.py
 Created 17/12/2021
 """
 import sys
+
 sys.path.append("..")
 
 from generic.Tuple import Tuple
 from type1.sets.T1MF_Prototype import T1MF_Prototype
+from type1.sets.T1MF_Interface import T1MF_Interface
+
 from typing import List
 
 class T1MF_Intersection(T1MF_Prototype):
@@ -26,18 +29,18 @@ class T1MF_Intersection(T1MF_Prototype):
         compareTo
     """
 
-    def __init__(self, name,setA,setB) -> None:
+    def __init__(self, name: str,setA: T1MF_Interface,setB: T1MF_Interface) -> None:
         super().__init__("Intersection: "+setA.getName()+"_"+setB.getName())
         self.support = Tuple(max(setA.getSupport().getLeft(),setB.getSupport().getLeft()),
                         min(setA.getSupport().getRight(),setB.getSupport().getRight()))
         self.setA = setA
         self.setB = setB
     
-    def getFS(self, x) -> float:
+    def getFS(self, x: float) -> float:
         """Return the min FS from both sets"""
         return min(self.setA.getFS(x),self.setB.getFS(x))
     
-    def getAlphaCut(self, alpha) -> Tuple:
+    def getAlphaCut(self, alpha: float) -> Tuple:
         """Unsupported Function"""
         raise Exception("Unsupported Function")
     
@@ -45,6 +48,6 @@ class T1MF_Intersection(T1MF_Prototype):
         """Unsupported Function"""
         raise Exception("Unsupported Function")
     
-    def compareTo(self, o) -> int:
+    def compareTo(self, o: object) -> int:
         """Unsupported Function"""
         raise Exception("Unsupported Function")

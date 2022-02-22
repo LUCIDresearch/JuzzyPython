@@ -32,10 +32,10 @@ class T1MF_Interface(MF_Interface):
         getDefuzzifiedCOS
     """
 
-    def getFS(self,x) -> float:
+    def getFS(self,x: float) -> float:
         pass
     
-    def getAlphaCut(self,alpha) -> Tuple:
+    def getAlphaCut(self,alpha: float) -> Tuple:
         pass
 
     def getPeak(self) -> float:
@@ -44,19 +44,19 @@ class T1MF_Interface(MF_Interface):
     def getName(self) -> str:
         pass
 
-    def setName(self, name) -> None:
+    def setName(self, name: str) -> None:
         pass
 
     def getSupport(self) -> Tuple:
         pass
 
-    def setSupport(self, support) -> None:
+    def setSupport(self, support: Tuple) -> None:
         pass
 
-    def setLeftShoulder(self, value) -> None:
+    def setLeftShoulder(self, value: bool) -> None:
         pass
 
-    def setRightShoulder(self, value) -> None:
+    def setRightShoulder(self, value: bool) -> None:
         pass    
 
     def isLeftShoulder(self) -> bool:
@@ -65,7 +65,7 @@ class T1MF_Interface(MF_Interface):
     def isRightShoulder(self) -> bool:
         pass
 
-    def getDefuzzifiedCentroid(self, numberOfDiscretizations) -> float:
+    def getDefuzzifiedCentroid(self, numberOfDiscretizations: int) -> float:
         pass
 
     def getDefuzzifiedCOS(self) -> float:
@@ -74,7 +74,7 @@ class T1MF_Interface(MF_Interface):
     def toString(self) -> str:
         pass
     
-    def compareTo(self,o) -> int:
+    def compareTo(self,o: object) -> int:
         pass
 
 

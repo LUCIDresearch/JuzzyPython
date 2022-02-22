@@ -29,7 +29,7 @@ class T1MF_Prototype(T1MF_Interface):
         getDefuzzifiedCOS
     """
 
-    def __init__(self,name) -> None:
+    def __init__(self,name: str) -> None:
         super().__init__()
         self.name = name
         self.isLeftShoulder = False
@@ -41,7 +41,7 @@ class T1MF_Prototype(T1MF_Interface):
         """Return the name of the function"""
         return self.name
 
-    def setName(self, name) -> None:
+    def setName(self, name: str) -> None:
         """Set the name of the function"""
         self.name = name
 
@@ -49,15 +49,15 @@ class T1MF_Prototype(T1MF_Interface):
         """Get the current support tuple"""
         return self.support
 
-    def setSupport(self, support) -> None:
+    def setSupport(self, support: Tuple) -> None:
         """Change current support tuple to parameter"""
         self.support = support
 
-    def setLeftShoulder(self, value) -> None:
+    def setLeftShoulder(self, value: bool) -> None:
         """Set left shoulder value"""
         self.isLeftShoulder = value
 
-    def setRightShoulder(self, value) -> None:
+    def setRightShoulder(self, value: bool) -> None:
         """Set right shoulder value"""
         self.setRightShoulder = value
 
@@ -69,7 +69,7 @@ class T1MF_Prototype(T1MF_Interface):
         """Return current right shoulder bool"""
         return self.isRightShoulder
 
-    def getDefuzzifiedCentroid(self, numberOfDiscretizations) -> float:
+    def getDefuzzifiedCentroid(self, numberOfDiscretizations: int) -> float:
         """Returns the defuzzified value of this set computed using the centroid algorithm."""
         if self.DEBUG:
             print(self.getSupport())

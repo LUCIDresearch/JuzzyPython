@@ -38,7 +38,7 @@ class T1_Antecedent:
       
     """
 
-    def __init__(self,mF,input_,name) -> None:
+    def __init__(self,mF: T1MF_Interface,input_: Input,name: str) -> None:
         if name != None:
             self.name = name
         else:
@@ -46,7 +46,7 @@ class T1_Antecedent:
         self.mF = mF
         self.input = input_
     
-    def setMF(self,mF) -> None:
+    def setMF(self,mF: T1MF_Interface) -> None:
         """Allows changing the membership function defining the antecedent"""
         self.mF = mF
     
@@ -62,7 +62,7 @@ class T1_Antecedent:
         """Get the name of the antecedent"""
         return self.name
     
-    def setName(self,name) -> None:
+    def setName(self,name: str) -> None:
         """Set the name of the antecedent"""
         self.name = name
     
@@ -70,7 +70,7 @@ class T1_Antecedent:
         """Returns the firing strength for the given antecedent using the current input supplied."""
         return self.mF.getFS(self.input.getInput())
 
-    def getMax(self,tNorm) -> float:
+    def getMax(self,tNorm: int) -> float:
         """Returns the arg sup of the t-norm between the membership function of the antecedent and the 
         membership function of the input (in case of NSF)"""
         xmax = 0.0
@@ -102,7 +102,7 @@ class T1_Antecedent:
                 x += incr
         return xmax
     
-    def compareTo(self,o) -> int:
+    def compareTo(self,o: object) -> int:
         """Allows the comparison of two antecedents, based on their membership functions."""
         if not isinstance(o.getMF(),T1MF_Interface):
             raise Exception("A Membership function (inplementing T1MF_Interface) object is expected.")
@@ -120,14 +120,14 @@ class T1_Antecedent:
         else:
             raise Exception("Antecedent - compareTo has only not been implemented for the provided combination of sets.")
 
-    def __eq__(self, o):
+    def __eq__(self, o: object):
         val = self.compareTo(o)
         if val == 0:
             return True
         else:
             return False
 
-    def __lt__(self, o):
+    def __lt__(self, o: object):
         val = self.compareTo(o)
         if val == -1:
             return True

@@ -31,7 +31,7 @@ class T1MF_Singleton(T1MF_Prototype):
         
     """
 
-    def __init__(self, value, name = None) -> None:
+    def __init__(self, value: float, name: str = None) -> None:
         self.value = value
         if name:
             super().__init__(name)
@@ -43,7 +43,7 @@ class T1MF_Singleton(T1MF_Prototype):
         """Return the value where the singleton exists"""
         return self.value
     
-    def getFS(self, x) -> float:
+    def getFS(self, x: float) -> float:
         """Return the maximum FS between two sets"""
         if x == self.value:
             return 1.0
@@ -54,7 +54,7 @@ class T1MF_Singleton(T1MF_Prototype):
         """Get the peak of the singleton"""
         return self.getValue()
     
-    def getAlphaCut(self, alpha = None) -> Tuple:
+    def getAlphaCut(self, alpha: float = None) -> Tuple:
         """Return the alpha cut of the singleton as a tuple"""
         return Tuple(self.value,self.value)
     
@@ -62,7 +62,7 @@ class T1MF_Singleton(T1MF_Prototype):
         """Convert the function to a string"""
         return self.name+ " - Singleton at: "+self.value
 
-    def compareTo(self, o) -> int:
+    def compareTo(self, o: object) -> int:
         """Compare to a singleton or a triangular function"""
         if type(o) is T1MF_Singleton:
             if self.getValue() == o.getValue():
@@ -77,14 +77,14 @@ class T1MF_Singleton(T1MF_Prototype):
         else:
             raise Exception("A T1MF_Triangular object is expected for comparison with another T1MF_Triangular ot T1MF_Singleton object.")
     
-    def __eq__(self, o):
+    def __eq__(self, o: object):
         val = self.compareTo(o)
         if val == 0:
             return True
         else:
             return False
 
-    def __lt__(self, o):
+    def __lt__(self, o: object):
         val = self.compareTo(o)
         if val == -1:
             return True

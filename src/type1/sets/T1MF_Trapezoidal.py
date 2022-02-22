@@ -40,7 +40,7 @@ class T1MF_Trapezoidal(T1MF_Prototype):
         
     """
 
-    def __init__(self, name,parameters, yLevels = None) -> None:
+    def __init__(self, name: str,parameters: List[float], yLevels: List[float] = None) -> None:
         super().__init__(name)
         #left and right "leg" slope
         self.lS = None
@@ -58,7 +58,7 @@ class T1MF_Trapezoidal(T1MF_Prototype):
         if yLevels != None:
             self.yLevels = [yLevels[0],yLevels[1]]
         
-    def getFS(self, x) -> float:
+    def getFS(self, x: float) -> float:
         """Return the maximum FS between two sets"""
         if (self.isLeftShoulder and x <= self.c) or (self.isRightShoulder and x >= self.b):
             return 1.0
@@ -116,7 +116,7 @@ class T1MF_Trapezoidal(T1MF_Prototype):
             self.peak = (self.b+self.c)/2.0
         return self.peak
     
-    def setPeak(self,peak) -> None:
+    def setPeak(self,peak: float) -> None:
         """Set the peak"""
         self.peak = peak
     
@@ -126,11 +126,11 @@ class T1MF_Trapezoidal(T1MF_Prototype):
         returns The degrees of membership of the inner parameters of the MF."""
         return self.yLevels
     
-    def setyLevels(self,levels) -> None:
+    def setyLevels(self,levels: List[float]) -> None:
         """Set the y levels """
         self.yLevels = levels
     
-    def compareTo(self,o) -> int:
+    def compareTo(self,o: object) -> int:
         """Compare to another trapezoidal object"""
         if not type(o) is T1MF_Trapezoidal:
             return None
@@ -141,7 +141,7 @@ class T1MF_Trapezoidal(T1MF_Prototype):
             return -1
         return 1
 
-    def getAlphaCut(self, alpha) -> Tuple:
+    def getAlphaCut(self, alpha: float) -> Tuple:
         """Get the alpha cut as a tuple"""
         self.findLinearEquationParameters()
         return Tuple((alpha-self.lI)/self.lS,(alpha-self.rI)/self.rS)

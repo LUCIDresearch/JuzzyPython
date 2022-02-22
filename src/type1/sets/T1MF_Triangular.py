@@ -34,7 +34,7 @@ class T1MF_Triangular(T1MF_Prototype):
         
     """
 
-    def __init__(self, name,start,peak,end) -> None:
+    def __init__(self, name: str,start: float,peak: float,end: float) -> None:
         super().__init__(name)
         #left and right "leg" slope
         self.lS = float("nan")
@@ -47,7 +47,7 @@ class T1MF_Triangular(T1MF_Prototype):
         self.end = end
         self.support = Tuple(start,end)
 
-    def getFS(self, x) -> float:
+    def getFS(self, x: float) -> float:
         """Return the maximum FS between two sets"""
         if (self.isLeftShoulder and x <= self.peak) or (self.isRightShoulder and x >= self.peak):
             return 1.0
@@ -84,7 +84,7 @@ class T1MF_Triangular(T1MF_Prototype):
             s += " (RightShoulder)"
         return s
 
-    def compareTo(self, o) -> int:
+    def compareTo(self, o: object) -> int:
         """Compare the function against triangular or singleton functions"""
         if type(o) is T1MF_Triangular:
             if self.getEnd() == o.getEnd() and self.getStart() == o.getStart() and self.getPeak() == o.getPeak():
@@ -99,14 +99,14 @@ class T1MF_Triangular(T1MF_Prototype):
         else:
             return None
 
-    def __eq__(self, o):
+    def __eq__(self, o: object):
         val = self.compareTo(o)
         if val == 0:
             return True
         else:
             return False
 
-    def __lt__(self, o):
+    def __lt__(self, o: object):
         val = self.compareTo(o)
         if val == -1:
             return True
@@ -116,7 +116,7 @@ class T1MF_Triangular(T1MF_Prototype):
     def __hash__(self) -> int:
         return hash(self.getName())
 
-    def getAlphaCut(self, alpha) -> Tuple:
+    def getAlphaCut(self, alpha: float) -> Tuple:
         """Get the alpha cut as a tuple with input float"""
         self.findLinearEquationParameters()
         return Tuple((alpha-self.lI)/self.lS,(alpha-self.rI)/self.rS)

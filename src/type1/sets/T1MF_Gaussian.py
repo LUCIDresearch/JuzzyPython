@@ -30,14 +30,14 @@ class T1MF_Gaussian(T1MF_Prototype):
         toString
     """
 
-    def __init__(self, name,mean,spread) -> None:
+    def __init__(self, name: str,mean: float,spread: float) -> None:
         super().__init__(name)
         self.mean = mean
         self.spread = spread
         #The support is defined as 4 x spread to the left and to the right of the mean.
         self.support = Tuple(mean-4*spread,mean+4*spread)
     
-    def getFS(self, x) -> float:
+    def getFS(self, x: float) -> float:
         """Return the maximum FS between two sets"""
         if x >= self.getSupport().getLeft() and x <= self.getSupport().getRight():
             if self.isLeftShoulder and x <= self.mean:
@@ -69,10 +69,10 @@ class T1MF_Gaussian(T1MF_Prototype):
             s += " (RightShoulder)"
         return s
     
-    def getAlphaCut(self, alpha) -> Tuple:
+    def getAlphaCut(self, alpha: float) -> Tuple:
         """Unsupported Function"""
         raise Exception("Unsupported Function")
     
-    def compareTo(self,o) -> int:
+    def compareTo(self,o: object) -> int:
         """Unsupported Function"""
         raise Exception("Unsupported Function")
