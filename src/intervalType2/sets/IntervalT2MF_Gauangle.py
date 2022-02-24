@@ -7,7 +7,7 @@ sys.path.append("..")
 
 from generic.Tuple import Tuple
 from intervalType2.sets.IntervalT2MF_Prototype import IntervalT2MF_Prototype
-
+from type1.sets.T1MF_Gauangle import T1MF_Gauangle
 class IntervalT2MF_Gauangle(IntervalT2MF_Prototype):
     """
     Class IntervalT2MF_Gauangle
@@ -23,7 +23,7 @@ class IntervalT2MF_Gauangle(IntervalT2MF_Prototype):
         getFS
         
     """
-    def __init__(self, name, uMF, lMF) -> None:
+    def __init__(self, name: str, uMF: T1MF_Gauangle, lMF: T1MF_Gauangle) -> None:
         super().__init__(name)
         self.uMF = uMF
         self.lMF = lMF
@@ -38,7 +38,7 @@ class IntervalT2MF_Gauangle(IntervalT2MF_Prototype):
             s+="\n (RightShoulder)"
         return s;        
     
-    def getFS(self, x) -> float:
+    def getFS(self, x: float) -> float:
         """Get the firing strength of the membership function"""
         l = self.lMF.getFS(x)
         u = self.uMF.getFS(x)

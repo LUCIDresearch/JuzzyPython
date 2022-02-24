@@ -24,7 +24,7 @@ class IntervalT2MF_Triangular(IntervalT2MF_Prototype):
 
     """
     
-    def __init__(self, name, upper = None, lower = None) -> None:
+    def __init__(self, name: str, upper: T1MF_Triangular = None, lower: T1MF_Triangular = None) -> None:
         if upper == None and lower == None:
             super().__init__(name)
         else:
@@ -40,7 +40,7 @@ class IntervalT2MF_Triangular(IntervalT2MF_Prototype):
         """Return the upper membership function"""
         return self.uMF
     
-    def getFS(self,x) -> Tuple:
+    def getFS(self,x: float) -> Tuple:
         """Get the firing strength"""
         l = self.lMF.getFS(x)
         u = self.uMF.getFS(x)

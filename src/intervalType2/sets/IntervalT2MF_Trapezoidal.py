@@ -7,7 +7,7 @@ sys.path.append("..")
 
 from generic.Tuple import Tuple
 from intervalType2.sets.IntervalT2MF_Prototype import IntervalT2MF_Prototype
-
+from type1.sets.T1MF_Trapezoidal import T1MF_Trapezoidal
 class IntervalT2MF_Trapezoidal(IntervalT2MF_Prototype):
     """
     Class IntervalT2MF_Trapezoidal
@@ -21,7 +21,7 @@ class IntervalT2MF_Trapezoidal(IntervalT2MF_Prototype):
         toString
     """
     
-    def __init__(self, name, upper, lower) -> None:
+    def __init__(self, name: str, upper: T1MF_Trapezoidal, lower: T1MF_Trapezoidal) -> None:
         super().__init__(name)
         if upper.getA()>lower.getA() or upper.getB()>lower.getB() or upper.getC()<lower.getC() or upper.getD()<lower.getD():
             raise Exception("The upper membership function needs to be higher than the lower membership function.")

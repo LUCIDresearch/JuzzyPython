@@ -2,7 +2,7 @@
 IT2_Rule.py
 Created 14/1/2022
 """
-from curses.ascii import FS
+from __future__ import annotations
 import sys
 sys.path.append("..")
 
@@ -37,7 +37,7 @@ class IT2_Rule():
         getConsequentCentroid
     """
 
-    def __init__(self,antecedents,consequent = None, consequents = None) -> None:
+    def __init__(self,antecedents: List[IT2_Antecedent],consequent: IT2_Consequent = None, consequents: List[IT2_Consequent] = None) -> None:
         self.PRODUCT = 0
         self.MINIMUM = 1
         self.antecedents = antecedents
@@ -71,7 +71,7 @@ class IT2_Rule():
             inputs.append(self.antecedents[i].getInput())
         return inputs
     
-    def compareBasedOnAntecedents(self,r) -> bool:
+    def compareBasedOnAntecedents(self,r: IT2_Rule) -> bool:
         """Performs a comparison operation by comparing the rule objects solely based 
         on their antecedents. The method returns true of the antecedents of both
         rules are the same."""
@@ -82,11 +82,11 @@ class IT2_Rule():
                 return True
         return False
     
-    def getConsequentCentroid(self,o) -> Tuple:
+    def getConsequentCentroid(self,o: object) -> Tuple:
         """Return the consequent centroid of the ouput"""
         return self.consequents[o].getCentroid()
 
-    def getFStrength(self,tNorm) -> float:
+    def getFStrength(self,tNorm: int) -> float:
         """Returns the rule's firing strength. The method relies on the transparent 
         updating of the inputs of the fuzzy system through the Input classes 
         attached to the antecedents."""

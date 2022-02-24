@@ -37,7 +37,7 @@ class IntervalT2MF_Prototype(IntervalT2MF_Interface):
        
     """
 
-    def __init__(self,name,uMF = None, lMF = None) -> None:
+    def __init__(self,name,uMF: T1MF_Interface = None, lMF: T1MF_Interface = None) -> None:
         self.name = name
         self.LeftShoulder = False
         self.RightShoulder = False
@@ -50,7 +50,7 @@ class IntervalT2MF_Prototype(IntervalT2MF_Interface):
             self.uMF.setSupport(self.support)
             self.lMF.setSupport(self.support)
 
-    def getFS(self,x) -> float:
+    def getFS(self,x: float) -> float:
         return Tuple(self.lMF.getFS(x),self.uMF.getFS(x))
 
     def getPeak(self) -> float:
@@ -62,19 +62,19 @@ class IntervalT2MF_Prototype(IntervalT2MF_Interface):
     def getName(self) -> str:
         return self.name
 
-    def setName(self, name) -> None:
+    def setName(self, name: str) -> None:
         self.name = name
 
     def getSupport(self) -> Tuple:
         return self.support
 
-    def setSupport(self, support) -> None:
+    def setSupport(self, support: Tuple) -> None:
         self.support = support
 
-    def setLeftShoulder(self, value) -> None:
+    def setLeftShoulder(self, value: bool) -> None:
         self.LeftShoulder = value
 
-    def setRightShoulder(self, value) -> None:
+    def setRightShoulder(self, value: bool) -> None:
         self.RightShoulder = value   
 
     def isLeftShoulder(self) -> bool:
@@ -86,13 +86,13 @@ class IntervalT2MF_Prototype(IntervalT2MF_Interface):
     def toString(self) -> str:
         return "Interval Type-2 MF with:\nName: "+self.name+"\nlMF: "+str(self.lMF)+"\nuMF: "+str(self.uMF)+"\nSupport: "+str(self.support)
     
-    def compareTo(self,o) -> int:
+    def compareTo(self,o: object) -> int:
         pass
 
-    def getUpperBound(self,x) -> float:
+    def getUpperBound(self,x: float) -> float:
         return self.uMF.getFS(x)
     
-    def getLowerBound(self,x) -> float:
+    def getLowerBound(self,x: float) -> float:
         return self.lMF.getFS(x)
     
     def getUMF(self) -> T1MF_Interface:
@@ -101,10 +101,10 @@ class IntervalT2MF_Prototype(IntervalT2MF_Interface):
     def getLMF(self) -> T1MF_Interface:
         return self.lMF
 
-    def getFSAverage(self,x) -> float:
+    def getFSAverage(self,x: float) -> float:
         return self.getFS(x).getAverage()
     
-    def getCentroid(self,primaryDiscretisationLevel) -> Tuple:
+    def getCentroid(self,primaryDiscretisationLevel: int) -> Tuple:
         import intervalType2.sets.IntervalT2Engine_Centroid
         iec = intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid(primaryDiscretisationLevel)
         return iec.getCentroid(self)

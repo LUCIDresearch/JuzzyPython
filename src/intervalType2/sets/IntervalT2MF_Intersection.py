@@ -3,11 +3,10 @@ IntervalT2MF_Intersection.py
 Created 12/1/2022
 """
 import sys
-
-from intervalType2.sets.IntervalT2MF_Cylinder import IntervalT2MF_Cylinder
-from intervalType2.sets.IntervalT2MF_Prototype import IntervalT2MF_Prototype
 sys.path.append("..")
-
+from intervalType2.sets.IntervalT2MF_Cylinder import IntervalT2MF_Cylinder
+from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
+from intervalType2.sets.IntervalT2MF_Prototype import IntervalT2MF_Prototype
 from generic.Tuple import Tuple
 from type1.sets.T1MF_Intersection import T1MF_Intersection
 
@@ -29,7 +28,7 @@ class IntervalT2MF_Intersection(IntervalT2MF_Prototype):
       
     """
 
-    def __init__(self,a,b) -> None:
+    def __init__(self,a: IntervalT2MF_Interface,b: IntervalT2MF_Interface) -> None:
         #Intersection a and b
         super().__init__("dummy-intersect")#Updated at the end
         self.intersectionExists_ = False # if false, no intersection
@@ -83,14 +82,14 @@ class IntervalT2MF_Intersection(IntervalT2MF_Prototype):
         intersected to give rise to this set."""
         return self.sets
     
-    def containsSet(self,s) -> bool:
+    def containsSet(self,s: IntervalT2MF_Interface) -> bool:
         """Returns true if the set specified is part of this intersection set."""
         if s in self.sets:
             return True
         else:
             return False
     
-    def getFS(self, x) -> float:
+    def getFS(self, x: float) -> float:
         """Get the firing strength if there is an intersection"""
         if not self.intersectionExists_:
             return None

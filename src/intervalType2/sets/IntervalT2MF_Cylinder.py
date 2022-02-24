@@ -28,7 +28,7 @@ class IntervalT2MF_Cylinder(IntervalT2MF_Prototype):
         toString
     """
     
-    def __init__(self, name,primer = None,uMF = None,lMF = None) -> None:
+    def __init__(self, name: str,primer: Tuple = None,uMF: T1MF_Cylinder = None,lMF: T1MF_Cylinder = None) -> None:
         if uMF != None and lMF != None:
             super().__init__(name,uMF,lMF)
         else:

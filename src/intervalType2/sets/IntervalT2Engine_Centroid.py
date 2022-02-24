@@ -3,6 +3,9 @@ IntervalT2Engine_Centroid.py
 Created 6/1/2022
 """
 import sys
+from typing import List
+
+from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
 sys.path.append("..")
 import math
 
@@ -31,7 +34,7 @@ class IntervalT2Engine_Centroid():
        getWeightedSum
     """
 
-    def __init__(self,primaryDiscretisationLevel = None) -> None:
+    def __init__(self,primaryDiscretisationLevel: int = None) -> None:
         self.KARNIKMENDEL = 0
         self.ENHANCHEDKARNIKMENDEL = 1
         self.ENHANCHEDKARNIKMENDEL_L0 = 2.4
@@ -47,18 +50,18 @@ class IntervalT2Engine_Centroid():
         """Return the primaryDiscretizationLevel"""
         return self.primaryDiscretisationLevel
     
-    def setPrimaryDiscretizationLevel(self,primaryDiscretisationLevel) -> None:
+    def setPrimaryDiscretizationLevel(self,primaryDiscretisationLevel: int) -> None:
         """Set the primaryDiscretizationLevel"""
         self.primaryDiscretisationLevel = primaryDiscretisationLevel
     
-    def getCentroid(self,mf) -> Tuple:
+    def getCentroid(self,mf: IntervalT2MF_Interface) -> Tuple:
         """Get the centroid according to the algorithm selector setting"""
         if self.centroidAlgorithmSelector == self.KARNIKMENDEL:
             return self.getCentroidKM(mf)
         elif self.centroidAlgorithmSelector == self.ENHANCHEDKARNIKMENDEL:
             return self.getCentroid_enhanced(mf,self.ENHANCHEDKARNIKMENDEL_L0,self.ENHANCHEDKARNIKMENDEL_R0)
     
-    def getCentroidKM(self,mf) -> Tuple:
+    def getCentroidKM(self,mf: IntervalT2MF_Interface) -> Tuple:
         """Centroid using the Karnikmendel method"""
         if mf == None:
             return Tuple(float("nan"),float("nan"))
@@ -157,7 +160,7 @@ class IntervalT2Engine_Centroid():
 
         return Tuple(y_l,y_r)
 
-    def getCentroid_enhanced(self,mf,divisor_left,divisor_right) -> Tuple:
+    def getCentroid_enhanced(self,mf: IntervalT2MF_Interface,divisor_left: float,divisor_right: float) -> Tuple:
         """Return the centroid tuple according to the enhanced KM"""
         yDash = 0
         y_l = 0
@@ -271,7 +274,7 @@ class IntervalT2Engine_Centroid():
 
         return Tuple(y_l,y_r)
 
-    def getWeightedSum(self,x,w) -> float:
+    def getWeightedSum(self,x: List[float],w: List[float]) -> float:
         """Return the weighted sum from two arrays"""
         temp = 0.0
         temp2 = 0.0

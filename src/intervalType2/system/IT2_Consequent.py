@@ -32,7 +32,7 @@ class IT2_Consequent():
     
     """
 
-    def __init__(self,m,output,name = None,centroid = None) -> None:
+    def __init__(self,m: IntervalT2MF_Interface,output: Output,name: str = None,centroid: Tuple = None) -> None:
         if centroid != None:
             self.centroid = centroid
         else:
@@ -56,7 +56,7 @@ class IT2_Consequent():
     def getOutput(self) -> Output:
         return self.output
     
-    def setName(self,name) -> None:
+    def setName(self,name: str) -> None:
         self.name = name
     
     def getMembershipFunction(self) -> IntervalT2MF_Interface:

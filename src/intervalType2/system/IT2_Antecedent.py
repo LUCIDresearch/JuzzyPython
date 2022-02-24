@@ -37,7 +37,7 @@ class IT2_Antecedent():
 
     """
     
-    def __init__(self,m,i,name = None) -> None:
+    def __init__(self,m: IntervalT2MF_Interface,i: Input,name: str = None) -> None:
         self.DEBUG = False
         self.mF = m
         self.input = i
@@ -58,7 +58,7 @@ class IT2_Antecedent():
             print("Result is: "+self.mF.getFS(self.input.getInput()).toString())
         return self.mF.getFS(self.input.getInput())
     
-    def setInput(self,input_) -> None:
+    def setInput(self,input_: Input) -> None:
         """Set the input"""
         self.input = input_
     
@@ -74,11 +74,11 @@ class IT2_Antecedent():
         """Return the name of the antecedent"""
         return self.name
     
-    def setName(self,name) -> None:
+    def setName(self,name: str) -> None:
         """Set the name of the antecedent"""
         self.name = name
 
-    def getMax(self,tNorm) -> Tuple:
+    def getMax(self,tNorm: int) -> Tuple:
         """Returns the arg sup of the t-norm between the membership function of the antecedent and the 
         membership function of the input (in case of NSF)"""
         xmax = Tuple(0.0,0.0)
@@ -125,7 +125,7 @@ class IT2_Antecedent():
         """Convert the antecedent to string"""
         return "IT2 Antecedent (current input is:"+str(self.getInput().getInput())+"), with MF: "+ str(self.mF)
     
-    def compareTo(self,o) -> int:
+    def compareTo(self,o: object) -> int:
         """Compare the antecededent mF to another of the same type"""
         if not isinstance(o.getMF(),IntervalT2MF_Interface):
             raise Exception("A Membership function (inplementing T1MF_Interface) object is expected.")

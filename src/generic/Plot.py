@@ -3,11 +3,11 @@ Plot.py
 Created 21/12/2021
 """
 import sys
-from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
 
 
 sys.path.append("..")
 from generic.Tuple import Tuple
+from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
 
 from type1.sets.T1MF_Interface import T1MF_Interface
 

@@ -28,7 +28,7 @@ class IntervalT2MF_Gaussian(IntervalT2MF_Prototype):
         
     """
 
-    def __init__(self, name, uMF=None, lMF=None) -> None:
+    def __init__(self, name: str, uMF: T1MF_Gaussian=None, lMF: T1MF_Gaussian=None) -> None:
         if uMF == None and lMF == None:
             super().__init__(name)
         else:
@@ -47,7 +47,7 @@ class IntervalT2MF_Gaussian(IntervalT2MF_Prototype):
         """Return the lower membership function"""
         return self.lMF
     
-    def getFS(self, x) -> float:
+    def getFS(self, x: float) -> float:
         """Return the firing strength of the function """
         if x < self.support.getLeft():
             return Tuple(0.0,0.0)

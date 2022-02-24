@@ -72,7 +72,7 @@ class IT2_Rulebase():
         return 0: type-1, 1: interval type-2, 2: zSlices based general type-2"""
         return 1
 
-    def addRule(self,r) -> None:
+    def addRule(self,r: IT2_Rule) -> None:
         """Add a new rule to the rule set"""
         self.rules.append(r)
         it = r.getConsequents()
@@ -81,7 +81,7 @@ class IT2_Rulebase():
             if not o in self.outputs:
                 self.outputs.append(o)
     
-    def addRules(self,r) -> None:
+    def addRules(self,r: List[IT2_Rule]) -> None:
         """Add multiple new rules to the rule set"""
         for i in range(len(r)):
             self.addRule(i)
@@ -94,7 +94,7 @@ class IT2_Rulebase():
         """Get the number of rules in the set"""
         return len(self.rules)
     
-    def evaluateGetCentroid(self,typeReductionType) -> dict:
+    def evaluateGetCentroid(self,typeReductionType: int) -> dict:
         """Returns the output of the FLS after type-reduction, i.e. the centroid.
         return A TreeMap where Output is used as key and the value is an Object[]
         where Object[0] is a Tuple (the centroid) and Object[1] is a Double holding
@@ -115,7 +115,7 @@ class IT2_Rulebase():
 
         return returnValue
 
-    def evaluate(self,typeReductionType) -> dict:
+    def evaluate(self,typeReductionType: int) -> dict:
         """Returns typereduced & defuzzified result of evaluating all rules in the rulebase.
         typeReductionType: The type of type reducer to be used: 0-Center-Of-Sets, 
         1-Centroid.
@@ -296,7 +296,7 @@ class IT2_Rulebase():
             returnValue[o] = current
         return returnValue
 
-    def weightedSigma(self,w,y) -> float:
+    def weightedSigma(self,w: List[float],y: List[IT2_COSInferenceData]) -> float:
         """Return the sigma based on COS inference data"""
         numerator = 0.0
         denominator = 0.0
@@ -310,7 +310,7 @@ class IT2_Rulebase():
         else:
             return numerator/denominator
     
-    def removeRule(self,ruleNumber) -> None:
+    def removeRule(self,ruleNumber: int) -> None:
         """Remove a rule based on its index"""
         del self.rules[ruleNumber]
     
@@ -321,7 +321,7 @@ class IT2_Rulebase():
         else:
             return "minimum"
     
-    def setImplicationMethod(self,implicationMethod) -> None:
+    def setImplicationMethod(self,implicationMethod: int) -> None:
         """Set the product or minimum implication method"""
         if implicationMethod == self.PRODUCT:
             self.implicationMethod = self.PRODUCT

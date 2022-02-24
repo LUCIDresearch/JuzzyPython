@@ -46,19 +46,19 @@ class IntervalT2MF_Interface(MF_Interface):
     def getName(self) -> str:
         pass
 
-    def setName(self, name) -> None:
+    def setName(self, name: str) -> None:
         pass
 
     def getSupport(self) -> Tuple:
         pass
 
-    def setSupport(self, support) -> None:
+    def setSupport(self, support: Tuple) -> None:
         pass
 
-    def setLeftShoulder(self, value) -> None:
+    def setLeftShoulder(self, value: bool) -> None:
         pass
 
-    def setRightShoulder(self, value) -> None:
+    def setRightShoulder(self, value: bool) -> None:
         pass    
 
     def isLeftShoulder(self) -> bool:
@@ -70,13 +70,13 @@ class IntervalT2MF_Interface(MF_Interface):
     def toString(self) -> str:
         pass
     
-    def compareTo(self,o) -> int:
+    def compareTo(self,o: object) -> int:
         pass
 
-    def getUpperBound(self,x) -> float:
+    def getUpperBound(self,x: float) -> float:
         pass
     
-    def getLowerBound(self,x) -> float:
+    def getLowerBound(self,x: float) -> float:
         pass
     
     def getUMF(self) -> T1MF_Interface:
@@ -85,8 +85,8 @@ class IntervalT2MF_Interface(MF_Interface):
     def getLMF(self) -> T1MF_Interface:
         pass
 
-    def getFSAverage(self,x) -> float:
+    def getFSAverage(self,x: float) -> float:
         pass
     
-    def getCentroid(primaryDiscretisationLevel) -> Tuple:
+    def getCentroid(self,primaryDiscretisationLevel: int) -> Tuple:
         pass

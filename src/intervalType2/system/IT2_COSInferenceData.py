@@ -31,7 +31,7 @@ class IT2_COSInferenceData():
         __lt__
     """
 
-    def __init__(self,f,c) -> None:
+    def __init__(self,f: Tuple,c: float) -> None:
         self.firingStrength = f
         self.centroidValue = c
     
@@ -43,7 +43,7 @@ class IT2_COSInferenceData():
         """Return the centroid value"""
         return self.centroidValue
     
-    def compareTo(self,o) -> int:
+    def compareTo(self,o: object) -> int:
         """Compare to another COS inference data class"""
         if self.getSelectedCentroidEndpoint() < o.getSelectedCentroidEndpoint():
             return -1
@@ -58,8 +58,8 @@ class IT2_COSInferenceData():
     
     #Comparable methods
     
-    def __eq__(self,other):
+    def __eq__(self,other: object):
         return isinstance(other,IT2_COSInferenceData) and self.getSelectedCentroidEndpoint() == other.getSelectedCentroidEndpoint()
 
-    def __lt__(self,other):
+    def __lt__(self,other: object):
         return isinstance(other,IT2_COSInferenceData) and self.getSelectedCentroidEndpoint() < other.getSelectedCentroidEndpoint()

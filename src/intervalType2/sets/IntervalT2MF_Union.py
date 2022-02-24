@@ -3,7 +3,9 @@ IntervalT2MF_Union.py
 Created 9/1/2022
 """
 import sys
+
 sys.path.append("..")
+from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
 
 from generic.Tuple import Tuple
 from intervalType2.sets.IntervalT2MF_Prototype import IntervalT2MF_Prototype
@@ -25,7 +27,7 @@ class IntervalT2MF_Union(IntervalT2MF_Prototype):
 
     """
     
-    def __init__(self, a,b) -> None:
+    def __init__(self, a: IntervalT2MF_Interface,b: IntervalT2MF_Interface) -> None:
         self.DEBUG = False
         self.isNull_ = False
         self.sets = {}
