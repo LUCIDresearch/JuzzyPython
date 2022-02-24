@@ -3,10 +3,16 @@ Plot.py
 Created 21/12/2021
 """
 import sys
+from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
+
 
 sys.path.append("..")
+from generic.Tuple import Tuple
+
+from type1.sets.T1MF_Interface import T1MF_Interface
 
 from generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
+from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
 
 from generalType2zSlices.sets.GenT2MF_Trapezoidal import GenT2MF_Trapezoidal
 import numpy as np
@@ -46,7 +52,7 @@ class Plot:
         """Create a new 3d plot to draw upon"""
         self.fig, self.ax = plt.subplots(subplot_kw={"projection": "3d"})
 
-    def title(self,title):
+    def title(self,title: str):
         """Set the title of the current figure"""
         plt.title(title)
     
@@ -55,7 +61,7 @@ class Plot:
         plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
         plt.tight_layout()
 
-    def plotControlSurface(self,x,y,z,xLabel,yLabel,zLabel) -> None:
+    def plotControlSurface(self,x: List[float],y: List[float],z: List[List[float]],xLabel: str,yLabel: str,zLabel: str) -> None:
         """Plot a 3D surface showcasing the relationship between input (x,y) and output z"""
         fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
         
@@ -66,7 +72,7 @@ class Plot:
         ax.set_zlabel(zLabel)
         plt.title("Control Surface")
     
-    def plotMF2(self,xaxis,name,sets,xDisc,addExtraEndPoints) -> None:
+    def plotMF2(self,xaxis: str,name: str,sets: IntervalT2MF_Interface,xDisc: int,addExtraEndPoints: bool) -> None:
         x = self.discretize(sets.getSupport(),xDisc)
         y1 = [0] * xDisc
         y2 = [0] * xDisc
@@ -105,7 +111,7 @@ class Plot:
         plt.ylabel("μ")
         plt.xlabel(xaxis)
         
-    def plotMF(self,xaxis,name,sets,xDisc,xAxisRange,yAxisRange,addExtraEndPoints) -> None:
+    def plotMF(self,xaxis: str,name: str,sets: T1MF_Interface,xDisc: int,xAxisRange: Tuple,yAxisRange: Tuple,addExtraEndPoints: bool) -> None:
         """Plot a membership function on the current figure"""
         x = self.discretize(sets.getSupport(),xDisc)
         y = [0] * xDisc
@@ -128,7 +134,7 @@ class Plot:
         plt.ylabel("μ")
         plt.xlabel(xaxis)
     
-    def plotMFasLines(self,sets,xDisc) -> None:
+    def plotMFasLines(self,sets: GenT2MF_Interface,xDisc: int) -> None:
         self.ax.set_xlabel("x")
         self.ax.set_ylabel("y")
         self.ax.set_zlabel("z")
@@ -158,7 +164,7 @@ class Plot:
     def turnOnInteraction(self):
         plt.ion()
 
-    def plotMFasSurface(self,plotName,sets,xAxisRange,xDisc,addExtraPoints):
+    def plotMFasSurface(self,plotName: str,sets: GenT2MF_Interface,xAxisRange: Tuple,xDisc: int,addExtraPoints: bool):
         self.ax.set_xlabel("X-Axis")
         self.ax.set_ylabel("Y-Axis")
         self.ax.set_zlabel("Z-Axis")
@@ -275,7 +281,7 @@ class Plot:
                 x,y = np.meshgrid(xLower,zLower)
                 self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower),alpha = 0.5)
 
-    def discretize(self,support,discLevel) -> List[float]:
+    def discretize(self,support: Tuple,discLevel: int) -> List[float]:
         """Discretize the support values"""
         d = [0] * discLevel
         stepSize = (support.getSize())/(discLevel-1.0)

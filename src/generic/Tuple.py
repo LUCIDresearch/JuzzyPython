@@ -35,7 +35,7 @@ class Tuple:
         compareTo 
     """
 
-    def __init__(self,l = None,r = None) -> None:
+    def __init__(self,l: float = None,r: float = None) -> None:
         self.tuple = [0.0,0.0]
         if l != None and r != None:
             self.tuple[0] = l
@@ -45,15 +45,15 @@ class Tuple:
         """Creates a duplicate copy of the tuple object"""
         return Tuple(self.getLeft(),self.getRight())
     
-    def setLeft(self,l) -> None:
+    def setLeft(self,l: float) -> None:
         """Set the left value"""
         self.tuple[0] = l
     
-    def setRight(self,r) -> None:
+    def setRight(self,r: float) -> None:
         """Set the right value"""
         self.tuple[1] = r
     
-    def setEqual(self,t) -> None:
+    def setEqual(self,t: Tuple) -> None:
         """Copy a tuple into the current object"""
         self.tuple[0] = t.getLeft()
         self.tuple[1] = t.getRight()
@@ -70,7 +70,7 @@ class Tuple:
         """Return the average of left and right"""
         return (sum(self.tuple))/2.0
     
-    def contains(self,x) -> bool:
+    def contains(self,x: float) -> bool:
         """Returns true if the parameter falls within the interval defined by the Tuple"""
         return (x >= self.getLeft() and x <= self.getRight())
 
@@ -82,11 +82,11 @@ class Tuple:
         """Returns a string of the current tuple"""
         return "left = "+str(self.getLeft())+" and right = "+str(self.getRight())
     
-    def add(self,x) -> Tuple:
+    def add(self,x: Tuple) -> Tuple:
         """Add the values of another tuple onto the current one"""
         return Tuple(self.getLeft()+x.getLeft(),self.getRight()+x.getRight())
     
-    def compareTo(self,o) -> int:
+    def compareTo(self,o: object) -> int:
         """Compare tuple values of another object and return an int"""
         if self.getRight() < o.getRight():
             return -1
@@ -99,10 +99,10 @@ class Tuple:
         else:
             return 0
 
-    def __eq__(self, o):
+    def __eq__(self, o: object):
         return isinstance(o,Tuple) and self.getRight() == o.getRight() and self.getLeft() == o.getLeft()
 
-    def __lt__(self, o):
+    def __lt__(self, o: object):
         if isinstance(o,Tuple):
             if self.getRight() < o.getRight():
                 return True

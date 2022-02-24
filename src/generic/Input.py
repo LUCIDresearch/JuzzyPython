@@ -52,7 +52,7 @@ class Input:
       
     """
 
-    def __init__(self,name,domain,x=None,inputMF=None) -> None:
+    def __init__(self,name: str,domain: Tuple,x: float=None,inputMF: MF_Interface=None) -> None:
         self.name = name
         self.domain = domain
         if inputMF == None:
@@ -69,7 +69,7 @@ class Input:
         """Return the name of the Input"""
         return self.name
     
-    def setName(self,name) -> None:
+    def setName(self,name: str) -> None:
         """Set the name of the input"""
         self.name = name
     
@@ -81,11 +81,11 @@ class Input:
         """Get the range of the input"""
         return self.domain
     
-    def setDomain(self,domain) -> None:
+    def setDomain(self,domain: Tuple) -> None:
         """Set the range of the input"""
         self.domain = domain
     
-    def setInput(self,x) -> None:
+    def setInput(self,x: float) -> None:
         """Set the numeric input value x for this input and change its membership function"""
         if self.domain.contains(x):
             self.x = x
@@ -251,7 +251,7 @@ class Input:
         """Return the input membership function"""
         return self.inputMF
     
-    def setInputMF(self,inputMF) -> None:
+    def setInputMF(self,inputMF: MF_Interface) -> None:
         """Set a new input membership function"""
         if isinstance(inputMF,T1MF_Interface):
             if self.domain.contains(inputMF.getPeak()):

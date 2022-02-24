@@ -31,7 +31,7 @@ class Output:
         getDiscretisations
     """
 
-    def __init__(self,name,domain,discretisationLevel = None) -> None:
+    def __init__(self,name: str,domain: Tuple,discretisationLevel: int = None) -> None:
         self.discretisationLevel = 100
         self.name = name
         self.domain = domain
@@ -43,7 +43,7 @@ class Output:
         """Return the name of the output"""
         return self.name
     
-    def setName(self,name) -> None:
+    def setName(self,name: str) -> None:
         """Set the name of the output"""
         self.name = name
     
@@ -51,7 +51,7 @@ class Output:
         """Get the current discretisation level"""
         return self.discretisationLevel
     
-    def setDiscretisationLevel(self,level) -> None:
+    def setDiscretisationLevel(self,level: int) -> None:
         """Set a new discretisation level"""
         self.discretisationLevel = level
     
@@ -59,7 +59,7 @@ class Output:
         """Get the current domain tuple"""
         return self.domain
     
-    def setDomain(self,domain):
+    def setDomain(self,domain: Tuple):
         """Set a new domain"""
         self.domain = domain
     
@@ -79,10 +79,10 @@ class Output:
         else:
             return self.discretisedDomain
     
-    def __eq__(self, o):
+    def __eq__(self, o: object):
         return isinstance(o,Output) and self.getName() == o.getName()
 
-    def __lt__(self, o):
+    def __lt__(self, o: object):
         return isinstance(o,Output) and self.getName() < o.getName()
 
     def __hash__(self) -> int:
