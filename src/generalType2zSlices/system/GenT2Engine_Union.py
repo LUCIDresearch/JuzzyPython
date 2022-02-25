@@ -31,7 +31,7 @@ class GenT2Engine_Union():
         self.GEOMETRIC = 1
         self.union_method = self.TRADITIONAL
     
-    def getUnion(self,a,b) -> GenT2MF_Interface:
+    def getUnion(self,a: GenT2MF_Interface,b: GenT2MF_Interface) -> GenT2MF_Interface:
         """Return the union of two sets"""
         if a == None:
             return b

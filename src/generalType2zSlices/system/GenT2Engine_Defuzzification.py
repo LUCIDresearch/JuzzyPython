@@ -38,7 +38,7 @@ class GenT2Engine_Defuzzification():
         self.DEBUG_S = False
         self.IEC = IntervalT2Engine_Centroid(primaryDiscretizationLevel)
     
-    def typeReduce(self,s) -> Tuple:
+    def typeReduce(self,s: GenT2MF_Interface) -> Tuple:
         """Returns a tuple of the type reduced set"""
         if s == None:
             if self.DEBUG:
@@ -70,7 +70,7 @@ class GenT2Engine_Defuzzification():
         
         return Tuple(dividend_left/divisor_left,dividend_right/divisor_right)
     
-    def typeReduce_standard(self,s,xRes,yRes) -> float:
+    def typeReduce_standard(self,s: GenT2MF_Interface,xRes: int,yRes: int) -> float:
         """Returns a typereduced and defuzzified set using the standard general type-2 wavy slice centroid method.
         param set The Type 2 set to type reduce.
         param xResolution Determines how fine the type 2 set should be discretised along the x-axis.
@@ -182,7 +182,7 @@ class GenT2Engine_Defuzzification():
 
         return self.crisp_output
     
-    def printSlices(self,o) -> None:
+    def printSlices(self,o: List[object]) -> None:
         """Print the slices in the set"""
         for i in range(len(o)):
             print("Slice "+str(i)+" with length "+str(len(o[i])))

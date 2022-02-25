@@ -2,6 +2,7 @@
 GenT2_Rule.py
 Created 8/1/2022
 """
+from __future__ import annotations
 import sys
 sys.path.append("..")
 
@@ -51,7 +52,7 @@ class GenT2_Rule():
 
     """
 
-    def __init__(self,antecedents,consequent = None, consequents = None) -> None:
+    def __init__(self,antecedents: List[GenT2_Antecedent],consequent: GenT2_Consequent = None, consequents: List[GenT2_Consequent] = None) -> None:
         self.antecedents = antecedents
         self.consequents = {}
         self.DEBUG = False
@@ -148,7 +149,7 @@ class GenT2_Rule():
             rs[i] = IT2_Rule(As,consequents=Cs)
         return rs
     
-    def equals(self,rule) -> bool:
+    def equals(self,rule: GenT2_Rule) -> bool:
         """Check if rule is equal to another"""
         if self == rule:
             return True

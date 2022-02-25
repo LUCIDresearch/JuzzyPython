@@ -3,6 +3,7 @@ GenT2MF_Trapezoidal.py
 Created 3/1/2022
 """
 from __future__ import annotations
+from typing import List
 import sys
 
 from numpy import number
@@ -29,7 +30,7 @@ class GenT2MF_Trapezoidal(GenT2MF_Prototype):
  
     """
 
-    def __init__(self, name,primer = None,primer0 = None, primer1 = None,primers = None, numberOfzLevels = None) -> None:
+    def __init__(self, name: str,primer: IntervalT2MF_Trapezoidal = None,primer0: IntervalT2MF_Trapezoidal = None, primer1: IntervalT2MF_Trapezoidal = None,primers: List[IntervalT2MF_Trapezoidal] = None, numberOfzLevels = None) -> None:
         super().__init__(name)
         self.DEBUG = False
         if primer != None:
@@ -145,7 +146,7 @@ class GenT2MF_Trapezoidal(GenT2MF_Prototype):
         print("Not implemented")
         return None
     
-    def getZSlice(self, slice_number) -> IntervalT2MF_Trapezoidal:
+    def getZSlice(self, slice_number: int) -> IntervalT2MF_Trapezoidal:
         """Return the slice number"""
         return self.zSlices[slice_number]
 

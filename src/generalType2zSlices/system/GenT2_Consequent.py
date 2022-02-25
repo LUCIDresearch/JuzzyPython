@@ -34,7 +34,7 @@ class GenT2_Consequent():
        
     """
 
-    def __init__(self,name,set_,output) -> None:
+    def __init__(self,name: str,set_: GenT2MF_Interface,output: Output) -> None:
         self.set = set_
         self.name = name
         self.output = output
@@ -48,7 +48,7 @@ class GenT2_Consequent():
         """Return the name of the consequent"""
         return self.name
     
-    def setName(self,name) -> None:
+    def setName(self,name: str) -> None:
         """Set the name of the consequent"""
         self.name = name
     
@@ -56,7 +56,7 @@ class GenT2_Consequent():
         """Get the output of the consequent"""
         return self.output
     
-    def setOutput(self,o) -> None:
+    def setOutput(self,o: Output) -> None:
         """Set the output of the consequent"""
         self.output = o
     
@@ -67,7 +67,7 @@ class GenT2_Consequent():
             cons[i] = IT2_Consequent(self.getSet().getZSlice(i),self.getOutput(),self.getName()+"_zSlices:"+str(i))
         return cons
     
-    def equals(self,a) -> bool:
+    def equals(self,a: object) -> bool:
         """Check if equal to class"""
         if self == a:
             return True

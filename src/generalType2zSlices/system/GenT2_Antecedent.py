@@ -36,7 +36,7 @@ class GenT2_Antecedent():
     
     """
 
-    def __init__(self,name,set,input) -> None:
+    def __init__(self,name: str,set: GenT2MF_Interface,input: Input) -> None:
         self.name = name
         self.input = input
         self.set = set
@@ -45,7 +45,7 @@ class GenT2_Antecedent():
         """Return the name of the antecedent"""
         return self.name
     
-    def setName(self,name) -> None:
+    def setName(self,name: str) -> None:
         """set the name of the antecedent"""
         self.name = name
     
@@ -71,7 +71,7 @@ class GenT2_Antecedent():
         """Return the input"""
         return self.input
     
-    def equals(self,a) -> bool:
+    def equals(self,a: object) -> bool:
         """Check if equal to class"""
         if self == a:
             return True

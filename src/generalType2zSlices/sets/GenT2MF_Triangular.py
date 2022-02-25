@@ -3,7 +3,7 @@ GenT2MF_Triangular.py
 Created 3/1/2022
 """
 import sys
-
+from typing import List
 from numpy import number
 sys.path.append("..")
 
@@ -37,7 +37,7 @@ class GenT2MF_Triangular(GenT2MF_Prototype):
     
     """
 
-    def __init__(self, name,primer = None,primer0 = None, primer1 = None,primers = None, numberOfzLevels = None) -> None:
+    def __init__(self, name: str,primer: IntervalT2MF_Triangular = None,primer0: IntervalT2MF_Triangular = None, primer1: IntervalT2MF_Triangular = None,primers: List[IntervalT2MF_Triangular] = None, numberOfzLevels: int = None) -> None:
         super().__init__(name)
         self.DEBUG = False
         if primer != None:

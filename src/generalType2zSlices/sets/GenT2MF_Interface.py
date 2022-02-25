@@ -38,7 +38,7 @@ class GenT2MF_Interface(MF_Interface):
        
     """
 
-    def getFS(self,x) -> float:
+    def getFS(self,x: float) -> float:
         pass
 
     def getPeak(self) -> float:
@@ -47,13 +47,13 @@ class GenT2MF_Interface(MF_Interface):
     def getName(self) -> str:
         pass
 
-    def setName(self, name) -> None:
+    def setName(self, name: str) -> None:
         pass
 
     def getSupport(self) -> Tuple:
         pass
 
-    def setSupport(self, support) -> None:
+    def setSupport(self, support: Tuple) -> None:
         pass
 
     def isLeftShoulder(self) -> bool:
@@ -65,22 +65,22 @@ class GenT2MF_Interface(MF_Interface):
     def toString(self) -> str:
         pass
     
-    def getFSWeightedAverage(self,x) -> float:
+    def getFSWeightedAverage(self,x: float) -> float:
         pass
     
-    def getCentroid(self,primaryDiscretisationLevel) -> Tuple:
+    def getCentroid(self,primaryDiscretisationLevel: int) -> Tuple:
         pass
     
     def getZValues(self) -> List[float]:
         pass
     
-    def getZValue(self,slice_number) -> float:
+    def getZValue(self,slice_number: int) -> float:
         pass
 
-    def setZSlice(self,zSlice,zLevel) -> None:
+    def setZSlice(self,zSlice: IntervalT2MF_Interface,zLevel: int) -> None:
         pass
 
-    def getZSlice(self,slice_number) -> IntervalT2MF_Interface:
+    def getZSlice(self,slice_number: int) -> IntervalT2MF_Interface:
         pass
 
     def getNumberOfSlices(self) -> int:

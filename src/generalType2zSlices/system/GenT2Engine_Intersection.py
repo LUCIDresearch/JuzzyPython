@@ -31,7 +31,7 @@ class GenT2Engine_Intersection():
         self.GEOMETRIC = 1
         self.intersection_method = self.TRADITIONAL
     
-    def getIntersection(self,a,b) -> GenT2MF_Interface:
+    def getIntersection(self,a: GenT2MF_Interface,b: GenT2MF_Interface) -> GenT2MF_Interface:
         """Return the intersection of two sets"""
         if a == None or b == None:
             return None

@@ -30,7 +30,7 @@ class GenT2MF_Union(GenT2MF_Prototype):
        
     """
 
-    def __init__(self, name,numberOfzLevels,slices_zValues,zSlices) -> None:
+    def __init__(self, name: str,numberOfzLevels: int,slices_zValues: List[float],zSlices: List[IntervalT2MF_Interface]) -> None:
         super().__init__(name)
         self.numberOfzLevels = numberOfzLevels
         self.slices_zValues = slices_zValues.copy()
@@ -41,7 +41,7 @@ class GenT2MF_Union(GenT2MF_Prototype):
         """Clone the class"""
         return GenT2MF_Union(self.name,self.numberOfzLevels,self.slices_zValues,self.zSlices)
     
-    def getFS(self, x) -> float:
+    def getFS(self, x: float) -> float:
         """Return the firing strength"""
         slice_ = T1MF_Discretized("VSlice",len(self.zSlices))
 

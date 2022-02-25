@@ -5,6 +5,8 @@ Created 2/1/2022
 from __future__ import annotations
 
 import sys
+
+from type1.sets.T1MF_Interface import T1MF_Interface
 sys.path.append("..")
 
 from generic.Tuple import Tuple
@@ -27,7 +29,7 @@ class GenT2MF_CylExtension(GenT2MF_Prototype):
 
     """
 
-    def __init__(self, baseSet,zDiscLevel) -> None:
+    def __init__(self, baseSet: T1MF_Interface,zDiscLevel: int) -> None:
         super().__init__("GenT2zCyl-ext-of-"+baseSet.getName())
         self.baseSet = baseSet
         self.zDiscretizationLevel = zDiscLevel

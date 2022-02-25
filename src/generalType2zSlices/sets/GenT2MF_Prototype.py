@@ -43,21 +43,21 @@ class GenT2MF_Prototype(GenT2MF_Interface):
        
     """
 
-    def __init__(self,name) -> None:
+    def __init__(self,name: str) -> None:
         self.name = name
         self.isLeftShoulder_ = False
         self.isRightShoulder_ = False
         self.DEBUG = False
 
-    def setLeftShoulder(self,isLeftShoulder):
+    def setLeftShoulder(self,isLeftShoulder: bool):
         """Set the left shoulder"""
         self.isLeftShoulder_ = isLeftShoulder
     
-    def setRightShoulder(self,isRightShoulder):
+    def setRightShoulder(self,isRightShoulder: bool):
         """Set the right shoulder"""
         self.isRightShoulder_ = isRightShoulder
 
-    def getFS(self,x) -> T1MF_Discretized:
+    def getFS(self,x: float) -> T1MF_Discretized:
         """Return the firing strength"""
         slice_ = T1MF_Discretized("VerticalSlice_at"+x+"_of_"+self.getName(), self.numberOfzLevels)
 
@@ -85,7 +85,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         """Return the name"""
         return self.name
 
-    def setName(self, name) -> None:
+    def setName(self, name: str) -> None:
         """Set the name"""
         self.name = name
 
@@ -93,7 +93,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         """Get the support Tuple"""
         return self.support
 
-    def setSupport(self, support) -> None:
+    def setSupport(self, support: Tuple) -> None:
         """Set the support tuple"""
         self.support = support
 
@@ -113,7 +113,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         s+="]\n"
         return s
     
-    def getFSWeightedAverage(self,x) -> float:
+    def getFSWeightedAverage(self,x: float) -> float:
         """Returns the weighted average of the firing strength of the zSlices of this
         set. Employed for example in order to compare the firing strength for a
         given input of mutliple zSlices based general type-2 fuzzy sets."""
@@ -124,7 +124,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
             denominator += self.getZValue(i)
         return numerator/denominator
     
-    def getCentroid(self,primaryDiscretisationLevel) -> T1MF_Discretized:
+    def getCentroid(self,primaryDiscretisationLevel: int) -> T1MF_Discretized:
         """Get the discretized T1 MF function"""
         slice_ = T1MF_Discretized("Centroid of"+self.getName(), self.numberOfzLevels)
 
@@ -154,7 +154,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         for i in range(len(self.slices_zValues)):
             self.slices_zValues[i] = firstStep+i*stepSize
     
-    def getZValue(self,slice_number) -> float:
+    def getZValue(self,slice_number: int) -> float:
         """Return a specific slice """
         if slice_number >= self.getNumberOfSlices():
             raise Exception("The zSlice reference "+str(slice_number)+" is invalid as the set has only "+str(self.getNumberOfSlices())+" zSlices.")
@@ -164,7 +164,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
             self.setZValues()
             return self.slices_zValues[slice_number] 
 
-    def setZSlice(self,zSlice,zLevel) -> None:
+    def setZSlice(self,zSlice: IntervalT2MF_Interface,zLevel: int) -> None:
         """Method to set or swap a specific zSlice. The method replaces a specific 
         zSlice with the given zSlice respectively IT2 set. Note that currently
         NO checks whether a 
@@ -172,7 +172,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         restrictions are done - no exceptions are thrown!"""
         self.zSlices[zLevel] = zSlice
 
-    def getZSlice(self,slice_number) -> IntervalT2MF_Interface:
+    def getZSlice(self,slice_number: int) -> IntervalT2MF_Interface:
         """Get a specific z slice"""
         if slice_number >= self.getNumberOfSlices():
             raise Exception("The zSlice reference "+str(slice_number)+" is invalid as the set has only "+str(self.getNumberOfSlices())+" zSlices.")

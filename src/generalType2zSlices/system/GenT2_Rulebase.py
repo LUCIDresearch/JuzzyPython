@@ -6,31 +6,13 @@ import sys
 
 sys.path.append("..")
 
-from generic.Input import Input
-from generic.Output import Output
-from generic.Tuple import Tuple
-
 from generalType2zSlices.system.GenT2Engine_Intersection import GenT2Engine_Intersection
 from generalType2zSlices.system.GenT2Engine_Union import GenT2Engine_Union
 from generalType2zSlices.system.GenT2_Rule import GenT2_Rule
-
-from generalType2zSlices.system.GenT2_Antecedent import GenT2_Antecedent
-from generalType2zSlices.system.GenT2_Consequent import GenT2_Consequent
-from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
-from generalType2zSlices.sets.GenT2MF_CylExtension import GenT2MF_CylExtension
-from generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
-from generalType2zSlices.sets.GenT2MF_Intersection import GenT2MF_Intersection
-
 from intervalType2.system.IT2_Rulebase import IT2_Rulebase
-from intervalType2.system.IT2_Rule import IT2_Rule
-from intervalType2.system.IT2_Antecedent import IT2_Antecedent
-from intervalType2.system.IT2_Consequent import IT2_Consequent
-from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
+from generalType2zSlices.system.GenT2_Antecedent import GenT2_Antecedent
 
-from type1.sets.T1MF_Interface import T1MF_Interface
-from type1.sets.T1MF_Meet import T1MF_Meet
 from typing import List, OrderedDict
-
 class GenT2_Rulebase():
     """
     Class GenT2_Rulebase
@@ -74,7 +56,7 @@ class GenT2_Rulebase():
         self.gzEU = GenT2Engine_Union()
         self.gzEI = GenT2Engine_Intersection()
     
-    def addRule(self,r) -> None:
+    def addRule(self,r: GenT2_Rule) -> None:
         """Add a new rule to the rule set"""
         self.rules.append(r)
         it = r.getConsequents()
@@ -83,7 +65,7 @@ class GenT2_Rulebase():
             if not o in self.outputs:
                 self.outputs.append(o)
     
-    def addRules(self,r) -> None:
+    def addRules(self,r: List[GenT2_Rule]) -> None:
         """Add multiple new rules to the rule set"""
         for i in range(len(r)):
             self.addRule(i)
@@ -92,7 +74,7 @@ class GenT2_Rulebase():
         """Return all the rules in the set"""
         return self.rules
     
-    def getRule(self,ruleNum) -> GenT2_Rule:
+    def getRule(self,ruleNum: int) -> GenT2_Rule:
         """Return a specific rule"""
         return self.rules[ruleNum]
     
@@ -105,7 +87,7 @@ class GenT2_Rulebase():
         return 0: type-1, 1: interval type-2, 2: zSlices based general type-2"""
         return 2
     
-    def containsRule(self,rule) -> bool:
+    def containsRule(self,rule: GenT2_Rule) -> bool:
         """Check if a rule in the ruleset"""
         return rule in self.rules
     
@@ -117,7 +99,7 @@ class GenT2_Rulebase():
         """Return the union engine"""
         return self.gzEU
     
-    def removeRule(self,ruleNumber) -> None:
+    def removeRule(self,ruleNumber: int) -> None:
         """Remove a rule based on its index"""
         del self.rules[ruleNumber]
     
@@ -128,7 +110,7 @@ class GenT2_Rulebase():
         else:
             return "minimum"
     
-    def setImplicationMethod(self,implicationMethod) -> None:
+    def setImplicationMethod(self,implicationMethod: int) -> None:
         """Sets the implication method, where by implication, we mean the implementation
         of the AND logical connective between parts of the antecedent.
         The desired implication method is applied for all rules."""
@@ -158,7 +140,7 @@ class GenT2_Rulebase():
                     returnValue[o] = self.gzEU.getUnion(returnValue.get(o),temp.get(o))
         return returnValue
     
-    def evaluateGetCentroid(self,typeReductionType) -> dict:
+    def evaluateGetCentroid(self,typeReductionType: int) -> dict:
         """Returns the output of the FLS after type-reduction, i.e. the centroid.
         param: typeReductionType
         return: A TreeMap where Output is used as key and the value is an Object[]
@@ -177,7 +159,7 @@ class GenT2_Rulebase():
                 returnValue[o][1].append(zValues[i])
         return returnValue
     
-    def evaluate(self,typeReductionType) -> dict:
+    def evaluate(self,typeReductionType: int) -> dict:
         """The current evaluate function is functional but inefficient. It creates an IT2
         version of all the rules in the rulebase and computes each IT2 rule separately...
         param typeReductionType: 0: Center Of Sets, 1: Centroid
@@ -216,7 +198,7 @@ class GenT2_Rulebase():
             rbs[i].setImplicationMethod(self.implicationMethod)
         return rbs
     
-    def getRulesWithAntecedents(self,antecedents) -> List[GenT2_Rule]:
+    def getRulesWithAntecedents(self,antecedents: List[GenT2_Antecedent]) -> List[GenT2_Rule]:
         """ Returns all rules with a matching (i.e. equal) set of antecedents."""
         matches = []
         for i in range(len(self.rules)):

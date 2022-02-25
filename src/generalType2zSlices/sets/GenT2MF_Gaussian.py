@@ -37,7 +37,7 @@ class GenT2MF_Gaussian(GenT2MF_Prototype):
         
     """
 
-    def __init__(self, name, primer = None,numberOfzLevels = None,primers = None) -> None:
+    def __init__(self, name: str, primer: IntervalT2MF_Gaussian = None,numberOfzLevels: int = None,primers: List[IntervalT2MF_Gaussian] = None) -> None:
         super().__init__(name)
         self.DEBUG = False
         if primer != None and numberOfzLevels != None:
@@ -112,11 +112,11 @@ class GenT2MF_Gaussian(GenT2MF_Prototype):
         """Return a copy of the class"""
         return GenT2MF_Gaussian(self.name,self.primer,self.numberOfzLevels)
     
-    def getZSlice(self, slice_number) -> IntervalT2MF_Gaussian:
+    def getZSlice(self, slice_number: int) -> IntervalT2MF_Gaussian:
         """Get the z slice at slice number"""
         return self.zSlices[slice_number]
     
-    def setSupport(self, support) -> None:
+    def setSupport(self, support: Tuple) -> None:
         """Forces new support over which MF is evaluated"""
         self.support = support
         for i in range(1,self.numberOfzLevels):

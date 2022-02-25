@@ -3,14 +3,16 @@ GenT2MF_Intersection.py
 Created 3/1/2022
 """
 from __future__ import annotations
-
+from typing import List
 import sys
+
+from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
 sys.path.append("..")
 from generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
 
 class GenT2MF_Intersection(GenT2MF_Prototype):
     """
-    Class GenT2MF_Intersection
+    Class GenT2MF_Intersections
     General Type 2 Intersection class
 
     Parameters: 
@@ -24,7 +26,7 @@ class GenT2MF_Intersection(GenT2MF_Prototype):
  
     """
 
-    def __init__(self, name,numberOfzLevels,slices_zValues,zSlices) -> None:
+    def __init__(self, name: str,numberOfzLevels: int,slices_zValues: List[float],zSlices: List[IntervalT2MF_Interface]) -> None:
         super().__init__(name)
         self.getNumberOfzLevels = numberOfzLevels
         self.slices_zValues = slices_zValues

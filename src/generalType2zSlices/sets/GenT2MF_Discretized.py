@@ -3,6 +3,7 @@ GenT2MF_Discretized.py
 Created 2/1/2022
 """
 import sys
+from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
 sys.path.append("..")
 
 from generic.Tuple import Tuple
@@ -34,7 +35,7 @@ class GenT2MF_Discretized(GenT2MF_Prototype):
 
     """
 
-    def __init__(self,gt2set,primaryDiscretizationLevel,secondaryDiscretizationLevel = None) -> None:
+    def __init__(self,gt2set: GenT2MF_Interface,primaryDiscretizationLevel: int,secondaryDiscretizationLevel: int = None) -> None:
         super().__init__("GenT2zMF_Discretized")
         self.support = gt2set.getSupport().clone()
         self.precision = 0.000001
@@ -79,7 +80,7 @@ class GenT2MF_Discretized(GenT2MF_Prototype):
         """Return the primary discretization level"""
         return self.xDiscretizationLevel
     
-    def getSetDataAt(self,x,y) -> float:
+    def getSetDataAt(self,x: int,y: int) -> float:
         """Returns third dimension membership for given array coordinates. (Use
         getDiscX() and getDiscY() to get discretization level at pointer location.)
         A filter is applied which returns 0 for any values smaller than the specified
@@ -89,11 +90,11 @@ class GenT2MF_Discretized(GenT2MF_Prototype):
         else:
             return 0
 
-    def getDiscX(self,x) -> float:
+    def getDiscX(self,x: int) -> float:
         """Returns discretization value at the specified level on the x Axis."""
         return self.xDiscretizationValues[x]
     
-    def getDiscY(self,y) -> float:
+    def getDiscY(self,y: int) -> float:
         """Returns discretization value at the specified level on the y Axis."""
         return self.yDiscretizationValues[y]
     
