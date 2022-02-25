@@ -166,8 +166,8 @@ class Plot:
 
     def plotMFasSurface(self,plotName: str,sets: GenT2MF_Interface,xAxisRange: Tuple,xDisc: int,addExtraPoints: bool):
         self.ax.set_xlabel("X-Axis")
-        self.ax.set_ylabel("Y-Axis")
-        self.ax.set_zlabel("Z-Axis")
+        self.ax.set_ylabel("Z-Axis")
+        self.ax.set_zlabel("Y-Axis")
         if isinstance(sets,GenT2MF_Triangular):
             for zLevel in range(sets.getNumberOfSlices()):
                 xUpper = [sets.getZSlice(zLevel).getUMF().getStart(), sets.getZSlice(zLevel).getUMF().getPeak(),sets.getZSlice(zLevel).getUMF().getEnd()]
