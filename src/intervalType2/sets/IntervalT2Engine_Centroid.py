@@ -39,7 +39,7 @@ class IntervalT2Engine_Centroid():
         self.ENHANCHEDKARNIKMENDEL = 1
         self.ENHANCHEDKARNIKMENDEL_L0 = 2.4
         self.ENHANCHEDKARNIKMENDEL_R0 = 1.7
-        self.centroidAlgorithmSelector = self.KARNIKMENDEL
+        self.centroidAlgorithmSelector = self.ENHANCHEDKARNIKMENDEL
         self.log = False
         self.DEBUG = False
         self.primaryDiscretisationLevel = 100
@@ -192,9 +192,11 @@ class IntervalT2Engine_Centroid():
         for i in range(k+1):
             a+= x[i]*w[i].getRight()
             b+= w[i].getRight()
-        for i in range(k+1,self.primaryDiscretisationLevel):
+        for i in range(k+1,self.primaryDiscretisationLevel+1):
             a+= x[i]*w[i].getLeft()
             b+= w[i].getLeft()
+            #print("a "+str(a))
+            #print("b "+str(b))
         y = a/b
 
         while not stopFlag:
@@ -236,7 +238,7 @@ class IntervalT2Engine_Centroid():
         for i in range(k+1):
             a+= x[i]*w[i].getLeft()
             b+= w[i].getLeft()
-        for i in range(k+1,self.primaryDiscretisationLevel):
+        for i in range(k+1,self.primaryDiscretisationLevel+1):
             a+= x[i]*w[i].getRight()
             b+= w[i].getRight()
         y = a/b
