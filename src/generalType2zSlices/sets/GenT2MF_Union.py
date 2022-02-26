@@ -41,9 +41,9 @@ class GenT2MF_Union(GenT2MF_Prototype):
         """Clone the class"""
         return GenT2MF_Union(self.name,self.numberOfzLevels,self.slices_zValues,self.zSlices)
     
-    def getFS(self, x: float) -> float:
+    def getFS(self, x: float) -> T1MF_Discretized:
         """Return the firing strength"""
-        slice_ = T1MF_Discretized("VSlice",len(self.zSlices))
+        slice_ = T1MF_Discretized("VSlice")
 
         for i in range(len(self.zSlices)):
             temp = self.getZSlice(i).getFS(x)

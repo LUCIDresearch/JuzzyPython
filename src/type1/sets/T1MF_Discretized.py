@@ -215,7 +215,7 @@ class T1MF_Discretized(T1MF_Prototype):
         self.sort()
         s = ""
         for p in self.set:
-            s += p.getLeft() + " / " + p.getRight() + "\n"
+            s += str(p.getLeft()) + " / " + str(p.getRight()) + "\n"
         return s
     
     def sort(self) -> None:
