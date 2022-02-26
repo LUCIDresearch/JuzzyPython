@@ -129,13 +129,13 @@ class GenT2MF_Trapezoidal(GenT2MF_Prototype):
             self.numberOfzLevels = len(primers)
             self.support = primers[0].getSupport()
 
-            slices_fs = [0] * numberOfzLevels
-            self.slices_zValues = [0] * numberOfzLevels
-            z_stepSize = 1.0/numberOfzLevels
+            slices_fs = [0] * self.numberOfzLevels
+            self.slices_zValues = [0] * self.numberOfzLevels
+            z_stepSize = 1.0/self.numberOfzLevels
             self.slices_zValues[0] = z_stepSize
             self.zSlices = primers.copy()
 
-            for i in range(numberOfzLevels):
+            for i in range(self.numberOfzLevels):
                 self.slices_zValues[i] = z_stepSize*(i+1)
                 if self.DEBUG:
                     print(self.zSlices[i].toString()+"  Z-Value = "+str(self.slices_zValues[i]))

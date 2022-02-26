@@ -97,7 +97,6 @@ class GenT2MF_Gaussian(GenT2MF_Prototype):
             slices_fs = [0] * self.numberOfzLevels
             slices_zValues = [0] * self.numberOfzLevels
 
-            self.zSlices = [0] * self.numberOfzLevels
             z_stepSize = 1.0/self.numberOfzLevels
             slices_zValues[0] = z_stepSize
 
