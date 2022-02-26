@@ -39,7 +39,7 @@ class IntervalT2Engine_Centroid():
         self.ENHANCHEDKARNIKMENDEL = 1
         self.ENHANCHEDKARNIKMENDEL_L0 = 2.4
         self.ENHANCHEDKARNIKMENDEL_R0 = 1.7
-        self.centroidAlgorithmSelector = self.ENHANCHEDKARNIKMENDEL
+        self.centroidAlgorithmSelector = self.KARNIKMENDEL
         self.log = False
         self.DEBUG = False
         self.primaryDiscretisationLevel = 100

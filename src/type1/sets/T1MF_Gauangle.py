@@ -54,11 +54,11 @@ class T1MF_Gauangle(T1MF_Prototype):
         self.transitionPointRight = center+((end-center)*self.similarToGaussian)
     
         if start == center:
-            self.isLeftShoulder = True
+            self.isLeftShoulder_ = True
             divLeft = float("nan")
             divRight = f(self.transitionPointRight-center)/self.spreadForRight
         elif center == end:
-            self.isRightShoulder = True
+            self.isRightShoulder_ = True
             divRight = float("nan")
             divLeft = f(self.transitionPointLeft-center)/self.spreadForLeft
         else:

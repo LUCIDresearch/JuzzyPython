@@ -84,7 +84,7 @@ class IntervalT2MF_Prototype(IntervalT2MF_Interface):
         return self.RightShoulder
 
     def toString(self) -> str:
-        return "Interval Type-2 MF with:\nName: "+self.name+"\nlMF: "+str(self.lMF)+"\nuMF: "+str(self.uMF)+"\nSupport: "+str(self.support)
+        return "Interval Type-2 MF with:\nName: "+self.name+"\nlMF: "+str(self.lMF.toString())+"\nuMF: "+str(self.uMF.toString())+"\nSupport: "+str(self.support.toString())
     
     def compareTo(self,o: object) -> int:
         pass

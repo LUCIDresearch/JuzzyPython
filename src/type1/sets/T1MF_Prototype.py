@@ -32,8 +32,8 @@ class T1MF_Prototype(T1MF_Interface):
     def __init__(self,name: str) -> None:
         super().__init__()
         self.name = name
-        self.isLeftShoulder = False
-        self.isRightShoulder = False
+        self.isLeftShoulder_ = False
+        self.isRightShoulder_ = False
         self.support = Tuple()
         self.DEBUG = False
 
@@ -55,19 +55,19 @@ class T1MF_Prototype(T1MF_Interface):
 
     def setLeftShoulder(self, value: bool) -> None:
         """Set left shoulder value"""
-        self.isLeftShoulder = value
+        self.isLeftShoulder_ = value
 
     def setRightShoulder(self, value: bool) -> None:
         """Set right shoulder value"""
-        self.setRightShoulder = value
+        self.setRightShoulder_ = value
 
     def isLeftShoulder(self) -> bool:
         """Return current left shoulder bool"""
-        return self.isLeftShoulder
+        return self.isLeftShoulder_
 
     def isRightShoulder(self) -> bool:
         """Return current right shoulder bool"""
-        return self.isRightShoulder
+        return self.isRightShoulder_
 
     def getDefuzzifiedCentroid(self, numberOfDiscretizations: int) -> float:
         """Returns the defuzzified value of this set computed using the centroid algorithm."""

@@ -107,13 +107,12 @@ class GenT2MF_Triangular(GenT2MF_Prototype):
                 self.zSlices[i].setSupport(self.zSlices[0].getSupport())
         elif primers != None:
             self.numberOfzLevels = len(primers)
-            self.support = primer[0].getSupport()
-            slices_fs = [0] * numberOfzLevels
-            self.slices_zValues = [0] * numberOfzLevels
-            z_stepSize = 1.0/numberOfzLevels
-            self.zSlices = [0] * numberOfzLevels
+            self.support = primers[0].getSupport()
+            slices_fs = [0] * self.numberOfzLevels
+            self.slices_zValues = [0] * self.numberOfzLevels
+            z_stepSize = 1.0/self.numberOfzLevels
             self.zSlices = primers.copy()
-            for i in range(numberOfzLevels):
+            for i in range(self.numberOfzLevels):
                 self.slices_zValues[i] = z_stepSize*(i+1)
                 self.zSlices[i].setSupport(primers[0].getSupport())
 

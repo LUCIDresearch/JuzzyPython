@@ -109,7 +109,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
         """Convert class to string"""
         s = "zMF(noSlices:"+str(self.getNumberOfSlices())+"):["
         for i in range (self.getNumberOfSlices()):
-            s+= str(self.getZSlice(i))
+            s+= str(self.getZSlice(i).toString())
         s+="]\n"
         return s
     
@@ -126,7 +126,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
     
     def getCentroid(self,primaryDiscretisationLevel: int) -> T1MF_Discretized:
         """Get the discretized T1 MF function"""
-        slice_ = T1MF_Discretized("Centroid of"+self.getName(), self.numberOfzLevels)
+        slice_ = T1MF_Discretized("Centroid of"+self.getName())
 
         for i in range(self.numberOfzLevels):
             temp = self.getZSlice(i).getCentroid(primaryDiscretisationLevel)

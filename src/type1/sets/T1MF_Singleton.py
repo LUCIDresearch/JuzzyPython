@@ -60,7 +60,7 @@ class T1MF_Singleton(T1MF_Prototype):
     
     def toString(self) -> str:
         """Convert the function to a string"""
-        return self.name+ " - Singleton at: "+self.value
+        return self.name+ " - Singleton at: "+str(self.value)
 
     def compareTo(self, o: object) -> int:
         """Compare to a singleton or a triangular function"""
