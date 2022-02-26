@@ -59,7 +59,7 @@ class GenT2MF_Prototype(GenT2MF_Interface):
 
     def getFS(self,x: float) -> T1MF_Discretized:
         """Return the firing strength"""
-        slice_ = T1MF_Discretized("VerticalSlice_at"+x+"_of_"+self.getName(), self.numberOfzLevels)
+        slice_ = T1MF_Discretized("VerticalSlice_at"+str(x)+"_of_"+self.getName())
 
         for i in range(self.numberOfzLevels):
             temp = self.getZSlice(i).getFS(x)

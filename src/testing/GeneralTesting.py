@@ -23,8 +23,8 @@ from generic.Tuple import Tuple
 inputlmf = T1MF_Triangular("inputlmf",1,0,7)
 inputumf = T1MF_Triangular("inputumf",0,8,15)
 inputMfprimer = IntervalT2MF_Triangular("inputmfprimer",inputumf,inputlmf)
-inputMf = GenT2MF_Triangular("inputmf",inputMfprimer,numberOfzLevels=4)
+inputMf = GenT2MF_Triangular("inputmf",primer0 = inputMfprimer, primer1= inputMfprimer,numberOfzLevels=4)
 test = GenT2Engine_Union()
 uni = test.getUnion(inputMf,inputMf)
-print(uni.getFS(5).toString())
+print(inputMf.getFS(5).toString())
 
