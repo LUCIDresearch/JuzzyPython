@@ -95,3 +95,6 @@ class T1MF_Prototype(T1MF_Interface):
     def getDefuzzifiedCOS(self) -> float:
         """Return center of this set"""
         return self.getPeak()
+    
+    def toString(self) -> str:
+        return "T1 Membership function "+self.name()
