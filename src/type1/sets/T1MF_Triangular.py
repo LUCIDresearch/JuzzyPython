@@ -49,7 +49,7 @@ class T1MF_Triangular(T1MF_Prototype):
 
     def getFS(self, x: float) -> float:
         """Return the maximum FS between two sets"""
-        if (self.isLeftShoulder and x <= self.peak) or (self.isRightShoulder and x >= self.peak):
+        if (self.isLeftShoulder() and x <= self.peak) or (self.isRightShoulder() and x >= self.peak):
             return 1.0
         
         if x<self.peak and x>self.start:

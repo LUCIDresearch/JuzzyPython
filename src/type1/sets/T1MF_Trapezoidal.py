@@ -60,7 +60,7 @@ class T1MF_Trapezoidal(T1MF_Prototype):
         
     def getFS(self, x: float) -> float:
         """Return the maximum FS between two sets"""
-        if (self.isLeftShoulder and x <= self.c) or (self.isRightShoulder and x >= self.b):
+        if (self.isLeftShoulder() and x <= self.c) or (self.isRightShoulder() and x >= self.b):
             return 1.0
         
         if x<self.b and x>self.a:

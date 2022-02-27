@@ -1,6 +1,10 @@
 import sys
 
 sys.path.append("..")
+from generalType2zSlices.sets.GenT2MF_Trapezoidal import GenT2MF_Trapezoidal
+
+from intervalType2.sets.IntervalT2MF_Trapezoidal import IntervalT2MF_Trapezoidal
+
 from generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
 from generalType2zSlices.sets.GenT2MF_Union import GenT2MF_Union
 from generalType2zSlices.system.GenT2Engine_Union import GenT2Engine_Union
@@ -20,11 +24,12 @@ from generic.Tuple import Tuple
 #test = T1MF_Trapezoidal("test",[1.0,2.0,3.0,4.0])
 #test = T1MF_Meet(T1MF_Discretized("Test",[Tuple(0,5),Tuple(5,16),Tuple(10,20),Tuple(2,30),Tuple(4,18),Tuple(9,50)]),T1MF_Discretized("Test",[Tuple(0,10),Tuple(5,18),Tuple(10,20),Tuple(2,30),Tuple(4,18),Tuple(9,50)]))
 #print(test.findMax(T1MF_Trapezoidal("test",[1.0,2.0,3.0,4.0])))
-inputlmf = T1MF_Triangular("inputlmf",1,0,7)
-inputumf = T1MF_Triangular("inputumf",0,8,15)
-inputMfprimer = IntervalT2MF_Triangular("inputmfprimer",inputumf,inputlmf)
-inputMf = GenT2MF_Triangular("inputmf",primers = [inputMfprimer,inputMfprimer])
+inputlmf = T1MF_Trapezoidal("inputlmf",[12,22,32,42])
+inputumf = T1MF_Trapezoidal("inputumf",[1,2,33,44])
+inputMfprimer = IntervalT2MF_Trapezoidal("inputmfprimer",inputumf,inputlmf)
+print(inputMfprimer.getFS(5).toString())
+inputMf = GenT2MF_Trapezoidal("inputmf",primers = [inputMfprimer,inputMfprimer])
 test = GenT2Engine_Union()
 uni = test.getUnion(inputMf,inputMf)
-print(inputMf.toString())
+#print(inputMf.getFS(5).toString())
 

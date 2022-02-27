@@ -50,7 +50,7 @@ class IntervalT2MF_Prototype(IntervalT2MF_Interface):
             self.uMF.setSupport(self.support)
             self.lMF.setSupport(self.support)
 
-    def getFS(self,x: float) -> float:
+    def getFS(self,x: float) -> Tuple:
         return Tuple(self.lMF.getFS(x),self.uMF.getFS(x))
 
     def getPeak(self) -> float:

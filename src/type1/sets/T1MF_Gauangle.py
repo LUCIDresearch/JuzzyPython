@@ -84,7 +84,7 @@ class T1MF_Gauangle(T1MF_Prototype):
     def getFS(self, x: float) -> float:
         """Return the maximum FS between two sets"""
         if self.support.contains(x):
-            if (self.isLeftShoulder and x<=self.center) or (self.isRightShoulder and x>=self.center):
+            if (self.isLeftShoulder() and x<=self.center) or (self.isRightShoulder() and x>=self.center):
                 return 1.0
             elif x<=self.transitionPointLeft:
                 return f(x-self.start)/(self.leftCalculationPoint-self.start)

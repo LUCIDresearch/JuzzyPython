@@ -40,9 +40,9 @@ class T1MF_Gaussian(T1MF_Prototype):
     def getFS(self, x: float) -> float:
         """Return the maximum FS between two sets"""
         if x >= self.getSupport().getLeft() and x <= self.getSupport().getRight():
-            if self.isLeftShoulder and x <= self.mean:
+            if self.isLeftShoulder() and x <= self.mean:
                 return 1.0
-            if self.isRightShoulder and x >= self.mean:
+            if self.isRightShoulder() and x >= self.mean:
                 return 1.0
             return math.exp(-0.5*math.pow(((x-self.mean)/self.spread),2))
         else:
