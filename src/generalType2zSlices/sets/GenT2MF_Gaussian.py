@@ -88,7 +88,7 @@ class GenT2MF_Gaussian(GenT2MF_Prototype):
                     self.zSlices[i].setRightShoulder(True)
                 
                 if self.DEBUG:
-                    print("zSlice "+i+" is: "+self.zSlices[i].getName()+" its domain is: "+ str(self.zSlices[i].getSupport()))
+                    print("zSlice "+str(i)+" is: "+self.zSlices[i].getName()+" its domain is: "+ str(self.zSlices[i].getSupport()))
                     print(self.zSlices[i].toString()+"  zValue = "+str(slices_zValues[i]))
                 self.zSlices[i].setSupport(primer.getSupport())
         else:

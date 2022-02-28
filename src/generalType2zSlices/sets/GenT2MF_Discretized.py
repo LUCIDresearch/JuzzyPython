@@ -57,7 +57,7 @@ class GenT2MF_Discretized(GenT2MF_Prototype):
                         print("vSlice number: "+str(i)+" = null")
                 xStep+=stepsize
         else:
-            self.set = [[0]*secondaryDiscretizationLevel]*primaryDiscretizationLevel
+            self.set = [ [0]*secondaryDiscretizationLevel for i in range(primaryDiscretizationLevel)]
             self.yDiscretizationValues = [0]*secondaryDiscretizationLevel
             primStepsize = (self.getSupport().getRight()-self.getSupport().getLeft())/(primaryDiscretizationLevel-1)
             secStepsize = 1.0/(secondaryDiscretizationLevel-1)
