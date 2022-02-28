@@ -27,9 +27,8 @@ from generic.Tuple import Tuple
 inputlmf = T1MF_Trapezoidal("inputlmf",[12,22,32,42])
 inputumf = T1MF_Trapezoidal("inputumf",[1,2,33,44])
 inputMfprimer = IntervalT2MF_Trapezoidal("inputmfprimer",inputumf,inputlmf)
-print(inputMfprimer.getFS(5).toString())
-inputMf = GenT2MF_Trapezoidal("inputmf",primers = [inputMfprimer,inputMfprimer])
+inputMf = GenT2MF_Trapezoidal("inputmf",primer = inputMfprimer,numberOfzLevels=4)
 test = GenT2Engine_Union()
 uni = test.getUnion(inputMf,inputMf)
-#print(inputMf.getFS(5).toString())
+print(inputMf.getPeak())
 

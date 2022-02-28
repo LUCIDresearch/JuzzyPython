@@ -76,7 +76,7 @@ class GenT2MF_Trapezoidal(GenT2MF_Prototype):
                 if(inner[3]>outer[3]): 
                     inner[3] = outer[3]
                 
-                self.zSlices[i] = IntervalT2MF_Trapezoidal("Slice "+i, T1MF_Trapezoidal("upper_slice "+i,outer),T1MF_Trapezoidal("lower_slice "+i,inner))
+                self.zSlices[i] = IntervalT2MF_Trapezoidal("Slice "+str(i), T1MF_Trapezoidal("upper_slice "+str(i),outer),T1MF_Trapezoidal("lower_slice "+str(i),inner))
 
                 if self.DEBUG:
                     print(self.zSlices[i].toString()+"  Z-Value = "+str(self.slices_zValues[i]))
@@ -120,7 +120,7 @@ class GenT2MF_Trapezoidal(GenT2MF_Prototype):
 
                 if self.DEBUG:
                     print("Slice "+str(i)+" , inner: "+str(inner[0])+"  "+str(inner[1])+"  "+str(inner[2])+"   outer: "+str(outer[0])+"  "+str(outer[1])+"  "+str(outer[2]))
-                self.zSlices[i] = IntervalT2MF_Trapezoidal(self.getName()+"_Slice_"+str(i),T1MF_Trapezoidal("upper_slice "+i,outer),T1MF_Trapezoidal("lower_slice "+i,inner))
+                self.zSlices[i] = IntervalT2MF_Trapezoidal(self.getName()+"_Slice_"+str(i),T1MF_Trapezoidal("upper_slice "+str(i),outer),T1MF_Trapezoidal("lower_slice "+str(i),inner))
 
                 if self.DEBUG:
                     print(self.zSlices[i].toString()+"  Z-Value = "+str(self.slices_zValues[i]))
