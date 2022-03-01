@@ -131,7 +131,7 @@ class T1MF_Discretized(T1MF_Prototype):
         
         stepSize = self.getSupport().getSize()/(self.alphaCutDiscLevel-1)
 
-        currentStep = self.getSupport.getLeft()
+        currentStep = self.getSupport().getLeft()
         for i in range(self.alphaCutDiscLevel):
             current = self.getFS(currentStep)-alpha
             if current>=0.0:
