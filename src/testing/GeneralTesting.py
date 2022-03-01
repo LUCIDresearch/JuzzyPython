@@ -41,5 +41,5 @@ lowTipMF = GenT2MF_Gaussian("zGT2MF for Low tip", primers = [lowTipIT2MF,lowTipI
 disc = GenT2MF_Discretized(lowTipMF,4)
 cyl = GenT2MF_CylExtension(test,4)
 
-print(cyl.getFS(4))
+print(cyl.getFS(4).toString())
 

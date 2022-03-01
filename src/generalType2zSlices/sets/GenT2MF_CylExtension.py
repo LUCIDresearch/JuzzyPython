@@ -46,7 +46,7 @@ class GenT2MF_CylExtension(GenT2MF_Prototype):
         for i in range(zDiscLevel):
             self.slices_zValues[i] = (i+1)*self.zSpacing
             self.zSlices[i] = IntervalT2MF_Cylinder("Cyl-ext-at-"+str(self.slices_zValues[i]),baseSet.getAlphaCut(self.slices_zValues[i]))
-        self.getNumberOfzLevels = self.zDiscretizationLevel
+        self.numberOfzLevels = self.zDiscretizationLevel
     
     def clone(self) -> GenT2MF_CylExtension:
         """Clone the class"""

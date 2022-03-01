@@ -124,7 +124,7 @@ class T1MF_Discretized(T1MF_Prototype):
             for p in range(len(self.set)):
                 if self.set[p].getLeft() == 1.0:
                     left = self.set[p].getRight()
-            for p in range(len(self.set),-1,-1):
+            for p in range(len(self.set)-1,-1,-1):
                 if self.set[p].getLeft() == 1.0:
                     right = self.set[p].getRight()
             return Tuple(left,right)
