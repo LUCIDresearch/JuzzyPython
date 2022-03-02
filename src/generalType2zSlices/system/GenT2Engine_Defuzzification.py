@@ -2,6 +2,7 @@
 GenT2Engine_Defuzzification.py
 Created 7/1/2022
 """
+from calendar import c
 import sys
 
 from generic.Output import Output
@@ -76,7 +77,7 @@ class GenT2Engine_Defuzzification():
         param xResolution Determines how fine the type 2 set should be discretised along the x-axis.
         param yResolution Determines how fine the type 2 set should be discretised along the y-axis."""
         self.dset = GenT2MF_Discretized(s,xRes,yRes)
-        self.dPoints_real = [0] * xRes
+        self.dPoints_real = [None] * xRes
 
         temp = [0] * yRes
         for i in range(xRes):
@@ -85,7 +86,7 @@ class GenT2Engine_Defuzzification():
                 if self.dset.getSetDataAt(i,j)>0:
                     temp[counter] = Tuple(self.dset.getSetDataAt(i,j),self.dset.getDiscY(j))
                     counter+= 1
-            self.dPoints_real[i] = temp.copy()
+            self.dPoints_real[i] = temp[:counter].copy()
         
         if self.DEBUG_S:
             print("No. of vertical slices: "+str(len(self.dPoints_real)))
@@ -110,7 +111,7 @@ class GenT2Engine_Defuzzification():
         if numberOfRows != int(numberOfRows):
             print("precision too great, integer overflow - array length not supported!")
         
-        wavySlices = [[0]*xRes]*int(numberOfRows)
+        wavySlices = [ [0]*xRes for i in range(int(numberOfRows))]
 
         for i in range(xRes):
             counter = 0
@@ -153,12 +154,12 @@ class GenT2Engine_Defuzzification():
 
         for i in range(numberOfRows):
             if self.tnorm == self.MINIMUM:
-                min = 1.0
+                min_ = 1.0
                 for j in range(xRes):
                     if wavySlices[i][j] != None:
                         min_ = min(min_,wavySlices[i][j].getLeft())
             elif self.tnorm == self.PRODUCT:
-                min = 1.0
+                min_ = 1.0
                 for j in range(xRes):
                     if wavySlices[i][j] != None:
                         min_ *= wavySlices[i][j].getLeft()
@@ -167,7 +168,7 @@ class GenT2Engine_Defuzzification():
                 print(str(reduced[i]))
             print(str(reduced[i].getRight())+","+str(reduced[i].getLeft()))
         
-        tRset = T1MF_Discretized("output",len(reduced))
+        tRset = T1MF_Discretized("output")
         tRset.addPoints(reduced)
         dividend = 0
         divisor = 0

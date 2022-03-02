@@ -1,6 +1,9 @@
 import sys
 
+
 sys.path.append("..")
+from generalType2zSlices.system.GenT2Engine_Defuzzification import GenT2Engine_Defuzzification
+
 from generalType2zSlices.sets.GenT2MF_CylExtension import GenT2MF_CylExtension
 
 from generalType2zSlices.sets.GenT2MF_Trapezoidal import GenT2MF_Trapezoidal
@@ -39,7 +42,8 @@ lowTipLMF = T1MF_Gaussian("Lower MF Low tip", 0.0, 4.0)
 lowTipIT2MF = IntervalT2MF_Gaussian("IT2MF for Low Tip",lowTipUMF,lowTipLMF)
 lowTipMF = GenT2MF_Gaussian("zGT2MF for Low tip", primers = [lowTipIT2MF,lowTipIT2MF,lowTipIT2MF])
 disc = GenT2MF_Discretized(lowTipMF,4)
-cyl = GenT2MF_CylExtension(test,4)
-
-print(cyl.getFS(4).toString())
+#cyl = GenT2MF_CylExtension(test,4)
+defuzz = GenT2Engine_Defuzzification(4)
+print(defuzz.typeReduce_standard(lowTipMF,4,4))
+#print(cyl.getFS(4).toString())
 
