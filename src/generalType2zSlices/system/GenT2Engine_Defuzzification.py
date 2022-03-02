@@ -165,7 +165,7 @@ class GenT2Engine_Defuzzification():
                         min_ *= wavySlices[i][j].getLeft()
             reduced[i] = Tuple(min_,wavycentroids[i])
             if self.DEBUG_S:
-                print(str(reduced[i]))
+                print(reduced[i].toString())
             print(str(reduced[i].getRight())+","+str(reduced[i].getLeft()))
         
         tRset = T1MF_Discretized("output")

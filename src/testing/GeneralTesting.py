@@ -1,7 +1,10 @@
 import sys
 
 
+
 sys.path.append("..")
+from generalType2zSlices.system.GenT2Engine_Intersection import GenT2Engine_Intersection
+
 from generalType2zSlices.system.GenT2Engine_Defuzzification import GenT2Engine_Defuzzification
 
 from generalType2zSlices.sets.GenT2MF_CylExtension import GenT2MF_CylExtension
@@ -44,6 +47,9 @@ lowTipMF = GenT2MF_Gaussian("zGT2MF for Low tip", primers = [lowTipIT2MF,lowTipI
 disc = GenT2MF_Discretized(lowTipMF,4)
 #cyl = GenT2MF_CylExtension(test,4)
 defuzz = GenT2Engine_Defuzzification(4)
-print(defuzz.typeReduce_standard(lowTipMF,4,4))
+inter = GenT2Engine_Intersection()
+inte =  inter.getIntersection(lowTipMF,lowTipMF)
+print(inte.toString())
+#print(defuzz.typeReduce_standard(lowTipMF,4,4))
 #print(cyl.getFS(4).toString())
 

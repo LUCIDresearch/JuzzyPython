@@ -37,13 +37,13 @@ class IntervalT2MF_Intersection(IntervalT2MF_Prototype):
         if isinstance(a,IntervalT2MF_Cylinder) or isinstance(b,IntervalT2MF_Cylinder):
             if not (isinstance(a,IntervalT2MF_Cylinder) and a.getUpperBound(0)==0.0) and not(isinstance(b,IntervalT2MF_Cylinder) and b.getUpperBound(0) == 0.0):
                 self.intersectionExists_ = True
-            elif a.getSupport().getLeft() == b.getSupport().getLeft():
+        elif a.getSupport().getLeft() == b.getSupport().getLeft():
+            self.intersectionExists_ = True
+        elif a.getSupport().getLeft() < b.getSupport().getLeft():
+            if a.getSupport().getRight() >= b.getSupport().getLeft():
                 self.intersectionExists_ = True
-            elif a.getSupport().getLeft() < b.getSupport().getLeft():
-                if a.getSupport().getRight() >= b.getSupport().getLeft():
-                    self.intersectionExists_ = True
-            elif a.getSupport().getLeft() <= b.getSupport().getRight():
-                self.intersectionExists_ = True
+        elif a.getSupport().getLeft() <= b.getSupport().getRight():
+            self.intersectionExists_ = True
         
         if self.intersectionExists_:
             if isinstance(a,IntervalT2MF_Intersection):

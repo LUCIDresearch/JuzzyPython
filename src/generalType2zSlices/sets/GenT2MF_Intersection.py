@@ -28,7 +28,7 @@ class GenT2MF_Intersection(GenT2MF_Prototype):
 
     def __init__(self, name: str,numberOfzLevels: int,slices_zValues: List[float],zSlices: List[IntervalT2MF_Interface]) -> None:
         super().__init__(name)
-        self.getNumberOfzLevels = numberOfzLevels
+        self.numberOfzLevels = numberOfzLevels
         self.slices_zValues = slices_zValues
         self.zSlices = zSlices
         self.support = zSlices[0].getSupport().clone()

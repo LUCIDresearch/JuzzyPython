@@ -97,4 +97,4 @@ class T1MF_Prototype(T1MF_Interface):
         return self.getPeak()
     
     def toString(self) -> str:
-        return "T1 Membership function "+self.name()
+        return "T1 Membership function "+self.name
