@@ -44,9 +44,8 @@ class FLCPlant():
         out = self.rulebase.getOutputs()
         temp = self.rulebase.evaluateGetCentroid(self.typeReductionType)
         for o in out:
-            with self.lock:
-                change = results[o]
-                new = temp[o][0]
-                change[0][self.positionPointer]= new 
-                results[o] = change
+            change = results[o]
+            new = temp[o][0]
+            change[0][self.positionPointer]= new 
+            results[o] = change
 
