@@ -5,9 +5,6 @@ Created 19/2/2022
 import sys
 sys.path.append("..")
 from generalType2zSlices.multicore.FLCPlant import FLCPlant
-from generic.Input import Input
-from generic.Output import Output
-from generic.Tuple import Tuple
 from intervalType2.system.IT2_Rulebase import IT2_Rulebase
 from typing import List, OrderedDict
 import multiprocessing
@@ -15,22 +12,26 @@ import multiprocessing
 class FLCFactory():
     """
     Class FLCFactory
+    A multiprocessing library capable of using more cores on the CPU to increase processing of slices
 
     Parameters:
+        rulebases : A list of IT2 rulebases
       
     Functions:
+        runFactory
 
     """ 
 
     def __init__(self,rulebases: List[IT2_Rulebase]) -> None:
-        self.manager - multiprocessing.Manager()
+        self.manager = multiprocessing.Manager()
         self.rulebases = rulebases
+        self.lock = self.manager.Lock()
         self.weight = 0.0
         self.defaultTypeReduction = 1
         self.numberOfThreads = len(rulebases)
-        self.pool = multiprocessing.Pool(self.numberOfThreads)
         self.plants = [None] * self.numberOfThreads
         self.zLevels = [0.0] * self.numberOfThreads
+        self.pool = multiprocessing.Pool(self.numberOfThreads)
 
         for i in range(self.numberOfThreads):
             self.zLevels[i] = (i+1.0) / self.numberOfThreads
@@ -39,9 +40,9 @@ class FLCFactory():
         self.rawResults = self.manager.dict()
         out = self.rulebases[0].getOutputs()
         for o in out:
-            self.rawResults[o] = [ [0]*self.numberOfThreads for i in range(2)]
-        for i in self.numberOfThreads:
-            self.plants[i] = FLCPlant(self.rulebases[i],self.rawResults,i,self.defaultTypeReduction)
+            self.rawResults[o] = [ [None]*self.numberOfThreads for i in range(2)]
+        for i in range(self.numberOfThreads):
+            self.plants[i] = FLCPlant(self.rulebases[i],i,self.defaultTypeReduction,self.lock)
     
     def runFactory(self, typeReductionType: int) -> dict:
         returnValue = OrderedDict()
@@ -57,7 +58,10 @@ class FLCFactory():
             self.defaultTypeReduction = typeReductionType
         
         for i in range(self.numberOfThreads):
-            self.pool.apply(self.plants[i].run())
+            self.pool.apply(self.plants[i].run,[self.rawResults,])
+
+        #self.pool.close()
+        #self.pool.join()
 
         out = self.rulebases[0].getOutputs()
         for o in out:
@@ -67,7 +71,7 @@ class FLCFactory():
             out = self.rulebases[0].getOutputs()
             for o in out:
                 if self.rawResults[o][0][i] != None:
-                    returnValue[o] = returnValue.get(o) + self.rawResults[o][0][i].getAverage()*self.zLevels[i]
+                    returnValue[o] = returnValue[o] + self.rawResults[o][0][i].getAverage()*self.zLevels[i]
         
         out = self.rulebases[0].getOutputs()
         for o in out:

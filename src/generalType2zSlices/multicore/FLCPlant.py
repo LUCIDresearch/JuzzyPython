@@ -6,12 +6,10 @@ import sys
 
 sys.path.append("..")
 
-from generic.Input import Input
-from generic.Output import Output
-from generic.Tuple import Tuple
 from intervalType2.system.IT2_Rulebase import IT2_Rulebase
 from typing import List, OrderedDict
-
+import multiprocessing
+import os
 class FLCPlant():
     """
     Class FLCPlant
@@ -30,9 +28,8 @@ class FLCPlant():
         run
     """ 
 
-    def __init__(self,rulebase,results,positionPointer,typeReductionType,lock) -> None:
+    def __init__(self,rulebase: IT2_Rulebase,positionPointer: int,typeReductionType: int,lock) -> None:
         self.rulebase = rulebase
-        self.results = results
         self.typeReductionType = typeReductionType
         self.positionPointer = positionPointer
         self.lock = lock
@@ -40,13 +37,16 @@ class FLCPlant():
     def getTypeReductionType(self) -> int:
         return self.typeReductionType
     
-    def setTypeReductionType(self,type) -> None:
+    def setTypeReductionType(self,type: int) -> None:
         self.typeReductionType = type
     
-    def run(self) -> None:
+    def run(self,results: dict) -> None:
         out = self.rulebase.getOutputs()
         temp = self.rulebase.evaluateGetCentroid(self.typeReductionType)
         for o in out:
-            self.lock.acquire()
-            self.results[o][0][self.positionPointer] = temp[o][0]
-            self.lock.release()
+            with self.lock:
+                change = results[o]
+                new = temp[o][0]
+                change[0][self.positionPointer]= new 
+                results[o] = change
+
