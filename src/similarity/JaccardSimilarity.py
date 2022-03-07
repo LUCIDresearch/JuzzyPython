@@ -29,18 +29,18 @@ class JaccardSimilarity():
     def getSimilarity(self,setA: MF_Interface,setB: MF_Interface,numberOfDiscretisations: int) -> float:
         """Get the similarity between 2 sets across Type 1 and Type 2 sets"""
         numerator = 0.0
-        denomintor = 0.0
+        denominator = 0.0
         discValues = self.getDiscretisationValues(setA.getSupport(),setB.getSupport(),numberOfDiscretisations)
         if isinstance(setA,T1MF_Interface) and isinstance(setB,T1MF_Interface):
             for i in range(len(discValues)):
                 numerator += min(setA.getFS(discValues[i]),setB.getFS(discValues[i]))
-                denomintor += max(setA.getFS(discValues[i]),setB.getFS(discValues[i]))
-            return numerator/denomintor
+                denominator += max(setA.getFS(discValues[i]),setB.getFS(discValues[i]))
+            return numerator/denominator
         elif isinstance(setA,IntervalT2MF_Interface) and isinstance(setB,IntervalT2MF_Interface):
             for i in range(len(discValues)):
                 numerator += min(setA.getUMF().getFS(discValues[i]), setB.getUMF().getFS(discValues[i])) +min(setA.getLMF().getFS(discValues[i]), setB.getLMF().getFS(discValues[i]))
-                denomintor += max(setA.getUMF().getFS(discValues[i]), setB.getUMF().getFS(discValues[i])) + max(setA.getLMF().getFS(discValues[i]), setB.getLMF().getFS(discValues[i]))
-            return numerator/denomintor
+                denominator += max(setA.getUMF().getFS(discValues[i]), setB.getUMF().getFS(discValues[i])) + max(setA.getLMF().getFS(discValues[i]), setB.getLMF().getFS(discValues[i]))
+            return numerator/denominator
         elif isinstance(setA,GenT2MF_Interface) and isinstance(setB,GenT2MF_Interface):
             numeratorArray = [0] * setA.getNumberOfSlices()
             denominatorArray = [0] * setA.getNumberOfSlices()

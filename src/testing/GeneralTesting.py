@@ -31,7 +31,7 @@ from generic.Input import Input
 from generic.Output import Output
 from generalType2zSlices.system.GenT2_Rule import GenT2_Rule
 from generic.Tuple import Tuple
-
+from similarity.JaccardSimilarity import JaccardSimilarity
 test = T1MF_Discretized("Test",[Tuple(0,10),Tuple(5,16),Tuple(10,20),Tuple(2,30),Tuple(4,16),Tuple(9,50)])
 #print(test.writeToFileHighRes("test.txt",10))
 #test = T1MF_Union(T1MF_Discretized("Test",[Tuple(0,10),Tuple(5,16),Tuple(10,20),Tuple(2,30),Tuple(4,18),Tuple(9,50)]),T1MF_Discretized("Test",[Tuple(0,10),Tuple(5,16),Tuple(10,20),Tuple(2,30),Tuple(4,18),Tuple(9,50)]))
@@ -93,4 +93,5 @@ highTip =  GenT2_Consequent("HighTip",highTipMF, tip )
 
 r1 = GenT2_Rule([badFood, unfriendlyService], consequent = highTip)
 r2 = GenT2_Rule([badFood, unfriendlyService], consequent = lowTip)
-print(r2.equals(r1))
+jac = JaccardSimilarity()
+print(jac.getSimilarity(highTipMF,lowTipMF,10))
