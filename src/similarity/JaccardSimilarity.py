@@ -4,6 +4,7 @@ JaccardSimilarity.py
 Created 5/1/2022
 """
 import sys
+from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
 
 sys.path.append("..")
 
@@ -39,6 +40,17 @@ class JaccardSimilarity():
                 numerator += min(setA.getUMF().getFS(discValues[i]), setB.getUMF().getFS(discValues[i])) +min(setA.getLMF().getFS(discValues[i]), setB.getLMF().getFS(discValues[i]))
                 denomintor += max(setA.getUMF().getFS(discValues[i]), setB.getUMF().getFS(discValues[i])) + max(setA.getLMF().getFS(discValues[i]), setB.getLMF().getFS(discValues[i]))
             return numerator/denomintor
+        elif isinstance(setA,GenT2MF_Interface) and isinstance(setB,GenT2MF_Interface):
+            numeratorArray = [0] * setA.getNumberOfSlices()
+            denominatorArray = [0] * setA.getNumberOfSlices()
+            for i in range(len(discValues)):
+                for z in range(setA.getNumberOfSlices()):
+                    numeratorArray[z] += min(setA.getZSlice(z).getUMF().getFS(discValues[i]), setB.getZSlice(z).getUMF().getFS(discValues[i])) + min(setA.getZSlice(z).getLMF().getFS(discValues[i]), setB.getZSlice(z).getLMF().getFS(discValues[i]))
+                    denominatorArray[z] += max(setA.getZSlice(z).getUMF().getFS(discValues[i]), setB.getZSlice(z).getUMF().getFS(discValues[i])) + max(setA.getZSlice(z).getLMF().getFS(discValues[i]), setB.getZSlice(z).getLMF().getFS(discValues[i]))   
+            for z in range(setA.getNumberOfSlices()):
+                numerator += numeratorArray[z] * setA.getZValue(z)
+                denominator += denominatorArray[z] * setA.getZValue(z)
+            return numerator/denominator
         else:
             raise Exception("Incorrect setA setB types")
     
