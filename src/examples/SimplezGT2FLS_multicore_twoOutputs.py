@@ -1,6 +1,6 @@
 """
-SimplezGT2FLS_multicore.py
-Created 5/3/2022
+SimplezGT2FLS_multicore_twoOutputs.py
+Created 7/3/2022
 """
 import sys
 sys.path.append("..")
@@ -23,17 +23,14 @@ from generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
 from generalType2zSlices.multicore.FLCFactory import FLCFactory
 
 
-class SimplezGT2FLS_multicore:
+class SimplezGT2FLS_multicore_twoOutputs:
     """
-    Class SimplezGT2FLS_multicore: 
+    Class SimplezGT2FLS_multicore_twoOutputs: 
     A simple example of a zSlices based general Type-2 FLS based on the "How much 
-    to tip the waiter" scenario.
-    The example is an extension of the Interval Type-2 FLS example where we extend the MFs
-    and use zSlices based General Type-2 Fuzzy System classes.
-    We have two inputs: food quality and service level and as an output we would
-    like to generate the applicable tip.
+    to tip the waiter" which has been augmented to showcase the use of two outputs.
+    The example is an extension of the Interval Type-2 FLS example where we extend the MFs and use zSlices based General Type-2 Fuzzy System classes.
+    We have two inputs: food quality and service level and as an output we would like to generate the applicable tip as well as a recommended smile as a sign of satisfaction.
     This uses multicore processing
-
 
     Parameters:None
         
@@ -56,8 +53,8 @@ class SimplezGT2FLS_multicore:
         self.food = Input("Food Quality",Tuple(0,10)) #Rating from 0-10
         self.service = Input("Service Level",Tuple(0,10)) #Rating from 0-10
         #Output
-        self.tip = Output(("Tip"),Tuple(0,30)) #Tip from 0-30%
-
+        self.tip = Output("Tip",Tuple(0,30)) #Tip from 0-30%
+        self.smile = Output("Smile",Tuple(0,1)) #Smile from 0-1
         self.plot = Plot()
 
         #Set up the membership functions (MFs) for each input and output
@@ -66,12 +63,10 @@ class SimplezGT2FLS_multicore:
         badFoodIT2MF = IntervalT2MF_Triangular("IT2MF for bad food",badFoodUMF,badFoodLMF)
         badFoodMF = GenT2MF_Triangular("zGT2MF for bad food", primer = badFoodIT2MF, numberOfzLevels = self.numberOfzLevels)
 
-
         greatFoodUMF = T1MF_Triangular("Upper MF for great food",0.0,10.0,10.0)
         greatFoodLMF = T1MF_Triangular("Lower MF for great food",2.0,10.0,10.0)
         greatFoodIT2MF = IntervalT2MF_Triangular("IT2MF for great food",greatFoodUMF,greatFoodLMF)
         greatFoodMF = GenT2MF_Triangular("zGT2MF for great food", primer = greatFoodIT2MF, numberOfzLevels = self.numberOfzLevels)
-
 
         unfriendlyServiceUMF = T1MF_Triangular("Upper MF for unfriendly service",0.0,0.0,8.0)
         unfriendlyServiceLMF = T1MF_Triangular("Lower MF for unfriendly service",0.0,0.0,6.0)
@@ -93,11 +88,20 @@ class SimplezGT2FLS_multicore:
         mediumTipIT2MF = IntervalT2MF_Gaussian("IT2MF for medium Tip",mediumTipUMF,mediumTipLMF)
         mediumTipMF = GenT2MF_Gaussian("zGT2MF for medium tip", mediumTipIT2MF, self.numberOfzLevels)
 
-
         highTipUMF = T1MF_Gaussian("Upper MF high tip", 30.0, 6.0)
         highTipLMF = T1MF_Gaussian("Lower MF high tip", 30.0, 4.0)
         highTipIT2MF = IntervalT2MF_Gaussian("IT2MF for high Tip",highTipUMF,highTipLMF) 
         highTipMF = GenT2MF_Gaussian("zGT2MF for high tip", highTipIT2MF, self.numberOfzLevels)
+
+        smallSmileUMF = T1MF_Triangular("Upper MF for Small Smile", 0.0, 0.0, 1.0)
+        smallSmileLMF = T1MF_Triangular("Lower MF for Small Smile", 0.0, 0.0, 0.8)
+        smallSmileIT2MF = IntervalT2MF_Triangular("IT2MF for Small Smile", smallSmileUMF, smallSmileLMF)
+        smallSmileMF = GenT2MF_Triangular("zGT2MF for Small Smile", smallSmileIT2MF,numberOfzLevels= self.numberOfzLevels)
+        
+        bigSmileUMF = T1MF_Triangular("MF for Big Smile", 0.0, 1.0, 1.0)
+        bigSmileLMF = T1MF_Triangular("MF for Big Smile", 0.2, 1.0, 1.0)
+        bigSmileIT2MF = IntervalT2MF_Triangular("IT2MF for Big Smile", bigSmileUMF, bigSmileLMF); 
+        bigSmileMF = GenT2MF_Triangular("zGT2MF for Big Smile", bigSmileIT2MF,numberOfzLevels= self.numberOfzLevels)
 
         #Set up the antecedents and consequents
         badFood = GenT2_Antecedent("BadFood",badFoodMF, self.food)
@@ -110,12 +114,15 @@ class SimplezGT2FLS_multicore:
         mediumTip =  GenT2_Consequent( "MediumTip",mediumTipMF, self.tip )
         highTip =  GenT2_Consequent("HighTip",highTipMF, self.tip )
 
+        smallSmile = GenT2_Consequent("SmallSmile", smallSmileMF, self.smile)
+        bigSmile = GenT2_Consequent("BigSmile", bigSmileMF, self.smile)
+
         #Set up the rulebase and add rules
         self.rulebase = GenT2_Rulebase()
-        self.rulebase.addRule(GenT2_Rule([badFood, unfriendlyService], consequent = lowTip))
+        self.rulebase.addRule(GenT2_Rule([badFood, unfriendlyService], consequents = [lowTip,smallSmile]))
         self.rulebase.addRule(GenT2_Rule([badFood, friendlyService],consequent = mediumTip))
-        self.rulebase.addRule(GenT2_Rule([greatFood, unfriendlyService], consequent =lowTip))
-        self.rulebase.addRule(GenT2_Rule([greatFood, friendlyService], consequent =highTip))
+        self.rulebase.addRule(GenT2_Rule([greatFood, unfriendlyService], consequent = lowTip))
+        self.rulebase.addRule(GenT2_Rule([greatFood, friendlyService], consequents = [highTip,bigSmile]))
 
         #FLC Multiprocessing class
         self.FLC = FLCFactory(self.rulebase.getIT2Rulebases())
@@ -151,25 +158,9 @@ class SimplezGT2FLS_multicore:
         print("The food was: "+str(self.food.getInput()))
         print("The service was: "+str(self.service.getInput()))
         print("Using height center of sets type reduction, the zSlices based general type-2 FLS recommends a "
-                + "tip of: "+str(self.FLC.runFactory(0)[self.tip]))
+                + "tip of: "+str(self.FLC.runFactory(0)[self.tip]) + " and a smile of " + str(self.FLC.runFactory(0)[self.smile]))
         print("Using centroid type reduction, the zSlices based general type-2 FLS recommends a"
-                + "tip of: "+str(self.FLC.runFactory(1)[self.tip]))
-        
-        print("Centroid of the output for TIP (based on centroid type reduction):")
-        centroid = self.FLC.runFactoryGetCentroid(1)
-        centroidTip = list(centroid[self.tip])
-        centroidTipXValues = centroidTip[0]
-        centroidTipYValues = centroidTip[1]
-        for zLevel in range(len(centroidTipXValues)):
-            print(centroidTipXValues[zLevel].toString()+" at y= "+str(centroidTipYValues[zLevel]))
-        
-        print("Centroid of the output for TIP (based on COS type reduction):")
-        centroid = self.FLC.runFactoryGetCentroid(0)
-        centroidTip = list(centroid[self.tip])
-        centroidTipXValues = centroidTip[0]
-        centroidTipYValues = centroidTip[1]
-        for zLevel in range(len(centroidTipXValues)):
-            print(centroidTipXValues[zLevel].toString()+" at y= "+str(centroidTipYValues[zLevel]))
+                + "tip of: "+str(self.FLC.runFactory(1)[self.tip]) + " and a smile of " + str(self.FLC.runFactory(1)[self.smile]))
      
     def getControlSurfaceData(self,useCentroidDefuzz,input1Discs,input2Discs,unit = False) -> None:
         """Get the data to plot the control surface"""
@@ -219,4 +210,4 @@ class SimplezGT2FLS_multicore:
             for i in range(len(sets)):
                 self.plot.plotMFasSurface(sets[i].getName(),sets[i],xAxisRange,discretizationLevel,False)
 if __name__ == "__main__":
-    SimplezGT2FLS_multicore()
+    SimplezGT2FLS_multicore_twoOutputs()
