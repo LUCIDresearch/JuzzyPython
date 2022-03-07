@@ -32,7 +32,7 @@ class FLCPlant():
         self.rulebase = rulebase
         self.typeReductionType = typeReductionType
         self.positionPointer = positionPointer
-        self.lock = lock
+        self.lock = lock #Currently unused... may come into effect.
     
     def getTypeReductionType(self) -> int:
         return self.typeReductionType
@@ -44,6 +44,7 @@ class FLCPlant():
         out = self.rulebase.getOutputs()
         temp = self.rulebase.evaluateGetCentroid(self.typeReductionType)
         for o in out:
+            #This variable exchange seems redundant, however is required for the dict proxy to update
             change = results[o]
             new = temp[o][0]
             change[0][self.positionPointer]= new 

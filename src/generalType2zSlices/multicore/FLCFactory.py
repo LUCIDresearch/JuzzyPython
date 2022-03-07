@@ -19,6 +19,7 @@ class FLCFactory():
       
     Functions:
         runFactory
+        runFactoryGetCentroid
 
     """ 
 
@@ -79,3 +80,30 @@ class FLCFactory():
 
         return returnValue
 
+    def runFactoryGetCentroid(self,typeReductionType: int):
+        out = self.rulebases[0].getOutputs()
+        for o in out:
+            objs = self.rawResults[o]
+            objs[0] = [0] * self.numberOfThreads
+            objs[1] = [0] * self.numberOfThreads
+        
+        if not typeReductionType == self.defaultTypeReduction:
+            for p in self.plants:
+                p.setTypeReductionType(typeReductionType)
+            self.defaultTypeReduction = typeReductionType
+        
+        for i in range(self.numberOfThreads):
+            self.pool.apply(self.plants[i].run,[self.rawResults,])
+
+        #self.pool.close()
+        #self.pool.join()
+
+        for i in range(self.numberOfThreads):
+            out = self.rulebases[0].getOutputs()
+            for o in out:
+                #This variable exchange seems redundant, however is required for the dict proxy to update
+                change = self.rawResults[o]
+                change[1][i] = self.zLevels[i]
+                self.rawResults[o] = change
+        
+        return self.rawResults
