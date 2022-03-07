@@ -155,21 +155,7 @@ class SimplezGT2FLS_multicore:
         print("Using centroid type reduction, the zSlices based general type-2 FLS recommends a"
                 + "tip of: "+str(self.FLC.runFactory(1)[self.tip]))
         
-        print("Centroid of the output for TIP (based on centroid type reduction):")
-        centroid = self.FLC.runFactoryGetCentroid(1)
-        centroidTip = list(centroid[self.tip])
-        centroidTipXValues = centroidTip[0]
-        centroidTipYValues = centroidTip[1]
-        for zLevel in range(len(centroidTipXValues)):
-            print(centroidTipXValues[zLevel].toString()+" at y= "+str(centroidTipYValues[zLevel]))
         
-        print("Centroid of the output for TIP (based on COS type reduction):")
-        centroid = self.FLC.runFactoryGetCentroid(0)
-        centroidTip = list(centroid[self.tip])
-        centroidTipXValues = centroidTip[0]
-        centroidTipYValues = centroidTip[1]
-        for zLevel in range(len(centroidTipXValues)):
-            print(centroidTipXValues[zLevel].toString()+" at y= "+str(centroidTipYValues[zLevel]))
      
     def getControlSurfaceData(self,useCentroidDefuzz,input1Discs,input2Discs,unit = False) -> None:
         """Get the data to plot the control surface"""
