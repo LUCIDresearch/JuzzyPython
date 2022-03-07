@@ -80,7 +80,7 @@ class FLCFactory():
 
         return returnValue
 
-    def runFactoryGetCentroid(self,typeReductionType: int):
+    def runFactoryGetCentroid(self,typeReductionType: int) -> dict:
         out = self.rulebases[0].getOutputs()
         for o in out:
             objs = self.rawResults[o]

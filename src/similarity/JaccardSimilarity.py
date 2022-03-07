@@ -5,6 +5,7 @@ Created 5/1/2022
 """
 import sys
 from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
+from generic.MF_Interface import MF_Interface
 
 sys.path.append("..")
 
@@ -25,7 +26,7 @@ class JaccardSimilarity():
         getDiscretisationValues
     """
     
-    def getSimilarity(self,setA,setB,numberOfDiscretisations) -> float:
+    def getSimilarity(self,setA: MF_Interface,setB: MF_Interface,numberOfDiscretisations: int) -> float:
         """Get the similarity between 2 sets across Type 1 and Type 2 sets"""
         numerator = 0.0
         denomintor = 0.0
@@ -54,7 +55,7 @@ class JaccardSimilarity():
         else:
             raise Exception("Incorrect setA setB types")
     
-    def getDiscretisationValues(self,domainSetA,domainSetB,numberOfDiscretisations) -> List[float]:
+    def getDiscretisationValues(self,domainSetA: Tuple,domainSetB: Tuple,numberOfDiscretisations: int) -> List[float]:
         """Get the discretisation values across two domains"""
         domain = Tuple(min(domainSetA.getLeft(),domainSetB.getLeft()),max(domainSetA.getRight(),domainSetB.getRight()))
         discStep = domain.getSize()/(numberOfDiscretisations-1)
