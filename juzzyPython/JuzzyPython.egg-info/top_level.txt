@@ -1,8 +1,0 @@
-examples
-generalType2zSlices
-generic
-intervalType2
-similarity
-testing
-type1
-unitTests
