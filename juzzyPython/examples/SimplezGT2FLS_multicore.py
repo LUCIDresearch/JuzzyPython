@@ -2,26 +2,23 @@
 SimplezGT2FLS_multicore.py
 Created 5/3/2022
 """
-import sys
-sys.path.append("..")
 import math
 import time
-from generic.Tuple import Tuple
-from generic.Output import Output
-from generic.Input import Input
-from generic.Plot import Plot
-from generalType2zSlices.system.GenT2_Antecedent import GenT2_Antecedent
-from generalType2zSlices.system.GenT2_Rule import GenT2_Rule
-from generalType2zSlices.system.GenT2_Consequent import GenT2_Consequent
-from generalType2zSlices.system.GenT2_Rulebase import GenT2_Rulebase
-from type1.sets.T1MF_Gaussian import T1MF_Gaussian
-from type1.sets.T1MF_Triangular import T1MF_Triangular
-from intervalType2.sets.IntervalT2MF_Gaussian import IntervalT2MF_Gaussian
-from intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
-from generalType2zSlices.sets.GenT2MF_Gaussian import GenT2MF_Gaussian
-from generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
-from generalType2zSlices.multicore.FLCFactory import FLCFactory
-
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.generic.Output import Output
+from juzzyPython.generic.Input import Input
+from juzzyPython.generic.Plot import Plot
+from juzzyPython.generalType2zSlices.system.GenT2_Antecedent import GenT2_Antecedent
+from juzzyPython.generalType2zSlices.system.GenT2_Rule import GenT2_Rule
+from juzzyPython.generalType2zSlices.system.GenT2_Consequent import GenT2_Consequent
+from juzzyPython.generalType2zSlices.system.GenT2_Rulebase import GenT2_Rulebase
+from juzzyPython.type1.sets.T1MF_Gaussian import T1MF_Gaussian
+from juzzyPython.type1.sets.T1MF_Triangular import T1MF_Triangular
+from juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian import IntervalT2MF_Gaussian
+from juzzyPython.intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Gaussian import GenT2MF_Gaussian
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
+from juzzyPython.generalType2zSlices.multicore.FLCFactory import FLCFactory
 
 class SimplezGT2FLS_multicore:
     """

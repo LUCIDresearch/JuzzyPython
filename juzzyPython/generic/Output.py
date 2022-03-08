@@ -3,10 +3,7 @@
 Output.py
 Created 10/12/2021
 """
-import sys
-sys.path.append("..")
-
-from generic.Tuple import Tuple
+from juzzyPython.generic.Tuple import Tuple
 from typing import List
 import functools
 

@@ -2,16 +2,12 @@
 IntervalT2Engine_Centroid.py
 Created 6/1/2022
 """
-import sys
 from typing import List
-
-from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
-sys.path.append("..")
+from juzzyPython.intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
 import math
-
-from generic.Tuple import Tuple
-import intervalType2.sets.IntervalT2MF_Intersection 
-import intervalType2.sets.IntervalT2MF_Union
+from juzzyPython.generic.Tuple import Tuple
+import juzzyPython.intervalType2.sets.IntervalT2MF_Intersection 
+import juzzyPython.intervalType2.sets.IntervalT2MF_Union
 
 
 #TODO Classes 
@@ -65,7 +61,7 @@ class IntervalT2Engine_Centroid():
         """Centroid using the Karnikmendel method"""
         if mf == None:
             return Tuple(float("nan"),float("nan"))
-        if isinstance(mf,intervalType2.sets.IntervalT2MF_Intersection.IntervalT2MF_Intersection) and not mf.intersectionExists():
+        if isinstance(mf,juzzyPython.intervalType2.sets.IntervalT2MF_Intersection.IntervalT2MF_Intersection) and not mf.intersectionExists():
             return Tuple(float("nan"),float("nan"))
         y_l = 0 
         y_r = 0
@@ -73,7 +69,7 @@ class IntervalT2Engine_Centroid():
         iterationCounterRight = 0
         if self.DEBUG:
             print("MF Name: "+mf.getName())
-        if isinstance(mf,intervalType2.sets.IntervalT2MF_Union.IntervalT2MF_Union) and mf.isNull():
+        if isinstance(mf,juzzyPython.intervalType2.sets.IntervalT2MF_Union.IntervalT2MF_Union) and mf.isNull():
             return None
         if self.DEBUG:
             print("domain left point is: " + str(mf.getSupport().getLeft()) + "  and right point is: "+ str(mf.getSupport().getRight()))

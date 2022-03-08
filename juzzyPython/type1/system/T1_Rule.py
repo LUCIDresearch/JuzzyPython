@@ -3,17 +3,12 @@
 T1_Rule.py
 Created 19/12/2021
 """
-import sys
-sys.path.append("..")
-
-from generic.Input import Input
-from type1.sets.T1MF_Singleton import T1MF_Singleton
+from __future__ import annotations
+from juzzyPython.generic.Input import Input
+from juzzyPython.type1.sets.T1MF_Singleton import T1MF_Singleton
 from typing import List
-
-from type1.system.T1_Antecedent import T1_Antecedent
-from type1.system.T1_Consequent import T1_Consequent
-from type1.system.T1_Rule import T1_Rule
-
+from juzzyPython.type1.system.T1_Antecedent import T1_Antecedent
+from juzzyPython.type1.system.T1_Consequent import T1_Consequent
 
 class T1_Rule:
     """

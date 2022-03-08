@@ -3,11 +3,9 @@
 T1MF_Trapezoidal.py
 Created 17/12/2021
 """
-import sys
-sys.path.append("..")
 
-from generic.Tuple import Tuple
-from type1.sets.T1MF_Prototype import T1MF_Prototype
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.type1.sets.T1MF_Prototype import T1MF_Prototype
 from typing import List
 
 class T1MF_Trapezoidal(T1MF_Prototype):

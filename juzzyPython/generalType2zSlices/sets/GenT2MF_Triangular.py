@@ -2,14 +2,10 @@
 GenT2MF_Triangular.py
 Created 3/1/2022
 """
-import sys
 from typing import List
-from numpy import number
-sys.path.append("..")
-
-from generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
-from intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
-from type1.sets.T1MF_Triangular import T1MF_Triangular
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
+from juzzyPython.intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
+from juzzyPython.type1.sets.T1MF_Triangular import T1MF_Triangular
 
 class GenT2MF_Triangular(GenT2MF_Prototype):
     """

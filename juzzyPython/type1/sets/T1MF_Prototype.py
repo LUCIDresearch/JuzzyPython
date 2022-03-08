@@ -3,11 +3,8 @@
 T1MF_Interface.py
 Created 10/12/2021
 """
-import sys
-sys.path.append("..")
-
-from generic.Tuple import Tuple
-from type1.sets.T1MF_Interface import T1MF_Interface
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
 
 class T1MF_Prototype(T1MF_Interface):
     """

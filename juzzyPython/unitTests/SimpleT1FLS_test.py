@@ -2,11 +2,9 @@
 SimpleT1FLSut.py
 Created 22/12/2021
 """
-import sys
-sys.path.append("..")
 import numpy as np
 import unittest
-from examples.SimpleT1FLS import SimpleT1FLS
+from juzzyPython.examples.SimpleT1FLS import SimpleT1FLS
 import logging
 
 class TestSimpleT1FLS(unittest.TestCase):

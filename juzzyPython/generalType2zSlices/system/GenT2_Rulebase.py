@@ -2,15 +2,11 @@
 GenT2_Rulebase.py
 Created 9/1/2022
 """
-import sys
-
-sys.path.append("..")
-
-from generalType2zSlices.system.GenT2Engine_Intersection import GenT2Engine_Intersection
-from generalType2zSlices.system.GenT2Engine_Union import GenT2Engine_Union
-from generalType2zSlices.system.GenT2_Rule import GenT2_Rule
-from intervalType2.system.IT2_Rulebase import IT2_Rulebase
-from generalType2zSlices.system.GenT2_Antecedent import GenT2_Antecedent
+from juzzyPython.generalType2zSlices.system.GenT2Engine_Intersection import GenT2Engine_Intersection
+from juzzyPython.generalType2zSlices.system.GenT2Engine_Union import GenT2Engine_Union
+from juzzyPython.generalType2zSlices.system.GenT2_Rule import GenT2_Rule
+from juzzyPython.intervalType2.system.IT2_Rulebase import IT2_Rulebase
+from juzzyPython.generalType2zSlices.system.GenT2_Antecedent import GenT2_Antecedent
 
 from typing import List, OrderedDict
 class GenT2_Rulebase():

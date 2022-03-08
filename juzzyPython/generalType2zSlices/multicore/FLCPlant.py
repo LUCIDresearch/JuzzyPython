@@ -2,14 +2,8 @@
 FLCPlant.py
 Created 19/2/2022
 """
-import sys
+from juzzyPython.intervalType2.system.IT2_Rulebase import IT2_Rulebase
 
-sys.path.append("..")
-
-from intervalType2.system.IT2_Rulebase import IT2_Rulebase
-from typing import List, OrderedDict
-import multiprocessing
-import os
 class FLCPlant():
     """
     Class FLCPlant

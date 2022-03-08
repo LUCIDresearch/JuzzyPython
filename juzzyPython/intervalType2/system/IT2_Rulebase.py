@@ -2,21 +2,17 @@
 IT2_Rulebase.py
 Created 16/1/2022
 """
-import sys
-from generic.Output import Output
-from intervalType2.sets.IntervalT2Engine_Centroid import IntervalT2Engine_Centroid
-from intervalType2.sets.IntervalT2MF_Intersection import IntervalT2MF_Intersection
-
-from intervalType2.system.IT2_Rule import IT2_Rule
-sys.path.append("..")
+from juzzyPython.generic.Output import Output
+from juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid import IntervalT2Engine_Centroid
+from juzzyPython.intervalType2.sets.IntervalT2MF_Intersection import IntervalT2MF_Intersection
+from juzzyPython.intervalType2.system.IT2_Rule import IT2_Rule
 from collections import OrderedDict
-
 import math
-from generic.Tuple import Tuple
-from generic.Input import Input
-from intervalType2.system.IT2_COSInferenceData import IT2_COSInferenceData
-from intervalType2.sets.IntervalT2MF_Cylinder import IntervalT2MF_Cylinder
-from intervalType2.sets.IntervalT2MF_Union import IntervalT2MF_Union
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.generic.Input import Input
+from juzzyPython.intervalType2.system.IT2_COSInferenceData import IT2_COSInferenceData
+from juzzyPython.intervalType2.sets.IntervalT2MF_Cylinder import IntervalT2MF_Cylinder
+from juzzyPython.intervalType2.sets.IntervalT2MF_Union import IntervalT2MF_Union
 from typing import List
 
 class IT2_Rulebase():

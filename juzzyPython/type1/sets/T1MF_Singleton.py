@@ -3,12 +3,9 @@
 T1MF_Singleton.py
 Created 17/12/2021
 """
-import sys
-sys.path.append("..")
-
-from generic.Tuple import Tuple
-from type1.sets.T1MF_Prototype import T1MF_Prototype
-import type1.sets.T1MF_Triangular
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.type1.sets.T1MF_Prototype import T1MF_Prototype
+import juzzyPython.type1.sets.T1MF_Triangular
 import functools
 @functools.total_ordering
 class T1MF_Singleton(T1MF_Prototype):
@@ -70,7 +67,7 @@ class T1MF_Singleton(T1MF_Prototype):
             if self.getValue() < o.getValue():
                 return -1
             return 1
-        elif type(o) is type1.sets.T1MF_Triangular.T1MF_Triangular:
+        elif type(o) is juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular:
             if self.getValue() < o.getPeak():
                 return -1
             return 1

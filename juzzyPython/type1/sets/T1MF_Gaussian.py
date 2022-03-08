@@ -3,11 +3,8 @@
 T1MF_Gaussian.py
 Created 17/12/2021
 """
-import sys
-sys.path.append("..")
-
-from generic.Tuple import Tuple
-from type1.sets.T1MF_Prototype import T1MF_Prototype
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.type1.sets.T1MF_Prototype import T1MF_Prototype
 import math
 
 class T1MF_Gaussian(T1MF_Prototype):

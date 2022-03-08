@@ -2,12 +2,11 @@
 T1MF_Triangular.py
 Created 17/12/2021
 """
-import sys
-sys.path.append("..")
+
 import math
-from generic.Tuple import Tuple
-from type1.sets.T1MF_Prototype import T1MF_Prototype
-import type1.sets.T1MF_Singleton 
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.type1.sets.T1MF_Prototype import T1MF_Prototype
+import juzzyPython.type1.sets.T1MF_Singleton 
 import functools
 
 @functools.total_ordering
@@ -92,7 +91,7 @@ class T1MF_Triangular(T1MF_Prototype):
             if self.getEnd() <= o.getEnd() and self.getStart() <= o.getStart() and self.getPeak() <= o.getPeak():
                 return -1
             return 1
-        elif type(o) is type1.sets.T1MF_Singleton.T1MF_Singleton:
+        elif type(o) is juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton:
             if self.getPeak() < o.getValue():
                 return -1
             return 1

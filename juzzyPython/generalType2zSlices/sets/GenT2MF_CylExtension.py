@@ -3,17 +3,10 @@ GenT2MF_CylExtension.py
 Created 2/1/2022
 """
 from __future__ import annotations
-
-import sys
-
-from type1.sets.T1MF_Interface import T1MF_Interface
-sys.path.append("..")
-
-from generic.Tuple import Tuple
-from intervalType2.sets.IntervalT2MF_Cylinder import IntervalT2MF_Cylinder
-from type1.sets.T1MF_Discretized import T1MF_Discretized
-from generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
-from typing import List
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.intervalType2.sets.IntervalT2MF_Cylinder import IntervalT2MF_Cylinder
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
 
 class GenT2MF_CylExtension(GenT2MF_Prototype):
     """

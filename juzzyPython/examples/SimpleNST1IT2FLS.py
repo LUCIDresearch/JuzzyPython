@@ -2,26 +2,22 @@
 SimpleNST1IT2FLS.py
 Created 26/1/2022
 """
-import sys
 import time
-sys.path.append("..")
 import math
-
-from generic.Tuple import Tuple
-from generic.Output import Output
-from generic.Input import Input
-from generic.Plot import Plot
-from intervalType2.system.IT2_Antecedent import IT2_Antecedent
-from intervalType2.system.IT2_Consequent import IT2_Consequent
-from intervalType2.system.IT2_Rule import IT2_Rule
-from intervalType2.system.IT2_Rulebase import IT2_Rulebase
-from type1.sets.T1MF_Gaussian import T1MF_Gaussian
-from type1.sets.T1MF_Triangular import T1MF_Triangular
-from type1.sets.T1MF_Gauangle import T1MF_Gauangle
-from intervalType2.sets.IntervalT2MF_Gauangle import IntervalT2MF_Gauangle
-from intervalType2.sets.IntervalT2MF_Gaussian import IntervalT2MF_Gaussian
-from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
-from intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.generic.Output import Output
+from juzzyPython.generic.Input import Input
+from juzzyPython.generic.Plot import Plot
+from juzzyPython.intervalType2.system.IT2_Antecedent import IT2_Antecedent
+from juzzyPython.intervalType2.system.IT2_Consequent import IT2_Consequent
+from juzzyPython.intervalType2.system.IT2_Rule import IT2_Rule
+from juzzyPython.intervalType2.system.IT2_Rulebase import IT2_Rulebase
+from juzzyPython.type1.sets.T1MF_Gaussian import T1MF_Gaussian
+from juzzyPython.type1.sets.T1MF_Triangular import T1MF_Triangular
+from juzzyPython.type1.sets.T1MF_Gauangle import T1MF_Gauangle
+from juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle import IntervalT2MF_Gauangle
+from juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian import IntervalT2MF_Gaussian
+from juzzyPython.intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
 
 class SimpleNST1IT2FLS:
     """

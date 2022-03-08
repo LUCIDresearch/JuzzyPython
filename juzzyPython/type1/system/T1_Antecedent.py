@@ -3,15 +3,13 @@
 T1_Antecedent.py
 Created 18/12/2021
 """
-import sys
-sys.path.append("..")
 
-from generic.Input import Input
-from type1.sets.T1MF_Gauangle import T1MF_Gauangle
-from type1.sets.T1MF_Gaussian import T1MF_Gaussian
-from type1.sets.T1MF_Interface import T1MF_Interface
-from type1.sets.T1MF_Singleton import T1MF_Singleton
-from type1.sets.T1MF_Triangular import T1MF_Triangular
+from juzzyPython.generic.Input import Input
+from juzzyPython.type1.sets.T1MF_Gauangle import T1MF_Gauangle
+from juzzyPython.type1.sets.T1MF_Gaussian import T1MF_Gaussian
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
+from juzzyPython.type1.sets.T1MF_Singleton import T1MF_Singleton
+from juzzyPython.type1.sets.T1MF_Triangular import T1MF_Triangular
 import functools
 
 @functools.total_ordering

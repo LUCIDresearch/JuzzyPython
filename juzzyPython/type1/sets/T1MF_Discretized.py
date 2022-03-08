@@ -3,11 +3,8 @@
 T1MF_Discretized.py
 Created 11/12/2021
 """
-import sys
-sys.path.append("..")
-
-from generic.Tuple import Tuple
-from type1.sets.T1MF_Prototype import T1MF_Prototype
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.type1.sets.T1MF_Prototype import T1MF_Prototype
 from typing import List
 
 class T1MF_Discretized(T1MF_Prototype):

@@ -2,14 +2,10 @@
 GenT2_Consequent.py
 Created 6/1/2022
 """
-import sys
-
-from generic.Output import Output
-from generic.Tuple import Tuple
-sys.path.append("..")
-
-from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
-from intervalType2.system.IT2_Consequent import IT2_Consequent
+from juzzyPython.generic.Output import Output
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
+from juzzyPython.intervalType2.system.IT2_Consequent import IT2_Consequent
 from typing import List
 
 class GenT2_Consequent():

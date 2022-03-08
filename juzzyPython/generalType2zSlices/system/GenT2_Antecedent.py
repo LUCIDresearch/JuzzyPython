@@ -2,16 +2,10 @@
 GenT2_Antecedent.py
 Created 6/1/2022
 """
-import sys
-
-from numpy import number
-
-from generic.Input import Input
-sys.path.append("..")
-
-from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
-from intervalType2.system.IT2_Antecedent import IT2_Antecedent
-from type1.sets.T1MF_Interface import T1MF_Interface
+from juzzyPython.generic.Input import Input
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
+from juzzyPython.intervalType2.system.IT2_Antecedent import IT2_Antecedent
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
 from typing import List
 
 class GenT2_Antecedent():

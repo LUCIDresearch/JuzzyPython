@@ -2,17 +2,9 @@
 GenT2Engine_Union.py
 Created 7/1/2022
 """
-import sys
-
-from generic.Output import Output
-from generic.Tuple import Tuple
-sys.path.append("..")
-
-from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
-from generalType2zSlices.sets.GenT2MF_Union import GenT2MF_Union
-from intervalType2.sets.IntervalT2MF_Union import IntervalT2MF_Union
-
-from typing import List
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Union import GenT2MF_Union
+from juzzyPython.intervalType2.sets.IntervalT2MF_Union import IntervalT2MF_Union
 
 class GenT2Engine_Union():
     """

@@ -3,15 +3,11 @@
 T1MF_Intersection.py
 Created 17/12/2021
 """
-import sys
 
-sys.path.append("..")
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.type1.sets.T1MF_Prototype import T1MF_Prototype
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
 
-from generic.Tuple import Tuple
-from type1.sets.T1MF_Prototype import T1MF_Prototype
-from type1.sets.T1MF_Interface import T1MF_Interface
-
-from typing import List
 
 class T1MF_Intersection(T1MF_Prototype):
     """

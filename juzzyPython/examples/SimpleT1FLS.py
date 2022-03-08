@@ -2,25 +2,19 @@
 SimpleT1FLS.py
 Created 19/12/2021
 """
-import sys
-sys.path.append("..")
-from mpl_toolkits.mplot3d import Axes3D  
 import math
 import time
-from generic.Tuple import Tuple
-from generic.Output import Output
-from generic.Input import Input
-from generic.Plot import Plot
-
-from type1.system.T1_Rule import T1_Rule
-from type1.system.T1_Antecedent import T1_Antecedent
-from type1.system.T1_Consequent import T1_Consequent
-from type1.system.T1_Rulebase import T1_Rulebase
-
-from type1.sets.T1MF_Gaussian import T1MF_Gaussian
-from type1.sets.T1MF_Triangular import T1MF_Triangular
-from type1.sets.T1MF_Gauangle import T1MF_Gauangle
-
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.generic.Output import Output
+from juzzyPython.generic.Input import Input
+from juzzyPython.generic.Plot import Plot
+from juzzyPython.type1.system.T1_Rule import T1_Rule
+from juzzyPython.type1.system.T1_Antecedent import T1_Antecedent
+from juzzyPython.type1.system.T1_Consequent import T1_Consequent
+from juzzyPython.type1.system.T1_Rulebase import T1_Rulebase
+from juzzyPython.type1.sets.T1MF_Gaussian import T1MF_Gaussian
+from juzzyPython.type1.sets.T1MF_Triangular import T1MF_Triangular
+from juzzyPython.type1.sets.T1MF_Gauangle import T1MF_Gauangle
 
 class SimpleT1FLS:
     """

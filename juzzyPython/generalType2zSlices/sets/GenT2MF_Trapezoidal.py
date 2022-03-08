@@ -4,14 +4,9 @@ Created 3/1/2022
 """
 from __future__ import annotations
 from typing import List
-import sys
-
-from numpy import number
-sys.path.append("..")
-
-from generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
-from intervalType2.sets.IntervalT2MF_Trapezoidal import IntervalT2MF_Trapezoidal
-from type1.sets.T1MF_Trapezoidal import T1MF_Trapezoidal
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
+from juzzyPython.intervalType2.sets.IntervalT2MF_Trapezoidal import IntervalT2MF_Trapezoidal
+from juzzyPython.type1.sets.T1MF_Trapezoidal import T1MF_Trapezoidal
 
 class GenT2MF_Trapezoidal(GenT2MF_Prototype):
     """

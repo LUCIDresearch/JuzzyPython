@@ -3,10 +3,9 @@ SimpleNST1IT2FLSut.py
 Created 27/12/2021
 """
 import sys
-sys.path.append("..")
 import numpy as np
 import unittest
-from examples.SimpleNST1IT2FLS import SimpleNST1IT2FLS
+from juzzyPython.examples.SimpleNST1IT2FLS import SimpleNST1IT2FLS
 import logging
 
 class TestSimpleT2FLS(unittest.TestCase):

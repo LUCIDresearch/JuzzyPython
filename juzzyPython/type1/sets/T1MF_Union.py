@@ -3,14 +3,9 @@
 T1MF_Union.py
 Created 11/12/2021
 """
-import sys
-from type1.sets.T1MF_Interface import T1MF_Interface
-
-from type1.sets.T1MF_Singleton import T1MF_Singleton
-sys.path.append("..")
-
-from generic.Tuple import Tuple
-from type1.sets.T1MF_Prototype import T1MF_Prototype
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.type1.sets.T1MF_Prototype import T1MF_Prototype
 
 class T1MF_Union(T1MF_Prototype):
     """

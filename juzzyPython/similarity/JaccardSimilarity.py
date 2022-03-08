@@ -3,15 +3,12 @@
 JaccardSimilarity.py
 Created 5/1/2022
 """
-import sys
-from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
-from generic.MF_Interface import MF_Interface
 
-sys.path.append("..")
-
-from type1.sets.T1MF_Interface import T1MF_Interface
-from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
-from generic.Tuple import Tuple
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
+from juzzyPython.generic.MF_Interface import MF_Interface
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
+from juzzyPython.intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
+from juzzyPython.generic.Tuple import Tuple
 from typing import List
 
 class JaccardSimilarity():

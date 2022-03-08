@@ -2,18 +2,12 @@
 GenT2Engine_Defuzzification.py
 Created 7/1/2022
 """
-from calendar import c
-import sys
 
-from generic.Output import Output
-from generic.Tuple import Tuple
-from type1.sets.T1MF_Discretized import T1MF_Discretized
-sys.path.append("..")
-
-from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
-from generalType2zSlices.sets.GenT2MF_Discretized import GenT2MF_Discretized
-from intervalType2.sets.IntervalT2Engine_Centroid import IntervalT2Engine_Centroid
-
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.type1.sets.T1MF_Discretized import T1MF_Discretized
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Discretized import GenT2MF_Discretized
+from juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid import IntervalT2Engine_Centroid
 from typing import List
 
 class GenT2Engine_Defuzzification():

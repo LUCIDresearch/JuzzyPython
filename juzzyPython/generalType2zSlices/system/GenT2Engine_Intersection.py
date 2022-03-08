@@ -2,15 +2,9 @@
 GenT2Engine_Intersection.py
 Created 7/1/2022
 """
-import sys
-
-sys.path.append("..")
-
-from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
-from generalType2zSlices.sets.GenT2MF_Intersection import GenT2MF_Intersection
-from intervalType2.sets.IntervalT2MF_Intersection import IntervalT2MF_Intersection
-
-from typing import List
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Intersection import GenT2MF_Intersection
+from juzzyPython.intervalType2.sets.IntervalT2MF_Intersection import IntervalT2MF_Intersection
 
 class GenT2Engine_Intersection():
     """

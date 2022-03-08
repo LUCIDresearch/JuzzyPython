@@ -2,13 +2,9 @@
 IntervalT2MF_Cylinder.py
 Created 9/1/2022
 """
-import sys
-sys.path.append("..")
-
-from generic.Tuple import Tuple
-from intervalType2.sets.IntervalT2MF_Prototype import IntervalT2MF_Prototype
-from type1.sets.T1MF_Cylinder import T1MF_Cylinder
-
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.intervalType2.sets.IntervalT2MF_Prototype import IntervalT2MF_Prototype
+from juzzyPython.type1.sets.T1MF_Cylinder import T1MF_Cylinder
 
 class IntervalT2MF_Cylinder(IntervalT2MF_Prototype):
     """

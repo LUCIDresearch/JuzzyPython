@@ -2,13 +2,10 @@
 IT2_Consequent.py
 Created 13/1/2022
 """
-import sys
-from generic.Output import Output
-sys.path.append("..")
-
-from generic.Tuple import Tuple
-from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
-from intervalType2.sets.IntervalT2Engine_Centroid import IntervalT2Engine_Centroid
+from juzzyPython.generic.Output import Output
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
+from juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid import IntervalT2Engine_Centroid
 
 class IT2_Consequent():
     """

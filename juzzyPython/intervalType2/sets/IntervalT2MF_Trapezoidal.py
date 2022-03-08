@@ -2,12 +2,8 @@
 IntervalT2MF_Trapezoidal.py
 Created 8/1/2022
 """
-import sys
-sys.path.append("..")
-
-from generic.Tuple import Tuple
-from intervalType2.sets.IntervalT2MF_Prototype import IntervalT2MF_Prototype
-from type1.sets.T1MF_Trapezoidal import T1MF_Trapezoidal
+from juzzyPython.intervalType2.sets.IntervalT2MF_Prototype import IntervalT2MF_Prototype
+from juzzyPython.type1.sets.T1MF_Trapezoidal import T1MF_Trapezoidal
 class IntervalT2MF_Trapezoidal(IntervalT2MF_Prototype):
     """
     Class IntervalT2MF_Trapezoidal

@@ -2,13 +2,12 @@
 IntervalT2MF_Intersection.py
 Created 12/1/2022
 """
-import sys
-sys.path.append("..")
-from intervalType2.sets.IntervalT2MF_Cylinder import IntervalT2MF_Cylinder
-from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
-from intervalType2.sets.IntervalT2MF_Prototype import IntervalT2MF_Prototype
-from generic.Tuple import Tuple
-from type1.sets.T1MF_Intersection import T1MF_Intersection
+
+from juzzyPython.intervalType2.sets.IntervalT2MF_Cylinder import IntervalT2MF_Cylinder
+from juzzyPython.intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
+from juzzyPython.intervalType2.sets.IntervalT2MF_Prototype import IntervalT2MF_Prototype
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.type1.sets.T1MF_Intersection import T1MF_Intersection
 
 class IntervalT2MF_Intersection(IntervalT2MF_Prototype):
     """

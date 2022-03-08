@@ -2,13 +2,9 @@
 GenT2MF_Interface.py
 Created 31/1/2022
 """
-import sys
-sys.path.append("..")
-
-from generic.MF_Interface import MF_Interface
-from generic.Tuple import Tuple
-from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
-from type1.sets.T1MF_Discretized import T1MF_Discretized
+from juzzyPython.generic.MF_Interface import MF_Interface
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
 from typing import List
 
 class GenT2MF_Interface(MF_Interface):

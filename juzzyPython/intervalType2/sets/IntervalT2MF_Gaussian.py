@@ -2,13 +2,11 @@
 IntervalT2MF_Gaussian.py
 Created 10/1/2022
 """
-import sys
-sys.path.append("..")
-import math
 
-from generic.Tuple import Tuple
-from intervalType2.sets.IntervalT2MF_Prototype import IntervalT2MF_Prototype
-from type1.sets.T1MF_Gaussian import T1MF_Gaussian
+import math
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.intervalType2.sets.IntervalT2MF_Prototype import IntervalT2MF_Prototype
+from juzzyPython.type1.sets.T1MF_Gaussian import T1MF_Gaussian
 class IntervalT2MF_Gaussian(IntervalT2MF_Prototype):
     """
     Class IntervalT2MF_Gaussian

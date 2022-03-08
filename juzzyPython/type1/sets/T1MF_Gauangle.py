@@ -3,11 +3,8 @@
 T1MF_Gauangle.py
 Created 18/12/2021
 """
-import sys
-sys.path.append("..")
-
-from generic.Tuple import Tuple
-from type1.sets.T1MF_Prototype import T1MF_Prototype
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.type1.sets.T1MF_Prototype import T1MF_Prototype
 from typing import List
 import math
 from numpy import float64 as f

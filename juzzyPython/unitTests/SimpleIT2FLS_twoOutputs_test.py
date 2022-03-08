@@ -3,10 +3,9 @@ SimpleIT2FLS_twoOutputsUt.py
 Created 27/12/2021
 """
 import sys
-sys.path.append("..")
 import numpy as np
 import unittest
-from examples.SimpleIT2FLS_twoOutputs import SimpleIT2FLS_twoOutputs
+from juzzyPython.examples.SimpleIT2FLS_twoOutputs import SimpleIT2FLS_twoOutputs
 import logging
 
 class TestSimpleT2FLS(unittest.TestCase):

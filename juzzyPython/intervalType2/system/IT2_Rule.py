@@ -3,15 +3,12 @@ IT2_Rule.py
 Created 14/1/2022
 """
 from __future__ import annotations
-import sys
-sys.path.append("..")
-
-from generic.Tuple import Tuple
-from generic.Input import Input
-from type1.sets.T1MF_Interface import T1MF_Interface
-from intervalType2.system.IT2_Antecedent import IT2_Antecedent
-from intervalType2.system.IT2_Consequent import IT2_Consequent
-from type1.sets.T1MF_Singleton import T1MF_Singleton
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.generic.Input import Input
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
+from juzzyPython.intervalType2.system.IT2_Antecedent import IT2_Antecedent
+from juzzyPython.intervalType2.system.IT2_Consequent import IT2_Consequent
+from juzzyPython.type1.sets.T1MF_Singleton import T1MF_Singleton
 from typing import List
 
 class IT2_Rule():

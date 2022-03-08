@@ -3,28 +3,16 @@ GenT2_Rule.py
 Created 8/1/2022
 """
 from __future__ import annotations
-import sys
-sys.path.append("..")
-
-from generalType2zSlices.system.GenT2Engine_Intersection import GenT2Engine_Intersection
-from generalType2zSlices.system.GenT2_Antecedent import GenT2_Antecedent
-from generalType2zSlices.system.GenT2_Consequent import GenT2_Consequent
-
-from generic.Input import Input
-from generic.Output import Output
-from generic.Tuple import Tuple
-from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
-from generalType2zSlices.sets.GenT2MF_CylExtension import GenT2MF_CylExtension
-from generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
-from generalType2zSlices.sets.GenT2MF_Intersection import GenT2MF_Intersection
-
-from intervalType2.system.IT2_Rule import IT2_Rule
-from intervalType2.system.IT2_Antecedent import IT2_Antecedent
-from intervalType2.system.IT2_Consequent import IT2_Consequent
-from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
-
-from type1.sets.T1MF_Interface import T1MF_Interface
-from type1.sets.T1MF_Meet import T1MF_Meet
+from juzzyPython.generalType2zSlices.system.GenT2Engine_Intersection import GenT2Engine_Intersection
+from juzzyPython.generalType2zSlices.system.GenT2_Antecedent import GenT2_Antecedent
+from juzzyPython.generalType2zSlices.system.GenT2_Consequent import GenT2_Consequent
+from juzzyPython.generic.Input import Input
+from juzzyPython.generic.Output import Output
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
+from juzzyPython.generalType2zSlices.sets.GenT2MF_CylExtension import GenT2MF_CylExtension
+from juzzyPython.intervalType2.system.IT2_Rule import IT2_Rule
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
+from juzzyPython.type1.sets.T1MF_Meet import T1MF_Meet
 from typing import List, OrderedDict
 
 class GenT2_Rule():

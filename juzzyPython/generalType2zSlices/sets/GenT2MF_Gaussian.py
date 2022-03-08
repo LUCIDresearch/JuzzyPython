@@ -3,16 +3,10 @@ GenT2MF_Gaussian.py
 Created 3/1/2022
 """
 from __future__ import annotations
-
-import sys
-
-from numpy import number
-sys.path.append("..")
-
-from generic.Tuple import Tuple
-from intervalType2.sets.IntervalT2MF_Gaussian import IntervalT2MF_Gaussian
-from type1.sets.T1MF_Gaussian import T1MF_Gaussian
-from generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian import IntervalT2MF_Gaussian
+from juzzyPython.type1.sets.T1MF_Gaussian import T1MF_Gaussian
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
 from typing import List
 
 class GenT2MF_Gaussian(GenT2MF_Prototype):

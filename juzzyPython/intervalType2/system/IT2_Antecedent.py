@@ -2,16 +2,12 @@
 IT2_Antecedent.py
 Created 13/1/2022
 """
-import sys
-from generic.Input import Input
-sys.path.append("..")
-
-from generic.Tuple import Tuple
-from intervalType2.sets.IntervalT2MF_Gauangle import IntervalT2MF_Gauangle
-from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
-from intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
-from type1.sets.T1MF_Interface import T1MF_Interface
-
+from juzzyPython.generic.Input import Input
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle import IntervalT2MF_Gauangle
+from juzzyPython.intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
+from juzzyPython.intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
 
 class IT2_Antecedent():
     """

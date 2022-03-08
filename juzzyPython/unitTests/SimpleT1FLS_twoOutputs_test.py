@@ -2,11 +2,9 @@
 SimpleT1FLS_twoOutputsUt.py
 Created 22/12/2021
 """
-import sys
-sys.path.append("..")
 import numpy as np
 import unittest
-from examples.SimpleT1FLS_twoOutputs import SimpleT1FLS_twoOutputs
+from juzzyPython.examples.SimpleT1FLS_twoOutputs import SimpleT1FLS_twoOutputs
 import logging
 
 class TestSimpleNST1FLS(unittest.TestCase):

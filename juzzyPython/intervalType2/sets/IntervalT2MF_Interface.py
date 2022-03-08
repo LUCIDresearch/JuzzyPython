@@ -2,12 +2,10 @@
 IntervalT2MF_Interface.py
 Created 5/1/2022
 """
-import sys
-sys.path.append("..")
 
-from generic.MF_Interface import MF_Interface
-from generic.Tuple import Tuple
-from type1.sets.T1MF_Interface import T1MF_Interface
+from juzzyPython.generic.MF_Interface import MF_Interface
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
 
 class IntervalT2MF_Interface(MF_Interface):
     """

@@ -4,11 +4,8 @@ Created 3/1/2022
 """
 from __future__ import annotations
 from typing import List
-import sys
-
-from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
-sys.path.append("..")
-from generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
+from juzzyPython.intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
 
 class GenT2MF_Intersection(GenT2MF_Prototype):
     """

@@ -3,13 +3,11 @@
 T1_Rulebase.py
 Created 19/12/2021
 """
-import sys
-sys.path.append("..")
 
-from generic.Input import Input
+from juzzyPython.generic.Input import Input
 from typing import List
 from collections import OrderedDict
-from type1.system.T1_Rule import T1_Rule
+from juzzyPython.type1.system.T1_Rule import T1_Rule
 from numpy import float64 as f
 
 class T1_Rulebase:

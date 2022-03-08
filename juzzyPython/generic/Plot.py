@@ -2,19 +2,13 @@
 Plot.py
 Created 21/12/2021
 """
-import sys
 
-
-sys.path.append("..")
-from generic.Tuple import Tuple
-from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
-
-from type1.sets.T1MF_Interface import T1MF_Interface
-
-from generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
-from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
-
-from generalType2zSlices.sets.GenT2MF_Trapezoidal import GenT2MF_Trapezoidal
+from juzzyPython.generic.Tuple import Tuple
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
+from juzzyPython.intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Trapezoidal import GenT2MF_Trapezoidal
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D  
 import matplotlib.pyplot as plt

@@ -2,10 +2,8 @@
 FLCFactory.py
 Created 19/2/2022
 """
-import sys
-sys.path.append("..")
-from generalType2zSlices.multicore.FLCPlant import FLCPlant
-from intervalType2.system.IT2_Rulebase import IT2_Rulebase
+from juzzyPython.generalType2zSlices.multicore.FLCPlant import FLCPlant
+from juzzyPython.intervalType2.system.IT2_Rulebase import IT2_Rulebase
 from typing import List, OrderedDict
 import multiprocessing
 

@@ -3,29 +3,23 @@
 Input.py
 Created 18/12/2021
 """
-import sys
-
-sys.path.append("..")
-
-from generic.MF_Interface import MF_Interface
-from type1.sets.T1MF_Interface import T1MF_Interface
-from type1.sets.T1MF_Singleton import T1MF_Singleton
-from type1.sets.T1MF_Gaussian import T1MF_Gaussian
-from type1.sets.T1MF_Gauangle import T1MF_Gauangle
-from type1.sets.T1MF_Triangular import T1MF_Triangular
-from type1.sets.T1MF_Trapezoidal import T1MF_Trapezoidal
-from intervalType2.sets.IntervalT2MF_Gauangle import IntervalT2MF_Gauangle
-from intervalType2.sets.IntervalT2MF_Gaussian import IntervalT2MF_Gaussian
-from intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
-from intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
-from intervalType2.sets.IntervalT2MF_Trapezoidal import IntervalT2MF_Trapezoidal
-from generalType2zSlices.sets.GenT2MF_Prototype import GenT2MF_Prototype
-from generalType2zSlices.sets.GenT2MF_Gaussian import GenT2MF_Gaussian
-from generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
-from generalType2zSlices.sets.GenT2MF_Trapezoidal import GenT2MF_Trapezoidal
-from generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
-
-from generic.Tuple import Tuple
+from juzzyPython.generic.MF_Interface import MF_Interface
+from juzzyPython.type1.sets.T1MF_Interface import T1MF_Interface
+from juzzyPython.type1.sets.T1MF_Singleton import T1MF_Singleton
+from juzzyPython.type1.sets.T1MF_Gaussian import T1MF_Gaussian
+from juzzyPython.type1.sets.T1MF_Gauangle import T1MF_Gauangle
+from juzzyPython.type1.sets.T1MF_Triangular import T1MF_Triangular
+from juzzyPython.type1.sets.T1MF_Trapezoidal import T1MF_Trapezoidal
+from juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle import IntervalT2MF_Gauangle
+from juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian import IntervalT2MF_Gaussian
+from juzzyPython.intervalType2.sets.IntervalT2MF_Interface import IntervalT2MF_Interface
+from juzzyPython.intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_Triangular
+from juzzyPython.intervalType2.sets.IntervalT2MF_Trapezoidal import IntervalT2MF_Trapezoidal
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Gaussian import GenT2MF_Gaussian
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Trapezoidal import GenT2MF_Trapezoidal
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
+from juzzyPython.generic.Tuple import Tuple
 
 class Input: 
     """
