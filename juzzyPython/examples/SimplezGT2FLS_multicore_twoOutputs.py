@@ -44,8 +44,8 @@ class SimplezGT2FLS_multicore_twoOutputs:
         self.start = time.time()
         self.numberOfzLevels = 4
         self.typeReduction = 0
-        self.xDiscs = 50
-        self.yDiscs = 10
+        self.xDiscs = 100
+        self.yDiscs = 100
 
         #Inputs to the FLS
         self.food = Input("Food Quality",Tuple(0,10)) #Rating from 0-10
@@ -139,7 +139,8 @@ class SimplezGT2FLS_multicore_twoOutputs:
         self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100,True,True)
         self.plotMFs("Service Level Membership Functions", [unfriendlyServiceMF, friendlyServiceMF], self.service.getDomain(), 100,True,True)
         self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100,True,True)
-        self.getControlSurfaceData(False,self.xDiscs,self.yDiscs)
+        self.getControlSurfaceData(self.tip,False,self.xDiscs,self.yDiscs)
+        self.getControlSurfaceData(self.smile,False,self.xDiscs,self.yDiscs)
 
         if self.PRINTTIME:
             print("Generated graphs for tip results in (seconds):")
@@ -175,7 +176,7 @@ class SimplezGT2FLS_multicore_twoOutputs:
         centroidTipYValues = centroidTip[1]
         for zLevel in range(len(centroidTipXValues)):
             print(centroidTipXValues[zLevel].toString()+" at y= "+str(centroidTipYValues[zLevel]))
-    def getControlSurfaceData(self,useCentroidDefuzz,input1Discs,input2Discs,unit = False) -> None:
+    def getControlSurfaceData(self,o,useCentroidDefuzz,input1Discs,input2Discs,unit = False) -> None:
         """Get the data to plot the control surface"""
         if unit:
             test = []
@@ -195,9 +196,9 @@ class SimplezGT2FLS_multicore_twoOutputs:
             for y_ in range(input2Discs):
                 self.service.setInput(y[y_])
                 if useCentroidDefuzz:
-                    out = self.FLC.runFactory(1)[self.tip]
+                    out = self.FLC.runFactory(1)[o]
                 else:
-                    out = self.FLC.runFactory(0)[self.tip]
+                    out = self.FLC.runFactory(0)[o]
                 if out == None or math.isnan(out):
                     z[y_][x_] = 0.0
                     if unit:
@@ -208,7 +209,7 @@ class SimplezGT2FLS_multicore_twoOutputs:
                         test.append(out)
         if unit:
             return test
-        self.plot.plotControlSurface(x,y,z,self.food.getName(),self.service.getName(),self.tip.getName())
+        self.plot.plotControlSurface(x,y,z,self.food.getName(),self.service.getName(),o.getName())
         
     def plotMFs(self,name,sets,xAxisRange,discretizationLevel,plotAsLines,plotAsSurface):
         """Plot the lines for each membership function of the sets"""

@@ -46,8 +46,8 @@ class SimplezGT2FLS_multicore:
         self.start = time.time()
         self.numberOfzLevels = 4
         self.typeReduction = 0
-        self.xDiscs = 50
-        self.yDiscs = 10
+        self.xDiscs = 100
+        self.yDiscs = 100
 
         #Inputs to the FLS
         self.food = Input("Food Quality",Tuple(0,10)) #Rating from 0-10
