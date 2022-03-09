@@ -148,6 +148,11 @@ class SimplezGT2FLS_multicore_twoOutputs:
         if not unit:
             self.plot.show()
         
+    def getTipObject(self) ->Output:
+        return self.tip
+
+    def getSmileObject(self) ->Output:
+        return self.smile
         
     def getTip(self,foodQuality,serviceLevel) -> None:
         """Calculate the output based on the two inputs"""
