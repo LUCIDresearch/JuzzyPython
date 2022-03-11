@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>juzzyPython.type1.sets.T1MF_Gauangle &#8212; JuzzyPython 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for juzzyPython.type1.sets.T1MF_Gauangle</h1><div class="highlight"><pre>
+<span></span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">T1MF_Gauangle.py</span>
+<span class="sd">Created 18/12/2021</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generic.Tuple</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.type1.sets.T1MF_Prototype</span> <span class="kn">import</span> <span class="n">T1MF_Prototype</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">float64</span> <span class="k">as</span> <span class="n">f</span>
+<span class="kn">import</span> <span class="nn">functools</span>
+
+<div class="viewcode-block" id="T1MF_Gauangle"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle">[docs]</a><span class="nd">@functools</span><span class="o">.</span><span class="n">total_ordering</span>
+<span class="k">class</span> <span class="nc">T1MF_Gauangle</span><span class="p">(</span><span class="n">T1MF_Prototype</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class T1MF_Gauangle</span>
+<span class="sd">    Class for Gauangle Type-1 Fuzzy Membership Functions.</span>
+<span class="sd">    The Gauangle MF combines the smooth &quot;peak&quot; of Gaussian MFs with the linearly</span>
+<span class="sd">    decreasing &quot;sides&quot; of triangular MFs.</span>
+
+<span class="sd">    Parameters: </span>
+<span class="sd">        name:Name of the set</span>
+<span class="sd">        start:Start as for triangular MF.</span>
+<span class="sd">        center:Center as for triangular MF</span>
+<span class="sd">        end:End as for triangular MF.</span>
+
+<span class="sd">    Functions:</span>
+<span class="sd">        getFS</span>
+<span class="sd">        getPeak</span>
+<span class="sd">        getMean</span>
+<span class="sd">        getStart</span>
+<span class="sd">        getEnd</span>
+<span class="sd">        toString</span>
+<span class="sd">        getLineEquationParameters</span>
+<span class="sd">        getXForYOnLine</span>
+<span class="sd">        compareTo</span>
+<span class="sd">        getAlphaCut</span>
+<span class="sd">     </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span><span class="n">start</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span><span class="n">center</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span><span class="n">end</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">center</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">end</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">similarToGaussian</span> <span class="o">=</span> <span class="mf">0.5</span> 
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">spreadForLeft</span> <span class="o">=</span> <span class="p">(</span><span class="n">center</span><span class="o">-</span><span class="n">start</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">similarToGaussian</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spreadForRight</span> <span class="o">=</span> <span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">center</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">similarToGaussian</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transitionPointLeft</span> <span class="o">=</span> <span class="n">center</span><span class="o">-</span><span class="p">((</span><span class="n">center</span><span class="o">-</span><span class="n">start</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">similarToGaussian</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transitionPointRight</span> <span class="o">=</span> <span class="n">center</span><span class="o">+</span><span class="p">((</span><span class="n">end</span><span class="o">-</span><span class="n">center</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">similarToGaussian</span><span class="p">)</span>
+    
+        <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="n">center</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">isLeftShoulder_</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">divLeft</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">)</span>
+            <span class="n">divRight</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transitionPointRight</span><span class="o">-</span><span class="n">center</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">spreadForRight</span>
+        <span class="k">elif</span> <span class="n">center</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">isRightShoulder_</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">divRight</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">)</span>
+            <span class="n">divLeft</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transitionPointLeft</span><span class="o">-</span><span class="n">center</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">spreadForLeft</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">divLeft</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transitionPointLeft</span><span class="o">-</span><span class="n">center</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">spreadForLeft</span>
+            <span class="n">divRight</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transitionPointRight</span><span class="o">-</span><span class="n">center</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">spreadForRight</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">support</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">)</span>
+
+        <span class="n">ab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getLineEquationParameters</span><span class="p">(</span><span class="n">Tuple</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="mf">0.0</span><span class="p">),</span>
+                <span class="n">Tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transitionPointLeft</span><span class="p">,</span>
+                <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">divLeft</span><span class="p">,</span><span class="mi">2</span><span class="p">))))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">leftCalculationPoint</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getXForYOnLine</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="n">ab</span><span class="p">)</span>
+        
+        <span class="n">ab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getLineEquationParameters</span><span class="p">(</span><span class="n">Tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transitionPointRight</span><span class="p">,</span>
+                <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">divRight</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+                <span class="p">,</span><span class="n">Tuple</span><span class="p">(</span><span class="n">end</span><span class="p">,</span><span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rightCalculationPoint</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getXForYOnLine</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="n">ab</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transition points between triangular and gaussian functions are &quot;</span>
+            <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transitionPointLeft</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; and &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transitionPointRight</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+        
+<div class="viewcode-block" id="T1MF_Gauangle.getFS"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getFS">[docs]</a>    <span class="k">def</span> <span class="nf">getFS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the maximum FS between two sets&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">isLeftShoulder</span><span class="p">()</span> <span class="ow">and</span> <span class="n">x</span><span class="o">&lt;=</span><span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">isRightShoulder</span><span class="p">()</span> <span class="ow">and</span> <span class="n">x</span><span class="o">&gt;=</span><span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">):</span>
+                <span class="k">return</span> <span class="mf">1.0</span>
+            <span class="k">elif</span> <span class="n">x</span><span class="o">&lt;=</span><span class="bp">self</span><span class="o">.</span><span class="n">transitionPointLeft</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">leftCalculationPoint</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">x</span><span class="o">&lt;=</span><span class="bp">self</span><span class="o">.</span><span class="n">transitionPointRight</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">x</span><span class="o">&lt;=</span><span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">spreadForLeft</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">spreadForRight</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">rightCalculationPoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span></div>
+    
+<div class="viewcode-block" id="T1MF_Gauangle.getPeak"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getPeak">[docs]</a>    <span class="k">def</span> <span class="nf">getPeak</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the peak of the set&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMean</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="T1MF_Gauangle.getMean"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getMean">[docs]</a>    <span class="k">def</span> <span class="nf">getMean</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the mean of the set&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">center</span></div>
+    
+<div class="viewcode-block" id="T1MF_Gauangle.getStart"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getStart">[docs]</a>    <span class="k">def</span> <span class="nf">getStart</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the start of the set&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span></div>
+    
+<div class="viewcode-block" id="T1MF_Gauangle.getEnd"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getEnd">[docs]</a>    <span class="k">def</span> <span class="nf">getEnd</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the end of the set&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span></div>
+    
+<div class="viewcode-block" id="T1MF_Gauangle.toString"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.toString">[docs]</a>    <span class="k">def</span> <span class="nf">toString</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert membership function to string&quot;&quot;&quot;</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s2">&quot;  interiorSet &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;  &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;  &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isLeftShoulder</span><span class="p">():</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot; (LeftShoulder)&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isRightShoulder</span><span class="p">():</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot; (RightShoulder)&quot;</span>
+        <span class="k">return</span> <span class="n">s</span></div>
+    
+<div class="viewcode-block" id="T1MF_Gauangle.getLineEquationParameters"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getLineEquationParameters">[docs]</a>    <span class="k">def</span> <span class="nf">getLineEquationParameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;returns the line equation parameters a and be (line equation = ax*b) for a line passing through the points defined by the tuples x and y.</span>
+<span class="sd">        The first point (x), the Tuple consists of the x and y coordinates of the point in this order.</span>
+<span class="sd">        The second point (y), the Tuple consists of the x and y coordinates of the point in this order.&quot;&quot;&quot;</span>
+        <span class="n">ab</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">ab</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">getRight</span><span class="p">())</span><span class="o">/</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()))</span>
+        <span class="n">ab</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span><span class="o">-</span><span class="n">ab</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">.</span><span class="n">getLeft</span><span class="p">())</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;   y = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Line equation: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ab</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot; * x + &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ab</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">return</span> <span class="n">ab</span></div>
+    
+<div class="viewcode-block" id="T1MF_Gauangle.getXForYOnLine"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getXForYOnLine">[docs]</a>    <span class="k">def</span> <span class="nf">getXForYOnLine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span><span class="n">ab</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the x coordinate for a specified y coordinate when considering the given line equation.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">ab</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">ab</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+    
+<div class="viewcode-block" id="T1MF_Gauangle.compareTo"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.compareTo">[docs]</a>    <span class="k">def</span> <span class="nf">compareTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Compare to another gauangle object &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="ow">is</span> <span class="n">T1MF_Gauangle</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isLeftShoulder</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getEnd</span><span class="p">()</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">getEnd</span><span class="p">()</span> <span class="ow">and</span> <span class="n">o</span><span class="o">.</span><span class="n">isLeftShoulder</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPeak</span><span class="p">()</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">getPeak</span><span class="p">():</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getEnd</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">o</span><span class="o">.</span><span class="n">getEnd</span><span class="p">()</span> <span class="ow">and</span> <span class="n">o</span><span class="o">.</span><span class="n">isLeftShoulder</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPeak</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">o</span><span class="o">.</span><span class="n">getPeak</span><span class="p">():</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">isRightShoulder</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getStart</span><span class="p">()</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">getStart</span><span class="p">()</span> <span class="ow">and</span> <span class="n">o</span><span class="o">.</span><span class="n">isRightShoulder</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPeak</span><span class="p">()</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">getPeak</span><span class="p">():</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getStart</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">o</span><span class="o">.</span><span class="n">getStart</span><span class="p">()</span> <span class="ow">and</span> <span class="n">o</span><span class="o">.</span><span class="n">isRightShoulder</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPeak</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">o</span><span class="o">.</span><span class="n">getPeak</span><span class="p">():</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getEnd</span><span class="p">()</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">getEnd</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">getStart</span><span class="p">()</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">getStart</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPeak</span><span class="p">()</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">getPeak</span><span class="p">():</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getEnd</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">o</span><span class="o">.</span><span class="n">getEnd</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">getStart</span><span class="p">()</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">getStart</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPeak</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">o</span><span class="o">.</span><span class="n">getPeak</span><span class="p">():</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">return</span> <span class="mi">1</span></div>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="nb">object</span><span class="p">):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compareTo</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="nb">object</span><span class="p">):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compareTo</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
+    
+<div class="viewcode-block" id="T1MF_Gauangle.getAlphaCut"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getAlphaCut">[docs]</a>    <span class="k">def</span> <span class="nf">getAlphaCut</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Unsupported Function&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Unsupported Function&quot;</span><span class="p">)</span></div></div>
+
+
+        
+
+
+
+
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">JuzzyPython</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Christian Wagner.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

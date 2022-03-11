@@ -82,7 +82,7 @@ class Plot:
             y2b = [0.0] * (len(y2)+2)
 
             x2[0] = sets.getSupport().getLeft()
-            x2[-1] = set.getSupport().getRight()
+            x2[-1] = sets.getSupport().getRight()
 
             y1b[0] = 0.0
             y1b[len(y1)-1] = 0.0

@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>juzzyPython.generalType2zSlices.system.GenT2_Rule &#8212; JuzzyPython 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for juzzyPython.generalType2zSlices.system.GenT2_Rule</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">GenT2_Rule.py</span>
+<span class="sd">Created 8/1/2022</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generalType2zSlices.system.GenT2Engine_Intersection</span> <span class="kn">import</span> <span class="n">GenT2Engine_Intersection</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generalType2zSlices.system.GenT2_Antecedent</span> <span class="kn">import</span> <span class="n">GenT2_Antecedent</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generalType2zSlices.system.GenT2_Consequent</span> <span class="kn">import</span> <span class="n">GenT2_Consequent</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generic.Input</span> <span class="kn">import</span> <span class="n">Input</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generic.Output</span> <span class="kn">import</span> <span class="n">Output</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generalType2zSlices.sets.GenT2MF_Interface</span> <span class="kn">import</span> <span class="n">GenT2MF_Interface</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generalType2zSlices.sets.GenT2MF_CylExtension</span> <span class="kn">import</span> <span class="n">GenT2MF_CylExtension</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.intervalType2.system.IT2_Rule</span> <span class="kn">import</span> <span class="n">IT2_Rule</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.type1.sets.T1MF_Interface</span> <span class="kn">import</span> <span class="n">T1MF_Interface</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.type1.sets.T1MF_Meet</span> <span class="kn">import</span> <span class="n">T1MF_Meet</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">OrderedDict</span>
+
+<div class="viewcode-block" id="GenT2_Rule"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rule.GenT2_Rule">[docs]</a><span class="k">class</span> <span class="nc">GenT2_Rule</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class GenT2_Rule</span>
+<span class="sd">    Creates a new instance of GenT2_Rule with a single consequent or multiple.</span>
+<span class="sd">    Currently only &quot;AND&quot; is supported as logical connective.</span>
+
+<span class="sd">    Parameters: </span>
+<span class="sd">        antecedents</span>
+<span class="sd">        consequent</span>
+<span class="sd">        consequents</span>
+
+<span class="sd">    Functions:</span>
+<span class="sd">        getFS</span>
+<span class="sd">        getInputs</span>
+<span class="sd">        getOutput</span>
+<span class="sd">        getRuleasIT2Rules</span>
+<span class="sd">        getAntecedents</span>
+<span class="sd">        getConsequents</span>
+<span class="sd">        getNumberOfAntecedents</span>
+<span class="sd">        getNumberOfConsequents</span>
+<span class="sd">        equals</span>
+<span class="sd">        toString</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">antecedents</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GenT2_Antecedent</span><span class="p">],</span><span class="n">consequent</span><span class="p">:</span> <span class="n">GenT2_Consequent</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">consequents</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GenT2_Consequent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">antecedents</span> <span class="o">=</span> <span class="n">antecedents</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">consequents</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gzEI</span> <span class="o">=</span> <span class="n">GenT2Engine_Intersection</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">consequent</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">consequents</span><span class="p">[</span><span class="n">consequent</span><span class="o">.</span><span class="n">getOutput</span><span class="p">()]</span> <span class="o">=</span> <span class="n">consequent</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">consequents</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">consequents</span><span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">getOutput</span><span class="p">()]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rule antecedent&#39;s inputs:&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">antecedents</span><span class="p">)):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;input: &quot;</span><span class="o">+</span><span class="n">antecedents</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getInput</span><span class="p">()</span><span class="o">.</span><span class="n">toString</span><span class="p">())</span>
+        
+<div class="viewcode-block" id="GenT2_Rule.getFS"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rule.GenT2_Rule.getFS">[docs]</a>    <span class="k">def</span> <span class="nf">getFS</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T1MF_Interface</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return firing strength of rule&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">antecedents</span><span class="p">)):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">antecedents</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getInput</span><span class="p">()</span><span class="o">.</span><span class="n">toString</span><span class="p">())</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">antecedents</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">antecedents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getFS</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fs</span> <span class="o">=</span> <span class="n">T1MF_Meet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">antecedents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getFS</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">antecedents</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">getFS</span><span class="p">())</span>
+            <span class="k">if</span><span class="p">(</span><span class="ow">not</span> <span class="n">fs</span><span class="o">.</span><span class="n">intersectionExists</span><span class="p">()):</span>
+                <span class="n">fs</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">antecedents</span><span class="p">)):</span>
+                    <span class="n">fs</span> <span class="o">=</span> <span class="n">T1MF_Meet</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">antecedents</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getFS</span><span class="p">())</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">fs</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">fs</span><span class="o">.</span><span class="n">intersectionExists</span><span class="p">():</span>
+                <span class="k">return</span> <span class="n">fs</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span></div>
+            
+<div class="viewcode-block" id="GenT2_Rule.getNumberOfAntecedents"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rule.GenT2_Rule.getNumberOfAntecedents">[docs]</a>    <span class="k">def</span> <span class="nf">getNumberOfAntecedents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the number of antecedents&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">antecedents</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rule.getNumberOfConsequents"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rule.GenT2_Rule.getNumberOfConsequents">[docs]</a>    <span class="k">def</span> <span class="nf">getNumberOfConsequents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the number of consequents&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">consequents</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rule.getAntecedents"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rule.GenT2_Rule.getAntecedents">[docs]</a>    <span class="k">def</span> <span class="nf">getAntecedents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">GenT2_Antecedent</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Return the list of antecedents&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">antecedents</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rule.getConsequents"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rule.GenT2_Rule.getConsequents">[docs]</a>    <span class="k">def</span> <span class="nf">getConsequents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">GenT2_Consequent</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Return the list of consequents&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">consequents</span><span class="o">.</span><span class="n">values</span><span class="p">())</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rule.getInputs"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rule.GenT2_Rule.getInputs">[docs]</a>    <span class="k">def</span> <span class="nf">getInputs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Input</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Return the list of inputs&quot;&quot;&quot;</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNumberOfAntecedents</span><span class="p">()):</span>
+            <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">antecedents</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getInput</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">inputs</span></div>
+
+<div class="viewcode-block" id="GenT2_Rule.getOutput"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rule.GenT2_Rule.getOutput">[docs]</a>    <span class="k">def</span> <span class="nf">getOutput</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Output</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the output of the rule&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConsequents</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getOutput</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rule.getRawOutput"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rule.GenT2_Rule.getRawOutput">[docs]</a>    <span class="k">def</span> <span class="nf">getRawOutput</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the raw output of the rule&quot;&quot;&quot;</span>
+        <span class="n">returnValue</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="n">baseSet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getFS</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">con</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConsequents</span><span class="p">():</span>
+            <span class="n">o</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">getOutput</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">baseSet</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">cylExt</span> <span class="o">=</span> <span class="n">GenT2MF_CylExtension</span><span class="p">(</span><span class="n">baseSet</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">antecedents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getSet</span><span class="p">()</span><span class="o">.</span><span class="n">getNumberOfSlices</span><span class="p">())</span>
+                <span class="n">returnValue</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gzEI</span><span class="o">.</span><span class="n">getIntersection</span><span class="p">(</span><span class="n">cylExt</span><span class="p">,</span><span class="n">con</span><span class="o">.</span><span class="n">getSet</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">returnValue</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gzEI</span><span class="o">.</span><span class="n">getIntersection</span><span class="p">(</span><span class="n">cylExt</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">returnValue</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rule.getRuleasIT2Rules"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rule.GenT2_Rule.getRuleasIT2Rules">[docs]</a>    <span class="k">def</span> <span class="nf">getRuleasIT2Rules</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">IT2_Rule</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Produces a series of interval type-2 rules where each rule represents one zLevel of the underlying zSlices rule.</span>
+<span class="sd">        CURRENTLY ONLY ONE CONSEQUENT IS SUPPORTED!&quot;&quot;&quot;</span>
+        <span class="n">rs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">getAntecedents</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getSet</span><span class="p">()</span><span class="o">.</span><span class="n">getNumberOfSlices</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rs</span><span class="p">)):</span>
+            <span class="n">As</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">getNumberOfAntecedents</span><span class="p">()</span>
+            <span class="n">Cs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">getNumberOfConsequents</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">As</span><span class="p">)):</span>
+                <span class="n">As</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getAntecedents</span><span class="p">()[</span><span class="n">a</span><span class="p">]</span><span class="o">.</span><span class="n">getAntecedentasIT2Sets</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getAntecedents</span><span class="p">()[</span><span class="n">a</span><span class="p">]</span><span class="o">.</span><span class="n">getInput</span><span class="p">()</span><span class="o">.</span><span class="n">getInputMF</span><span class="p">(),</span><span class="n">GenT2MF_Interface</span><span class="p">):</span>
+                    <span class="n">temp</span> <span class="o">=</span> <span class="n">As</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">.</span><span class="n">getInput</span><span class="p">()</span>
+                    <span class="n">domain</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">getDomain</span><span class="p">()</span>
+                    <span class="n">nameInput</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span>
+                    <span class="n">mf</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">getInputMF</span><span class="p">()</span><span class="o">.</span><span class="n">getZSlice</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>         	
+                    <span class="n">As</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">.</span><span class="n">setInput</span><span class="p">(</span><span class="n">Input</span><span class="p">(</span><span class="n">nameInput</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">inputMF</span><span class="o">=</span> <span class="n">mf</span><span class="p">))</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">con</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConsequents</span><span class="p">():</span>
+                <span class="n">Cs</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">getConsequentsIT2Sets</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">c</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="n">rs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">IT2_Rule</span><span class="p">(</span><span class="n">As</span><span class="p">,</span><span class="n">consequents</span><span class="o">=</span><span class="n">Cs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">rs</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rule.equals"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rule.GenT2_Rule.equals">[docs]</a>    <span class="k">def</span> <span class="nf">equals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">rule</span><span class="p">:</span> <span class="n">GenT2_Rule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Check if rule is equal to another&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">rule</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span><span class="n">GenT2_Rule</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">isEqual</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">ants</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNumberOfAntecedents</span><span class="p">()):</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rule</span><span class="o">.</span><span class="n">getAntecedents</span><span class="p">())):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getAntecedents</span><span class="p">()[</span><span class="n">ants</span><span class="p">]</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">rule</span><span class="o">.</span><span class="n">getAntecedents</span><span class="p">()[</span><span class="n">i</span><span class="p">]):</span>
+                    <span class="n">temp</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">isEqual</span> <span class="o">&amp;=</span> <span class="n">temp</span>
+        <span class="k">for</span> <span class="n">cons</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNumberOfConsequents</span><span class="p">()):</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rule</span><span class="o">.</span><span class="n">getConsequents</span><span class="p">())):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConsequents</span><span class="p">()[</span><span class="n">cons</span><span class="p">]</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">rule</span><span class="o">.</span><span class="n">getConsequents</span><span class="p">()[</span><span class="n">i</span><span class="p">]):</span>
+                    <span class="n">temp</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">isEqual</span> <span class="o">&amp;=</span> <span class="n">temp</span>
+        <span class="k">return</span> <span class="n">isEqual</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rule.toString"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rule.GenT2_Rule.toString">[docs]</a>    <span class="k">def</span> <span class="nf">toString</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert antecedent to string&quot;&quot;&quot;</span>
+        <span class="n">s</span><span class="o">=</span><span class="s2">&quot;IF &quot;</span><span class="p">;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNumberOfAntecedents</span><span class="p">()):</span>
+            <span class="n">s</span><span class="o">+=</span><span class="bp">self</span><span class="o">.</span><span class="n">getAntecedents</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot; &quot;</span>
+            <span class="k">if</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">&lt;</span><span class="bp">self</span><span class="o">.</span><span class="n">getNumberOfAntecedents</span><span class="p">()):</span>
+                <span class="n">s</span><span class="o">+=</span><span class="s2">&quot;AND &quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">s</span><span class="o">+=</span><span class="s2">&quot;THEN &quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNumberOfConsequents</span><span class="p">()):</span>
+            <span class="n">s</span><span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConsequents</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot; &quot;</span>
+            <span class="k">if</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">&lt;</span><span class="bp">self</span><span class="o">.</span><span class="n">getNumberOfConsequents</span><span class="p">()):</span>
+                <span class="n">s</span><span class="o">+=</span><span class="s2">&quot;AND &quot;</span>
+        <span class="k">return</span> <span class="n">s</span><span class="p">;</span></div></div>
+    
+        
+    
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">JuzzyPython</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Christian Wagner.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

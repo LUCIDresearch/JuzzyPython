@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>juzzyPython.type1.sets package &mdash; JuzzyPython 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> JuzzyPython
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">juzzyPython.type1.sets package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.sets.T1MF_Cylinder">juzzyPython.type1.sets.T1MF_Cylinder module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.sets.T1MF_Discretized">juzzyPython.type1.sets.T1MF_Discretized module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.sets.T1MF_Gauangle">juzzyPython.type1.sets.T1MF_Gauangle module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.sets.T1MF_Gaussian">juzzyPython.type1.sets.T1MF_Gaussian module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.sets.T1MF_Interface">juzzyPython.type1.sets.T1MF_Interface module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.sets.T1MF_Intersection">juzzyPython.type1.sets.T1MF_Intersection module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.sets.T1MF_Meet">juzzyPython.type1.sets.T1MF_Meet module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.sets.T1MF_Prototype">juzzyPython.type1.sets.T1MF_Prototype module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.sets.T1MF_Singleton">juzzyPython.type1.sets.T1MF_Singleton module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.sets.T1MF_Trapezoidal">juzzyPython.type1.sets.T1MF_Trapezoidal module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.sets.T1MF_Triangular">juzzyPython.type1.sets.T1MF_Triangular module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.sets.T1MF_Union">juzzyPython.type1.sets.T1MF_Union module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.sets">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JuzzyPython</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>juzzyPython.type1.sets package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/juzzyPython.type1.sets.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="juzzypython-type1-sets-package">
+<h1>juzzyPython.type1.sets package<a class="headerlink" href="#juzzypython-type1-sets-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-juzzyPython.type1.sets.T1MF_Cylinder">
+<span id="juzzypython-type1-sets-t1mf-cylinder-module"></span><h2>juzzyPython.type1.sets.T1MF_Cylinder module<a class="headerlink" href="#module-juzzyPython.type1.sets.T1MF_Cylinder" title="Permalink to this headline"></a></h2>
+<p>T1MF_Cylinder.py
+Created 10/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.sets.T1MF_Cylinder.</span></span><span class="sig-name descname"><span class="pre">T1MF_Cylinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">membershipDegree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Cylinder.html#T1MF_Cylinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype" title="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype</span></code></a></p>
+<p>Class T1MF_Cylinder
+The T1MF_Cylinder class is mainly a support class for the IT2 class. It serves
+to implement the cylindrical extension of a firing strength. In terms of a
+type-1 MF, a cylinder is in fact just a singleton over the whole universe of
+discourse.</p>
+<p>Parameters: Name: Name of the variable
+Membership Degree: The value for the membership degree of the “cylinder” (for all x)</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getFS
+getAlphaCut
+toString
+compareTo
+getPeak</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Cylinder.html#T1MF_Cylinder.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder.compareTo" title="Permalink to this definition"></a></dt>
+<dd><p>Unsupported method</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder.getAlphaCut">
+<span class="sig-name descname"><span class="pre">getAlphaCut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Cylinder.html#T1MF_Cylinder.getAlphaCut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder.getAlphaCut" title="Permalink to this definition"></a></dt>
+<dd><p>Transform into basic belief assignment</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Cylinder.html#T1MF_Cylinder.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Return the membership degree</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Cylinder.html#T1MF_Cylinder.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder.getPeak" title="Permalink to this definition"></a></dt>
+<dd><p>Unsupported method</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Cylinder.html#T1MF_Cylinder.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Return function to string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.sets.T1MF_Discretized">
+<span id="juzzypython-type1-sets-t1mf-discretized-module"></span><h2>juzzyPython.type1.sets.T1MF_Discretized module<a class="headerlink" href="#module-juzzyPython.type1.sets.T1MF_Discretized" title="Permalink to this headline"></a></h2>
+<p>T1MF_Discretized.py
+Created 11/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.sets.T1MF_Discretized.</span></span><span class="sig-name descname"><span class="pre">T1MF_Discretized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype" title="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype</span></code></a></p>
+<p>Class T1MF_Discretized
+The class allows the specification of a type-1 MF based on single points alone,
+i.e. in a discretised fashion. The points are specified using y-x coordinates.
+All points are held in a list which requires resorting as points are
+added.</p>
+<p>Parameters: Name: Name of the membership function
+InitialSize: An int defining the size of the list</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>addPoint
+addPoints
+getAlphaCutDiscretizationLevel
+setAlphaCutDiscretizationLevel
+getNumberOfPoints
+getFS
+getAlphaCut
+Interpolate
+getPoints
+getPointAt
+getPeak
+getSupport
+toString
+sort
+writeToFile
+writeToFileHighRes
+setLeftShoulderSet
+setRightShoulderSet
+getDefuzzifiedCentroid
+compareTo</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.addPoint">
+<span class="sig-name descname"><span class="pre">addPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.addPoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.addPoint" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a point to the discretized set - forces resorting.
+(add array of points in one go to avoid sorting overhead)</p>
+<blockquote>
+<div><p>p 2-D coordinates of the point in the order y,x.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.addPoints">
+<span class="sig-name descname"><span class="pre">addPoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.addPoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.addPoints" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a series of points to the discretized set - forces resorting.
+p 2-D coordinates of the points in the order y,x.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.compareTo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getAlphaCut">
+<span class="sig-name descname"><span class="pre">getAlphaCut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.getAlphaCut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getAlphaCut" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the x values where the alpha cut using the alpha (y) value provided “cuts” the function curve</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getAlphaCutDiscretizationLevel">
+<span class="sig-name descname"><span class="pre">getAlphaCutDiscretizationLevel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.getAlphaCutDiscretizationLevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getAlphaCutDiscretizationLevel" title="Permalink to this definition"></a></dt>
+<dd><p>Return the current alpha cut discretization level</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getDefuzzifiedCentroid">
+<span class="sig-name descname"><span class="pre">getDefuzzifiedCentroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numberOfDiscretizations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.getDefuzzifiedCentroid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getDefuzzifiedCentroid" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the defuzzified value of this set computed using the centroid algorithm.
+numberOfDiscretizations The number of discretizations to be employed.
+The number of discretizations is not used - instead the centroid is
+computed on all the discrete values in the set.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Return the membership degree</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getNumberOfPoints">
+<span class="sig-name descname"><span class="pre">getNumberOfPoints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.getNumberOfPoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getNumberOfPoints" title="Permalink to this definition"></a></dt>
+<dd><p>Get the length of the set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getPeak" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the xCoordinate of the peak value. If the set has a “flat top”,
+i.e. similar to a trapezoidal MF, then the center of this flat top is returned.  Assumes convexity.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getPointAt">
+<span class="sig-name descname"><span class="pre">getPointAt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.getPointAt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getPointAt" title="Permalink to this definition"></a></dt>
+<dd><p>Return a sorted point in the set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getPoints">
+<span class="sig-name descname"><span class="pre">getPoints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.getPoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getPoints" title="Permalink to this definition"></a></dt>
+<dd><p>Return all the points in the set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getSupport">
+<span class="sig-name descname"><span class="pre">getSupport</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.getSupport"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getSupport" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a new tuple depending on shoulder</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.interpolate">
+<span class="sig-name descname"><span class="pre">interpolate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.interpolate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.interpolate" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate f(s) for input x through interpolation
+x0 = Identifier pointing to correct x0 in set list
+x1 = x input
+x2 = Identifier pointing to correct x2 in set list</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.setAlphaCutDiscretizationLevel">
+<span class="sig-name descname"><span class="pre">setAlphaCutDiscretizationLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.setAlphaCutDiscretizationLevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.setAlphaCutDiscretizationLevel" title="Permalink to this definition"></a></dt>
+<dd><p>Set a new alpha cut discretization level</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.setLeftShoulderSet">
+<span class="sig-name descname"><span class="pre">setLeftShoulderSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shoulderStart</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.setLeftShoulderSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.setLeftShoulderSet" title="Permalink to this definition"></a></dt>
+<dd><p>Set the left shoulder of the set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.setRightShoulderSet">
+<span class="sig-name descname"><span class="pre">setRightShoulderSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shoulderStart</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.setRightShoulderSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.setRightShoulderSet" title="Permalink to this definition"></a></dt>
+<dd><p>Set the right shoulder of the set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.sort">
+<span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.sort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.sort" title="Permalink to this definition"></a></dt>
+<dd><p>Sorts the list holding all points defining the set.
+No sort is performed if the set is already sorted.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Converts the full set into a printable string</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.writeToFile">
+<span class="sig-name descname"><span class="pre">writeToFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.writeToFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.writeToFile" title="Permalink to this definition"></a></dt>
+<dd><p>Write out the discretized set into a file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.writeToFileHighRes">
+<span class="sig-name descname"><span class="pre">writeToFileHighRes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Discretized.html#T1MF_Discretized.writeToFileHighRes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.writeToFileHighRes" title="Permalink to this definition"></a></dt>
+<dd><p>Uses interpolation to supply high-res visualisation of the set.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.sets.T1MF_Gauangle">
+<span id="juzzypython-type1-sets-t1mf-gauangle-module"></span><h2>juzzyPython.type1.sets.T1MF_Gauangle module<a class="headerlink" href="#module-juzzyPython.type1.sets.T1MF_Gauangle" title="Permalink to this headline"></a></h2>
+<p>T1MF_Gauangle.py
+Created 18/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.sets.T1MF_Gauangle.</span></span><span class="sig-name descname"><span class="pre">T1MF_Gauangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gauangle.html#T1MF_Gauangle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype" title="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype</span></code></a></p>
+<p>Class T1MF_Gauangle
+Class for Gauangle Type-1 Fuzzy Membership Functions.
+The Gauangle MF combines the smooth “peak” of Gaussian MFs with the linearly
+decreasing “sides” of triangular MFs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the set</p></li>
+<li><p><strong>start</strong> – Start as for triangular MF.</p></li>
+<li><p><strong>center</strong> – Center as for triangular MF</p></li>
+<li><p><strong>end</strong> – End as for triangular MF.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getFS
+getPeak
+getMean
+getStart
+getEnd
+toString
+getLineEquationParameters
+getXForYOnLine
+compareTo
+getAlphaCut</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gauangle.html#T1MF_Gauangle.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.compareTo" title="Permalink to this definition"></a></dt>
+<dd><p>Compare to another gauangle object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getAlphaCut">
+<span class="sig-name descname"><span class="pre">getAlphaCut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gauangle.html#T1MF_Gauangle.getAlphaCut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getAlphaCut" title="Permalink to this definition"></a></dt>
+<dd><p>Unsupported Function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getEnd">
+<span class="sig-name descname"><span class="pre">getEnd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gauangle.html#T1MF_Gauangle.getEnd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getEnd" title="Permalink to this definition"></a></dt>
+<dd><p>Return the end of the set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gauangle.html#T1MF_Gauangle.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Return the maximum FS between two sets</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getLineEquationParameters">
+<span class="sig-name descname"><span class="pre">getLineEquationParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gauangle.html#T1MF_Gauangle.getLineEquationParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getLineEquationParameters" title="Permalink to this definition"></a></dt>
+<dd><p>returns the line equation parameters a and be (line equation = ax*b) for a line passing through the points defined by the tuples x and y.
+The first point (x), the Tuple consists of the x and y coordinates of the point in this order.
+The second point (y), the Tuple consists of the x and y coordinates of the point in this order.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getMean">
+<span class="sig-name descname"><span class="pre">getMean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gauangle.html#T1MF_Gauangle.getMean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getMean" title="Permalink to this definition"></a></dt>
+<dd><p>Return the mean of the set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gauangle.html#T1MF_Gauangle.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getPeak" title="Permalink to this definition"></a></dt>
+<dd><p>Return the peak of the set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getStart">
+<span class="sig-name descname"><span class="pre">getStart</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gauangle.html#T1MF_Gauangle.getStart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getStart" title="Permalink to this definition"></a></dt>
+<dd><p>Return the start of the set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getXForYOnLine">
+<span class="sig-name descname"><span class="pre">getXForYOnLine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ab</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gauangle.html#T1MF_Gauangle.getXForYOnLine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.getXForYOnLine" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the x coordinate for a specified y coordinate when considering the given line equation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gauangle.html#T1MF_Gauangle.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Convert membership function to string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.sets.T1MF_Gaussian">
+<span id="juzzypython-type1-sets-t1mf-gaussian-module"></span><h2>juzzyPython.type1.sets.T1MF_Gaussian module<a class="headerlink" href="#module-juzzyPython.type1.sets.T1MF_Gaussian" title="Permalink to this headline"></a></h2>
+<p>T1MF_Gaussian.py
+Created 17/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.sets.T1MF_Gaussian.</span></span><span class="sig-name descname"><span class="pre">T1MF_Gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spread</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gaussian.html#T1MF_Gaussian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype" title="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype</span></code></a></p>
+<p>Class T1MF_Gaussian
+The gaussian membership function for type 1 sets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Name</strong> – Name of the function</p></li>
+<li><p><strong>Mean</strong> – The mean</p></li>
+<li><p><strong>Spread</strong> – standard deviation</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getFS
+getAlphaCut
+getPeak
+compareTo
+getSpread
+getMean
+toString</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gaussian.html#T1MF_Gaussian.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.compareTo" title="Permalink to this definition"></a></dt>
+<dd><p>Unsupported Function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.getAlphaCut">
+<span class="sig-name descname"><span class="pre">getAlphaCut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gaussian.html#T1MF_Gaussian.getAlphaCut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.getAlphaCut" title="Permalink to this definition"></a></dt>
+<dd><p>Unsupported Function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gaussian.html#T1MF_Gaussian.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Return the maximum FS between two sets</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.getMean">
+<span class="sig-name descname"><span class="pre">getMean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gaussian.html#T1MF_Gaussian.getMean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.getMean" title="Permalink to this definition"></a></dt>
+<dd><p>Return the mean of the membership function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gaussian.html#T1MF_Gaussian.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.getPeak" title="Permalink to this definition"></a></dt>
+<dd><p>Return the mean of the membership function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.getSpread">
+<span class="sig-name descname"><span class="pre">getSpread</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gaussian.html#T1MF_Gaussian.getSpread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.getSpread" title="Permalink to this definition"></a></dt>
+<dd><p>Return the standard deviation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Gaussian.html#T1MF_Gaussian.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Convert membership function to string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.sets.T1MF_Interface">
+<span id="juzzypython-type1-sets-t1mf-interface-module"></span><h2>juzzyPython.type1.sets.T1MF_Interface module<a class="headerlink" href="#module-juzzyPython.type1.sets.T1MF_Interface" title="Permalink to this headline"></a></h2>
+<p>T1MF_Interface.py
+Created 10/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.</span></span><span class="sig-name descname"><span class="pre">T1MF_Interface</span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.MF_Interface.MF_Interface" title="juzzyPython.generic.MF_Interface.MF_Interface"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.generic.MF_Interface.MF_Interface</span></code></a></p>
+<p>Class T1MF_Interface
+An interface for type 1 membership functions</p>
+<p>Parameters: None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getFS
+getAlphaCut
+getPeak
+getName
+setName
+getSupport
+setSupport
+setLeftShoulder
+setRightShoulder
+isLeftShoulder
+isRightShoulder
+getDefuzzifiedCentroid
+getDefuzzifiedCOS</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.compareTo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getAlphaCut">
+<span class="sig-name descname"><span class="pre">getAlphaCut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.getAlphaCut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getAlphaCut" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getDefuzzifiedCOS">
+<span class="sig-name descname"><span class="pre">getDefuzzifiedCOS</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.getDefuzzifiedCOS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getDefuzzifiedCOS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getDefuzzifiedCentroid">
+<span class="sig-name descname"><span class="pre">getDefuzzifiedCentroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numberOfDiscretizations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.getDefuzzifiedCentroid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getDefuzzifiedCentroid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getFS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getPeak" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getSupport">
+<span class="sig-name descname"><span class="pre">getSupport</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.getSupport"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.getSupport" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.isLeftShoulder">
+<span class="sig-name descname"><span class="pre">isLeftShoulder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.isLeftShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.isLeftShoulder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.isRightShoulder">
+<span class="sig-name descname"><span class="pre">isRightShoulder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.isRightShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.isRightShoulder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.setLeftShoulder">
+<span class="sig-name descname"><span class="pre">setLeftShoulder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.setLeftShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.setLeftShoulder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.setName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.setRightShoulder">
+<span class="sig-name descname"><span class="pre">setRightShoulder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.setRightShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.setRightShoulder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.setSupport">
+<span class="sig-name descname"><span class="pre">setSupport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">support</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.setSupport"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.setSupport" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Interface.html#T1MF_Interface.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface.toString" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.sets.T1MF_Intersection">
+<span id="juzzypython-type1-sets-t1mf-intersection-module"></span><h2>juzzyPython.type1.sets.T1MF_Intersection module<a class="headerlink" href="#module-juzzyPython.type1.sets.T1MF_Intersection" title="Permalink to this headline"></a></h2>
+<p>T1MF_Intersection.py
+Created 17/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Intersection.T1MF_Intersection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.sets.T1MF_Intersection.</span></span><span class="sig-name descname"><span class="pre">T1MF_Intersection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setA</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">setB</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Intersection.html#T1MF_Intersection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Intersection.T1MF_Intersection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype" title="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype</span></code></a></p>
+<p>Class T1MF_Intersection
+Creates an intersection between the two sets, A and B</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setA</strong> – T1MF</p></li>
+<li><p><strong>setB</strong> – T1MF</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getFS
+getAlphaCut
+getPeak
+compareTo</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Intersection.T1MF_Intersection.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Intersection.html#T1MF_Intersection.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Intersection.T1MF_Intersection.compareTo" title="Permalink to this definition"></a></dt>
+<dd><p>Unsupported Function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Intersection.T1MF_Intersection.getAlphaCut">
+<span class="sig-name descname"><span class="pre">getAlphaCut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Intersection.html#T1MF_Intersection.getAlphaCut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Intersection.T1MF_Intersection.getAlphaCut" title="Permalink to this definition"></a></dt>
+<dd><p>Unsupported Function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Intersection.T1MF_Intersection.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Intersection.html#T1MF_Intersection.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Intersection.T1MF_Intersection.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Return the min FS from both sets</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Intersection.T1MF_Intersection.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Intersection.html#T1MF_Intersection.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Intersection.T1MF_Intersection.getPeak" title="Permalink to this definition"></a></dt>
+<dd><p>Unsupported Function</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.sets.T1MF_Meet">
+<span id="juzzypython-type1-sets-t1mf-meet-module"></span><h2>juzzyPython.type1.sets.T1MF_Meet module<a class="headerlink" href="#module-juzzyPython.type1.sets.T1MF_Meet" title="Permalink to this headline"></a></h2>
+<p>T1MF_Meet.py
+Created 15/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.sets.T1MF_Meet.</span></span><span class="sig-name descname"><span class="pre">T1MF_Meet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Meet.html#T1MF_Meet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype" title="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype</span></code></a></p>
+<p>Class T1MF_Meet
+Meet operation for 2 Type-1 sets, mostly used while computing general Type-2 FLSs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Name</strong> – Name of the membership function</p></li>
+<li><p><strong>InitialSize</strong> – An int defining the size of the array</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getFS
+intersectionExists
+findMax
+getAlphaCut
+getPeak
+compareTo</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Meet.html#T1MF_Meet.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet.compareTo" title="Permalink to this definition"></a></dt>
+<dd><p>Currently unsupported function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet.findMax">
+<span class="sig-name descname"><span class="pre">findMax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Meet.html#T1MF_Meet.findMax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet.findMax" title="Permalink to this definition"></a></dt>
+<dd><p>Find the max step</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet.getAlphaCut">
+<span class="sig-name descname"><span class="pre">getAlphaCut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Meet.html#T1MF_Meet.getAlphaCut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet.getAlphaCut" title="Permalink to this definition"></a></dt>
+<dd><p>Return a new tuple with the alpha cut</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Meet.html#T1MF_Meet.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Return the maximum FS between two sets</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Meet.html#T1MF_Meet.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet.getPeak" title="Permalink to this definition"></a></dt>
+<dd><p>Currently unsupported function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet.intersectionExists">
+<span class="sig-name descname"><span class="pre">intersectionExists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Meet.html#T1MF_Meet.intersectionExists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Meet.T1MF_Meet.intersectionExists" title="Permalink to this definition"></a></dt>
+<dd><p>Return if an intersection exists between the sets</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.sets.T1MF_Prototype">
+<span id="juzzypython-type1-sets-t1mf-prototype-module"></span><h2>juzzyPython.type1.sets.T1MF_Prototype module<a class="headerlink" href="#module-juzzyPython.type1.sets.T1MF_Prototype" title="Permalink to this headline"></a></h2>
+<p>T1MF_Interface.py
+Created 10/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.sets.T1MF_Prototype.</span></span><span class="sig-name descname"><span class="pre">T1MF_Prototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Prototype.html#T1MF_Prototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></code></a></p>
+<p>Class T1MF_Prototype
+Building on our interface class for the membership functions with base methods</p>
+<p>Parameters: None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getName
+setName
+getSupport
+setSupport
+setLeftShoulder
+setRightShoulder
+isLeftShoulder
+isRightShoulder
+getDefuzzifiedCentroid
+getDefuzzifiedCOS</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.getDefuzzifiedCOS">
+<span class="sig-name descname"><span class="pre">getDefuzzifiedCOS</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Prototype.html#T1MF_Prototype.getDefuzzifiedCOS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.getDefuzzifiedCOS" title="Permalink to this definition"></a></dt>
+<dd><p>Return center of this set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.getDefuzzifiedCentroid">
+<span class="sig-name descname"><span class="pre">getDefuzzifiedCentroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numberOfDiscretizations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Prototype.html#T1MF_Prototype.getDefuzzifiedCentroid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.getDefuzzifiedCentroid" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the defuzzified value of this set computed using the centroid algorithm.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Prototype.html#T1MF_Prototype.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.getName" title="Permalink to this definition"></a></dt>
+<dd><p>Return the name of the function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.getSupport">
+<span class="sig-name descname"><span class="pre">getSupport</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Prototype.html#T1MF_Prototype.getSupport"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.getSupport" title="Permalink to this definition"></a></dt>
+<dd><p>Get the current support tuple</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.isLeftShoulder">
+<span class="sig-name descname"><span class="pre">isLeftShoulder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Prototype.html#T1MF_Prototype.isLeftShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.isLeftShoulder" title="Permalink to this definition"></a></dt>
+<dd><p>Return current left shoulder bool</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.isRightShoulder">
+<span class="sig-name descname"><span class="pre">isRightShoulder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Prototype.html#T1MF_Prototype.isRightShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.isRightShoulder" title="Permalink to this definition"></a></dt>
+<dd><p>Return current right shoulder bool</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.setLeftShoulder">
+<span class="sig-name descname"><span class="pre">setLeftShoulder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Prototype.html#T1MF_Prototype.setLeftShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.setLeftShoulder" title="Permalink to this definition"></a></dt>
+<dd><p>Set left shoulder value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Prototype.html#T1MF_Prototype.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.setName" title="Permalink to this definition"></a></dt>
+<dd><p>Set the name of the function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.setRightShoulder">
+<span class="sig-name descname"><span class="pre">setRightShoulder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Prototype.html#T1MF_Prototype.setRightShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.setRightShoulder" title="Permalink to this definition"></a></dt>
+<dd><p>Set right shoulder value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.setSupport">
+<span class="sig-name descname"><span class="pre">setSupport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">support</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Prototype.html#T1MF_Prototype.setSupport"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.setSupport" title="Permalink to this definition"></a></dt>
+<dd><p>Change current support tuple to parameter</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Prototype.html#T1MF_Prototype.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype.toString" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.sets.T1MF_Singleton">
+<span id="juzzypython-type1-sets-t1mf-singleton-module"></span><h2>juzzyPython.type1.sets.T1MF_Singleton module<a class="headerlink" href="#module-juzzyPython.type1.sets.T1MF_Singleton" title="Permalink to this headline"></a></h2>
+<p>T1MF_Singleton.py
+Created 17/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.sets.T1MF_Singleton.</span></span><span class="sig-name descname"><span class="pre">T1MF_Singleton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Singleton.html#T1MF_Singleton"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype" title="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype</span></code></a></p>
+<p>Class T1MF_Singleton
+Membership Function represented by a single double value -
+for example heavily used in TSK/Anfis for consequents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – the value where the singleton exists</p></li>
+<li><p><strong>name</strong> – the name of the membership function</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getValue
+getFS
+getPeak
+getAlphaCut
+toString
+compareTo</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Singleton.html#T1MF_Singleton.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton.compareTo" title="Permalink to this definition"></a></dt>
+<dd><p>Compare to a singleton or a triangular function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton.getAlphaCut">
+<span class="sig-name descname"><span class="pre">getAlphaCut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Singleton.html#T1MF_Singleton.getAlphaCut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton.getAlphaCut" title="Permalink to this definition"></a></dt>
+<dd><p>Return the alpha cut of the singleton as a tuple</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Singleton.html#T1MF_Singleton.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Return the maximum FS between two sets</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Singleton.html#T1MF_Singleton.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton.getPeak" title="Permalink to this definition"></a></dt>
+<dd><p>Get the peak of the singleton</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton.getValue">
+<span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Singleton.html#T1MF_Singleton.getValue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton.getValue" title="Permalink to this definition"></a></dt>
+<dd><p>Return the value where the singleton exists</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Singleton.html#T1MF_Singleton.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Singleton.T1MF_Singleton.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Convert the function to a string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.sets.T1MF_Trapezoidal">
+<span id="juzzypython-type1-sets-t1mf-trapezoidal-module"></span><h2>juzzyPython.type1.sets.T1MF_Trapezoidal module<a class="headerlink" href="#module-juzzyPython.type1.sets.T1MF_Trapezoidal" title="Permalink to this headline"></a></h2>
+<p>T1MF_Trapezoidal.py
+Created 17/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.sets.T1MF_Trapezoidal.</span></span><span class="sig-name descname"><span class="pre">T1MF_Trapezoidal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yLevels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype" title="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype</span></code></a></p>
+<p>Class T1MF_Trapezoidal
+Class for Trapezoidal Type-1 Fuzzy Membership Functions.
+The parameters of the MF are defined from left to right as a,b,c and d.
+The MF supports both normal MFs where the membership between b and c is 1.0,
+as well as non-normal MFs where this membership can be specified freely.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>right</strong> (<em>parameters = Parameters list from left to</em>) – </p></li>
+<li><p><strong>Normally</strong> (<em>yLevels= The specific yLevels for the second and third point of the trapezoid.</em>) – </p></li>
+<li><p><strong>equal.</strong> (<em>both values are</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getFS
+getA
+getB
+getC
+getD
+getParameters
+getPeak
+setPeak
+getyLevels
+setyLevels
+compareTo
+getAlphaCut
+findLinearEquationParameters
+toString</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.compareTo" title="Permalink to this definition"></a></dt>
+<dd><p>Compare to another trapezoidal object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.findLinearEquationParameters">
+<span class="sig-name descname"><span class="pre">findLinearEquationParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.findLinearEquationParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.findLinearEquationParameters" title="Permalink to this definition"></a></dt>
+<dd><p>Finds the slopes and intercepts for the left and right “leg” of the membership function.
+If the parameters for the given set have previously been computed, the method returns directly.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getA">
+<span class="sig-name descname"><span class="pre">getA</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.getA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getA" title="Permalink to this definition"></a></dt>
+<dd><p>Return the a parameter of the function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getAlphaCut">
+<span class="sig-name descname"><span class="pre">getAlphaCut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.getAlphaCut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getAlphaCut" title="Permalink to this definition"></a></dt>
+<dd><p>Get the alpha cut as a tuple</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getB">
+<span class="sig-name descname"><span class="pre">getB</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.getB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getB" title="Permalink to this definition"></a></dt>
+<dd><p>Return the b parameter of the function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getC">
+<span class="sig-name descname"><span class="pre">getC</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.getC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getC" title="Permalink to this definition"></a></dt>
+<dd><p>Return the c parameter of the function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getD">
+<span class="sig-name descname"><span class="pre">getD</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.getD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getD" title="Permalink to this definition"></a></dt>
+<dd><p>Return the c parameter of the function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Return the maximum FS between two sets</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getParameters">
+<span class="sig-name descname"><span class="pre">getParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.getParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getParameters" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the MFs parameters
+Return a list of type float, holding all 4 parameters in order from
+left to right.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getPeak" title="Permalink to this definition"></a></dt>
+<dd><p>As standard, the peak is generally defined as the average of b and c,
+however it may be changed using the setPeak() method if desired.
+Return The peak of either as average of b and c or as specified.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getyLevels">
+<span class="sig-name descname"><span class="pre">getyLevels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.getyLevels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.getyLevels" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the yLevels of the second and third parameters (points B and C)
+This is useful for non-normal MFs.
+returns The degrees of membership of the inner parameters of the MF.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.setPeak">
+<span class="sig-name descname"><span class="pre">setPeak</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peak</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.setPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.setPeak" title="Permalink to this definition"></a></dt>
+<dd><p>Set the peak</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.setyLevels">
+<span class="sig-name descname"><span class="pre">setyLevels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">levels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.setyLevels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.setyLevels" title="Permalink to this definition"></a></dt>
+<dd><p>Set the y levels</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Trapezoidal.html#T1MF_Trapezoidal.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Convert membership function to string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.sets.T1MF_Triangular">
+<span id="juzzypython-type1-sets-t1mf-triangular-module"></span><h2>juzzyPython.type1.sets.T1MF_Triangular module<a class="headerlink" href="#module-juzzyPython.type1.sets.T1MF_Triangular" title="Permalink to this headline"></a></h2>
+<p>T1MF_Triangular.py
+Created 17/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.sets.T1MF_Triangular.</span></span><span class="sig-name descname"><span class="pre">T1MF_Triangular</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Triangular.html#T1MF_Triangular"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype" title="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype</span></code></a></p>
+<p>Class T1MF_Triangular
+The triangular membership function for type 1 fuzzy sets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name of the membership function</p></li>
+<li><p><strong>peak</strong> – the current peak</p></li>
+<li><p><strong>start</strong> – Start of triangle</p></li>
+<li><p><strong>end</strong> – End of the triangle</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getFS
+getStart
+getPeak
+getEnd
+toString
+compareTo
+getAlphaCut
+findLinearEquationParameters</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Triangular.html#T1MF_Triangular.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.compareTo" title="Permalink to this definition"></a></dt>
+<dd><p>Compare the function against triangular or singleton functions</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.findLinearEquationParameters">
+<span class="sig-name descname"><span class="pre">findLinearEquationParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Triangular.html#T1MF_Triangular.findLinearEquationParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.findLinearEquationParameters" title="Permalink to this definition"></a></dt>
+<dd><p>Finds the slopes and intercepts for the left and right “leg” of the membership function.
+If the parameters for the given set have previously been computed, the method returns directly.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getAlphaCut">
+<span class="sig-name descname"><span class="pre">getAlphaCut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Triangular.html#T1MF_Triangular.getAlphaCut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getAlphaCut" title="Permalink to this definition"></a></dt>
+<dd><p>Get the alpha cut as a tuple with input float</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getEnd">
+<span class="sig-name descname"><span class="pre">getEnd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Triangular.html#T1MF_Triangular.getEnd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getEnd" title="Permalink to this definition"></a></dt>
+<dd><p>Get the end value of the function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Triangular.html#T1MF_Triangular.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Return the maximum FS between two sets</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Triangular.html#T1MF_Triangular.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getPeak" title="Permalink to this definition"></a></dt>
+<dd><p>Get the peak value of the function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getStart">
+<span class="sig-name descname"><span class="pre">getStart</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Triangular.html#T1MF_Triangular.getStart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getStart" title="Permalink to this definition"></a></dt>
+<dd><p>Get the start value of the function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Triangular.html#T1MF_Triangular.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Convert membership function to string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.sets.T1MF_Union">
+<span id="juzzypython-type1-sets-t1mf-union-module"></span><h2>juzzyPython.type1.sets.T1MF_Union module<a class="headerlink" href="#module-juzzyPython.type1.sets.T1MF_Union" title="Permalink to this headline"></a></h2>
+<p>T1MF_Union.py
+Created 11/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Union.T1MF_Union">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.sets.T1MF_Union.</span></span><span class="sig-name descname"><span class="pre">T1MF_Union</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setA</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">setB</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Union.html#T1MF_Union"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Union.T1MF_Union" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype" title="juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.type1.sets.T1MF_Prototype.T1MF_Prototype</span></code></a></p>
+<p>Class T1MF_Union
+The union membership function between 2 sets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>SetA</strong> – T1MF</p></li>
+<li><p><strong>SetB</strong> – T1MF</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getFS
+getAlphaCut
+getPeak
+compareTo</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Union.T1MF_Union.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Union.html#T1MF_Union.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Union.T1MF_Union.compareTo" title="Permalink to this definition"></a></dt>
+<dd><p>Currently Unsupported</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Union.T1MF_Union.getAlphaCut">
+<span class="sig-name descname"><span class="pre">getAlphaCut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Union.html#T1MF_Union.getAlphaCut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Union.T1MF_Union.getAlphaCut" title="Permalink to this definition"></a></dt>
+<dd><p>Currently Unsupported</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Union.T1MF_Union.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Union.html#T1MF_Union.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Union.T1MF_Union.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Return the maximum FS between two sets</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.sets.T1MF_Union.T1MF_Union.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/sets/T1MF_Union.html#T1MF_Union.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.sets.T1MF_Union.T1MF_Union.getPeak" title="Permalink to this definition"></a></dt>
+<dd><p>Currently Unsupported</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.sets">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-juzzyPython.type1.sets" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Christian Wagner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -15,7 +15,7 @@ class GenT2MF_CylExtension(GenT2MF_Prototype):
 
     Parameters: 
         baseSet: T1 interface
-        zDiscLevel = The discretization Level
+        zDiscLevel: The discretization Level
 
     Functions:
         clone

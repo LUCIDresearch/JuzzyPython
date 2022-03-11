@@ -183,7 +183,7 @@ class SimpleIT2FLS:
         self.plot.figure()
         self.plot.title(name)
         for i in range(len(sets)):
-            self.plot.plotMF2(name.replace("Membership Functions",""),sets[i].getName(),sets[i],discretizationLevel,False)
+            self.plot.plotMF2(name.replace("Membership Functions",""),sets[i].getName(),sets[i],discretizationLevel,True)
         self.plot.legend()
 
 if __name__ == "__main__":

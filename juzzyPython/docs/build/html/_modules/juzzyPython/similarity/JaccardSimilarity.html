@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>juzzyPython.similarity.JaccardSimilarity &#8212; JuzzyPython 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for juzzyPython.similarity.JaccardSimilarity</h1><div class="highlight"><pre>
+<span></span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">JaccardSimilarity.py</span>
+<span class="sd">Created 5/1/2022</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">juzzyPython.generalType2zSlices.sets.GenT2MF_Interface</span> <span class="kn">import</span> <span class="n">GenT2MF_Interface</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generic.MF_Interface</span> <span class="kn">import</span> <span class="n">MF_Interface</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.type1.sets.T1MF_Interface</span> <span class="kn">import</span> <span class="n">T1MF_Interface</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.intervalType2.sets.IntervalT2MF_Interface</span> <span class="kn">import</span> <span class="n">IntervalT2MF_Interface</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generic.Tuple</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<div class="viewcode-block" id="JaccardSimilarity"><a class="viewcode-back" href="../../../juzzyPython.similarity.html#juzzyPython.similarity.JaccardSimilarity.JaccardSimilarity">[docs]</a><span class="k">class</span> <span class="nc">JaccardSimilarity</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class JaccardSimilarity</span>
+<span class="sd">    Implementation of Jaccard Similarity for Type-1, Type-2 and zGT2 Sets</span>
+
+<span class="sd">    Parameters: None</span>
+<span class="sd">    </span>
+<span class="sd">    Functions:</span>
+<span class="sd">        getSimilarity</span>
+<span class="sd">        getDiscretisationValues</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+<div class="viewcode-block" id="JaccardSimilarity.getSimilarity"><a class="viewcode-back" href="../../../juzzyPython.similarity.html#juzzyPython.similarity.JaccardSimilarity.JaccardSimilarity.getSimilarity">[docs]</a>    <span class="k">def</span> <span class="nf">getSimilarity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">setA</span><span class="p">:</span> <span class="n">MF_Interface</span><span class="p">,</span><span class="n">setB</span><span class="p">:</span> <span class="n">MF_Interface</span><span class="p">,</span><span class="n">numberOfDiscretisations</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get the similarity between 2 sets across Type 1 and Type 2 sets&quot;&quot;&quot;</span>
+        <span class="n">numerator</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">discValues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDiscretisationValues</span><span class="p">(</span><span class="n">setA</span><span class="o">.</span><span class="n">getSupport</span><span class="p">(),</span><span class="n">setB</span><span class="o">.</span><span class="n">getSupport</span><span class="p">(),</span><span class="n">numberOfDiscretisations</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">setA</span><span class="p">,</span><span class="n">T1MF_Interface</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">setB</span><span class="p">,</span><span class="n">T1MF_Interface</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">discValues</span><span class="p">)):</span>
+                <span class="n">numerator</span> <span class="o">+=</span> <span class="nb">min</span><span class="p">(</span><span class="n">setA</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="n">setB</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+                <span class="n">denominator</span> <span class="o">+=</span> <span class="nb">max</span><span class="p">(</span><span class="n">setA</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="n">setB</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            <span class="k">return</span> <span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">setA</span><span class="p">,</span><span class="n">IntervalT2MF_Interface</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">setB</span><span class="p">,</span><span class="n">IntervalT2MF_Interface</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">discValues</span><span class="p">)):</span>
+                <span class="n">numerator</span> <span class="o">+=</span> <span class="nb">min</span><span class="p">(</span><span class="n">setA</span><span class="o">.</span><span class="n">getUMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">setB</span><span class="o">.</span><span class="n">getUMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="o">+</span><span class="nb">min</span><span class="p">(</span><span class="n">setA</span><span class="o">.</span><span class="n">getLMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">setB</span><span class="o">.</span><span class="n">getLMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+                <span class="n">denominator</span> <span class="o">+=</span> <span class="nb">max</span><span class="p">(</span><span class="n">setA</span><span class="o">.</span><span class="n">getUMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">setB</span><span class="o">.</span><span class="n">getUMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">setA</span><span class="o">.</span><span class="n">getLMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">setB</span><span class="o">.</span><span class="n">getLMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            <span class="k">return</span> <span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">setA</span><span class="p">,</span><span class="n">GenT2MF_Interface</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">setB</span><span class="p">,</span><span class="n">GenT2MF_Interface</span><span class="p">):</span>
+            <span class="n">numeratorArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">setA</span><span class="o">.</span><span class="n">getNumberOfSlices</span><span class="p">()</span>
+            <span class="n">denominatorArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">setA</span><span class="o">.</span><span class="n">getNumberOfSlices</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">discValues</span><span class="p">)):</span>
+                <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">setA</span><span class="o">.</span><span class="n">getNumberOfSlices</span><span class="p">()):</span>
+                    <span class="n">numeratorArray</span><span class="p">[</span><span class="n">z</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">min</span><span class="p">(</span><span class="n">setA</span><span class="o">.</span><span class="n">getZSlice</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">getUMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">setB</span><span class="o">.</span><span class="n">getZSlice</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">getUMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">setA</span><span class="o">.</span><span class="n">getZSlice</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">getLMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">setB</span><span class="o">.</span><span class="n">getZSlice</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">getLMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+                    <span class="n">denominatorArray</span><span class="p">[</span><span class="n">z</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">max</span><span class="p">(</span><span class="n">setA</span><span class="o">.</span><span class="n">getZSlice</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">getUMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">setB</span><span class="o">.</span><span class="n">getZSlice</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">getUMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">setA</span><span class="o">.</span><span class="n">getZSlice</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">getLMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">setB</span><span class="o">.</span><span class="n">getZSlice</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">getLMF</span><span class="p">()</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">discValues</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>   
+            <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">setA</span><span class="o">.</span><span class="n">getNumberOfSlices</span><span class="p">()):</span>
+                <span class="n">numerator</span> <span class="o">+=</span> <span class="n">numeratorArray</span><span class="p">[</span><span class="n">z</span><span class="p">]</span> <span class="o">*</span> <span class="n">setA</span><span class="o">.</span><span class="n">getZValue</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+                <span class="n">denominator</span> <span class="o">+=</span> <span class="n">denominatorArray</span><span class="p">[</span><span class="n">z</span><span class="p">]</span> <span class="o">*</span> <span class="n">setA</span><span class="o">.</span><span class="n">getZValue</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Incorrect setA setB types&quot;</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="JaccardSimilarity.getDiscretisationValues"><a class="viewcode-back" href="../../../juzzyPython.similarity.html#juzzyPython.similarity.JaccardSimilarity.JaccardSimilarity.getDiscretisationValues">[docs]</a>    <span class="k">def</span> <span class="nf">getDiscretisationValues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">domainSetA</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">,</span><span class="n">domainSetB</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">,</span><span class="n">numberOfDiscretisations</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Get the discretisation values across two domains&quot;&quot;&quot;</span>
+        <span class="n">domain</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">domainSetA</span><span class="o">.</span><span class="n">getLeft</span><span class="p">(),</span><span class="n">domainSetB</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()),</span><span class="nb">max</span><span class="p">(</span><span class="n">domainSetA</span><span class="o">.</span><span class="n">getRight</span><span class="p">(),</span><span class="n">domainSetB</span><span class="o">.</span><span class="n">getRight</span><span class="p">()))</span>
+        <span class="n">discStep</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">getSize</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">numberOfDiscretisations</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">discValues</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numberOfDiscretisations</span><span class="p">):</span>
+            <span class="n">discValues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="n">discStep</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">discValues</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">JuzzyPython</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Christian Wagner.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

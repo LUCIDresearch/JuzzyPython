@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>juzzyPython.intervalType2.system package &mdash; JuzzyPython 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> JuzzyPython
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">juzzyPython.intervalType2.system package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.system.IT2_Antecedent">juzzyPython.intervalType2.system.IT2_Antecedent module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.system.IT2_COSInferenceData">juzzyPython.intervalType2.system.IT2_COSInferenceData module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.system.IT2_Consequent">juzzyPython.intervalType2.system.IT2_Consequent module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.system.IT2_Rule">juzzyPython.intervalType2.system.IT2_Rule module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.system.IT2_Rulebase">juzzyPython.intervalType2.system.IT2_Rulebase module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.system">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JuzzyPython</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>juzzyPython.intervalType2.system package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/juzzyPython.intervalType2.system.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="juzzypython-intervaltype2-system-package">
+<h1>juzzyPython.intervalType2.system package<a class="headerlink" href="#juzzypython-intervaltype2-system-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-juzzyPython.intervalType2.system.IT2_Antecedent">
+<span id="juzzypython-intervaltype2-system-it2-antecedent-module"></span><h2>juzzyPython.intervalType2.system.IT2_Antecedent module<a class="headerlink" href="#module-juzzyPython.intervalType2.system.IT2_Antecedent" title="Permalink to this headline"></a></h2>
+<p>IT2_Antecedent.py
+Created 13/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.system.IT2_Antecedent.</span></span><span class="sig-name descname"><span class="pre">IT2_Antecedent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.intervalType2.sets.html#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Input.Input" title="juzzyPython.generic.Input.Input"><span class="pre">juzzyPython.generic.Input.Input</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Antecedent.html#IT2_Antecedent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class IT2_Antecedent
+Antecedent class for Interval Type-2 FLSs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>function</strong> (<em>m = The membership</em>) – </p></li>
+<li><p><strong>input</strong> (<em>i = The</em>) – </p></li>
+<li><p><strong>antecedent</strong> (<em>name = Name of</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getMF
+getFS
+setInput
+getInput
+getSet
+getName
+setName
+getMax
+toString
+compareTo</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Antecedent.html#IT2_Antecedent.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.compareTo" title="Permalink to this definition"></a></dt>
+<dd><p>Compare the antecededent mF to another of the same type</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Antecedent.html#IT2_Antecedent.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Get the firing strength</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.getInput">
+<span class="sig-name descname"><span class="pre">getInput</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Input.Input" title="juzzyPython.generic.Input.Input"><span class="pre">juzzyPython.generic.Input.Input</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Antecedent.html#IT2_Antecedent.getInput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.getInput" title="Permalink to this definition"></a></dt>
+<dd><p>Get the current input</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.getMF">
+<span class="sig-name descname"><span class="pre">getMF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.intervalType2.sets.html#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Antecedent.html#IT2_Antecedent.getMF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.getMF" title="Permalink to this definition"></a></dt>
+<dd><p>Return the membership function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.getMax">
+<span class="sig-name descname"><span class="pre">getMax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tNorm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Antecedent.html#IT2_Antecedent.getMax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.getMax" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the arg sup of the t-norm between the membership function of the antecedent and the
+membership function of the input (in case of NSF)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Antecedent.html#IT2_Antecedent.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.getName" title="Permalink to this definition"></a></dt>
+<dd><p>Return the name of the antecedent</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.getSet">
+<span class="sig-name descname"><span class="pre">getSet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.intervalType2.sets.html#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Antecedent.html#IT2_Antecedent.getSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.getSet" title="Permalink to this definition"></a></dt>
+<dd><p>Return the membership function set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.setInput">
+<span class="sig-name descname"><span class="pre">setInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Input.Input" title="juzzyPython.generic.Input.Input"><span class="pre">juzzyPython.generic.Input.Input</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Antecedent.html#IT2_Antecedent.setInput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.setInput" title="Permalink to this definition"></a></dt>
+<dd><p>Set the input</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Antecedent.html#IT2_Antecedent.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.setName" title="Permalink to this definition"></a></dt>
+<dd><p>Set the name of the antecedent</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Antecedent.html#IT2_Antecedent.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Convert the antecedent to string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.system.IT2_COSInferenceData">
+<span id="juzzypython-intervaltype2-system-it2-cosinferencedata-module"></span><h2>juzzyPython.intervalType2.system.IT2_COSInferenceData module<a class="headerlink" href="#module-juzzyPython.intervalType2.system.IT2_COSInferenceData" title="Permalink to this headline"></a></h2>
+<p>IT2_COSInferenceData.py
+Created 13/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_COSInferenceData.IT2_COSInferenceData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.system.IT2_COSInferenceData.</span></span><span class="sig-name descname"><span class="pre">IT2_COSInferenceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_COSInferenceData.html#IT2_COSInferenceData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_COSInferenceData.IT2_COSInferenceData" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class IT2_COSInferenceData
+Stores Consequent Data in IT2 systems - supports sorting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>strength</strong> (<em>f = The firing</em>) – </p></li>
+<li><p><strong>value</strong> (<em>c = the centroid</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getFStrength
+getSelectedCentroidEndpoint
+compareTo
+toString
+__eq__
+__lt__</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_COSInferenceData.IT2_COSInferenceData.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_COSInferenceData.html#IT2_COSInferenceData.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_COSInferenceData.IT2_COSInferenceData.compareTo" title="Permalink to this definition"></a></dt>
+<dd><p>Compare to another COS inference data class</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_COSInferenceData.IT2_COSInferenceData.getFStrength">
+<span class="sig-name descname"><span class="pre">getFStrength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_COSInferenceData.html#IT2_COSInferenceData.getFStrength"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_COSInferenceData.IT2_COSInferenceData.getFStrength" title="Permalink to this definition"></a></dt>
+<dd><p>Return the firing strength</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_COSInferenceData.IT2_COSInferenceData.getSelectedCentroidEndpoint">
+<span class="sig-name descname"><span class="pre">getSelectedCentroidEndpoint</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_COSInferenceData.html#IT2_COSInferenceData.getSelectedCentroidEndpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_COSInferenceData.IT2_COSInferenceData.getSelectedCentroidEndpoint" title="Permalink to this definition"></a></dt>
+<dd><p>Return the centroid value</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.system.IT2_Consequent">
+<span id="juzzypython-intervaltype2-system-it2-consequent-module"></span><h2>juzzyPython.intervalType2.system.IT2_Consequent module<a class="headerlink" href="#module-juzzyPython.intervalType2.system.IT2_Consequent" title="Permalink to this headline"></a></h2>
+<p>IT2_Consequent.py
+Created 13/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.system.IT2_Consequent.</span></span><span class="sig-name descname"><span class="pre">IT2_Consequent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.intervalType2.sets.html#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Output.Output" title="juzzyPython.generic.Output.Output"><span class="pre">juzzyPython.generic.Output.Output</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centroid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Consequent.html#IT2_Consequent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class IT2_Consequent
+Consequent class for type 2 intervals</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>function</strong> (<em>m = the membership</em>) – </p></li>
+<li><p><strong>output</strong> (<em>output = the</em>) – </p></li>
+<li><p><strong>consequent</strong> (<em>name = name of</em>) – </p></li>
+<li><p><strong>centroid</strong> (<em>centroid = replace mF with</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getName
+getOutput
+setOutput
+setName
+getMembershipFunction
+getCentroid
+toString</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent.getCentroid">
+<span class="sig-name descname"><span class="pre">getCentroid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Consequent.html#IT2_Consequent.getCentroid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent.getCentroid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent.getMembershipFunction">
+<span class="sig-name descname"><span class="pre">getMembershipFunction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.intervalType2.sets.html#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Consequent.html#IT2_Consequent.getMembershipFunction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent.getMembershipFunction" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Consequent.html#IT2_Consequent.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent.getName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent.getOutput">
+<span class="sig-name descname"><span class="pre">getOutput</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Output.Output" title="juzzyPython.generic.Output.Output"><span class="pre">juzzyPython.generic.Output.Output</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Consequent.html#IT2_Consequent.getOutput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent.getOutput" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Consequent.html#IT2_Consequent.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent.setName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Consequent.html#IT2_Consequent.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent.toString" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.system.IT2_Rule">
+<span id="juzzypython-intervaltype2-system-it2-rule-module"></span><h2>juzzyPython.intervalType2.system.IT2_Rule module<a class="headerlink" href="#module-juzzyPython.intervalType2.system.IT2_Rule" title="Permalink to this headline"></a></h2>
+<p>IT2_Rule.py
+Created 14/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.system.IT2_Rule.</span></span><span class="sig-name descname"><span class="pre">IT2_Rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">antecedents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent" title="juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent"><span class="pre">juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consequent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent" title="juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent"><span class="pre">juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consequents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent" title="juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent"><span class="pre">juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rule.html#IT2_Rule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class IT2_Rule
+Rule class for Interval Type-2 FLSs. Note that currently only a single
+consequent per rule is supported.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Antecedents</strong> – The array of antecedents</p></li>
+<li><p><strong>Consequent</strong> – The consequent (only a single consequent is supported here)</p></li>
+<li><p><strong>Consequents</strong> – The array of consequents</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getNumberOfAntecedents
+getNumberOfConsequents
+getAntecedents
+getConsequents
+getInputs
+compareBasedOnAntecedents
+getFStrength
+toString
+getConsequentCentroid</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.compareBasedOnAntecedents">
+<span class="sig-name descname"><span class="pre">compareBasedOnAntecedents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule" title="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule"><span class="pre">juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rule.html#IT2_Rule.compareBasedOnAntecedents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.compareBasedOnAntecedents" title="Permalink to this definition"></a></dt>
+<dd><p>Performs a comparison operation by comparing the rule objects solely based
+on their antecedents. The method returns true of the antecedents of both
+rules are the same.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getAntecedents">
+<span class="sig-name descname"><span class="pre">getAntecedents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent" title="juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent"><span class="pre">juzzyPython.intervalType2.system.IT2_Antecedent.IT2_Antecedent</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rule.html#IT2_Rule.getAntecedents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getAntecedents" title="Permalink to this definition"></a></dt>
+<dd><p>Return the list of antecedents</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getConsequentCentroid">
+<span class="sig-name descname"><span class="pre">getConsequentCentroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rule.html#IT2_Rule.getConsequentCentroid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getConsequentCentroid" title="Permalink to this definition"></a></dt>
+<dd><p>Return the consequent centroid of the ouput</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getConsequents">
+<span class="sig-name descname"><span class="pre">getConsequents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent" title="juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent"><span class="pre">juzzyPython.intervalType2.system.IT2_Consequent.IT2_Consequent</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rule.html#IT2_Rule.getConsequents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getConsequents" title="Permalink to this definition"></a></dt>
+<dd><p>Return the list of consequents</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getFStrength">
+<span class="sig-name descname"><span class="pre">getFStrength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tNorm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rule.html#IT2_Rule.getFStrength"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getFStrength" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the rule’s firing strength. The method relies on the transparent
+updating of the inputs of the fuzzy system through the Input classes
+attached to the antecedents.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getInputs">
+<span class="sig-name descname"><span class="pre">getInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Input.Input" title="juzzyPython.generic.Input.Input"><span class="pre">juzzyPython.generic.Input.Input</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rule.html#IT2_Rule.getInputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getInputs" title="Permalink to this definition"></a></dt>
+<dd><p>Return the list of inputs</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getNumberOfAntecedents">
+<span class="sig-name descname"><span class="pre">getNumberOfAntecedents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rule.html#IT2_Rule.getNumberOfAntecedents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getNumberOfAntecedents" title="Permalink to this definition"></a></dt>
+<dd><p>Return the number of antecedents</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getNumberOfConsequents">
+<span class="sig-name descname"><span class="pre">getNumberOfConsequents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rule.html#IT2_Rule.getNumberOfConsequents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.getNumberOfConsequents" title="Permalink to this definition"></a></dt>
+<dd><p>Return the number of consequents</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rule.html#IT2_Rule.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Convert antecedent to string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.system.IT2_Rulebase">
+<span id="juzzypython-intervaltype2-system-it2-rulebase-module"></span><h2>juzzyPython.intervalType2.system.IT2_Rulebase module<a class="headerlink" href="#module-juzzyPython.intervalType2.system.IT2_Rulebase" title="Permalink to this headline"></a></h2>
+<p>IT2_Rulebase.py
+Created 16/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.system.IT2_Rulebase.</span></span><span class="sig-name descname"><span class="pre">IT2_Rulebase</span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class IT2_Rulebase
+Keeps track of rules and generates results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>set</strong> (<em>initialNumberOfRules = Starting rules for the logic</em>) – </p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getInputs
+getFuzzyLogicType
+addRule
+addRules
+getRules
+getNumberOfRules
+evaluateGetCentroid
+evaluate
+doCOSTypeReduction
+getFiringIntervalsForCOS_TR
+doReductionCentroid
+weightedSigma
+removeRule
+setImplicationMethod
+getImplicationMethod
+getOutputs
+toString</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.addRule">
+<span class="sig-name descname"><span class="pre">addRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule" title="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule"><span class="pre">juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.addRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.addRule" title="Permalink to this definition"></a></dt>
+<dd><p>Add a new rule to the rule set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.addRules">
+<span class="sig-name descname"><span class="pre">addRules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule" title="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule"><span class="pre">juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.addRules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.addRules" title="Permalink to this definition"></a></dt>
+<dd><p>Add multiple new rules to the rule set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.doCOSTypeReduction">
+<span class="sig-name descname"><span class="pre">doCOSTypeReduction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.doCOSTypeReduction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.doCOSTypeReduction" title="Permalink to this definition"></a></dt>
+<dd><p>Reduce based on center of sets reduction type</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.doReductionCentroid">
+<span class="sig-name descname"><span class="pre">doReductionCentroid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.doReductionCentroid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.doReductionCentroid" title="Permalink to this definition"></a></dt>
+<dd><p>Do reduction based on the centroid type</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typeReductionType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Returns typereduced &amp; defuzzified result of evaluating all rules in the rulebase.
+typeReductionType: The type of type reducer to be used: 0-Center-Of-Sets,
+1-Centroid.
+discretizationLevel: The discretization level to be employed (only applies to centroid type reducer)
+return The type-reduced and defuzzified output.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.evaluateGetCentroid">
+<span class="sig-name descname"><span class="pre">evaluateGetCentroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typeReductionType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.evaluateGetCentroid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.evaluateGetCentroid" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the output of the FLS after type-reduction, i.e. the centroid.
+return A TreeMap where Output is used as key and the value is an Object[]
+where Object[0] is a Tuple (the centroid) and Object[1] is a Double holding
+the associated yValue for the centroid. If not rule fired for the given input(s),
+then null is returned as an Object[].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getFiringIntervalsForCOS_TR">
+<span class="sig-name descname"><span class="pre">getFiringIntervalsForCOS_TR</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.getFiringIntervalsForCOS_TR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getFiringIntervalsForCOS_TR" title="Permalink to this definition"></a></dt>
+<dd><p>Get the firing intervals for cos type reduction</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getFuzzyLogicType">
+<span class="sig-name descname"><span class="pre">getFuzzyLogicType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.getFuzzyLogicType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getFuzzyLogicType" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the type of fuzzy logic that is employed.
+return 0: type-1, 1: interval type-2, 2: zSlices based general type-2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getImplicationMethod">
+<span class="sig-name descname"><span class="pre">getImplicationMethod</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.getImplicationMethod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getImplicationMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Return if the implication is product or minimum</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getInputs">
+<span class="sig-name descname"><span class="pre">getInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Input.Input" title="juzzyPython.generic.Input.Input"><span class="pre">juzzyPython.generic.Input.Input</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.getInputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getInputs" title="Permalink to this definition"></a></dt>
+<dd><p>This method assumes all rules use the same (and all) inputs. The first rule is queried to identify the inputs and return them.
+return An array of the inputs used in the rulebase (retrieved from the actecedents of the firts rule in the rulebase!)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getNumberOfRules">
+<span class="sig-name descname"><span class="pre">getNumberOfRules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.getNumberOfRules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getNumberOfRules" title="Permalink to this definition"></a></dt>
+<dd><p>Get the number of rules in the set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getOutputs">
+<span class="sig-name descname"><span class="pre">getOutputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Output.Output" title="juzzyPython.generic.Output.Output"><span class="pre">juzzyPython.generic.Output.Output</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.getOutputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getOutputs" title="Permalink to this definition"></a></dt>
+<dd><p>Return list of outputs</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getRules">
+<span class="sig-name descname"><span class="pre">getRules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule" title="juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule"><span class="pre">juzzyPython.intervalType2.system.IT2_Rule.IT2_Rule</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.getRules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.getRules" title="Permalink to this definition"></a></dt>
+<dd><p>Return all the rules in the set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.removeRule">
+<span class="sig-name descname"><span class="pre">removeRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ruleNumber</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.removeRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.removeRule" title="Permalink to this definition"></a></dt>
+<dd><p>Remove a rule based on its index</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.setImplicationMethod">
+<span class="sig-name descname"><span class="pre">setImplicationMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">implicationMethod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.setImplicationMethod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.setImplicationMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Set the product or minimum implication method</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Convert the class to string</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.weightedSigma">
+<span class="sig-name descname"><span class="pre">weightedSigma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.intervalType2.system.IT2_COSInferenceData.IT2_COSInferenceData" title="juzzyPython.intervalType2.system.IT2_COSInferenceData.IT2_COSInferenceData"><span class="pre">juzzyPython.intervalType2.system.IT2_COSInferenceData.IT2_COSInferenceData</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/system/IT2_Rulebase.html#IT2_Rulebase.weightedSigma"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.system.IT2_Rulebase.IT2_Rulebase.weightedSigma" title="Permalink to this definition"></a></dt>
+<dd><p>Return the sigma based on COS inference data</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.system">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-juzzyPython.intervalType2.system" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Christian Wagner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
