@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>juzzyPython.examples package &mdash; JuzzyPython 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> JuzzyPython
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">juzzyPython.examples package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples.SimpleIT2FLS">juzzyPython.examples.SimpleIT2FLS module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples.SimpleIT2FLS_twoOutputs">juzzyPython.examples.SimpleIT2FLS_twoOutputs module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples.SimpleNSIT2_IT2FLS">juzzyPython.examples.SimpleNSIT2_IT2FLS module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples.SimpleNST1FLS">juzzyPython.examples.SimpleNST1FLS module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples.SimpleNST1IT2FLS">juzzyPython.examples.SimpleNST1IT2FLS module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples.SimpleT1FLS">juzzyPython.examples.SimpleT1FLS module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples.SimpleT1FLS_twoOutputs">juzzyPython.examples.SimpleT1FLS_twoOutputs module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples.SimplezGT2FLS">juzzyPython.examples.SimplezGT2FLS module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples.SimplezGT2FLSNSGT2">juzzyPython.examples.SimplezGT2FLSNSGT2 module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples.SimplezGT2FLSNSIT2">juzzyPython.examples.SimplezGT2FLSNSIT2 module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples.SimplezGT2FLSNST1">juzzyPython.examples.SimplezGT2FLSNST1 module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples.SimplezGT2FLS_multicore">juzzyPython.examples.SimplezGT2FLS_multicore module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs">juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.examples">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JuzzyPython</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>juzzyPython.examples package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/juzzyPython.examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="juzzypython-examples-package">
+<h1>juzzyPython.examples package<a class="headerlink" href="#juzzypython-examples-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-juzzyPython.examples.SimpleIT2FLS">
+<span id="juzzypython-examples-simpleit2fls-module"></span><h2>juzzyPython.examples.SimpleIT2FLS module<a class="headerlink" href="#module-juzzyPython.examples.SimpleIT2FLS" title="Permalink to this headline"></a></h2>
+<p>SimpleIT2FLS.py
+Created 20/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleIT2FLS.SimpleIT2FLS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.examples.SimpleIT2FLS.</span></span><span class="sig-name descname"><span class="pre">SimpleIT2FLS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/examples/SimpleIT2FLS.html#SimpleIT2FLS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimpleIT2FLS.SimpleIT2FLS" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SimpleIT2FLS:
+A simple example of an interval Type-2 FLS based on the “How much to tip the waiter”
+scenario.
+The example is an extension of the Type-1 FLS example where we extend the MFs
+and use the Interval Type-2 System classes. Note that in contrast to the type-1
+case, here only two sets are used to model the service quality.
+We have two inputs: food quality and service level and as an output we would
+like to generate the applicable tip.</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getTip
+PlotMFs
+getControlSurfaceData</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleIT2FLS.SimpleIT2FLS.getControlSurfaceData">
+<span class="sig-name descname"><span class="pre">getControlSurfaceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleIT2FLS.SimpleIT2FLS.getControlSurfaceData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleIT2FLS.SimpleIT2FLS.getTip">
+<span class="sig-name descname"><span class="pre">getTip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleIT2FLS.SimpleIT2FLS.getTip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleIT2FLS.SimpleIT2FLS.plotMFs">
+<span class="sig-name descname"><span class="pre">plotMFs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleIT2FLS.SimpleIT2FLS.plotMFs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.examples.SimpleIT2FLS_twoOutputs">
+<span id="juzzypython-examples-simpleit2fls-twooutputs-module"></span><h2>juzzyPython.examples.SimpleIT2FLS_twoOutputs module<a class="headerlink" href="#module-juzzyPython.examples.SimpleIT2FLS_twoOutputs" title="Permalink to this headline"></a></h2>
+<p>SimpleIT2FLS_twoOutputs.py
+Created 23/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleIT2FLS_twoOutputs.SimpleIT2FLS_twoOutputs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.examples.SimpleIT2FLS_twoOutputs.</span></span><span class="sig-name descname"><span class="pre">SimpleIT2FLS_twoOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/examples/SimpleIT2FLS_twoOutputs.html#SimpleIT2FLS_twoOutputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimpleIT2FLS_twoOutputs.SimpleIT2FLS_twoOutputs" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SimpleIT2FLS_twoOutputs:
+A simple example of an interval Type-2 FLS based on the “How much to tip the waiter”
+scenario.
+The example is an extension of the Type-1 FLS example where we extend the MFs
+and use the Interval Type-2 System classes. Note that in contrast to the type-1
+case, here only two sets are used to model the service quality.
+We have two inputs: food quality and service level and as an output we would
+like to generate the applicable tip.</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getTip
+PlotMFs
+getControlSurfaceData</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleIT2FLS_twoOutputs.SimpleIT2FLS_twoOutputs.getControlSurfaceData">
+<span class="sig-name descname"><span class="pre">getControlSurfaceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleIT2FLS_twoOutputs.SimpleIT2FLS_twoOutputs.getControlSurfaceData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleIT2FLS_twoOutputs.SimpleIT2FLS_twoOutputs.getOutput">
+<span class="sig-name descname"><span class="pre">getOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleIT2FLS_twoOutputs.SimpleIT2FLS_twoOutputs.getOutput" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleIT2FLS_twoOutputs.SimpleIT2FLS_twoOutputs.getSmile">
+<span class="sig-name descname"><span class="pre">getSmile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Output.Output" title="juzzyPython.generic.Output.Output"><span class="pre">juzzyPython.generic.Output.Output</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/examples/SimpleIT2FLS_twoOutputs.html#SimpleIT2FLS_twoOutputs.getSmile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimpleIT2FLS_twoOutputs.SimpleIT2FLS_twoOutputs.getSmile" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleIT2FLS_twoOutputs.SimpleIT2FLS_twoOutputs.getTip">
+<span class="sig-name descname"><span class="pre">getTip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Output.Output" title="juzzyPython.generic.Output.Output"><span class="pre">juzzyPython.generic.Output.Output</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/examples/SimpleIT2FLS_twoOutputs.html#SimpleIT2FLS_twoOutputs.getTip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimpleIT2FLS_twoOutputs.SimpleIT2FLS_twoOutputs.getTip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleIT2FLS_twoOutputs.SimpleIT2FLS_twoOutputs.plotMFs">
+<span class="sig-name descname"><span class="pre">plotMFs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleIT2FLS_twoOutputs.SimpleIT2FLS_twoOutputs.plotMFs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.examples.SimpleNSIT2_IT2FLS">
+<span id="juzzypython-examples-simplensit2-it2fls-module"></span><h2>juzzyPython.examples.SimpleNSIT2_IT2FLS module<a class="headerlink" href="#module-juzzyPython.examples.SimpleNSIT2_IT2FLS" title="Permalink to this headline"></a></h2>
+<p>SimpleNSIT2_IT2FLS.py
+Created 25/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleNSIT2_IT2FLS.SimpleNSIT2_IT2FLS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.examples.SimpleNSIT2_IT2FLS.</span></span><span class="sig-name descname"><span class="pre">SimpleNSIT2_IT2FLS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/examples/SimpleNSIT2_IT2FLS.html#SimpleNSIT2_IT2FLS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimpleNSIT2_IT2FLS.SimpleNSIT2_IT2FLS" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SimpleNSIT2_IT2FLS:
+A simple example of a non singleton Type-1 interval Type-2 FLS based on the “How much to tip the waiter”
+scenario.
+The example is an extension of the Type-1 FLS example where we extend the MFs
+and use the Interval Type-2 System classes. Note that in contrast to the type-1
+case, here only two sets are used to model the service quality.
+We have two inputs: food quality and service level and as an output we would
+like to generate the applicable tip.</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getTip
+PlotMFs
+getControlSurfaceData</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleNSIT2_IT2FLS.SimpleNSIT2_IT2FLS.getControlSurfaceData">
+<span class="sig-name descname"><span class="pre">getControlSurfaceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleNSIT2_IT2FLS.SimpleNSIT2_IT2FLS.getControlSurfaceData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleNSIT2_IT2FLS.SimpleNSIT2_IT2FLS.getTip">
+<span class="sig-name descname"><span class="pre">getTip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleNSIT2_IT2FLS.SimpleNSIT2_IT2FLS.getTip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleNSIT2_IT2FLS.SimpleNSIT2_IT2FLS.plotMFs">
+<span class="sig-name descname"><span class="pre">plotMFs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleNSIT2_IT2FLS.SimpleNSIT2_IT2FLS.plotMFs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.examples.SimpleNST1FLS">
+<span id="juzzypython-examples-simplenst1fls-module"></span><h2>juzzyPython.examples.SimpleNST1FLS module<a class="headerlink" href="#module-juzzyPython.examples.SimpleNST1FLS" title="Permalink to this headline"></a></h2>
+<p>SimpleNST1FLS.py
+Created 22/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleNST1FLS.SimpleNST1FLS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.examples.SimpleNST1FLS.</span></span><span class="sig-name descname"><span class="pre">SimpleNST1FLS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/examples/SimpleNST1FLS.html#SimpleNST1FLS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimpleNST1FLS.SimpleNST1FLS" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SimpleNST1FLS:
+A simple example of a Non Singleton type-1 FLS based on the “How much to tip the waiter” scenario.
+We have two inputs: food quality and service level and as an output we would
+like to generate the applicable tip.</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getTip
+PlotMFs
+getControlSurfaceData</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleNST1FLS.SimpleNST1FLS.getControlSurfaceData">
+<span class="sig-name descname"><span class="pre">getControlSurfaceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleNST1FLS.SimpleNST1FLS.getControlSurfaceData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleNST1FLS.SimpleNST1FLS.getTip">
+<span class="sig-name descname"><span class="pre">getTip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleNST1FLS.SimpleNST1FLS.getTip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleNST1FLS.SimpleNST1FLS.plotMFs">
+<span class="sig-name descname"><span class="pre">plotMFs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleNST1FLS.SimpleNST1FLS.plotMFs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.examples.SimpleNST1IT2FLS">
+<span id="juzzypython-examples-simplenst1it2fls-module"></span><h2>juzzyPython.examples.SimpleNST1IT2FLS module<a class="headerlink" href="#module-juzzyPython.examples.SimpleNST1IT2FLS" title="Permalink to this headline"></a></h2>
+<p>SimpleNST1IT2FLS.py
+Created 26/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleNST1IT2FLS.SimpleNST1IT2FLS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.examples.SimpleNST1IT2FLS.</span></span><span class="sig-name descname"><span class="pre">SimpleNST1IT2FLS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/examples/SimpleNST1IT2FLS.html#SimpleNST1IT2FLS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimpleNST1IT2FLS.SimpleNST1IT2FLS" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SimpleNST1IT2FLS:
+A simple example of a non singleton Type-1 interval Type-2 FLS based on the “How much to tip the waiter”
+scenario.
+The example is an extension of the Type-1 FLS example where we extend the MFs
+and use the Interval Type-2 System classes. Note that in contrast to the type-1
+case, here only two sets are used to model the service quality.
+We have two inputs: food quality and service level and as an output we would
+like to generate the applicable tip.</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getTip
+PlotMFs
+getControlSurfaceData</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleNST1IT2FLS.SimpleNST1IT2FLS.getControlSurfaceData">
+<span class="sig-name descname"><span class="pre">getControlSurfaceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleNST1IT2FLS.SimpleNST1IT2FLS.getControlSurfaceData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleNST1IT2FLS.SimpleNST1IT2FLS.getTip">
+<span class="sig-name descname"><span class="pre">getTip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleNST1IT2FLS.SimpleNST1IT2FLS.getTip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleNST1IT2FLS.SimpleNST1IT2FLS.plotMFs">
+<span class="sig-name descname"><span class="pre">plotMFs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleNST1IT2FLS.SimpleNST1IT2FLS.plotMFs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.examples.SimpleT1FLS">
+<span id="juzzypython-examples-simplet1fls-module"></span><h2>juzzyPython.examples.SimpleT1FLS module<a class="headerlink" href="#module-juzzyPython.examples.SimpleT1FLS" title="Permalink to this headline"></a></h2>
+<p>SimpleT1FLS.py
+Created 19/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleT1FLS.SimpleT1FLS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.examples.SimpleT1FLS.</span></span><span class="sig-name descname"><span class="pre">SimpleT1FLS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/examples/SimpleT1FLS.html#SimpleT1FLS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimpleT1FLS.SimpleT1FLS" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SimpleT1FLS:
+A simple example of a type-1 FLS based on the “How much to tip the waiter”  scenario.
+We have two inputs: food quality and service level and as an output we would
+like to generate the applicable tip.</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getTip
+PlotMFs
+getControlSurfaceData</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleT1FLS.SimpleT1FLS.getControlSurfaceData">
+<span class="sig-name descname"><span class="pre">getControlSurfaceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleT1FLS.SimpleT1FLS.getControlSurfaceData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleT1FLS.SimpleT1FLS.getTip">
+<span class="sig-name descname"><span class="pre">getTip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleT1FLS.SimpleT1FLS.getTip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleT1FLS.SimpleT1FLS.plotMFs">
+<span class="sig-name descname"><span class="pre">plotMFs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleT1FLS.SimpleT1FLS.plotMFs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.examples.SimpleT1FLS_twoOutputs">
+<span id="juzzypython-examples-simplet1fls-twooutputs-module"></span><h2>juzzyPython.examples.SimpleT1FLS_twoOutputs module<a class="headerlink" href="#module-juzzyPython.examples.SimpleT1FLS_twoOutputs" title="Permalink to this headline"></a></h2>
+<p>SimpleT1FLS_twoOutputs.py
+Created 22/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleT1FLS_twoOutputs.SimpleT1FLS_twoOutputs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.examples.SimpleT1FLS_twoOutputs.</span></span><span class="sig-name descname"><span class="pre">SimpleT1FLS_twoOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/examples/SimpleT1FLS_twoOutputs.html#SimpleT1FLS_twoOutputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimpleT1FLS_twoOutputs.SimpleT1FLS_twoOutputs" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SimpleT1FLS_twoOutputs:
+A simple example of a type-1 FLS based on the “How much to tip the waiter”
+scenario which has been augmented to showcase the use of two outputs.
+We have two inputs: food quality and service level and as an output we would
+like to generate the applicable tip as well as a recommended smile as a sign of satisfaction.</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getTip
+PlotMFs
+getControlSurfaceData
+getOutput
+getSmile</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleT1FLS_twoOutputs.SimpleT1FLS_twoOutputs.getControlSurfaceData">
+<span class="sig-name descname"><span class="pre">getControlSurfaceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleT1FLS_twoOutputs.SimpleT1FLS_twoOutputs.getControlSurfaceData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleT1FLS_twoOutputs.SimpleT1FLS_twoOutputs.getOutput">
+<span class="sig-name descname"><span class="pre">getOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleT1FLS_twoOutputs.SimpleT1FLS_twoOutputs.getOutput" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleT1FLS_twoOutputs.SimpleT1FLS_twoOutputs.getSmile">
+<span class="sig-name descname"><span class="pre">getSmile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Output.Output" title="juzzyPython.generic.Output.Output"><span class="pre">juzzyPython.generic.Output.Output</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/examples/SimpleT1FLS_twoOutputs.html#SimpleT1FLS_twoOutputs.getSmile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimpleT1FLS_twoOutputs.SimpleT1FLS_twoOutputs.getSmile" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleT1FLS_twoOutputs.SimpleT1FLS_twoOutputs.getTip">
+<span class="sig-name descname"><span class="pre">getTip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Output.Output" title="juzzyPython.generic.Output.Output"><span class="pre">juzzyPython.generic.Output.Output</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/examples/SimpleT1FLS_twoOutputs.html#SimpleT1FLS_twoOutputs.getTip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimpleT1FLS_twoOutputs.SimpleT1FLS_twoOutputs.getTip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimpleT1FLS_twoOutputs.SimpleT1FLS_twoOutputs.plotMFs">
+<span class="sig-name descname"><span class="pre">plotMFs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimpleT1FLS_twoOutputs.SimpleT1FLS_twoOutputs.plotMFs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.examples.SimplezGT2FLS">
+<span id="juzzypython-examples-simplezgt2fls-module"></span><h2>juzzyPython.examples.SimplezGT2FLS module<a class="headerlink" href="#module-juzzyPython.examples.SimplezGT2FLS" title="Permalink to this headline"></a></h2>
+<p>SimplezGT2FLS.py
+Created 10/2/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS.SimplezGT2FLS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.examples.SimplezGT2FLS.</span></span><span class="sig-name descname"><span class="pre">SimplezGT2FLS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/examples/SimplezGT2FLS.html#SimplezGT2FLS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS.SimplezGT2FLS" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SimplezGT2FLS:
+A simple example of a zSlices based general Type-2 FLS based on the “How much
+to tip the waiter” scenario.
+The example is an extension of the Interval Type-2 FLS example where we extend the MFs
+and use zSlices based General Type-2 Fuzzy System classes.
+We have two inputs: food quality and service level and as an output we would
+like to generate the applicable tip.</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getTip
+PlotMFs
+getControlSurfaceData</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS.SimplezGT2FLS.getControlSurfaceData">
+<span class="sig-name descname"><span class="pre">getControlSurfaceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS.SimplezGT2FLS.getControlSurfaceData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS.SimplezGT2FLS.getTip">
+<span class="sig-name descname"><span class="pre">getTip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS.SimplezGT2FLS.getTip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS.SimplezGT2FLS.plotMFs">
+<span class="sig-name descname"><span class="pre">plotMFs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS.SimplezGT2FLS.plotMFs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.examples.SimplezGT2FLSNSGT2">
+<span id="juzzypython-examples-simplezgt2flsnsgt2-module"></span><h2>juzzyPython.examples.SimplezGT2FLSNSGT2 module<a class="headerlink" href="#module-juzzyPython.examples.SimplezGT2FLSNSGT2" title="Permalink to this headline"></a></h2>
+<p>SimplezGT2FLSNSGT2.py
+Created 15/2/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLSNSGT2.SimplezGT2FLSNSGT2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.examples.SimplezGT2FLSNSGT2.</span></span><span class="sig-name descname"><span class="pre">SimplezGT2FLSNSGT2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/examples/SimplezGT2FLSNSGT2.html#SimplezGT2FLSNSGT2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLSNSGT2.SimplezGT2FLSNSGT2" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SimplezGT2FLSNSGT2:
+A simple example of a zSlices based general Type-2 FLS based on the “How much
+to tip the waiter” scenario.
+The example is an extension of the Interval Type-2 FLS example where we extend the MFs
+and use zSlices based General Type-2 Fuzzy System classes.
+It is the same example as SimpleGT2FLS with a non singleton input GT2.
+We have two inputs: food quality (non singleton) and service level and as an output we would
+like to generate the applicable tip.</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getTip
+PlotMFs
+getControlSurfaceData</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLSNSGT2.SimplezGT2FLSNSGT2.getControlSurfaceData">
+<span class="sig-name descname"><span class="pre">getControlSurfaceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLSNSGT2.SimplezGT2FLSNSGT2.getControlSurfaceData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLSNSGT2.SimplezGT2FLSNSGT2.getTip">
+<span class="sig-name descname"><span class="pre">getTip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLSNSGT2.SimplezGT2FLSNSGT2.getTip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLSNSGT2.SimplezGT2FLSNSGT2.plotMFs">
+<span class="sig-name descname"><span class="pre">plotMFs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLSNSGT2.SimplezGT2FLSNSGT2.plotMFs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.examples.SimplezGT2FLSNSIT2">
+<span id="juzzypython-examples-simplezgt2flsnsit2-module"></span><h2>juzzyPython.examples.SimplezGT2FLSNSIT2 module<a class="headerlink" href="#module-juzzyPython.examples.SimplezGT2FLSNSIT2" title="Permalink to this headline"></a></h2>
+<p>SimplezGT2FLSNSIT2.py
+Created 15/2/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLSNSIT2.SimplezGT2FLSNSIT2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.examples.SimplezGT2FLSNSIT2.</span></span><span class="sig-name descname"><span class="pre">SimplezGT2FLSNSIT2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/examples/SimplezGT2FLSNSIT2.html#SimplezGT2FLSNSIT2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLSNSIT2.SimplezGT2FLSNSIT2" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SimplezGT2FLSNSIT2:
+A simple example of a zSlices based general Type-2 FLS based on the “How much
+to tip the waiter” scenario.
+The example is an extension of the Interval Type-2 FLS example where we extend the MFs
+and use zSlices based General Type-2 Fuzzy System classes.
+It is the same example as SimpleGT2FLS with a non singleton input IT2.
+We have two inputs: food quality (non singleton) and service level and as an output we would
+like to generate the applicable tip.</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getTip
+PlotMFs
+getControlSurfaceData</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLSNSIT2.SimplezGT2FLSNSIT2.getControlSurfaceData">
+<span class="sig-name descname"><span class="pre">getControlSurfaceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLSNSIT2.SimplezGT2FLSNSIT2.getControlSurfaceData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLSNSIT2.SimplezGT2FLSNSIT2.getTip">
+<span class="sig-name descname"><span class="pre">getTip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLSNSIT2.SimplezGT2FLSNSIT2.getTip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLSNSIT2.SimplezGT2FLSNSIT2.plotMFs">
+<span class="sig-name descname"><span class="pre">plotMFs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLSNSIT2.SimplezGT2FLSNSIT2.plotMFs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.examples.SimplezGT2FLSNST1">
+<span id="juzzypython-examples-simplezgt2flsnst1-module"></span><h2>juzzyPython.examples.SimplezGT2FLSNST1 module<a class="headerlink" href="#module-juzzyPython.examples.SimplezGT2FLSNST1" title="Permalink to this headline"></a></h2>
+<p>SimplezGT2FLSNST1.py
+Created 14/2/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLSNST1.SimplezGT2FLSNST1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.examples.SimplezGT2FLSNST1.</span></span><span class="sig-name descname"><span class="pre">SimplezGT2FLSNST1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/examples/SimplezGT2FLSNST1.html#SimplezGT2FLSNST1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLSNST1.SimplezGT2FLSNST1" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SimplezGT2FLSNST1:
+A simple example of a zSlices based general Type-2 FLS based on the “How much
+to tip the waiter” scenario.
+The example is an extension of the Interval Type-2 FLS example where we extend the MFs
+and use zSlices based General Type-2 Fuzzy System classes.
+It is the same example as SimpleGT2FLS with a non singleton input.
+We have two inputs: food quality (non singleton) and service level and as an output we would
+like to generate the applicable tip.</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getTip
+PlotMFs
+getControlSurfaceData</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLSNST1.SimplezGT2FLSNST1.getControlSurfaceData">
+<span class="sig-name descname"><span class="pre">getControlSurfaceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLSNST1.SimplezGT2FLSNST1.getControlSurfaceData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLSNST1.SimplezGT2FLSNST1.getTip">
+<span class="sig-name descname"><span class="pre">getTip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLSNST1.SimplezGT2FLSNST1.getTip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLSNST1.SimplezGT2FLSNST1.plotMFs">
+<span class="sig-name descname"><span class="pre">plotMFs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLSNST1.SimplezGT2FLSNST1.plotMFs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.examples.SimplezGT2FLS_multicore">
+<span id="juzzypython-examples-simplezgt2fls-multicore-module"></span><h2>juzzyPython.examples.SimplezGT2FLS_multicore module<a class="headerlink" href="#module-juzzyPython.examples.SimplezGT2FLS_multicore" title="Permalink to this headline"></a></h2>
+<p>SimplezGT2FLS_multicore.py
+Created 5/3/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS_multicore.SimplezGT2FLS_multicore">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.examples.SimplezGT2FLS_multicore.</span></span><span class="sig-name descname"><span class="pre">SimplezGT2FLS_multicore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/examples/SimplezGT2FLS_multicore.html#SimplezGT2FLS_multicore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS_multicore.SimplezGT2FLS_multicore" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SimplezGT2FLS_multicore:
+A simple example of a zSlices based general Type-2 FLS based on the “How much
+to tip the waiter” scenario.
+The example is an extension of the Interval Type-2 FLS example where we extend the MFs
+and use zSlices based General Type-2 Fuzzy System classes.
+We have two inputs: food quality and service level and as an output we would
+like to generate the applicable tip.
+This uses multicore processing</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getTip
+PlotMFs
+getControlSurfaceData</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS_multicore.SimplezGT2FLS_multicore.getControlSurfaceData">
+<span class="sig-name descname"><span class="pre">getControlSurfaceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS_multicore.SimplezGT2FLS_multicore.getControlSurfaceData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS_multicore.SimplezGT2FLS_multicore.getTip">
+<span class="sig-name descname"><span class="pre">getTip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS_multicore.SimplezGT2FLS_multicore.getTip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS_multicore.SimplezGT2FLS_multicore.plotMFs">
+<span class="sig-name descname"><span class="pre">plotMFs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS_multicore.SimplezGT2FLS_multicore.plotMFs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs">
+<span id="juzzypython-examples-simplezgt2fls-multicore-twooutputs-module"></span><h2>juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs module<a class="headerlink" href="#module-juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs" title="Permalink to this headline"></a></h2>
+<p>SimplezGT2FLS_multicore_twoOutputs.py
+Created 7/3/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs.SimplezGT2FLS_multicore_twoOutputs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs.</span></span><span class="sig-name descname"><span class="pre">SimplezGT2FLS_multicore_twoOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/examples/SimplezGT2FLS_multicore_twoOutputs.html#SimplezGT2FLS_multicore_twoOutputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs.SimplezGT2FLS_multicore_twoOutputs" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SimplezGT2FLS_multicore_twoOutputs:
+A simple example of a zSlices based general Type-2 FLS based on the “How much
+to tip the waiter” which has been augmented to showcase the use of two outputs.
+The example is an extension of the Interval Type-2 FLS example where we extend the MFs and use zSlices based General Type-2 Fuzzy System classes.
+We have two inputs: food quality and service level and as an output we would like to generate the applicable tip as well as a recommended smile as a sign of satisfaction.
+This uses multicore processing</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getTip
+PlotMFs
+getControlSurfaceData</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs.SimplezGT2FLS_multicore_twoOutputs.getControlSurfaceData">
+<span class="sig-name descname"><span class="pre">getControlSurfaceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs.SimplezGT2FLS_multicore_twoOutputs.getControlSurfaceData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs.SimplezGT2FLS_multicore_twoOutputs.getSmileObject">
+<span class="sig-name descname"><span class="pre">getSmileObject</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Output.Output" title="juzzyPython.generic.Output.Output"><span class="pre">juzzyPython.generic.Output.Output</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/examples/SimplezGT2FLS_multicore_twoOutputs.html#SimplezGT2FLS_multicore_twoOutputs.getSmileObject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs.SimplezGT2FLS_multicore_twoOutputs.getSmileObject" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs.SimplezGT2FLS_multicore_twoOutputs.getTip">
+<span class="sig-name descname"><span class="pre">getTip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs.SimplezGT2FLS_multicore_twoOutputs.getTip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs.SimplezGT2FLS_multicore_twoOutputs.getTipObject">
+<span class="sig-name descname"><span class="pre">getTipObject</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Output.Output" title="juzzyPython.generic.Output.Output"><span class="pre">juzzyPython.generic.Output.Output</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/examples/SimplezGT2FLS_multicore_twoOutputs.html#SimplezGT2FLS_multicore_twoOutputs.getTipObject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs.SimplezGT2FLS_multicore_twoOutputs.getTipObject" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs.SimplezGT2FLS_multicore_twoOutputs.plotMFs">
+<span class="sig-name descname"><span class="pre">plotMFs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#juzzyPython.examples.SimplezGT2FLS_multicore_twoOutputs.SimplezGT2FLS_multicore_twoOutputs.plotMFs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.examples">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-juzzyPython.examples" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Christian Wagner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

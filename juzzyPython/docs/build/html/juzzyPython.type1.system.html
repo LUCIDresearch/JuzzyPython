@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>juzzyPython.type1.system package &mdash; JuzzyPython 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> JuzzyPython
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">juzzyPython.type1.system package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.system.T1_Antecedent">juzzyPython.type1.system.T1_Antecedent module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.system.T1_Consequent">juzzyPython.type1.system.T1_Consequent module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.system.T1_Rule">juzzyPython.type1.system.T1_Rule module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.system.T1_Rulebase">juzzyPython.type1.system.T1_Rulebase module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.type1.system">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JuzzyPython</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>juzzyPython.type1.system package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/juzzyPython.type1.system.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="juzzypython-type1-system-package">
+<h1>juzzyPython.type1.system package<a class="headerlink" href="#juzzypython-type1-system-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-juzzyPython.type1.system.T1_Antecedent">
+<span id="juzzypython-type1-system-t1-antecedent-module"></span><h2>juzzyPython.type1.system.T1_Antecedent module<a class="headerlink" href="#module-juzzyPython.type1.system.T1_Antecedent" title="Permalink to this headline"></a></h2>
+<p>T1_Antecedent.py
+Created 18/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Antecedent.T1_Antecedent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.system.T1_Antecedent.</span></span><span class="sig-name descname"><span class="pre">T1_Antecedent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Input.Input" title="juzzyPython.generic.Input.Input"><span class="pre">juzzyPython.generic.Input.Input</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Antecedent.html#T1_Antecedent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Antecedent.T1_Antecedent" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class T1_Antecedent:
+Antecedent for a fuzzy rule of a Type-1 Fuzzy System.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mF</strong> – The actual membership function to associated with this antecedent.</p></li>
+<li><p><strong>input</strong> – The input to associate with this antecedent.</p></li>
+<li><p><strong>name</strong> – Name of the antecedent</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>setMF
+getMF
+getInput
+getName
+setName
+getFS
+getMax
+compareTo
+toString</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Antecedent.html#T1_Antecedent.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.compareTo" title="Permalink to this definition"></a></dt>
+<dd><p>Allows the comparison of two antecedents, based on their membership functions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Antecedent.html#T1_Antecedent.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the firing strength for the given antecedent using the current input supplied.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.getInput">
+<span class="sig-name descname"><span class="pre">getInput</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Input.Input" title="juzzyPython.generic.Input.Input"><span class="pre">juzzyPython.generic.Input.Input</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Antecedent.html#T1_Antecedent.getInput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.getInput" title="Permalink to this definition"></a></dt>
+<dd><p>Get the input of the antecedent</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.getMF">
+<span class="sig-name descname"><span class="pre">getMF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Antecedent.html#T1_Antecedent.getMF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.getMF" title="Permalink to this definition"></a></dt>
+<dd><p>Get the membership function defining the antecedent</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.getMax">
+<span class="sig-name descname"><span class="pre">getMax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tNorm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Antecedent.html#T1_Antecedent.getMax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.getMax" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the arg sup of the t-norm between the membership function of the antecedent and the
+membership function of the input (in case of NSF)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Antecedent.html#T1_Antecedent.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.getName" title="Permalink to this definition"></a></dt>
+<dd><p>Get the name of the antecedent</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.setMF">
+<span class="sig-name descname"><span class="pre">setMF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Antecedent.html#T1_Antecedent.setMF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.setMF" title="Permalink to this definition"></a></dt>
+<dd><p>Allows changing the membership function defining the antecedent</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Antecedent.html#T1_Antecedent.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.setName" title="Permalink to this definition"></a></dt>
+<dd><p>Set the name of the antecedent</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Antecedent.html#T1_Antecedent.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Antecedent.T1_Antecedent.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Converts antecedent to string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.system.T1_Consequent">
+<span id="juzzypython-type1-system-t1-consequent-module"></span><h2>juzzyPython.type1.system.T1_Consequent module<a class="headerlink" href="#module-juzzyPython.type1.system.T1_Consequent" title="Permalink to this headline"></a></h2>
+<p>T1_Consequent.py
+Created 18/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Consequent.T1_Consequent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.system.T1_Consequent.</span></span><span class="sig-name descname"><span class="pre">T1_Consequent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Output.Output" title="juzzyPython.generic.Output.Output"><span class="pre">juzzyPython.generic.Output.Output</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Consequent.html#T1_Consequent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Consequent.T1_Consequent" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class T1_Consequent:
+Consequent for a fuzzy rule of a Type-1 Fuzzy System.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mF</strong> – The membership function defining the consequent</p></li>
+<li><p><strong>output</strong> – The output of the consequent</p></li>
+<li><p><strong>name</strong> – The name of the consequent</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>setMF
+getMF
+getOutput
+setOutput
+getName
+setName
+toString</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Consequent.T1_Consequent.getMF">
+<span class="sig-name descname"><span class="pre">getMF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Consequent.html#T1_Consequent.getMF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Consequent.T1_Consequent.getMF" title="Permalink to this definition"></a></dt>
+<dd><p>Get the membership function for the consequent</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Consequent.T1_Consequent.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Consequent.html#T1_Consequent.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Consequent.T1_Consequent.getName" title="Permalink to this definition"></a></dt>
+<dd><p>Get the name of the consequent</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Consequent.T1_Consequent.getOutput">
+<span class="sig-name descname"><span class="pre">getOutput</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Output.Output" title="juzzyPython.generic.Output.Output"><span class="pre">juzzyPython.generic.Output.Output</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Consequent.html#T1_Consequent.getOutput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Consequent.T1_Consequent.getOutput" title="Permalink to this definition"></a></dt>
+<dd><p>Get the output for the consequent</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Consequent.T1_Consequent.setMF">
+<span class="sig-name descname"><span class="pre">setMF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Consequent.html#T1_Consequent.setMF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Consequent.T1_Consequent.setMF" title="Permalink to this definition"></a></dt>
+<dd><p>Set the membership function for the consequent</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Consequent.T1_Consequent.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Consequent.html#T1_Consequent.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Consequent.T1_Consequent.setName" title="Permalink to this definition"></a></dt>
+<dd><p>Set the name of the consequent</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Consequent.T1_Consequent.setOutput">
+<span class="sig-name descname"><span class="pre">setOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Output.Output" title="juzzyPython.generic.Output.Output"><span class="pre">juzzyPython.generic.Output.Output</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Consequent.html#T1_Consequent.setOutput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Consequent.T1_Consequent.setOutput" title="Permalink to this definition"></a></dt>
+<dd><p>Set the output for the consequent</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Consequent.T1_Consequent.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Consequent.html#T1_Consequent.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Consequent.T1_Consequent.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Convert the consequent to a string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.system.T1_Rule">
+<span id="juzzypython-type1-system-t1-rule-module"></span><h2>juzzyPython.type1.system.T1_Rule module<a class="headerlink" href="#module-juzzyPython.type1.system.T1_Rule" title="Permalink to this headline"></a></h2>
+<p>T1_Rule.py
+Created 19/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rule.T1_Rule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.system.T1_Rule.</span></span><span class="sig-name descname"><span class="pre">T1_Rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">antecedents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.type1.system.T1_Antecedent.T1_Antecedent" title="juzzyPython.type1.system.T1_Antecedent.T1_Antecedent"><span class="pre">juzzyPython.type1.system.T1_Antecedent.T1_Antecedent</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consequent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.type1.system.T1_Consequent.T1_Consequent" title="juzzyPython.type1.system.T1_Consequent.T1_Consequent"><span class="pre">juzzyPython.type1.system.T1_Consequent.T1_Consequent</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consequents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.type1.system.T1_Consequent.T1_Consequent" title="juzzyPython.type1.system.T1_Consequent.T1_Consequent"><span class="pre">juzzyPython.type1.system.T1_Consequent.T1_Consequent</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rule.html#T1_Rule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rule.T1_Rule" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class T1_Rule:
+Rule for a Type-1 Fuzzy System.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Antecedents</strong> – The array of antecedents</p></li>
+<li><p><strong>Consequent</strong> – The consequent (only a single consequent is supported here)</p></li>
+<li><p><strong>Consequents</strong> – The array of consequents</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getNumberOfAntecedents
+getNumberOfConsequents
+getAntecedents
+getConsequents
+getInputs
+compareBasedOnAntecedents
+getFStrength
+toString</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rule.T1_Rule.compareBasedOnAntecedents">
+<span class="sig-name descname"><span class="pre">compareBasedOnAntecedents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.type1.system.T1_Rule.T1_Rule" title="juzzyPython.type1.system.T1_Rule.T1_Rule"><span class="pre">juzzyPython.type1.system.T1_Rule.T1_Rule</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rule.html#T1_Rule.compareBasedOnAntecedents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rule.T1_Rule.compareBasedOnAntecedents" title="Permalink to this definition"></a></dt>
+<dd><p>Performs a comparison operation by comparing the rule objects solely based
+on their antecedents. The method returns true of the antecedents of both
+rules are the same.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rule.T1_Rule.getAntecedents">
+<span class="sig-name descname"><span class="pre">getAntecedents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.type1.system.T1_Antecedent.T1_Antecedent" title="juzzyPython.type1.system.T1_Antecedent.T1_Antecedent"><span class="pre">juzzyPython.type1.system.T1_Antecedent.T1_Antecedent</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rule.html#T1_Rule.getAntecedents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rule.T1_Rule.getAntecedents" title="Permalink to this definition"></a></dt>
+<dd><p>Return the list of antecedents</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rule.T1_Rule.getConsequents">
+<span class="sig-name descname"><span class="pre">getConsequents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.type1.system.T1_Consequent.T1_Consequent" title="juzzyPython.type1.system.T1_Consequent.T1_Consequent"><span class="pre">juzzyPython.type1.system.T1_Consequent.T1_Consequent</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rule.html#T1_Rule.getConsequents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rule.T1_Rule.getConsequents" title="Permalink to this definition"></a></dt>
+<dd><p>Return the list of consequents</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rule.T1_Rule.getFStrength">
+<span class="sig-name descname"><span class="pre">getFStrength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tNorm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rule.html#T1_Rule.getFStrength"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rule.T1_Rule.getFStrength" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the rule’s firing strength. The method relies on the transparent
+updating of the inputs of the fuzzy system through the Input classes
+attached to the antecedents.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rule.T1_Rule.getInputs">
+<span class="sig-name descname"><span class="pre">getInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Input.Input" title="juzzyPython.generic.Input.Input"><span class="pre">juzzyPython.generic.Input.Input</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rule.html#T1_Rule.getInputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rule.T1_Rule.getInputs" title="Permalink to this definition"></a></dt>
+<dd><p>Return the list of inputs</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rule.T1_Rule.getNumberOfAntecedents">
+<span class="sig-name descname"><span class="pre">getNumberOfAntecedents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rule.html#T1_Rule.getNumberOfAntecedents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rule.T1_Rule.getNumberOfAntecedents" title="Permalink to this definition"></a></dt>
+<dd><p>Return the number of antecedents</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rule.T1_Rule.getNumberOfConsequents">
+<span class="sig-name descname"><span class="pre">getNumberOfConsequents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rule.html#T1_Rule.getNumberOfConsequents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rule.T1_Rule.getNumberOfConsequents" title="Permalink to this definition"></a></dt>
+<dd><p>Return the number of consequents</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rule.T1_Rule.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rule.html#T1_Rule.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rule.T1_Rule.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Convert antecedent to string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.system.T1_Rulebase">
+<span id="juzzypython-type1-system-t1-rulebase-module"></span><h2>juzzyPython.type1.system.T1_Rulebase module<a class="headerlink" href="#module-juzzyPython.type1.system.T1_Rulebase" title="Permalink to this headline"></a></h2>
+<p>T1_Rulebase.py
+Created 19/12/2021</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.type1.system.T1_Rulebase.</span></span><span class="sig-name descname"><span class="pre">T1_Rulebase</span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class T1_Rulebase:
+Class Capturing an entire Type-1 FLS through its rules.</p>
+<p>Parameters:None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>addRule
+getNumberOfOutputs
+getNumberOfRules
+getInferenceMethod
+setInferenceMethod
+getImplicationMethod
+setImplicationMethod
+getRule
+getInputs
+getOutputSetBuffers
+evaluate
+centroidDefuzzification
+heightDefuzzification
+getRules
+changeRule
+removeRule
+toString</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.addRule">
+<span class="sig-name descname"><span class="pre">addRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.type1.system.T1_Rule.T1_Rule" title="juzzyPython.type1.system.T1_Rule.T1_Rule"><span class="pre">juzzyPython.type1.system.T1_Rule.T1_Rule</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.addRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.addRule" title="Permalink to this definition"></a></dt>
+<dd><p>add a rule to the set and buffers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.centroidDefuzzification">
+<span class="sig-name descname"><span class="pre">centroidDefuzzification</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.centroidDefuzzification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.centroidDefuzzification" title="Permalink to this definition"></a></dt>
+<dd><p>Inference and Centroid Defuzzification</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.changeRule">
+<span class="sig-name descname"><span class="pre">changeRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ruleNum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newRule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.type1.system.T1_Rule.T1_Rule" title="juzzyPython.type1.system.T1_Rule.T1_Rule"><span class="pre">juzzyPython.type1.system.T1_Rule.T1_Rule</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.changeRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.changeRule" title="Permalink to this definition"></a></dt>
+<dd><p>Change a current rule</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">defuzzType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Returns defuzzified result of evaluating all rules in the rulebase.
+param defuzzificationType The type of defuzzifier to be used: 0-Height
+Defuzzification, 1-Centroid Defuzzification.
+param discretizationLevel The discretization level to be employed (only
+applies to centroid defuzzification)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getImplicationMethod">
+<span class="sig-name descname"><span class="pre">getImplicationMethod</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.getImplicationMethod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getImplicationMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the current Implication Method as used for all rules.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getInferenceMethod">
+<span class="sig-name descname"><span class="pre">getInferenceMethod</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.getInferenceMethod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getInferenceMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the current Inference Method as used for all rules.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getInputs">
+<span class="sig-name descname"><span class="pre">getInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Input.Input" title="juzzyPython.generic.Input.Input"><span class="pre">juzzyPython.generic.Input.Input</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.getInputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getInputs" title="Permalink to this definition"></a></dt>
+<dd><p>This method assumes all rules use the same (and all) inputs.
+The first rule is queried to identify the inputs and return them.
+return a list of the inputs used in the rulebase (retrieved from the
+antecedents of the first rule in the rulebase!).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getNumberOfOutputs">
+<span class="sig-name descname"><span class="pre">getNumberOfOutputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.getNumberOfOutputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getNumberOfOutputs" title="Permalink to this definition"></a></dt>
+<dd><p>Get the number of output buffers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getNumberOfRules">
+<span class="sig-name descname"><span class="pre">getNumberOfRules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.getNumberOfRules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getNumberOfRules" title="Permalink to this definition"></a></dt>
+<dd><p>Get the number of rules</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getOutputSetBuffers">
+<span class="sig-name descname"><span class="pre">getOutputSetBuffers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.getOutputSetBuffers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getOutputSetBuffers" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the outputSetBuffers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getRule">
+<span class="sig-name descname"><span class="pre">getRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.type1.system.T1_Rule.T1_Rule" title="juzzyPython.type1.system.T1_Rule.T1_Rule"><span class="pre">juzzyPython.type1.system.T1_Rule.T1_Rule</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#juzzyPython.type1.system.T1_Rule.T1_Rule" title="juzzyPython.type1.system.T1_Rule.T1_Rule"><span class="pre">juzzyPython.type1.system.T1_Rule.T1_Rule</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.getRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getRule" title="Permalink to this definition"></a></dt>
+<dd><p>Return a specific rule</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getRules">
+<span class="sig-name descname"><span class="pre">getRules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#juzzyPython.type1.system.T1_Rule.T1_Rule" title="juzzyPython.type1.system.T1_Rule.T1_Rule"><span class="pre">juzzyPython.type1.system.T1_Rule.T1_Rule</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.getRules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.getRules" title="Permalink to this definition"></a></dt>
+<dd><p>Get the list of rules</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.heightDefuzzification">
+<span class="sig-name descname"><span class="pre">heightDefuzzification</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.heightDefuzzification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.heightDefuzzification" title="Permalink to this definition"></a></dt>
+<dd><p>Inference and Height  Defuzzification</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.removeRule">
+<span class="sig-name descname"><span class="pre">removeRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ruleNum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.removeRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.removeRule" title="Permalink to this definition"></a></dt>
+<dd><p>Remove a rule from the set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.setImplicationMethod">
+<span class="sig-name descname"><span class="pre">setImplicationMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">implicationMethod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.setImplicationMethod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.setImplicationMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the implication method, where by implication, we mean the implementation
+of the AND logical connective between parts of the antecedent.
+The desired implication method is applied for all rules.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.setInferenceMethod">
+<span class="sig-name descname"><span class="pre">setInferenceMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inferenceMethod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.setInferenceMethod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.setInferenceMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the inference method, where by inference, we mean the implementation
+of applying the rule’s firing strength to the consequent.
+The desired inference method is applied for all rules.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/type1/system/T1_Rulebase.html#T1_Rulebase.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.type1.system.T1_Rulebase.T1_Rulebase.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Convert all the rules to string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.type1.system">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-juzzyPython.type1.system" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Christian Wagner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

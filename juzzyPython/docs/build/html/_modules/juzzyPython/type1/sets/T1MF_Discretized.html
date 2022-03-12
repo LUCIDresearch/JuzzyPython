@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>juzzyPython.type1.sets.T1MF_Discretized &#8212; JuzzyPython 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for juzzyPython.type1.sets.T1MF_Discretized</h1><div class="highlight"><pre>
+<span></span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">T1MF_Discretized.py</span>
+<span class="sd">Created 11/12/2021</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generic.Tuple</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.type1.sets.T1MF_Prototype</span> <span class="kn">import</span> <span class="n">T1MF_Prototype</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<div class="viewcode-block" id="T1MF_Discretized"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized">[docs]</a><span class="k">class</span> <span class="nc">T1MF_Discretized</span><span class="p">(</span><span class="n">T1MF_Prototype</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class T1MF_Discretized</span>
+<span class="sd">    The class allows the specification of a type-1 MF based on single points alone, </span>
+<span class="sd">    i.e. in a discretised fashion. The points are specified using y-x coordinates.</span>
+<span class="sd">    All points are held in a list which requires resorting as points are </span>
+<span class="sd">    added.</span>
+
+<span class="sd">    Parameters: Name: Name of the membership function</span>
+<span class="sd">    InitialSize: An int defining the size of the list</span>
+
+<span class="sd">    Functions:</span>
+<span class="sd">        addPoint</span>
+<span class="sd">        addPoints</span>
+<span class="sd">        getAlphaCutDiscretizationLevel</span>
+<span class="sd">        setAlphaCutDiscretizationLevel</span>
+<span class="sd">        getNumberOfPoints</span>
+<span class="sd">        getFS</span>
+<span class="sd">        getAlphaCut</span>
+<span class="sd">        Interpolate</span>
+<span class="sd">        getPoints</span>
+<span class="sd">        getPointAt</span>
+<span class="sd">        getPeak</span>
+<span class="sd">        getSupport</span>
+<span class="sd">        toString</span>
+<span class="sd">        sort</span>
+<span class="sd">        writeToFile</span>
+<span class="sd">        writeToFileHighRes</span>
+<span class="sd">        setLeftShoulderSet</span>
+<span class="sd">        setRightShoulderSet</span>
+<span class="sd">        getDefuzzifiedCentroid</span>
+<span class="sd">        compareTo</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">points</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sorted</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">leftShoulder</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rightShoulder</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">leftShoulderStart</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rightShoulderStart</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alphaCutDiscLevel</span> <span class="o">=</span> <span class="mi">60</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alphaCutPrecisionLimit</span> <span class="o">=</span> <span class="mf">0.01</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">support</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">points</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">addPoints</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        
+<div class="viewcode-block" id="T1MF_Discretized.addPoint"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.addPoint">[docs]</a>    <span class="k">def</span> <span class="nf">addPoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">p</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Adds a point to the discretized set - forces resorting.</span>
+<span class="sd">      (add array of points in one go to avoid sorting overhead)</span>
+<span class="sd">       p 2-D coordinates of the point in the order y,x.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sorted</span> <span class="o">=</span> <span class="kc">False</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.addPoints"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.addPoints">[docs]</a>    <span class="k">def</span> <span class="nf">addPoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Adds a series of points to the discretized set - forces resorting.</span>
+<span class="sd">         p 2-D coordinates of the points in the order y,x.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sorted</span> <span class="o">=</span> <span class="kc">False</span></div>
+            
+<div class="viewcode-block" id="T1MF_Discretized.getAlphaCutDiscretizationLevel"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getAlphaCutDiscretizationLevel">[docs]</a>    <span class="k">def</span> <span class="nf">getAlphaCutDiscretizationLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the current alpha cut discretization level&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">alphaCutDiscLevel</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.setAlphaCutDiscretizationLevel"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.setAlphaCutDiscretizationLevel">[docs]</a>    <span class="k">def</span> <span class="nf">setAlphaCutDiscretizationLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Set a new alpha cut discretization level&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alphaCutDiscLevel</span> <span class="o">=</span> <span class="n">level</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.getNumberOfPoints"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getNumberOfPoints">[docs]</a>    <span class="k">def</span> <span class="nf">getNumberOfPoints</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get the length of the set&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.getFS"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getFS">[docs]</a>    <span class="k">def</span> <span class="nf">getFS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the membership degree&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mf">1.0</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">leftShoulder</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">leftShoulderStart</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">1.0</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rightShoulder</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">rightShoulderStart</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">1.0</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSupport</span><span class="p">()</span><span class="o">.</span><span class="n">getLeft</span><span class="p">())</span> <span class="ow">or</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSupport</span><span class="p">()</span><span class="o">.</span><span class="n">getRight</span><span class="p">())</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Element at &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; was not contained in discretized set - Interpolating. &quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Point Right - 1 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">()))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Point Right = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">()))</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="c1">#NEED TO FINISH</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span>
+            
+        <span class="k">return</span> <span class="kc">None</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.getAlphaCut"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getAlphaCut">[docs]</a>    <span class="k">def</span> <span class="nf">getAlphaCut</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the x values where the alpha cut using the alpha (y) value provided &quot;cuts&quot; the function curve&quot;&quot;&quot;</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">if</span> <span class="n">alpha</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSupport</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">alpha</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">:</span>
+                    <span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">:</span>
+                    <span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Tuple</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">right</span><span class="p">)</span>
+        
+        <span class="n">stepSize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSupport</span><span class="p">()</span><span class="o">.</span><span class="n">getSize</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alphaCutDiscLevel</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">currentStep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSupport</span><span class="p">()</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alphaCutDiscLevel</span><span class="p">):</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">currentStep</span><span class="p">)</span><span class="o">-</span><span class="n">alpha</span>
+            <span class="k">if</span> <span class="n">current</span><span class="o">&gt;=</span><span class="mf">0.0</span><span class="p">:</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">currentStep</span>
+                <span class="k">break</span>
+            <span class="n">currentStep</span> <span class="o">+=</span> <span class="n">stepSize</span>
+        
+        <span class="n">currentStep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSupport</span><span class="p">()</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alphaCutDiscLevel</span><span class="p">):</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">currentStep</span><span class="p">)</span><span class="o">-</span><span class="n">alpha</span>
+            <span class="k">if</span> <span class="n">current</span><span class="o">&gt;=</span><span class="mf">0.0</span><span class="p">:</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">currentStep</span>
+                <span class="k">break</span>
+            <span class="n">currentStep</span> <span class="o">+=</span> <span class="n">stepSize</span>
+
+        <span class="n">alphaCut</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">right</span><span class="p">)</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        in some cases there might only be 1 single point (if set has 1 slope, say from lower left to top right)</span>
+<span class="sd">        account for this and fix problem where due to lack of precision the right would be &lt; than the left.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">left</span><span class="o">-</span><span class="n">right</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">alphaCutPrecisionLimit</span><span class="p">:</span>
+            <span class="n">alphaCut</span><span class="o">.</span><span class="n">setRight</span><span class="p">(</span><span class="n">left</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">alphaCut</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.interpolate"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.interpolate">[docs]</a>    <span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x0</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span><span class="n">x1</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span><span class="n">x2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Calculate f(s) for input x through interpolation</span>
+<span class="sd">        x0 = Identifier pointing to correct x0 in set list</span>
+<span class="sd">        x1 = x input</span>
+<span class="sd">        x2 = Identifier pointing to correct x2 in set list&quot;&quot;&quot;</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">x2</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">x0</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">x0</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">())</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">x0</span><span class="p">]</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span> <span class="o">-</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">x0</span><span class="p">]</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">x2</span><span class="p">]</span><span class="o">.</span><span class="n">getLeft</span><span class="p">())</span><span class="o">/</span><span class="n">a</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.getPoints"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getPoints">[docs]</a>    <span class="k">def</span> <span class="nf">getPoints</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Return all the points in the set&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.getPointAt"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getPointAt">[docs]</a>    <span class="k">def</span> <span class="nf">getPointAt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return a sorted point in the set&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">index</span><span class="p">]</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.getPeak"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getPeak">[docs]</a>    <span class="k">def</span> <span class="nf">getPeak</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the xCoordinate of the peak value. If the set has a &quot;flat top&quot;,</span>
+<span class="sd">        i.e. similar to a trapezoidal MF, then the center of this flat top is returned.  Assumes convexity.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="n">secondX</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">yValueAtCurrentPeak</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPointAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span>
+        <span class="n">xCoordinateOfPeak</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPointAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">getNumberOfPoints</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPointAt</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">yValueAtCurrentPeak</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In Loop - Current Peak = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">yValueAtCurrentPeak</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; New Point = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getPointAt</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()))</span>
+                <span class="n">yValueAtCurrentPeak</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPointAt</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span>
+                <span class="n">xCoordinateOfPeak</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPointAt</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPointAt</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span> <span class="o">==</span> <span class="n">yValueAtCurrentPeak</span><span class="p">:</span>
+                    <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPointAt</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span> <span class="o">==</span> <span class="n">yValueAtCurrentPeak</span><span class="p">:</span>
+                        <span class="n">secondX</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPointAt</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span>
+                        <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">return</span> <span class="p">(</span><span class="n">xCoordinateOfPeak</span><span class="o">/</span><span class="n">secondX</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">xCoordinateOfPeak</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.getSupport"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getSupport">[docs]</a>    <span class="k">def</span> <span class="nf">getSupport</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns a new tuple depending on shoulder&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">leftShoulder</span><span class="p">:</span>
+            <span class="n">support</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;-inf&#39;</span><span class="p">),</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">())</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rightShoulder</span><span class="p">:</span>
+            <span class="n">support</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">(),</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">support</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">support</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.toString"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.toString">[docs]</a>    <span class="k">def</span> <span class="nf">toString</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Converts the full set into a printable string&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">getLeft</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; / &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">getRight</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">s</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.sort"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.sort">[docs]</a>    <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Sorts the list holding all points defining the set.</span>
+<span class="sd">        No sort is performed if the set is already sorted.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">sorted</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">)</span> <span class="c1"># CHECK HOW THIS IS SORTED</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">setLeft</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">setRight</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sorted</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="n">lastX</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span> <span class="o">==</span> <span class="n">lastX</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setLeft</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">getLeft</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()))</span>
+                    <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">lastX</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span>
+                <span class="n">i</span><span class="o">+=</span><span class="mi">1</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.writeToFile"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.writeToFile">[docs]</a>    <span class="k">def</span> <span class="nf">writeToFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Write out the discretized set into a file&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRight</span><span class="p">())</span><span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getLeft</span><span class="p">())</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">return</span> <span class="s2">&quot;Discretized set &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; was successfully written to &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Error writing to output file &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.writeToFileHighRes"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.writeToFileHighRes">[docs]</a>    <span class="k">def</span> <span class="nf">writeToFileHighRes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span><span class="n">resolution</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Uses interpolation to supply high-res visualisation of the set.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+            <span class="n">stepSize</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getSupport</span><span class="p">()</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">getSupport</span><span class="p">()</span><span class="o">.</span><span class="n">getLeft</span><span class="p">())</span><span class="o">/</span><span class="p">(</span><span class="n">resolution</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">currentStep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSupport</span><span class="p">()</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">resolution</span><span class="p">):</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">currentStep</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getFS</span><span class="p">(</span><span class="n">currentStep</span><span class="p">))</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">currentStep</span> <span class="o">+=</span> <span class="n">stepSize</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">return</span> <span class="s2">&quot;Discretized set &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; was successfully written to &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Error writing to output file &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span></div>
+        
+<div class="viewcode-block" id="T1MF_Discretized.setLeftShoulderSet"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.setLeftShoulderSet">[docs]</a>    <span class="k">def</span> <span class="nf">setLeftShoulderSet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">shoulderStart</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Set the left shoulder of the set&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">leftShoulder</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">leftShoulderStart</span> <span class="o">=</span> <span class="n">shoulderStart</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">setLeft</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;-inf&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="T1MF_Discretized.setRightShoulderSet"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.setRightShoulderSet">[docs]</a>    <span class="k">def</span> <span class="nf">setRightShoulderSet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">shoulderStart</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Set the right shoulder of the set&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rightShoulder</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rightShoulderStart</span> <span class="o">=</span> <span class="n">shoulderStart</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">setRight</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">))</span></div>
+    
+<div class="viewcode-block" id="T1MF_Discretized.getDefuzzifiedCentroid"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.getDefuzzifiedCentroid">[docs]</a>    <span class="k">def</span> <span class="nf">getDefuzzifiedCentroid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numberOfDiscretizations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the defuzzified value of this set computed using the centroid algorithm.</span>
+<span class="sd">        numberOfDiscretizations The number of discretizations to be employed.</span>
+<span class="sd">        The number of discretizations is not used - instead the centroid is</span>
+<span class="sd">        computed on all the discrete values in the set.&quot;&quot;&quot;</span>
+        <span class="n">numerator</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of points: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getPoints</span><span class="p">())))</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPoints</span><span class="p">:</span>
+            <span class="n">numerator</span> <span class="o">+=</span> <span class="n">i</span><span class="o">.</span><span class="n">getRight</span><span class="p">()</span> <span class="o">*</span> <span class="n">i</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span>
+            <span class="n">denominator</span> <span class="o">+=</span> <span class="n">i</span><span class="o">.</span><span class="n">getLeft</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">denominator</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span></div>
+
+<div class="viewcode-block" id="T1MF_Discretized.compareTo"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Discretized.T1MF_Discretized.compareTo">[docs]</a>    <span class="k">def</span> <span class="nf">compareTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">o</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Unsupported Function&quot;</span><span class="p">)</span></div></div>
+    
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">JuzzyPython</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Christian Wagner.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

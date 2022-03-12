@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>juzzyPython.generalType2zSlices.multicore.FLCPlant &mdash; JuzzyPython 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> JuzzyPython
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">JuzzyPython</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      <li>juzzyPython.generalType2zSlices.multicore.FLCPlant</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for juzzyPython.generalType2zSlices.multicore.FLCPlant</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">FLCPlant.py</span>
+<span class="sd">Created 19/2/2022</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.intervalType2.system.IT2_Rulebase</span> <span class="kn">import</span> <span class="n">IT2_Rulebase</span>
+
+<div class="viewcode-block" id="FLCPlant"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.multicore.html#juzzyPython.generalType2zSlices.multicore.FLCPlant.FLCPlant">[docs]</a><span class="k">class</span> <span class="nc">FLCPlant</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class FLCPlant</span>
+<span class="sd">    Runs a single IT2 Rulebase</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        rulebase: Single IT2 rulebase</span>
+<span class="sd">        results: Results dict</span>
+<span class="sd">        positionPointer: Int</span>
+<span class="sd">        typeReductionType: Int</span>
+<span class="sd">        lock: Multiprocessing lock</span>
+<span class="sd">      </span>
+<span class="sd">    Functions:</span>
+<span class="sd">        getTypeReductionType</span>
+<span class="sd">        setTypeReductionType</span>
+<span class="sd">        run</span>
+<span class="sd">    &quot;&quot;&quot;</span> 
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">rulebase</span><span class="p">:</span> <span class="n">IT2_Rulebase</span><span class="p">,</span><span class="n">positionPointer</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span><span class="n">typeReductionType</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span><span class="n">lock</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span> <span class="o">=</span> <span class="n">rulebase</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">typeReductionType</span> <span class="o">=</span> <span class="n">typeReductionType</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">positionPointer</span> <span class="o">=</span> <span class="n">positionPointer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">lock</span> <span class="c1">#Currently unused... may come into effect.</span>
+    
+<div class="viewcode-block" id="FLCPlant.getTypeReductionType"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.multicore.html#juzzyPython.generalType2zSlices.multicore.FLCPlant.FLCPlant.getTypeReductionType">[docs]</a>    <span class="k">def</span> <span class="nf">getTypeReductionType</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the type reduction type&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">typeReductionType</span></div>
+    
+<div class="viewcode-block" id="FLCPlant.setTypeReductionType"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.multicore.html#juzzyPython.generalType2zSlices.multicore.FLCPlant.FLCPlant.setTypeReductionType">[docs]</a>    <span class="k">def</span> <span class="nf">setTypeReductionType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">type</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Set the type reduction type&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">typeReductionType</span> <span class="o">=</span> <span class="nb">type</span></div>
+    
+<div class="viewcode-block" id="FLCPlant.run"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.multicore.html#juzzyPython.generalType2zSlices.multicore.FLCPlant.FLCPlant.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">results</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Run an IT2 rulebase&quot;&quot;&quot;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span><span class="o">.</span><span class="n">getOutputs</span><span class="p">()</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span><span class="o">.</span><span class="n">evaluateGetCentroid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">typeReductionType</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">out</span><span class="p">:</span>
+            <span class="c1">#This variable exchange seems redundant, however is required for the dict proxy to update</span>
+            <span class="n">change</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">o</span><span class="p">]</span>
+            <span class="n">new</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="n">o</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">change</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">positionPointer</span><span class="p">]</span><span class="o">=</span> <span class="n">new</span> 
+            <span class="n">results</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="o">=</span> <span class="n">change</span></div></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Christian Wagner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

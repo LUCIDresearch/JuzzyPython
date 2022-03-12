@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>juzzyPython.type1.sets.T1MF_Triangular &#8212; JuzzyPython 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for juzzyPython.type1.sets.T1MF_Triangular</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">T1MF_Triangular.py</span>
+<span class="sd">Created 17/12/2021</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generic.Tuple</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.type1.sets.T1MF_Prototype</span> <span class="kn">import</span> <span class="n">T1MF_Prototype</span>
+<span class="kn">import</span> <span class="nn">juzzyPython.type1.sets.T1MF_Singleton</span> 
+<span class="kn">import</span> <span class="nn">functools</span>
+
+<div class="viewcode-block" id="T1MF_Triangular"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular">[docs]</a><span class="nd">@functools</span><span class="o">.</span><span class="n">total_ordering</span>
+<span class="k">class</span> <span class="nc">T1MF_Triangular</span><span class="p">(</span><span class="n">T1MF_Prototype</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class T1MF_Triangular</span>
+<span class="sd">    The triangular membership function for type 1 fuzzy sets</span>
+
+<span class="sd">    Parameters: </span>
+<span class="sd">        name: The name of the membership function</span>
+<span class="sd">        peak: the current peak</span>
+<span class="sd">        start: Start of triangle</span>
+<span class="sd">        end: End of the triangle</span>
+
+<span class="sd">    Functions:</span>
+<span class="sd">        getFS</span>
+<span class="sd">        getStart</span>
+<span class="sd">        getPeak</span>
+<span class="sd">        getEnd</span>
+<span class="sd">        toString</span>
+<span class="sd">        compareTo</span>
+<span class="sd">        getAlphaCut</span>
+<span class="sd">        findLinearEquationParameters</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span><span class="n">start</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span><span class="n">peak</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span><span class="n">end</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="c1">#left and right &quot;leg&quot; slope</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lS</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rS</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">)</span>
+        <span class="c1">#left and right &quot;leg&quot; intercept   </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lI</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rI</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peak</span> <span class="o">=</span> <span class="n">peak</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">end</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">support</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">)</span>
+
+<div class="viewcode-block" id="T1MF_Triangular.getFS"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getFS">[docs]</a>    <span class="k">def</span> <span class="nf">getFS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the maximum FS between two sets&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">isLeftShoulder</span><span class="p">()</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">peak</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">isRightShoulder</span><span class="p">()</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">peak</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mf">1.0</span>
+        
+        <span class="k">if</span> <span class="n">x</span><span class="o">&lt;</span><span class="bp">self</span><span class="o">.</span><span class="n">peak</span> <span class="ow">and</span> <span class="n">x</span><span class="o">&gt;</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peak</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">peak</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">elif</span> <span class="n">x</span><span class="o">&gt;</span><span class="bp">self</span><span class="o">.</span><span class="n">peak</span> <span class="ow">and</span> <span class="n">x</span><span class="o">&lt;</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">peak</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="mf">0.0</span>
+        
+        <span class="k">return</span> <span class="n">out</span></div>
+    
+<div class="viewcode-block" id="T1MF_Triangular.getStart"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getStart">[docs]</a>    <span class="k">def</span> <span class="nf">getStart</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get the start value of the function&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span></div>
+    
+<div class="viewcode-block" id="T1MF_Triangular.getPeak"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getPeak">[docs]</a>    <span class="k">def</span> <span class="nf">getPeak</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get the peak value of the function&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">peak</span></div>
+    
+<div class="viewcode-block" id="T1MF_Triangular.getEnd"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getEnd">[docs]</a>    <span class="k">def</span> <span class="nf">getEnd</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get the end value of the function&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span></div>
+
+<div class="viewcode-block" id="T1MF_Triangular.toString"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.toString">[docs]</a>    <span class="k">def</span> <span class="nf">toString</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert membership function to string&quot;&quot;&quot;</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s2">&quot;  -  &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;  &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peak</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;  &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isLeftShoulder</span><span class="p">():</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot; (LeftShoulder)&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isRightShoulder</span><span class="p">():</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot; (RightShoulder)&quot;</span>
+        <span class="k">return</span> <span class="n">s</span></div>
+
+<div class="viewcode-block" id="T1MF_Triangular.compareTo"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.compareTo">[docs]</a>    <span class="k">def</span> <span class="nf">compareTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Compare the function against triangular or singleton functions&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="ow">is</span> <span class="n">T1MF_Triangular</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getEnd</span><span class="p">()</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">getEnd</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">getStart</span><span class="p">()</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">getStart</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPeak</span><span class="p">()</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">getPeak</span><span class="p">():</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getEnd</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">o</span><span class="o">.</span><span class="n">getEnd</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">getStart</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">o</span><span class="o">.</span><span class="n">getStart</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPeak</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">o</span><span class="o">.</span><span class="n">getPeak</span><span class="p">():</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="ow">is</span> <span class="n">juzzyPython</span><span class="o">.</span><span class="n">type1</span><span class="o">.</span><span class="n">sets</span><span class="o">.</span><span class="n">T1MF_Singleton</span><span class="o">.</span><span class="n">T1MF_Singleton</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPeak</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">o</span><span class="o">.</span><span class="n">getValue</span><span class="p">():</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="nb">object</span><span class="p">):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compareTo</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="nb">object</span><span class="p">):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compareTo</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
+
+<div class="viewcode-block" id="T1MF_Triangular.getAlphaCut"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.getAlphaCut">[docs]</a>    <span class="k">def</span> <span class="nf">getAlphaCut</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get the alpha cut as a tuple with input float&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">findLinearEquationParameters</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">Tuple</span><span class="p">((</span><span class="n">alpha</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">lI</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">lS</span><span class="p">,(</span><span class="n">alpha</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">rI</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">rS</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="T1MF_Triangular.findLinearEquationParameters"><a class="viewcode-back" href="../../../../juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular.findLinearEquationParameters">[docs]</a>    <span class="k">def</span> <span class="nf">findLinearEquationParameters</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Finds the slopes and intercepts for the left and right &quot;leg&quot; of the membership function.</span>
+<span class="sd">        If the parameters for the given set have previously been computed, the method returns directly.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">math</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lS</span><span class="p">):</span>
+            <span class="k">return</span>
+  
+        <span class="bp">self</span><span class="o">.</span><span class="n">lS</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peak</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lI</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">lS</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+        
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">rS</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">peak</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rI</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">rS</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span> </div></div>
+    
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">JuzzyPython</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Christian Wagner.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

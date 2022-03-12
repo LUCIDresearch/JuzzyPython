@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>juzzyPython.examples.SimpleNST1IT2FLS &mdash; JuzzyPython 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> JuzzyPython
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">JuzzyPython</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>juzzyPython.examples.SimpleNST1IT2FLS</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for juzzyPython.examples.SimpleNST1IT2FLS</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SimpleNST1IT2FLS.py</span>
+<span class="sd">Created 26/1/2022</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generic.Tuple</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generic.Output</span> <span class="kn">import</span> <span class="n">Output</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generic.Input</span> <span class="kn">import</span> <span class="n">Input</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generic.Plot</span> <span class="kn">import</span> <span class="n">Plot</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.intervalType2.system.IT2_Antecedent</span> <span class="kn">import</span> <span class="n">IT2_Antecedent</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.intervalType2.system.IT2_Consequent</span> <span class="kn">import</span> <span class="n">IT2_Consequent</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.intervalType2.system.IT2_Rule</span> <span class="kn">import</span> <span class="n">IT2_Rule</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.intervalType2.system.IT2_Rulebase</span> <span class="kn">import</span> <span class="n">IT2_Rulebase</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.type1.sets.T1MF_Gaussian</span> <span class="kn">import</span> <span class="n">T1MF_Gaussian</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.type1.sets.T1MF_Triangular</span> <span class="kn">import</span> <span class="n">T1MF_Triangular</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.type1.sets.T1MF_Gauangle</span> <span class="kn">import</span> <span class="n">T1MF_Gauangle</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle</span> <span class="kn">import</span> <span class="n">IntervalT2MF_Gauangle</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian</span> <span class="kn">import</span> <span class="n">IntervalT2MF_Gaussian</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.intervalType2.sets.IntervalT2MF_Triangular</span> <span class="kn">import</span> <span class="n">IntervalT2MF_Triangular</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.testing.timeRecorder</span> <span class="kn">import</span> <span class="n">timeDecorator</span>
+
+<div class="viewcode-block" id="SimpleNST1IT2FLS"><a class="viewcode-back" href="../../../juzzyPython.examples.html#juzzyPython.examples.SimpleNST1IT2FLS.SimpleNST1IT2FLS">[docs]</a><span class="k">class</span> <span class="nc">SimpleNST1IT2FLS</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class SimpleNST1IT2FLS: </span>
+<span class="sd">    A simple example of a non singleton Type-1 interval Type-2 FLS based on the &quot;How much to tip the waiter&quot;</span>
+<span class="sd">    scenario.</span>
+<span class="sd">    The example is an extension of the Type-1 FLS example where we extend the MFs</span>
+<span class="sd">    and use the Interval Type-2 System classes. Note that in contrast to the type-1</span>
+<span class="sd">    case, here only two sets are used to model the service quality.</span>
+<span class="sd">    We have two inputs: food quality and service level and as an output we would</span>
+<span class="sd">    like to generate the applicable tip.</span>
+
+<span class="sd">    Parameters:None</span>
+<span class="sd">        </span>
+<span class="sd">    Functions: </span>
+<span class="sd">        getTip</span>
+<span class="sd">        PlotMFs</span>
+<span class="sd">        getControlSurfaceData</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">unit</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+
+
+        <span class="c1">#Inputs to the FLS</span>
+        <span class="n">inputmf</span> <span class="o">=</span> <span class="n">T1MF_Gaussian</span><span class="p">(</span><span class="s2">&quot;inputumf&quot;</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">food</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;Food Quality&quot;</span><span class="p">,</span><span class="n">Tuple</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">inputMF</span><span class="o">=</span><span class="n">inputmf</span><span class="p">)</span> <span class="c1">#Rating from 0-10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">service</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;Service Level&quot;</span><span class="p">,</span><span class="n">Tuple</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> <span class="c1">#Rating from 0-10</span>
+        <span class="c1">#Output</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tip</span> <span class="o">=</span> <span class="n">Output</span><span class="p">((</span><span class="s2">&quot;Tip&quot;</span><span class="p">),</span><span class="n">Tuple</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span> <span class="c1">#Tip from 0-30%</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="p">()</span>
+
+        <span class="c1">#Set up the membership functions (MFs) for each input and output</span>
+        <span class="n">badFoodUMF</span> <span class="o">=</span> <span class="n">T1MF_Triangular</span><span class="p">(</span><span class="s2">&quot;Upper MF for bad food&quot;</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">)</span>
+        <span class="n">badFoodLMF</span> <span class="o">=</span> <span class="n">T1MF_Triangular</span><span class="p">(</span><span class="s2">&quot;Lower MF for bad food&quot;</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">8.0</span><span class="p">)</span>
+        <span class="n">badFoodMF</span> <span class="o">=</span> <span class="n">IntervalT2MF_Triangular</span><span class="p">(</span><span class="s2">&quot;IT2MF for bad food&quot;</span><span class="p">,</span><span class="n">badFoodUMF</span><span class="p">,</span><span class="n">badFoodLMF</span><span class="p">)</span>
+
+        <span class="n">greatFoodUMF</span> <span class="o">=</span> <span class="n">T1MF_Triangular</span><span class="p">(</span><span class="s2">&quot;Upper MF for great food&quot;</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">)</span>
+        <span class="n">greatFoodLMF</span> <span class="o">=</span> <span class="n">T1MF_Triangular</span><span class="p">(</span><span class="s2">&quot;Lower MF for great food&quot;</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">)</span>
+        <span class="n">greatFoodMF</span> <span class="o">=</span> <span class="n">IntervalT2MF_Triangular</span><span class="p">(</span><span class="s2">&quot;IT2MF for great food&quot;</span><span class="p">,</span><span class="n">greatFoodUMF</span><span class="p">,</span><span class="n">greatFoodLMF</span><span class="p">)</span>
+
+        <span class="n">unfriendlyServiceUMF</span> <span class="o">=</span> <span class="n">T1MF_Gauangle</span><span class="p">(</span><span class="s2">&quot;Upper MF for unfriendly service&quot;</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">8.0</span><span class="p">)</span>
+        <span class="n">unfriendlyServiceLMF</span> <span class="o">=</span> <span class="n">T1MF_Gauangle</span><span class="p">(</span><span class="s2">&quot;Lower MF for unfriendly service&quot;</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">6.0</span><span class="p">)</span>
+        <span class="n">unfriendlyServiceMF</span> <span class="o">=</span> <span class="n">IntervalT2MF_Gauangle</span><span class="p">(</span><span class="s2">&quot;IT2MF for unfriendly service&quot;</span><span class="p">,</span><span class="n">unfriendlyServiceUMF</span><span class="p">,</span><span class="n">unfriendlyServiceLMF</span><span class="p">)</span>
+
+        <span class="n">friendlyServiceUMF</span> <span class="o">=</span> <span class="n">T1MF_Gauangle</span><span class="p">(</span><span class="s2">&quot;Upper MF for friendly service&quot;</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">)</span>
+        <span class="n">friendlyServiceLMF</span> <span class="o">=</span> <span class="n">T1MF_Gauangle</span><span class="p">(</span><span class="s2">&quot;Lower MF for friendly service&quot;</span><span class="p">,</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">)</span>
+        <span class="n">friendlyServiceMF</span> <span class="o">=</span> <span class="n">IntervalT2MF_Gauangle</span><span class="p">(</span><span class="s2">&quot;IT2MF for friendly service&quot;</span><span class="p">,</span><span class="n">friendlyServiceUMF</span><span class="p">,</span><span class="n">friendlyServiceLMF</span><span class="p">)</span>
+
+        <span class="n">lowTipUMF</span> <span class="o">=</span> <span class="n">T1MF_Gaussian</span><span class="p">(</span><span class="s2">&quot;Upper MF Low tip&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">)</span>
+        <span class="n">lowTipLMF</span> <span class="o">=</span> <span class="n">T1MF_Gaussian</span><span class="p">(</span><span class="s2">&quot;Lower MF Low tip&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>
+        <span class="n">lowTipMF</span> <span class="o">=</span> <span class="n">IntervalT2MF_Gaussian</span><span class="p">(</span><span class="s2">&quot;IT2MF for Low Tip&quot;</span><span class="p">,</span><span class="n">lowTipUMF</span><span class="p">,</span><span class="n">lowTipLMF</span><span class="p">)</span>
+
+        <span class="n">mediumTipUMF</span> <span class="o">=</span> <span class="n">T1MF_Gaussian</span><span class="p">(</span><span class="s2">&quot;Upper MF medium tip&quot;</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">)</span>
+        <span class="n">mediumTipLMF</span> <span class="o">=</span> <span class="n">T1MF_Gaussian</span><span class="p">(</span><span class="s2">&quot;Lower MF medium tip&quot;</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>
+        <span class="n">mediumTipMF</span> <span class="o">=</span> <span class="n">IntervalT2MF_Gaussian</span><span class="p">(</span><span class="s2">&quot;IT2MF for medium Tip&quot;</span><span class="p">,</span><span class="n">mediumTipUMF</span><span class="p">,</span><span class="n">mediumTipLMF</span><span class="p">)</span>
+
+        <span class="n">highTipUMF</span> <span class="o">=</span> <span class="n">T1MF_Gaussian</span><span class="p">(</span><span class="s2">&quot;Upper MF high tip&quot;</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">)</span>
+        <span class="n">highTipLMF</span> <span class="o">=</span> <span class="n">T1MF_Gaussian</span><span class="p">(</span><span class="s2">&quot;Lower MF high tip&quot;</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>
+        <span class="n">highTipMF</span> <span class="o">=</span> <span class="n">IntervalT2MF_Gaussian</span><span class="p">(</span><span class="s2">&quot;IT2MF for high Tip&quot;</span><span class="p">,</span><span class="n">highTipUMF</span><span class="p">,</span><span class="n">highTipLMF</span><span class="p">)</span> 
+
+        <span class="c1">#Set up the antecedents and consequents</span>
+        <span class="n">badFood</span> <span class="o">=</span> <span class="n">IT2_Antecedent</span><span class="p">(</span><span class="n">badFoodMF</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">food</span><span class="p">,</span><span class="s2">&quot;BadFood&quot;</span><span class="p">)</span>
+        <span class="n">greatFood</span> <span class="o">=</span> <span class="n">IT2_Antecedent</span><span class="p">(</span><span class="n">greatFoodMF</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">food</span><span class="p">,</span><span class="s2">&quot;GreatFood&quot;</span><span class="p">)</span>
+
+        <span class="n">unfriendlyService</span> <span class="o">=</span>  <span class="n">IT2_Antecedent</span><span class="p">(</span><span class="n">unfriendlyServiceMF</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span><span class="s2">&quot;UnfriendlyService&quot;</span><span class="p">)</span>
+        <span class="n">friendlyService</span> <span class="o">=</span>  <span class="n">IT2_Antecedent</span><span class="p">(</span><span class="n">friendlyServiceMF</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span><span class="s2">&quot;FriendlyService&quot;</span><span class="p">)</span>
+
+        <span class="n">lowTip</span> <span class="o">=</span>  <span class="n">IT2_Consequent</span><span class="p">(</span> <span class="n">lowTipMF</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tip</span><span class="p">,</span>  <span class="s2">&quot;LowTip&quot;</span><span class="p">)</span>
+        <span class="n">mediumTip</span> <span class="o">=</span>  <span class="n">IT2_Consequent</span><span class="p">(</span> <span class="n">mediumTipMF</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tip</span><span class="p">,</span> <span class="s2">&quot;MediumTip&quot;</span><span class="p">)</span>
+        <span class="n">highTip</span> <span class="o">=</span>  <span class="n">IT2_Consequent</span><span class="p">(</span><span class="n">highTipMF</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tip</span> <span class="p">,</span> <span class="s2">&quot;HighTip&quot;</span><span class="p">)</span>
+
+        <span class="c1">#Set up the rulebase and add rules</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span> <span class="o">=</span> <span class="n">IT2_Rulebase</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span><span class="o">.</span><span class="n">addRule</span><span class="p">(</span><span class="n">IT2_Rule</span><span class="p">([</span><span class="n">badFood</span><span class="p">,</span> <span class="n">unfriendlyService</span><span class="p">],</span> <span class="n">consequent</span> <span class="o">=</span> <span class="n">lowTip</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span><span class="o">.</span><span class="n">addRule</span><span class="p">(</span><span class="n">IT2_Rule</span><span class="p">([</span><span class="n">badFood</span><span class="p">,</span> <span class="n">friendlyService</span><span class="p">],</span><span class="n">consequent</span> <span class="o">=</span> <span class="n">mediumTip</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span><span class="o">.</span><span class="n">addRule</span><span class="p">(</span><span class="n">IT2_Rule</span><span class="p">([</span><span class="n">greatFood</span><span class="p">,</span> <span class="n">unfriendlyService</span><span class="p">],</span> <span class="n">consequent</span> <span class="o">=</span><span class="n">lowTip</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span><span class="o">.</span><span class="n">addRule</span><span class="p">(</span><span class="n">IT2_Rule</span><span class="p">([</span><span class="n">greatFood</span><span class="p">,</span> <span class="n">friendlyService</span><span class="p">],</span> <span class="n">consequent</span> <span class="o">=</span><span class="n">highTip</span><span class="p">))</span>
+
+        <span class="c1">#get some outputs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">getTip</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">getTip</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mf">2.3</span><span class="p">)</span>
+
+      
+
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span><span class="o">.</span><span class="n">toString</span><span class="p">())</span>
+        <span class="c1">#Plot control surface, false for height defuzzification, true for centroid defuzz.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">getControlSurfaceData</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plotMFs</span><span class="p">(</span><span class="s2">&quot;Food Quality Membership Functions&quot;</span><span class="p">,[</span><span class="n">badFoodMF</span><span class="p">,</span> <span class="n">greatFoodMF</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">food</span><span class="o">.</span><span class="n">getDomain</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plotMFs</span><span class="p">(</span><span class="s2">&quot;Service Level Membership Functions&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">unfriendlyServiceMF</span><span class="p">,</span> <span class="n">friendlyServiceMF</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">getDomain</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plotMFs</span><span class="p">(</span><span class="s2">&quot;Level of Tip Membership Functions&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">lowTipMF</span><span class="p">,</span> <span class="n">mediumTipMF</span><span class="p">,</span> <span class="n">highTipMF</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">tip</span><span class="o">.</span><span class="n">getDomain</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+     
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">unit</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+    <span class="nd">@timeDecorator</span>
+    <span class="k">def</span> <span class="nf">getTip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">foodQuality</span><span class="p">,</span><span class="n">serviceLevel</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Calculate the output based on the two inputs&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">food</span><span class="o">.</span><span class="n">setInput</span><span class="p">(</span><span class="n">foodQuality</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">setInput</span><span class="p">(</span><span class="n">serviceLevel</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The food was: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">food</span><span class="o">.</span><span class="n">getInput</span><span class="p">())</span><span class="o">+</span><span class="s2">&quot; (gaussian with a spread of : &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">food</span><span class="o">.</span><span class="n">getInputMF</span><span class="p">()</span><span class="o">.</span><span class="n">getSpread</span><span class="p">())</span><span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The service was: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">getInput</span><span class="p">()))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using center of sets type reduction, the IT2 FLS recommends a&quot;</span>
+                <span class="o">+</span> <span class="s2">&quot;tip of: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="mi">0</span><span class="p">)[</span><span class="bp">self</span><span class="o">.</span><span class="n">tip</span><span class="p">]))</span>
+       
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using centroid type reduction, the IT2 FLS recommends a&quot;</span>
+                <span class="o">+</span> <span class="s2">&quot;tip of: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="bp">self</span><span class="o">.</span><span class="n">tip</span><span class="p">]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Centroid of the output for TIP (based on centroid type reduction):&quot;</span><span class="p">)</span>
+        <span class="n">centroid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span><span class="o">.</span><span class="n">evaluateGetCentroid</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">centroidTip</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">centroid</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tip</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">centroidTip</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Tuple</span><span class="p">):</span>
+            <span class="n">centroidTipXValues</span> <span class="o">=</span> <span class="n">centroidTip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">centroidTipYValues</span> <span class="o">=</span> <span class="n">centroidTip</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">centroidTipXValues</span> <span class="o">=</span> <span class="n">centroidTip</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">centroidTipYValues</span> <span class="o">=</span> <span class="n">centroidTip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">centroidTipXValues</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot; at y= &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">centroidTipYValues</span><span class="p">))</span>
+    
+    <span class="nd">@timeDecorator</span>
+    <span class="k">def</span> <span class="nf">getControlSurfaceData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">useCentroidDefuzz</span><span class="p">,</span><span class="n">input1Discs</span><span class="p">,</span><span class="n">input2Discs</span><span class="p">,</span><span class="n">unit</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get the data to plot the control surface&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">unit</span><span class="p">:</span>
+            <span class="n">test</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">incrX</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">food</span><span class="o">.</span><span class="n">getDomain</span><span class="p">()</span><span class="o">.</span><span class="n">getSize</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">input1Discs</span><span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">incrY</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">getDomain</span><span class="p">()</span><span class="o">.</span><span class="n">getSize</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">input2Discs</span><span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">input1Discs</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">input2Discs</span><span class="p">)]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">input1Discs</span><span class="p">):</span>
+            <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">incrX</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">input2Discs</span><span class="p">):</span>
+            <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">incrY</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">x_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">input1Discs</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">food</span><span class="o">.</span><span class="n">setInput</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x_</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">y_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">input2Discs</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">setInput</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">y_</span><span class="p">])</span>
+
+                <span class="k">if</span> <span class="n">useCentroidDefuzz</span><span class="p">:</span>
+                    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tip</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rulebase</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tip</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">out</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">math</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">out</span><span class="p">):</span>
+                    <span class="n">z</span><span class="p">[</span><span class="n">y_</span><span class="p">][</span><span class="n">x_</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+                    <span class="k">if</span> <span class="n">unit</span><span class="p">:</span>
+                        <span class="n">test</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">z</span><span class="p">[</span><span class="n">y_</span><span class="p">][</span><span class="n">x_</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span>
+                    <span class="k">if</span> <span class="n">unit</span><span class="p">:</span>
+                        <span class="n">test</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">unit</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">test</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRINTTIME</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Generated plot surface tip results in (seconds):&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plotControlSurface</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">food</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">tip</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
+        
+    <span class="nd">@timeDecorator</span>
+    <span class="k">def</span> <span class="nf">plotMFs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">sets</span><span class="p">,</span><span class="n">xAxisRange</span><span class="p">,</span><span class="n">discretizationLevel</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot the lines for each membership function of the sets&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sets</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plotMF2</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Membership Functions&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">),</span><span class="n">sets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span><span class="n">sets</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">discretizationLevel</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">SimpleNST1IT2FLS</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Christian Wagner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>juzzyPython.intervalType2.sets package &mdash; JuzzyPython 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> JuzzyPython
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">juzzyPython.intervalType2.sets package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid">juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Cylinder">juzzyPython.intervalType2.sets.IntervalT2MF_Cylinder module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle">juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian">juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Interface">juzzyPython.intervalType2.sets.IntervalT2MF_Interface module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Intersection">juzzyPython.intervalType2.sets.IntervalT2MF_Intersection module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Prototype">juzzyPython.intervalType2.sets.IntervalT2MF_Prototype module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Trapezoidal">juzzyPython.intervalType2.sets.IntervalT2MF_Trapezoidal module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Triangular">juzzyPython.intervalType2.sets.IntervalT2MF_Triangular module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Union">juzzyPython.intervalType2.sets.IntervalT2MF_Union module</a></li>
+<li><a class="reference internal" href="#module-juzzyPython.intervalType2.sets">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JuzzyPython</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>juzzyPython.intervalType2.sets package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/juzzyPython.intervalType2.sets.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="juzzypython-intervaltype2-sets-package">
+<h1>juzzyPython.intervalType2.sets package<a class="headerlink" href="#juzzypython-intervaltype2-sets-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid">
+<span id="juzzypython-intervaltype2-sets-intervalt2engine-centroid-module"></span><h2>juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid module<a class="headerlink" href="#module-juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid" title="Permalink to this headline"></a></h2>
+<p>IntervalT2Engine_Centroid.py
+Created 6/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.</span></span><span class="sig-name descname"><span class="pre">IntervalT2Engine_Centroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primaryDiscretisationLevel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2Engine_Centroid.html#IntervalT2Engine_Centroid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class IntervalT2Engine_Centroid
+Implements Centroid calculation using the Karnik Mendel and Enhanced Karnik
+Mendel Iterative Procedures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>primaryDiscretisationLevel</strong> – Int with discretisation level</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getPrimaryDiscretizationLevel
+setPrimaryDiscretizationLevel
+getCentroid
+getCentroidKM
+getCentroid_enhanced
+getWeightedSum</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid.getCentroid">
+<span class="sig-name descname"><span class="pre">getCentroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2Engine_Centroid.html#IntervalT2Engine_Centroid.getCentroid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid.getCentroid" title="Permalink to this definition"></a></dt>
+<dd><p>Get the centroid according to the algorithm selector setting</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid.getCentroidKM">
+<span class="sig-name descname"><span class="pre">getCentroidKM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2Engine_Centroid.html#IntervalT2Engine_Centroid.getCentroidKM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid.getCentroidKM" title="Permalink to this definition"></a></dt>
+<dd><p>Centroid using the Karnikmendel method</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid.getCentroid_enhanced">
+<span class="sig-name descname"><span class="pre">getCentroid_enhanced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisor_left</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisor_right</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2Engine_Centroid.html#IntervalT2Engine_Centroid.getCentroid_enhanced"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid.getCentroid_enhanced" title="Permalink to this definition"></a></dt>
+<dd><p>Return the centroid tuple according to the enhanced KM</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid.getPrimaryDiscretizationLevel">
+<span class="sig-name descname"><span class="pre">getPrimaryDiscretizationLevel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2Engine_Centroid.html#IntervalT2Engine_Centroid.getPrimaryDiscretizationLevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid.getPrimaryDiscretizationLevel" title="Permalink to this definition"></a></dt>
+<dd><p>Return the primaryDiscretizationLevel</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid.getWeightedSum">
+<span class="sig-name descname"><span class="pre">getWeightedSum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2Engine_Centroid.html#IntervalT2Engine_Centroid.getWeightedSum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid.getWeightedSum" title="Permalink to this definition"></a></dt>
+<dd><p>Return the weighted sum from two arrays</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid.setPrimaryDiscretizationLevel">
+<span class="sig-name descname"><span class="pre">setPrimaryDiscretizationLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primaryDiscretisationLevel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2Engine_Centroid.html#IntervalT2Engine_Centroid.setPrimaryDiscretizationLevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2Engine_Centroid.IntervalT2Engine_Centroid.setPrimaryDiscretizationLevel" title="Permalink to this definition"></a></dt>
+<dd><p>Set the primaryDiscretizationLevel</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.sets.IntervalT2MF_Cylinder">
+<span id="juzzypython-intervaltype2-sets-intervalt2mf-cylinder-module"></span><h2>juzzyPython.intervalType2.sets.IntervalT2MF_Cylinder module<a class="headerlink" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Cylinder" title="Permalink to this headline"></a></h2>
+<p>IntervalT2MF_Cylinder.py
+Created 9/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Cylinder.IntervalT2MF_Cylinder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Cylinder.</span></span><span class="sig-name descname"><span class="pre">IntervalT2MF_Cylinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uMF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder" title="juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder"><span class="pre">juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lMF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder" title="juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder"><span class="pre">juzzyPython.type1.sets.T1MF_Cylinder.T1MF_Cylinder</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Cylinder.html#IntervalT2MF_Cylinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Cylinder.IntervalT2MF_Cylinder" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype" title="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype</span></code></a></p>
+<p>Class IntervalT2MF_Cylinder
+The class IntervalT2MF_Cylinder represents a membership function which is
+defined by a single Tuple and can be seen as a cylinder from left to right.
+It does not vary in height/firing strength but its getFS() method will return
+the same FS for all x. (In the literature referred to as cylindrical extension
+of a FS).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>primer</strong> – Tuple for creating T1MF cylinder MF</p></li>
+<li><p><strong>uMF</strong> – Upper membership function</p></li>
+<li><p><strong>lMF</strong> – Lower membership function</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>toString</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Cylinder.IntervalT2MF_Cylinder.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Cylinder.html#IntervalT2MF_Cylinder.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Cylinder.IntervalT2MF_Cylinder.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Return membership function as string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle">
+<span id="juzzypython-intervaltype2-sets-intervalt2mf-gauangle-module"></span><h2>juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle module<a class="headerlink" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle" title="Permalink to this headline"></a></h2>
+<p>IntervalT2MF_Gauangle.py
+Created 10/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle.IntervalT2MF_Gauangle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle.</span></span><span class="sig-name descname"><span class="pre">IntervalT2MF_Gauangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uMF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle" title="juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle"><span class="pre">juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">lMF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle" title="juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle"><span class="pre">juzzyPython.type1.sets.T1MF_Gauangle.T1MF_Gauangle</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Gauangle.html#IntervalT2MF_Gauangle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle.IntervalT2MF_Gauangle" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype" title="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype</span></code></a></p>
+<p>Class IntervalT2MF_Gauangle
+Creates a new instance of the IT2 Gauangle set</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of membership function</p></li>
+<li><p><strong>uMF</strong> – Upper membership function</p></li>
+<li><p><strong>lMF</strong> – Lower membership function</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>toString
+getFS</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle.IntervalT2MF_Gauangle.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Gauangle.html#IntervalT2MF_Gauangle.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle.IntervalT2MF_Gauangle.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Get the firing strength of the membership function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle.IntervalT2MF_Gauangle.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Gauangle.html#IntervalT2MF_Gauangle.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Gauangle.IntervalT2MF_Gauangle.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Convert the membership function to string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian">
+<span id="juzzypython-intervaltype2-sets-intervalt2mf-gaussian-module"></span><h2>juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian module<a class="headerlink" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian" title="Permalink to this headline"></a></h2>
+<p>IntervalT2MF_Gaussian.py
+Created 10/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian.IntervalT2MF_Gaussian">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian.</span></span><span class="sig-name descname"><span class="pre">IntervalT2MF_Gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uMF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian" title="juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian"><span class="pre">juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lMF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian" title="juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian"><span class="pre">juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Gaussian.html#IntervalT2MF_Gaussian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian.IntervalT2MF_Gaussian" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype" title="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype</span></code></a></p>
+<p>Class IntervalT2MF_Gaussian
+Interval Type-2 Gaussian Membership Function. Note that uncertain mean is
+supported, however, the mean of the upper MF should be larger than that
+of the lower MF (otherwise the LMF and UMF will be swapped internally).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>function</strong> (<em>lMF = Lower membership</em>) – </p></li>
+<li><p><strong>function</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getUMF
+getLMF
+getFS
+toString</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian.IntervalT2MF_Gaussian.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Gaussian.html#IntervalT2MF_Gaussian.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian.IntervalT2MF_Gaussian.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Return the firing strength of the function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian.IntervalT2MF_Gaussian.getLMF">
+<span class="sig-name descname"><span class="pre">getLMF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian" title="juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian"><span class="pre">juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Gaussian.html#IntervalT2MF_Gaussian.getLMF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian.IntervalT2MF_Gaussian.getLMF" title="Permalink to this definition"></a></dt>
+<dd><p>Return the lower membership function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian.IntervalT2MF_Gaussian.getUMF">
+<span class="sig-name descname"><span class="pre">getUMF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian" title="juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian"><span class="pre">juzzyPython.type1.sets.T1MF_Gaussian.T1MF_Gaussian</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Gaussian.html#IntervalT2MF_Gaussian.getUMF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian.IntervalT2MF_Gaussian.getUMF" title="Permalink to this definition"></a></dt>
+<dd><p>Return the upper membership function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian.IntervalT2MF_Gaussian.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Gaussian.html#IntervalT2MF_Gaussian.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Gaussian.IntervalT2MF_Gaussian.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Return the function as a string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.sets.IntervalT2MF_Interface">
+<span id="juzzypython-intervaltype2-sets-intervalt2mf-interface-module"></span><h2>juzzyPython.intervalType2.sets.IntervalT2MF_Interface module<a class="headerlink" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Interface" title="Permalink to this headline"></a></h2>
+<p>IntervalT2MF_Interface.py
+Created 5/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.</span></span><span class="sig-name descname"><span class="pre">IntervalT2MF_Interface</span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.MF_Interface.MF_Interface" title="juzzyPython.generic.MF_Interface.MF_Interface"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.generic.MF_Interface.MF_Interface</span></code></a></p>
+<p>Class IntervalT2MF_Interface</p>
+<p>Parameters: None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getFS
+getPeak
+getName
+setName
+getSupport
+setSupport
+setLeftShoulder
+setRightShoulder
+isLeftShoulder
+isRightShoulder
+toString
+compareTo
+getLowerBound
+getUpperBound
+getCentroid
+getUMF
+getLMF
+getFSAverage</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.compareTo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getCentroid">
+<span class="sig-name descname"><span class="pre">getCentroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primaryDiscretisationLevel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.getCentroid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getCentroid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getFS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getFSAverage">
+<span class="sig-name descname"><span class="pre">getFSAverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.getFSAverage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getFSAverage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getLMF">
+<span class="sig-name descname"><span class="pre">getLMF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.getLMF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getLMF" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getLowerBound">
+<span class="sig-name descname"><span class="pre">getLowerBound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.getLowerBound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getLowerBound" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getPeak" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getSupport">
+<span class="sig-name descname"><span class="pre">getSupport</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.getSupport"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getSupport" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getUMF">
+<span class="sig-name descname"><span class="pre">getUMF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.getUMF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getUMF" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getUpperBound">
+<span class="sig-name descname"><span class="pre">getUpperBound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.getUpperBound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.getUpperBound" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.isLeftShoulder">
+<span class="sig-name descname"><span class="pre">isLeftShoulder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.isLeftShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.isLeftShoulder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.isRightShoulder">
+<span class="sig-name descname"><span class="pre">isRightShoulder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.isRightShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.isRightShoulder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.setLeftShoulder">
+<span class="sig-name descname"><span class="pre">setLeftShoulder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.setLeftShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.setLeftShoulder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.setName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.setRightShoulder">
+<span class="sig-name descname"><span class="pre">setRightShoulder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.setRightShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.setRightShoulder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.setSupport">
+<span class="sig-name descname"><span class="pre">setSupport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">support</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.setSupport"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.setSupport" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Interface.html#IntervalT2MF_Interface.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface.toString" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.sets.IntervalT2MF_Intersection">
+<span id="juzzypython-intervaltype2-sets-intervalt2mf-intersection-module"></span><h2>juzzyPython.intervalType2.sets.IntervalT2MF_Intersection module<a class="headerlink" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Intersection" title="Permalink to this headline"></a></h2>
+<p>IntervalT2MF_Intersection.py
+Created 12/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Intersection.IntervalT2MF_Intersection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Intersection.</span></span><span class="sig-name descname"><span class="pre">IntervalT2MF_Intersection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Intersection.html#IntervalT2MF_Intersection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Intersection.IntervalT2MF_Intersection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype" title="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype</span></code></a></p>
+<p>Class IntervalT2MF_Intersection
+Class that manages the intersection of two interval type-2 MFs.
+The class supports the intersection of other intersections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T2</strong> (<em>b = Membership Function</em>) – </p></li>
+<li><p><strong>T2</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getSets
+containsSet
+getFS
+intersectionExists</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Intersection.IntervalT2MF_Intersection.containsSet">
+<span class="sig-name descname"><span class="pre">containsSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Intersection.html#IntervalT2MF_Intersection.containsSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Intersection.IntervalT2MF_Intersection.containsSet" title="Permalink to this definition"></a></dt>
+<dd><p>Returns true if the set specified is part of this intersection set.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Intersection.IntervalT2MF_Intersection.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Intersection.html#IntervalT2MF_Intersection.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Intersection.IntervalT2MF_Intersection.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Get the firing strength if there is an intersection</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Intersection.IntervalT2MF_Intersection.getSets">
+<span class="sig-name descname"><span class="pre">getSets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Intersection.html#IntervalT2MF_Intersection.getSets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Intersection.IntervalT2MF_Intersection.getSets" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the intersection’s constituting sets, i.e. all sets which are
+intersected to give rise to this set.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Intersection.IntervalT2MF_Intersection.intersectionExists">
+<span class="sig-name descname"><span class="pre">intersectionExists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Intersection.html#IntervalT2MF_Intersection.intersectionExists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Intersection.IntervalT2MF_Intersection.intersectionExists" title="Permalink to this definition"></a></dt>
+<dd><p>Return if an intersection exists</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.sets.IntervalT2MF_Prototype">
+<span id="juzzypython-intervaltype2-sets-intervalt2mf-prototype-module"></span><h2>juzzyPython.intervalType2.sets.IntervalT2MF_Prototype module<a class="headerlink" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Prototype" title="Permalink to this headline"></a></h2>
+<p>IntervalT2MF_Prototype.py
+Created 6/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.</span></span><span class="sig-name descname"><span class="pre">IntervalT2MF_Prototype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uMF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lMF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></code></a></p>
+<p>Class IntervalT2MF_Prototype</p>
+<p>Parameters: None</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getFS
+getPeak
+getName
+setName
+getSupport
+setSupport
+setLeftShoulder
+setRightShoulder
+isLeftShoulder
+isRightShoulder
+toString
+compareTo
+getLowerBound
+getUpperBound
+getCentroid
+getUMF
+getLMF
+getFSAverage</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.compareTo">
+<span class="sig-name descname"><span class="pre">compareTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.compareTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.compareTo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getCentroid">
+<span class="sig-name descname"><span class="pre">getCentroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primaryDiscretisationLevel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.getCentroid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getCentroid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getFS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getFSAverage">
+<span class="sig-name descname"><span class="pre">getFSAverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.getFSAverage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getFSAverage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getLMF">
+<span class="sig-name descname"><span class="pre">getLMF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.getLMF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getLMF" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getLowerBound">
+<span class="sig-name descname"><span class="pre">getLowerBound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.getLowerBound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getLowerBound" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getPeak" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getSupport">
+<span class="sig-name descname"><span class="pre">getSupport</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.getSupport"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getSupport" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getUMF">
+<span class="sig-name descname"><span class="pre">getUMF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface" title="juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface"><span class="pre">juzzyPython.type1.sets.T1MF_Interface.T1MF_Interface</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.getUMF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getUMF" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getUpperBound">
+<span class="sig-name descname"><span class="pre">getUpperBound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.getUpperBound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.getUpperBound" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.isLeftShoulder">
+<span class="sig-name descname"><span class="pre">isLeftShoulder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.isLeftShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.isLeftShoulder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.isRightShoulder">
+<span class="sig-name descname"><span class="pre">isRightShoulder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.isRightShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.isRightShoulder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.setLeftShoulder">
+<span class="sig-name descname"><span class="pre">setLeftShoulder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.setLeftShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.setLeftShoulder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.setName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.setRightShoulder">
+<span class="sig-name descname"><span class="pre">setRightShoulder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.setRightShoulder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.setRightShoulder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.setSupport">
+<span class="sig-name descname"><span class="pre">setSupport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">support</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.setSupport"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.setSupport" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Prototype.html#IntervalT2MF_Prototype.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype.toString" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.sets.IntervalT2MF_Trapezoidal">
+<span id="juzzypython-intervaltype2-sets-intervalt2mf-trapezoidal-module"></span><h2>juzzyPython.intervalType2.sets.IntervalT2MF_Trapezoidal module<a class="headerlink" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Trapezoidal" title="Permalink to this headline"></a></h2>
+<p>IntervalT2MF_Trapezoidal.py
+Created 8/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Trapezoidal.IntervalT2MF_Trapezoidal">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Trapezoidal.</span></span><span class="sig-name descname"><span class="pre">IntervalT2MF_Trapezoidal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal" title="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal"><span class="pre">juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal" title="juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal"><span class="pre">juzzyPython.type1.sets.T1MF_Trapezoidal.T1MF_Trapezoidal</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Trapezoidal.html#IntervalT2MF_Trapezoidal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Trapezoidal.IntervalT2MF_Trapezoidal" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype" title="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype</span></code></a></p>
+<p>Class IntervalT2MF_Trapezoidal
+Class for Trapezoidal Interval Type-2 Fuzzy Sets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>upper</strong> – Upper membership function</p></li>
+<li><p><strong>lower</strong> – Lower membership function</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>toString</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Trapezoidal.IntervalT2MF_Trapezoidal.toString">
+<span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Trapezoidal.html#IntervalT2MF_Trapezoidal.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Trapezoidal.IntervalT2MF_Trapezoidal.toString" title="Permalink to this definition"></a></dt>
+<dd><p>Return the function as a string</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.sets.IntervalT2MF_Triangular">
+<span id="juzzypython-intervaltype2-sets-intervalt2mf-triangular-module"></span><h2>juzzyPython.intervalType2.sets.IntervalT2MF_Triangular module<a class="headerlink" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Triangular" title="Permalink to this headline"></a></h2>
+<p>IntervalT2MF_Triangular.py
+Created 8/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Triangular.IntervalT2MF_Triangular">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Triangular.</span></span><span class="sig-name descname"><span class="pre">IntervalT2MF_Triangular</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular" title="juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular"><span class="pre">juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular" title="juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular"><span class="pre">juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Triangular.html#IntervalT2MF_Triangular"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Triangular.IntervalT2MF_Triangular" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype" title="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype</span></code></a></p>
+<p>Class IntervalT2MF_Triangular</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>upper</strong> – Upper membership function</p></li>
+<li><p><strong>lower</strong> – Lower membership function</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getLMF
+getUMF
+getFS</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Triangular.IntervalT2MF_Triangular.getFS">
+<span class="sig-name descname"><span class="pre">getFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.generic.html#juzzyPython.generic.Tuple.Tuple" title="juzzyPython.generic.Tuple.Tuple"><span class="pre">juzzyPython.generic.Tuple.Tuple</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Triangular.html#IntervalT2MF_Triangular.getFS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Triangular.IntervalT2MF_Triangular.getFS" title="Permalink to this definition"></a></dt>
+<dd><p>Get the firing strength</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Triangular.IntervalT2MF_Triangular.getLMF">
+<span class="sig-name descname"><span class="pre">getLMF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular" title="juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular"><span class="pre">juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Triangular.html#IntervalT2MF_Triangular.getLMF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Triangular.IntervalT2MF_Triangular.getLMF" title="Permalink to this definition"></a></dt>
+<dd><p>Return the lower membership function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Triangular.IntervalT2MF_Triangular.getUMF">
+<span class="sig-name descname"><span class="pre">getUMF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="juzzyPython.type1.sets.html#juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular" title="juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular"><span class="pre">juzzyPython.type1.sets.T1MF_Triangular.T1MF_Triangular</span></a></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Triangular.html#IntervalT2MF_Triangular.getUMF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Triangular.IntervalT2MF_Triangular.getUMF" title="Permalink to this definition"></a></dt>
+<dd><p>Return the upper membership function</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.sets.IntervalT2MF_Union">
+<span id="juzzypython-intervaltype2-sets-intervalt2mf-union-module"></span><h2>juzzyPython.intervalType2.sets.IntervalT2MF_Union module<a class="headerlink" href="#module-juzzyPython.intervalType2.sets.IntervalT2MF_Union" title="Permalink to this headline"></a></h2>
+<p>IntervalT2MF_Union.py
+Created 9/1/2022</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Union.IntervalT2MF_Union">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Union.</span></span><span class="sig-name descname"><span class="pre">IntervalT2MF_Union</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface" title="juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Interface.IntervalT2MF_Interface</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Union.html#IntervalT2MF_Union"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Union.IntervalT2MF_Union" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype" title="juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype"><code class="xref py py-class docutils literal notranslate"><span class="pre">juzzyPython.intervalType2.sets.IntervalT2MF_Prototype.IntervalT2MF_Prototype</span></code></a></p>
+<p>Class IntervalT2MF_Union
+Union operation for interval type 2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> – </p></li>
+<li><p><strong>b</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Functions:</dt><dd><p>getSets
+isNull
+getPeak</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Union.IntervalT2MF_Union.getPeak">
+<span class="sig-name descname"><span class="pre">getPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Union.html#IntervalT2MF_Union.getPeak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Union.IntervalT2MF_Union.getPeak" title="Permalink to this definition"></a></dt>
+<dd><p>Unsupported Function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Union.IntervalT2MF_Union.getSets">
+<span class="sig-name descname"><span class="pre">getSets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Union.html#IntervalT2MF_Union.getSets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Union.IntervalT2MF_Union.getSets" title="Permalink to this definition"></a></dt>
+<dd><p>Return sets</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="juzzyPython.intervalType2.sets.IntervalT2MF_Union.IntervalT2MF_Union.isNull">
+<span class="sig-name descname"><span class="pre">isNull</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/juzzyPython/intervalType2/sets/IntervalT2MF_Union.html#IntervalT2MF_Union.isNull"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#juzzyPython.intervalType2.sets.IntervalT2MF_Union.IntervalT2MF_Union.isNull" title="Permalink to this definition"></a></dt>
+<dd><p>Return if null</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-juzzyPython.intervalType2.sets">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-juzzyPython.intervalType2.sets" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Christian Wagner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

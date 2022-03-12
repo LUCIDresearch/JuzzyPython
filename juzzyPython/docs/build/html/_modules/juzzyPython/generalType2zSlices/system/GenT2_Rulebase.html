@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>juzzyPython.generalType2zSlices.system.GenT2_Rulebase &#8212; JuzzyPython 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for juzzyPython.generalType2zSlices.system.GenT2_Rulebase</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">GenT2_Rulebase.py</span>
+<span class="sd">Created 9/1/2022</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generalType2zSlices.system.GenT2Engine_Intersection</span> <span class="kn">import</span> <span class="n">GenT2Engine_Intersection</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generalType2zSlices.system.GenT2Engine_Union</span> <span class="kn">import</span> <span class="n">GenT2Engine_Union</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generalType2zSlices.system.GenT2_Rule</span> <span class="kn">import</span> <span class="n">GenT2_Rule</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.intervalType2.system.IT2_Rulebase</span> <span class="kn">import</span> <span class="n">IT2_Rulebase</span>
+<span class="kn">from</span> <span class="nn">juzzyPython.generalType2zSlices.system.GenT2_Antecedent</span> <span class="kn">import</span> <span class="n">GenT2_Antecedent</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">OrderedDict</span>
+<div class="viewcode-block" id="GenT2_Rulebase"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase">[docs]</a><span class="k">class</span> <span class="nc">GenT2_Rulebase</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class GenT2_Rulebase</span>
+<span class="sd">    Keeps track of rules and generates results</span>
+<span class="sd">  </span>
+<span class="sd">    Parameters: </span>
+<span class="sd">        None</span>
+
+<span class="sd">    Functions:</span>
+<span class="sd">        addRule</span>
+<span class="sd">        addRules</span>
+<span class="sd">        getRules</span>
+<span class="sd">        getFuzzyLogicType</span>
+<span class="sd">        get_GenT2zEngine_Intersection</span>
+<span class="sd">        get_GenT2zEngineUnion</span>
+<span class="sd">        getOverallOutput</span>
+<span class="sd">        evaluateGetCentroid</span>
+<span class="sd">        evaluate</span>
+<span class="sd">        getIT2Rulebases</span>
+<span class="sd">        getRule</span>
+<span class="sd">        changeRule</span>
+<span class="sd">        removeRule</span>
+<span class="sd">        getNumberOfRules</span>
+<span class="sd">        containsRule</span>
+<span class="sd">        getRulesWithAntecedents</span>
+<span class="sd">        getImplicationMethod</span>
+<span class="sd">        setImplicationMethod</span>
+<span class="sd">        toString</span>
+
+<span class="sd">    &quot;&quot;&quot;</span> 
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CENTEROFSETS</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CENTROID</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implicationMethod</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PRODUCT</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">MINIMUM</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gzEU</span> <span class="o">=</span> <span class="n">GenT2Engine_Union</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gzEI</span> <span class="o">=</span> <span class="n">GenT2Engine_Intersection</span><span class="p">()</span>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.addRule"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.addRule">[docs]</a>    <span class="k">def</span> <span class="nf">addRule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">r</span><span class="p">:</span> <span class="n">GenT2_Rule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Add a new rule to the rule set&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+        <span class="n">it</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getConsequents</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
+            <span class="n">o</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">getOutput</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">o</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">o</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.addRules"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.addRules">[docs]</a>    <span class="k">def</span> <span class="nf">addRules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">r</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GenT2_Rule</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Add multiple new rules to the rule set&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">addRule</span><span class="p">(</span><span class="n">i</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.getRules"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.getRules">[docs]</a>    <span class="k">def</span> <span class="nf">getRules</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">GenT2_Rule</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Return all the rules in the set&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.getRule"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.getRule">[docs]</a>    <span class="k">def</span> <span class="nf">getRule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ruleNum</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GenT2_Rule</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return a specific rule&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">ruleNum</span><span class="p">]</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.getNumberOfRules"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.getNumberOfRules">[docs]</a>    <span class="k">def</span> <span class="nf">getNumberOfRules</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get the number of rules in the set&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.getFuzzyLogicType"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.getFuzzyLogicType">[docs]</a>    <span class="k">def</span> <span class="nf">getFuzzyLogicType</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the type of fuzzy logic that is employed.</span>
+<span class="sd">        return 0: type-1, 1: interval type-2, 2: zSlices based general type-2&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">2</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.containsRule"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.containsRule">[docs]</a>    <span class="k">def</span> <span class="nf">containsRule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">rule</span><span class="p">:</span> <span class="n">GenT2_Rule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Check if a rule in the ruleset&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">rule</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.getGenT2zEngineIntersection"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.getGenT2zEngineIntersection">[docs]</a>    <span class="k">def</span> <span class="nf">getGenT2zEngineIntersection</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GenT2Engine_Intersection</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the intersection engine&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gzEI</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.getGenT2zEngineUnion"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.getGenT2zEngineUnion">[docs]</a>    <span class="k">def</span> <span class="nf">getGenT2zEngineUnion</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GenT2Engine_Union</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the union engine&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gzEU</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.removeRule"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.removeRule">[docs]</a>    <span class="k">def</span> <span class="nf">removeRule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ruleNumber</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Remove a rule based on its index&quot;&quot;&quot;</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">ruleNumber</span><span class="p">]</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.getImplicationMethod"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.getImplicationMethod">[docs]</a>    <span class="k">def</span> <span class="nf">getImplicationMethod</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return if the implication is product or minimum&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">implicationMethod</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRODUCT</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;product&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;minimum&quot;</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.setImplicationMethod"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.setImplicationMethod">[docs]</a>    <span class="k">def</span> <span class="nf">setImplicationMethod</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">implicationMethod</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Sets the implication method, where by implication, we mean the implementation</span>
+<span class="sd">        of the AND logical connective between parts of the antecedent.</span>
+<span class="sd">        The desired implication method is applied for all rules.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">implicationMethod</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRODUCT</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">implicationMethod</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRODUCT</span>
+        <span class="k">elif</span> <span class="n">implicationMethod</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">MINIMUM</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">implicationMethod</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MINIMUM</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Only product (0) and minimum (1) implication is currently supported.&quot;</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.toString"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.toString">[docs]</a>    <span class="k">def</span> <span class="nf">toString</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert the class to string&quot;&quot;&quot;</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;General Type-2 Fuzzy Logic System with &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNumberOfRules</span><span class="p">())</span><span class="o">+</span><span class="s2">&quot; rules:</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNumberOfRules</span><span class="p">()):</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">toString</span><span class="p">())</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">s</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.getOverallOutput"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.getOverallOutput">[docs]</a>    <span class="k">def</span> <span class="nf">getOverallOutput</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the overall output of the rules&quot;&quot;&quot;</span>
+        <span class="n">returnValue</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">)):</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">.</span><span class="n">getRawOutput</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">returnValue</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="n">o</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">returnValue</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gzEU</span><span class="o">.</span><span class="n">getUnion</span><span class="p">(</span><span class="n">returnValue</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">o</span><span class="p">),</span><span class="n">temp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">o</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">returnValue</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.evaluateGetCentroid"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.evaluateGetCentroid">[docs]</a>    <span class="k">def</span> <span class="nf">evaluateGetCentroid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">typeReductionType</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the output of the FLS after type-reduction, i.e. the centroid.</span>
+<span class="sd">        param: typeReductionType</span>
+<span class="sd">        return: A TreeMap where Output is used as key and the value is an Object[]</span>
+<span class="sd">        where Object[0] is a Tuple[] (the centroids, one per zLevel) and Object[1] is a Double holding the associated yValues for the centroids. If not rule fired for the given input(s),</span>
+<span class="sd">        then null is returned as an Object[].&quot;&quot;&quot;</span>
+        <span class="n">returnValue</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="n">rbsIT2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getIT2Rulebases</span><span class="p">()</span>
+        <span class="n">zValues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getAntecedents</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getSet</span><span class="p">()</span><span class="o">.</span><span class="n">getZValues</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rbsIT2</span><span class="p">)):</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">rbsIT2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">evaluateGetCentroid</span><span class="p">(</span><span class="n">typeReductionType</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">temp</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">returnValue</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="o">=</span> <span class="p">[[],[]]</span>
+                <span class="n">returnValue</span><span class="p">[</span><span class="n">o</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="n">o</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">returnValue</span><span class="p">[</span><span class="n">o</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zValues</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">returnValue</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.evaluate"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">typeReductionType</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The current evaluate function is functional but inefficient. It creates an IT2</span>
+<span class="sd">        version of all the rules in the rulebase and computes each IT2 rule separately...</span>
+<span class="sd">        param typeReductionType: 0: Center Of Sets, 1: Centroid</span>
+<span class="sd">        param discretizationLevel: The discretization level on the xAxis&quot;&quot;&quot;</span>
+        <span class="n">returnValue</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="n">rbsIT2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getIT2Rulebases</span><span class="p">()</span>
+        <span class="n">rawOutputValues</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rbsIT2</span><span class="p">)):</span>
+            <span class="n">rawOutputValues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rbsIT2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">typeReductionType</span><span class="p">))</span>
+        <span class="n">zValues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getAntecedents</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getSet</span><span class="p">()</span><span class="o">.</span><span class="n">getZValues</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">:</span>
+            <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+            <span class="n">numerator</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">denominator</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+            <span class="k">for</span> <span class="n">outputValue</span> <span class="ow">in</span> <span class="n">rawOutputValues</span><span class="p">:</span>
+                <span class="n">numerator</span> <span class="o">+=</span> <span class="n">outputValue</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="o">*</span> <span class="n">zValues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">denominator</span> <span class="o">+=</span> <span class="n">zValues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">i</span><span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">returnValue</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="o">=</span> <span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span>
+        <span class="k">return</span> <span class="n">returnValue</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.getIT2Rulebases"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.getIT2Rulebases">[docs]</a>    <span class="k">def</span> <span class="nf">getIT2Rulebases</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">IT2_Rulebase</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the whole zSlices based rulebase as a series of interval type-2</span>
+<span class="sd">        rule bases (one per zLevel) which can then be computed in parallel.</span>
+<span class="sd">        param typeReductionMethod: The type-reduction method to be used at the IT2 level </span>
+<span class="sd">        0: Center Of Sets,  1: Centroid.</span>
+<span class="sd">        param discretizationLevelXAxis: The number of discretizations to be used at the IT2 level.&quot;&quot;&quot;</span>
+        <span class="n">rbs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getAntecedents</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getSet</span><span class="p">()</span><span class="o">.</span><span class="n">getNumberOfSlices</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rbs</span><span class="p">)):</span>
+            <span class="n">rbs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">IT2_Rulebase</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">currentRule</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNumberOfRules</span><span class="p">()):</span>
+                <span class="n">rbs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">addRule</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">currentRule</span><span class="p">]</span><span class="o">.</span><span class="n">getRuleasIT2Rules</span><span class="p">()[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">rbs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">setImplicationMethod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">implicationMethod</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">rbs</span></div>
+    
+<div class="viewcode-block" id="GenT2_Rulebase.getRulesWithAntecedents"><a class="viewcode-back" href="../../../../juzzyPython.generalType2zSlices.system.html#juzzyPython.generalType2zSlices.system.GenT2_Rulebase.GenT2_Rulebase.getRulesWithAntecedents">[docs]</a>    <span class="k">def</span> <span class="nf">getRulesWithAntecedents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">antecedents</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GenT2_Antecedent</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">GenT2_Rule</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot; Returns all rules with a matching (i.e. equal) set of antecedents.&quot;&quot;&quot;</span>
+        <span class="n">matches</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getAntecedents</span><span class="p">()</span><span class="o">==</span><span class="n">antecedents</span><span class="p">:</span>
+                <span class="n">matches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">matches</span></div></div>
+    
+
+    
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">JuzzyPython</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Christian Wagner.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
