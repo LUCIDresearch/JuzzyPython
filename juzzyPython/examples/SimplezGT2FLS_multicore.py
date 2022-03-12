@@ -19,6 +19,7 @@ from juzzyPython.intervalType2.sets.IntervalT2MF_Triangular import IntervalT2MF_
 from juzzyPython.generalType2zSlices.sets.GenT2MF_Gaussian import GenT2MF_Gaussian
 from juzzyPython.generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
 from juzzyPython.generalType2zSlices.multicore.FLCFactory import FLCFactory
+from juzzyPython.testing.timeRecorder import timeDecorator
 
 class SimplezGT2FLS_multicore:
     """
@@ -42,8 +43,7 @@ class SimplezGT2FLS_multicore:
     """
 
     def __init__(self,unit = False) -> None:
-        self.PRINTTIME = True
-        self.start = time.time()
+      
         self.numberOfzLevels = 4
         self.typeReduction = 0
         self.xDiscs = 100
@@ -121,9 +121,7 @@ class SimplezGT2FLS_multicore:
         self.getTip(7,8)
         self.getTip(0.0,0.0)
 
-        if self.PRINTTIME:
-            print("Found single tip results in (seconds):")
-            print(str(time.time()-self.start))
+      
        
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
@@ -133,13 +131,11 @@ class SimplezGT2FLS_multicore:
         self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100,True,True)
         self.getControlSurfaceData(False,self.xDiscs,self.yDiscs)
 
-        if self.PRINTTIME:
-            print("Generated graphs for tip results in (seconds):")
-            print(str(time.time()-self.start))
+      
         if not unit:
             self.plot.show()
         
-        
+    @timeDecorator
     def getTip(self,foodQuality,serviceLevel) -> None:
         """Calculate the output based on the two inputs"""
         self.food.setInput(foodQuality)
@@ -153,7 +149,7 @@ class SimplezGT2FLS_multicore:
                 + "tip of: "+str(self.FLC.runFactory(1)[self.tip]))
         
         
-     
+    @timeDecorator
     def getControlSurfaceData(self,useCentroidDefuzz,input1Discs,input2Discs,unit = False) -> None:
         """Get the data to plot the control surface"""
         if unit:
@@ -188,7 +184,7 @@ class SimplezGT2FLS_multicore:
         if unit:
             return test
         self.plot.plotControlSurface(x,y,z,self.food.getName(),self.service.getName(),self.tip.getName())
-        
+    @timeDecorator
     def plotMFs(self,name,sets,xAxisRange,discretizationLevel,plotAsLines,plotAsSurface):
         """Plot the lines for each membership function of the sets"""
         if plotAsLines:
