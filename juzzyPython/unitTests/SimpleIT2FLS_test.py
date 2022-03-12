@@ -13,7 +13,7 @@ class TestSimpleT2FLS(unittest.TestCase):
     def testCentroidDefuzz(self):
         log= logging.getLogger("Test")
         f = "../javaTestResults/SimpleIT2FLSCentroid.txt"
-        test = SimpleIT2FLS()
+        test = SimpleIT2FLS(unit=True)
         z = test.getControlSurfaceData(True,100,100,True)
         with open(f) as file:
             lines = file.readlines()
@@ -24,7 +24,7 @@ class TestSimpleT2FLS(unittest.TestCase):
     def testCOSDefuzz(self):
         log= logging.getLogger("Test")
         f = "../javaTestResults/SimpleIT2FLSCOS.txt"
-        test = SimpleIT2FLS()
+        test = SimpleIT2FLS(unit=True)
         z = test.getControlSurfaceData(False,100,100,True)
         with open(f) as file:
             lines = file.readlines()

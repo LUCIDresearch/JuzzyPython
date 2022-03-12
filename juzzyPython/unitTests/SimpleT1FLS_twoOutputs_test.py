@@ -6,13 +6,13 @@ import numpy as np
 import unittest
 from juzzyPython.examples.SimpleT1FLS_twoOutputs import SimpleT1FLS_twoOutputs
 import logging
-
+import sys
 class TestSimpleNST1FLS(unittest.TestCase):
 #NOTE all NaN are replaced by 0.0
     def testCentroidDefuzzTip(self):
         log= logging.getLogger("Test")
         f = "../javaTestResults/SimpleT1FLS_twoTipCen.txt"
-        test = SimpleT1FLS_twoOutputs()
+        test = SimpleT1FLS_twoOutputs(unit=True)
         z = test.getControlSurfaceData(True,10,10,True)
         with open(f) as file:
             lines = file.readlines()
@@ -23,7 +23,7 @@ class TestSimpleNST1FLS(unittest.TestCase):
     def testHeightDefuzzTip(self):
         log= logging.getLogger("Test")
         f = "../javaTestResults/SimpleT1FLS_twoTipHeight.txt"
-        test = SimpleT1FLS_twoOutputs()
+        test = SimpleT1FLS_twoOutputs(unit=True)
         z = test.getControlSurfaceData(False,10,10,True)
         with open(f) as file:
             lines = file.readlines()
@@ -34,7 +34,7 @@ class TestSimpleNST1FLS(unittest.TestCase):
     def testCentroidDefuzzTip(self):
         log= logging.getLogger("Test")
         f = "../javaTestResults/SimpleT1FLS_twoTipCen.txt"
-        test = SimpleT1FLS_twoOutputs()
+        test = SimpleT1FLS_twoOutputs(unit=True)
         z = test.getControlSurfaceData(test.getTip(),True,10,10,True)
         with open(f) as file:
             lines = file.readlines()
@@ -45,7 +45,7 @@ class TestSimpleNST1FLS(unittest.TestCase):
     def testHeightDefuzzTip(self):
         log= logging.getLogger("Test")
         f = "../javaTestResults/SimpleT1FLS_twoTipHeight.txt"
-        test = SimpleT1FLS_twoOutputs()
+        test = SimpleT1FLS_twoOutputs(unit=True)
         z = test.getControlSurfaceData(test.getTip(),False,10,10,True)
         with open(f) as file:
             lines = file.readlines()
@@ -56,7 +56,7 @@ class TestSimpleNST1FLS(unittest.TestCase):
     def testCentroidDefuzzSmile(self):
         log= logging.getLogger("Test")
         f = "../javaTestResults/SimpleT1FLS_twoSmileCen.txt"
-        test = SimpleT1FLS_twoOutputs()
+        test = SimpleT1FLS_twoOutputs(unit=True)
         z = test.getControlSurfaceData(test.getSmile(),True,10,10,True)
         with open(f) as file:
             lines = file.readlines()
@@ -67,7 +67,7 @@ class TestSimpleNST1FLS(unittest.TestCase):
     def testHeightDefuzzSmile(self):
         log= logging.getLogger("Test")
         f = "../javaTestResults/SimpleT1FLS_twoSmileHeight.txt"
-        test = SimpleT1FLS_twoOutputs()
+        test = SimpleT1FLS_twoOutputs(unit=True)
         z = test.getControlSurfaceData(test.getSmile(),False,10,10,True)
         with open(f) as file:
             lines = file.readlines()

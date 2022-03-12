@@ -7,13 +7,14 @@ import numpy as np
 import unittest
 from juzzyPython.examples.SimpleNST1FLS import SimpleNST1FLS
 import logging
+import sys
 
 class TestSimpleNST1FLS(unittest.TestCase):
 
     def testCentroidDefuzz(self):
         log= logging.getLogger("Test")
         f = "../javaTestResults/SimpleNST1FLSCentroid.txt"
-        test = SimpleNST1FLS()
+        test = SimpleNST1FLS(unit=True)
         z = test.getControlSurfaceData(True,100,100,True)
         with open(f) as file:
             lines = file.readlines()
@@ -24,7 +25,7 @@ class TestSimpleNST1FLS(unittest.TestCase):
     def testHeightDefuzz(self):
         log= logging.getLogger("Test")
         f = "../javaTestResults/SimpleNST1FLSHeight.txt"
-        test = SimpleNST1FLS()
+        test = SimpleNST1FLS(unit=True)
         z = test.getControlSurfaceData(False,100,100,True)
         with open(f) as file:
             lines = file.readlines()

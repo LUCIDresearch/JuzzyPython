@@ -44,6 +44,7 @@ class FLCFactory():
             self.plants[i] = FLCPlant(self.rulebases[i],i,self.defaultTypeReduction,self.lock)
     
     def runFactory(self, typeReductionType: int) -> dict:
+        """Return the dict of return values based on the input"""
         returnValue = OrderedDict()
         out = self.rulebases[0].getOutputs()
         for o in out:
@@ -79,6 +80,7 @@ class FLCFactory():
         return returnValue
 
     def runFactoryGetCentroid(self,typeReductionType: int) -> dict:
+        """Returns the output of the FLS after type-reduction, i.e. the centroid. return A dict where Output is used as key and the value is an Object[]  where Object[0] is a Tuple[] (the centroids, one per zLevel) and Object[1] is a float holding the associated yValues for the centroids. If not rule fired for the given input(s), then none is returned as an Object[]."""
         out = self.rulebases[0].getOutputs()
         for o in out:
             objs = self.rawResults[o]

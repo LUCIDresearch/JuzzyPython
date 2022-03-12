@@ -7,13 +7,14 @@ import numpy as np
 import unittest
 from juzzyPython.examples.SimpleNSIT2_IT2FLS import SimpleNSIT2_IT2FLS
 import logging
+import sys
 
 class TestSimpleT2FLS(unittest.TestCase):
 
     def testCentroidDefuzz(self):
         log= logging.getLogger("Test")
         f = "../javaTestResults/SimpleNSIT2_IT2FLSCentroid.txt"
-        test = SimpleNSIT2_IT2FLS()
+        test = SimpleNSIT2_IT2FLS(unit=True)
         z = test.getControlSurfaceData(True,100,100,True)
         with open(f) as file:
             lines = file.readlines()
@@ -24,7 +25,7 @@ class TestSimpleT2FLS(unittest.TestCase):
     def testCOSDefuzz(self):
         log= logging.getLogger("Test")
         f = "../javaTestResults/SimpleNSIT2_IT2FLSCOS.txt"
-        test = SimpleNSIT2_IT2FLS()
+        test = SimpleNSIT2_IT2FLS(unit=True)
         z = test.getControlSurfaceData(False,100,100,True)
         with open(f) as file:
             lines = file.readlines()

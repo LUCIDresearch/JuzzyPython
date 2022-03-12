@@ -29,12 +29,15 @@ class FLCPlant():
         self.lock = lock #Currently unused... may come into effect.
     
     def getTypeReductionType(self) -> int:
+        """Return the type reduction type"""
         return self.typeReductionType
     
     def setTypeReductionType(self,type: int) -> None:
+        """Set the type reduction type"""
         self.typeReductionType = type
     
     def run(self,results: dict) -> None:
+        """Run an IT2 rulebase"""
         out = self.rulebase.getOutputs()
         temp = self.rulebase.evaluateGetCentroid(self.typeReductionType)
         for o in out:
