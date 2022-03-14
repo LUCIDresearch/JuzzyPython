@@ -175,9 +175,7 @@ class SimpleNST1IT2FLS:
                         test.append(out)
         if unit:
             return test
-        if self.PRINTTIME:
-            print("Generated plot surface tip results in (seconds):")
-            print(str(time.time()-self.start))
+       
         self.plot.plotControlSurface(x,y,z,self.food.getName(),self.service.getName(),self.tip.getName())
         
     @timeDecorator
