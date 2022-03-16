@@ -32,8 +32,8 @@ class Plot:
     """
 
     def __init__(self) -> None:
-        pass
-    
+        self.colorList = ['tab:blue','tab:orange','tab:green','tab:red','tab:purple','tab:brown','tab:pink','tab:gray','tab:olive','tab:cyan']
+
     def show(self):
         """Show all the figures created"""
         plt.show()
@@ -132,6 +132,7 @@ class Plot:
         self.ax.set_xlabel("x")
         self.ax.set_ylabel("y")
         self.ax.set_zlabel("z")
+
         x = self.discretize(sets.getSupport(),xDisc)
         y1 = [[0 for c in range(xDisc)] for r in range(sets.getNumberOfSlices())]
         y2 = [[0 for c in range(xDisc)] for r in range(sets.getNumberOfSlices())]
@@ -150,10 +151,10 @@ class Plot:
                 z2[zLevel][i] = sets.getZValue(zLevel)
 
         for zLevel in range(sets.getNumberOfSlices()):
-            self.ax.plot3D(x,y1[zLevel],z1[zLevel],label=sets.getName()+"_upper")
-            self.ax.plot3D(x,y2[zLevel],z1[zLevel],label=sets.getName()+"_lower")
-            self.ax.plot3D(x,y1[zLevel],z2[zLevel],label=sets.getName()+"_upper")
-            self.ax.plot3D(x,y2[zLevel],z2[zLevel],label=sets.getName()+"_lower")
+            self.ax.plot3D(x,y1[zLevel],z1[zLevel],label=sets.getName()+"_upper",color= self.colorList[zLevel%10])
+            self.ax.plot3D(x,y2[zLevel],z1[zLevel],label=sets.getName()+"_lower",color= self.colorList[zLevel%10])
+            self.ax.plot3D(x,y1[zLevel],z2[zLevel],label=sets.getName()+"_upper",color= self.colorList[zLevel%10])
+            self.ax.plot3D(x,y2[zLevel],z2[zLevel],label=sets.getName()+"_lower",color= self.colorList[zLevel%10])
 
     def turnOnInteraction(self):
         plt.ion()
@@ -162,6 +163,7 @@ class Plot:
         self.ax.set_xlabel("X-Axis")
         self.ax.set_ylabel("Z-Axis")
         self.ax.set_zlabel("Y-Axis")
+
         if isinstance(sets,GenT2MF_Triangular):
             for zLevel in range(sets.getNumberOfSlices()):
                 xUpper = [sets.getZSlice(zLevel).getUMF().getStart(), sets.getZSlice(zLevel).getUMF().getPeak(),sets.getZSlice(zLevel).getUMF().getEnd()]
@@ -188,9 +190,9 @@ class Plot:
                     yLower[0][xD] = sets.getZSlice(zLevel).getFS(xLower[xD]).getLeft()
                     yLower[1][xD] = yLower[0][xD]
                 x,y = np.meshgrid(xUpper,zUpper)
-                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper),alpha = 0.5)
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper),alpha = 0.5,color=self.colorList[zLevel%10])
                 x,y = np.meshgrid(xLower,zLower)
-                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower),alpha = 0.5)
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower),alpha = 0.5,color=self.colorList[zLevel%10])
         elif isinstance(sets,GenT2MF_Trapezoidal):
             for zLevel in range(sets.getNumberOfSlices()):
                 xUpper = [sets.getZSlice(zLevel).getUMF().getA(), sets.getZSlice(zLevel).getUMF().getB(),sets.getZSlice(zLevel).getUMF().getC(),sets.getZSlice(zLevel).getUMF().getD()]
@@ -217,9 +219,9 @@ class Plot:
                     yLower[0][xD] = sets.getZSlice(zLevel).getFS(xLower[xD]).getLeft()
                     yLower[1][xD] = yLower[0][xD]
                 x,y = np.meshgrid(xUpper,zUpper)
-                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper),alpha = 0.5)
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper),alpha = 0.5,color=self.colorList[zLevel%10])
                 x,y = np.meshgrid(xLower,zLower)
-                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower),alpha = 0.5)
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower),alpha = 0.5,color=self.colorList[zLevel%10])
         else:
             for zLevel in range(sets.getNumberOfSlices()):
                 xUpper = self.discretize(xAxisRange,xDisc)
@@ -271,9 +273,9 @@ class Plot:
                     yUpper = y_upper2
                     yLower = y_Lower2
                 x,y = np.meshgrid(xUpper,zUpper)
-                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper),alpha = 0.5)
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yUpper),alpha = 0.5,color=self.colorList[zLevel%10])
                 x,y = np.meshgrid(xLower,zLower)
-                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower),alpha = 0.5)
+                self.ax.plot_surface(np.asarray(x), np.asarray(y),np.asarray(yLower),alpha = 0.5,color=self.colorList[zLevel%10])
 
     def discretize(self,support: Tuple,discLevel: int) -> List[float]:
         """Discretize the support values"""

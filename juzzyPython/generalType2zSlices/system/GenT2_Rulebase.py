@@ -9,6 +9,8 @@ from juzzyPython.intervalType2.system.IT2_Rulebase import IT2_Rulebase
 from juzzyPython.generalType2zSlices.system.GenT2_Antecedent import GenT2_Antecedent
 
 from typing import List, OrderedDict
+
+from juzzyPython.testing.timeRecorder import timeDecorator
 class GenT2_Rulebase():
     """
     Class GenT2_Rulebase

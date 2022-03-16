@@ -238,9 +238,7 @@
                         <span class="n">test</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">unit</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">test</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRINTTIME</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Generated plot surface tip results in (seconds):&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">))</span>
+       
         <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plotControlSurface</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">food</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">tip</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
         
     <span class="nd">@timeDecorator</span>
