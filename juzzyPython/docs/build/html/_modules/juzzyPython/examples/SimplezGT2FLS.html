@@ -83,6 +83,8 @@
 <span class="kn">from</span> <span class="nn">juzzyPython.generalType2zSlices.sets.GenT2MF_Triangular</span> <span class="kn">import</span> <span class="n">GenT2MF_Triangular</span>
 <span class="kn">from</span> <span class="nn">juzzyPython.testing.timeRecorder</span> <span class="kn">import</span> <span class="n">timeDecorator</span>
 
+<span class="kn">from</span> <span class="nn">juzzyPython.generalType2zSlices.sets.GenT2MF_Trapezoidal</span> <span class="kn">import</span> <span class="n">T1MF_Trapezoidal</span><span class="p">,</span><span class="n">GenT2MF_Trapezoidal</span><span class="p">,</span><span class="n">IntervalT2MF_Trapezoidal</span>
+
 
 <div class="viewcode-block" id="SimplezGT2FLS"><a class="viewcode-back" href="../../../juzzyPython.examples.html#juzzyPython.examples.SimplezGT2FLS.SimplezGT2FLS">[docs]</a><span class="k">class</span> <span class="nc">SimplezGT2FLS</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -120,12 +122,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="p">()</span>
 
         <span class="c1">#Set up the membership functions (MFs) for each input and output</span>
+        
         <span class="n">badFoodUMF</span> <span class="o">=</span> <span class="n">T1MF_Triangular</span><span class="p">(</span><span class="s2">&quot;Upper MF for bad food&quot;</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">)</span>
         <span class="n">badFoodLMF</span> <span class="o">=</span> <span class="n">T1MF_Triangular</span><span class="p">(</span><span class="s2">&quot;Lower MF for bad food&quot;</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">8.0</span><span class="p">)</span>
         <span class="n">badFoodIT2MF</span> <span class="o">=</span> <span class="n">IntervalT2MF_Triangular</span><span class="p">(</span><span class="s2">&quot;IT2MF for bad food&quot;</span><span class="p">,</span><span class="n">badFoodUMF</span><span class="p">,</span><span class="n">badFoodLMF</span><span class="p">)</span>
         <span class="n">badFoodMF</span> <span class="o">=</span> <span class="n">GenT2MF_Triangular</span><span class="p">(</span><span class="s2">&quot;zGT2MF for bad food&quot;</span><span class="p">,</span> <span class="n">primer</span> <span class="o">=</span> <span class="n">badFoodIT2MF</span><span class="p">,</span> <span class="n">numberOfzLevels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numberOfzLevels</span><span class="p">)</span>
-
-
+        
         <span class="n">greatFoodUMF</span> <span class="o">=</span> <span class="n">T1MF_Triangular</span><span class="p">(</span><span class="s2">&quot;Upper MF for great food&quot;</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">)</span>
         <span class="n">greatFoodLMF</span> <span class="o">=</span> <span class="n">T1MF_Triangular</span><span class="p">(</span><span class="s2">&quot;Lower MF for great food&quot;</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">)</span>
         <span class="n">greatFoodIT2MF</span> <span class="o">=</span> <span class="n">IntervalT2MF_Triangular</span><span class="p">(</span><span class="s2">&quot;IT2MF for great food&quot;</span><span class="p">,</span><span class="n">greatFoodUMF</span><span class="p">,</span><span class="n">greatFoodLMF</span><span class="p">)</span>
