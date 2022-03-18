@@ -34,6 +34,8 @@ to rebuild the documentation with your edits.
 ### Examples:
 ---
 
+The following examples all help use a portion of the library to illustrate the "How much to tip the waiter" problem. Please have a look at these examples for some use cases of the library.
+
 You can run examples by importing from:
 
 `juzzyPython.examples`
