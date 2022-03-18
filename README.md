@@ -48,16 +48,18 @@ Or by running the file itself:
 
 The following examples are included:
 
-SimpleT1FLS                             | Executes a type-1 fuzzy system example.
-SimpleNST1FLS                           | Executes a non-singleton type-1 fuzzy system example.
-SimpleT1FLS_twoOutputs                  | Executes a type-1 fuzzy system example with 2 outputs.
-SimpleIT2FLS                            | Executes an interval type-2 fuzzy system example.
-SimpleNST1IT2FLS                        | Executes a non-singleton type-1 interval type-2 fuzzy system example.
-SimpleNSIT2_IT2FLS                      | Executes a non-singleton IT2 interval type-2 fuzzy system example.
-SimpleIT2FLS_twoOutputs                 | Executes an interval type-2 fuzzy system example with 2 outputs.
-SimplezGT2FLS                           | Executes a general type-2 fuzzy system example.
-SimplezGT2FLSNST1                       | Executes a non-singleton type-1 general type-2 fuzzy system example.
-SimplezGT2FLSNSIT2                      | Executes a non-singleton IT2 general type-2 fuzzy system example.
-SimplezGT2FLSNSGT2                      | Executes a non-singleton GT2 general type-2 fuzzy system example.
-SimplezGT2FLS_multicore                 | Executes a multi-threaded / multi-core general type-2 fuzzy system example.
-SimplezGT2FLS_multicore_twoOutputs      | Executes a multi-threaded / multi-core general type-2 fuzzy system example with 2 outputs.
+Example | Description
+--- | ---
+SimpleT1FLS | Executes a type-1 fuzzy system example.
+SimpleNST1FLS | Executes a non-singleton type-1 fuzzy system example.
+SimpleT1FLS_twoOutputs | Executes a type-1 fuzzy system example with 2 outputs.
+SimpleIT2FLS | Executes an interval type-2 fuzzy system example.
+SimpleNST1IT2FLS | Executes a non-singleton type-1 interval type-2 fuzzy system example.
+SimpleNSIT2_IT2FLS | Executes a non-singleton IT2 interval type-2 fuzzy system example.
+SimpleIT2FLS_twoOutputs | Executes an interval type-2 fuzzy system example with 2 outputs.
+SimplezGT2FLS | Executes a general type-2 fuzzy system example.
+SimplezGT2FLSNST1 | Executes a non-singleton type-1 general type-2 fuzzy system example.
+SimplezGT2FLSNSIT2 | Executes a non-singleton IT2 general type-2 fuzzy system example.
+SimplezGT2FLSNSGT2 | Executes a non-singleton GT2 general type-2 fuzzy system example.
+SimplezGT2FLS_multicore | Executes a multi-threaded / multi-core general type-2 fuzzy system example.
+SimplezGT2FLS_multicore_twoOutputs | Executes a multi-threaded / multi-core general type-2 fuzzy system example with 2 outputs.
