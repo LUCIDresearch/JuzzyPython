@@ -1,7 +1,7 @@
 # JuzzyPython
 ## Python implementation of Christian Wagner's Juzzy
 
-Please refer to **[Juzzy](http://juzzy.wagnerweb.net/)** for Java and online implementations
+Please refer to **[Juzzy](http://juzzy.wagnerweb.net/)** for Java and online implementations of the Juzzy toolkit and more information on the usage of this FLS library.
 
 ### Installation:
 ---
@@ -14,6 +14,20 @@ In the root directory (Where setup.py exists), please type:
 
 You can then import Juzzy through juzzyPython.
 
+### General Structure:
+---
+```
+juzzyPython
+    ├── docs                   # HTML Documentation of the library
+    ├── examples               # FLS T1, IT2 and GT2 Examples
+    ├── generalType2zSlices    # Systems and Sets to design GT2 FLS
+    ├── intervalType2          # Systems and Sets to design IT2 FLS
+    ├── type1                  # Systems and Sets to design T1 FLS
+    ├── similarity             # Jaccard similarity
+    ├── generic                # General Input, Output and plotting classes
+    └── unitTests              # Example testing
+
+```
 ### HTML Documentation:
 ---
 
