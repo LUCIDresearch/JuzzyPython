@@ -20,6 +20,8 @@ from juzzyPython.generalType2zSlices.sets.GenT2MF_Gaussian import GenT2MF_Gaussi
 from juzzyPython.generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
 from juzzyPython.testing.timeRecorder import timeDecorator
 
+from juzzyPython.generalType2zSlices.sets.GenT2MF_Trapezoidal import T1MF_Trapezoidal,GenT2MF_Trapezoidal,IntervalT2MF_Trapezoidal
+
 
 class SimplezGT2FLS:
     """
@@ -57,12 +59,12 @@ class SimplezGT2FLS:
         self.plot = Plot()
 
         #Set up the membership functions (MFs) for each input and output
+        
         badFoodUMF = T1MF_Triangular("Upper MF for bad food",0.0,0.0,10.0)
         badFoodLMF = T1MF_Triangular("Lower MF for bad food",0.0,0.0,8.0)
         badFoodIT2MF = IntervalT2MF_Triangular("IT2MF for bad food",badFoodUMF,badFoodLMF)
         badFoodMF = GenT2MF_Triangular("zGT2MF for bad food", primer = badFoodIT2MF, numberOfzLevels = self.numberOfzLevels)
-
-
+        
         greatFoodUMF = T1MF_Triangular("Upper MF for great food",0.0,10.0,10.0)
         greatFoodLMF = T1MF_Triangular("Lower MF for great food",2.0,10.0,10.0)
         greatFoodIT2MF = IntervalT2MF_Triangular("IT2MF for great food",greatFoodUMF,greatFoodLMF)

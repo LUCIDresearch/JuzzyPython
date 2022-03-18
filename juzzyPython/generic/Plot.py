@@ -250,17 +250,17 @@ class Plot:
             
 
                 if addExtraPoints:
-                    x_upper2 = [0.0] * (xUpper.length + 2)
-                    y_upper2 = [[0.0 for i in range(yUpper[0].length + 2)] for j in range(2)]
-                    x_Lower2 = [0.0] * (xLower.length + 2)
-                    y_Lower2 = [[0.0 for i in range(yLower[0].length + 2)] for j in range(2)]
+                    x_upper2 = [0.0] * (len(xUpper) + 2)
+                    y_upper2 = [[0.0 for i in range(len(yUpper[0]) + 2)] for j in range(2)]
+                    x_Lower2 = [0.0] * (len(xLower) + 2)
+                    y_Lower2 = [[0.0 for i in range(len(yLower[0]) + 2)] for j in range(2)]
 
                     x_upper2[0] = sets.getSupport().getLeft()
                     x_upper2[-1] = sets.getSupport().getRight()
                     x_Lower2[0] = x_upper2[0]
                     x_Lower2[-1] = x_upper2[-1]
             
-                    for i in range(xUpper):
+                    for i in range(len(xUpper)):
                         x_upper2[i + 1] = xUpper[i]
                         x_Lower2[i + 1] = xLower[i]
                         y_upper2[0][i + 1] = yUpper[0][i]
