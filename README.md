@@ -4,6 +4,7 @@
 Please refer to **[Juzzy](http://juzzy.wagnerweb.net/)** for Java and online implementations
 
 ### Installation:
+---
 
 You can install this package using pip. 
 
@@ -14,6 +15,7 @@ In the root directory (Where setup.py exists), please type:
 You can then import Juzzy through juzzyPython.
 
 ### HTML Documentation:
+---
 
 You can find detailed documentation on a browsable site in the following directory:
 
@@ -30,6 +32,7 @@ and use
 to rebuild the documentation with your edits. 
 
 ### Examples:
+---
 
 You can run examples by importing from:
 
