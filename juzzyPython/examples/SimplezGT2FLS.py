@@ -130,6 +130,7 @@ class SimplezGT2FLS:
 
         if not unit:
             self.plot.show()
+            
     @timeDecorator
     def getTip(self,foodQuality,serviceLevel) -> None:
         """Calculate the output based on the two inputs"""
