@@ -80,8 +80,6 @@ class SimpleT1FLS:
         #get some outputs
         self.getTip(7,8)
 
-    
-
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
         self.getControlSurfaceData(True,100,100)
@@ -148,6 +146,8 @@ class SimpleT1FLS:
         for i in range(len(sets)):
             self.plot.plotMF(name.replace("Membership Functions",""),sets[i].getName(),sets[i],discretizationLevel,xAxisRange,Tuple(0.0,1.0),False)
         self.plot.legend()
+    
+    
 
 if __name__ == "__main__":
     SimpleT1FLS()

@@ -20,8 +20,6 @@ from juzzyPython.generalType2zSlices.sets.GenT2MF_Gaussian import GenT2MF_Gaussi
 from juzzyPython.generalType2zSlices.sets.GenT2MF_Triangular import GenT2MF_Triangular
 from juzzyPython.testing.timeRecorder import timeDecorator
 
-from juzzyPython.generalType2zSlices.sets.GenT2MF_Trapezoidal import T1MF_Trapezoidal,GenT2MF_Trapezoidal,IntervalT2MF_Trapezoidal
-
 
 class SimplezGT2FLS:
     """
@@ -70,7 +68,6 @@ class SimplezGT2FLS:
         greatFoodIT2MF = IntervalT2MF_Triangular("IT2MF for great food",greatFoodUMF,greatFoodLMF)
         greatFoodMF = GenT2MF_Triangular("zGT2MF for great food", primer = greatFoodIT2MF, numberOfzLevels = self.numberOfzLevels)
 
-
         unfriendlyServiceUMF = T1MF_Triangular("Upper MF for unfriendly service",0.0,0.0,8.0)
         unfriendlyServiceLMF = T1MF_Triangular("Lower MF for unfriendly service",0.0,0.0,6.0)
         unfriendlyServiceIT2MF = IntervalT2MF_Triangular("IT2MF for unfriendly service",unfriendlyServiceUMF,unfriendlyServiceLMF)
@@ -90,7 +87,6 @@ class SimplezGT2FLS:
         mediumTipLMF = T1MF_Gaussian("Lower MF medium tip", 15.0, 4.0)
         mediumTipIT2MF = IntervalT2MF_Gaussian("IT2MF for medium Tip",mediumTipUMF,mediumTipLMF)
         mediumTipMF = GenT2MF_Gaussian("zGT2MF for medium tip", mediumTipIT2MF, self.numberOfzLevels)
-
 
         highTipUMF = T1MF_Gaussian("Upper MF high tip", 30.0, 6.0)
         highTipLMF = T1MF_Gaussian("Lower MF high tip", 30.0, 4.0)
@@ -119,7 +115,6 @@ class SimplezGT2FLS:
         self.getTip(7,8)
         self.getTip(0.0,0.0)
 
-       
         print(self.rulebase.toString())
         #Plot control surface, false for height defuzzification, true for centroid defuzz.
         self.plotMFs("Food Quality Membership Functions",[badFoodMF, greatFoodMF], self.food.getDomain(), 100,True,True)
@@ -127,10 +122,9 @@ class SimplezGT2FLS:
         self.plotMFs("Level of Tip Membership Functions", [lowTipMF, mediumTipMF, highTipMF], self.tip.getDomain(), 100,True,True)
         self.getControlSurfaceData(False,self.xDiscs,self.yDiscs)
 
-
         if not unit:
             self.plot.show()
-            
+
     @timeDecorator
     def getTip(self,foodQuality,serviceLevel) -> None:
         """Calculate the output based on the two inputs"""
@@ -186,6 +180,7 @@ class SimplezGT2FLS:
         if unit:
             return test
         self.plot.plotControlSurface(x,y,z,self.food.getName(),self.service.getName(),self.tip.getName())
+        
     @timeDecorator
     def plotMFs(self,name,sets,xAxisRange,discretizationLevel,plotAsLines,plotAsSurface):
         """Plot the lines for each membership function of the sets"""
@@ -199,5 +194,6 @@ class SimplezGT2FLS:
             self.plot.title(name)
             for i in range(len(sets)):
                 self.plot.plotMFasSurface(sets[i].getName(),sets[i],xAxisRange,discretizationLevel,False)
+
 if __name__ == "__main__":
     SimplezGT2FLS()
