@@ -272,11 +272,12 @@ class TimeTester():
             start = time.time()
             self.plotMFT1("Test",[self.badFoodUMF, self.greatFoodUMF], self.food.getDomain(), 100)
             timecount += time.time() - start
+        self.plot.closeAllFigures()
         print("plotMF (T1) average time over " + str(self.count) + " iterations is "+str(timecount/self.count))
     
     def plotMFT1(self,name,sets,xAxisRange,discretizationLevel):
         """Plot the lines for each membership function of the sets"""
-        #self.plot.figure()
+        self.plot.figure()
         self.plot.title(name)
         for i in range(len(sets)):
             self.plot.plotMF(name.replace("Membership Functions",""),sets[i].getName(),sets[i],discretizationLevel,xAxisRange,Tuple(0.0,1.0),False)

@@ -158,6 +158,9 @@ class Plot:
 
     def turnOnInteraction(self):
         plt.ion()
+    
+    def closeAllFigures(self):
+        plt.close('all')
 
     def plotMFasSurface(self,plotName: str,sets: GenT2MF_Interface,xAxisRange: Tuple,xDisc: int,addExtraPoints: bool):
         self.ax.set_xlabel("X-Axis")
