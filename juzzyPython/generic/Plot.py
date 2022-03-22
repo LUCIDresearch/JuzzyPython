@@ -13,6 +13,7 @@ import numpy as np
 from mpl_toolkits.mplot3d import Axes3D  
 import matplotlib.pyplot as plt
 from typing import List
+plt.rcParams.update({'figure.max_open_warning': 0})
 
 class Plot:
     """

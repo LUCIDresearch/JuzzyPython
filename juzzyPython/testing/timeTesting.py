@@ -64,8 +64,8 @@ class TimeTester():
         self.foodIn = 5
         self.numberOfzLevels = 4
         self.typeReduction = 0
-        self.xDiscs = 50
-        self.yDiscs = 10
+        self.xDiscs = 20
+        self.yDiscs = 20
 
     def setup(self):
         #Inputs to the FLS
@@ -174,25 +174,25 @@ class TimeTester():
             start = time.time()
             FLC.runFactory(0)[self.tip]
             timecount += time.time() - start
-        print("GT2 average evaluate COS time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("GT2 average evaluate COS time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
         timecount = 0
         for i in range(self.count):
             start = time.time()
             FLC.runFactory(1)[self.tip]
             timecount += time.time() - start
-        print("GT2 average evaluate Centroid time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("GT2 average evaluate Centroid time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
         timecount = 0
         for i in range(self.count):
             start = time.time()
             FLC.runFactoryGetCentroid(0)
             timecount += time.time() - start
-        print("GT2 average evaluate COS getCentroid time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("GT2 average evaluate COS getCentroid time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
         timecount = 0
         for i in range(self.count):
             start = time.time()
             FLC.runFactoryGetCentroid(1)
             timecount += time.time() - start
-        print("GT2 average evaluate Centroid getCentroid time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("GT2 average evaluate Centroid getCentroid time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
 
     def getRulebaseGT2Times(self):
         self.food.setInput(self.foodIn)
@@ -202,25 +202,25 @@ class TimeTester():
             start = time.time()
             self.rulebaseGT2.evaluate(0)[self.tip]
             timecount += time.time() - start
-        print("GT2 average evaluate COS time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("GT2 average evaluate COS time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
         timecount = 0
         for i in range(self.count):
             start = time.time()
             self.rulebaseGT2.evaluate(1)[self.tip]
             timecount += time.time() - start
-        print("GT2 average evaluate Centroid time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("GT2 average evaluate Centroid time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
         timecount = 0
         for i in range(self.count):
             start = time.time()
             self.rulebaseGT2.evaluateGetCentroid(0)
             timecount += time.time() - start
-        print("GT2 average evaluate COS getCentroid time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("GT2 average evaluate COS getCentroid time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
         timecount = 0
         for i in range(self.count):
             start = time.time()
             self.rulebaseGT2.evaluateGetCentroid(1)
             timecount += time.time() - start
-        print("GT2 average evaluate Centroid getCentroid time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("GT2 average evaluate Centroid getCentroid time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
     
     def getRulebaseIT2Times(self):
         self.food.setInput(self.foodIn)
@@ -230,25 +230,25 @@ class TimeTester():
             start = time.time()
             self.rulebaseIT2.evaluate(0)[self.tip]
             timecount += time.time() - start
-        print("IT2 average evaluate COS time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("IT2 average evaluate COS time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
         timecount = 0
         for i in range(self.count):
             start = time.time()
             self.rulebaseIT2.evaluate(1)[self.tip]
             timecount += time.time() - start
-        print("IT2 average evaluate Centroid time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("IT2 average evaluate Centroid time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
         timecount = 0
         for i in range(self.count):
             start = time.time()
             self.rulebaseIT2.evaluateGetCentroid(0)
             timecount += time.time() - start
-        print("IT2 average evaluate COS getCentroid time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("IT2 average evaluate COS getCentroid time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
         timecount = 0
         for i in range(self.count):
             start = time.time()
             self.rulebaseIT2.evaluateGetCentroid(1)
             timecount += time.time() - start
-        print("IT2 average evaluate Centroid getCentroid time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("IT2 average evaluate Centroid getCentroid time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
     
     def getRulebaseT1Times(self):
         self.food.setInput(self.foodIn)
@@ -258,13 +258,13 @@ class TimeTester():
             start = time.time()
             self.rulebaseT1.evaluate(0)[self.tip]
             timecount += time.time() - start
-        print("T1 average evaluate Height time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("T1 average evaluate Height time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
         timecount = 0
         for i in range(self.count):
             start = time.time()
             self.rulebaseT1.evaluate(1)[self.tip]
             timecount += time.time() - start
-        print("T1 average evaluate Centroid time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("T1 average evaluate Centroid time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
             
     def getPlotTimes(self):
         timecount = 0
@@ -273,8 +273,54 @@ class TimeTester():
             self.plotMFT1("Test",[self.badFoodUMF, self.greatFoodUMF], self.food.getDomain(), 100)
             timecount += time.time() - start
         self.plot.closeAllFigures()
-        print("plotMF (T1) average time over " + str(self.count) + " iterations is "+str(timecount/self.count))
+        print("plotMF (T1) average time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
+        for i in range(self.count):
+            start = time.time()
+            self.plotMFIT2("Test",[self.badFoodIT2MF, self.greatFoodIT2MF], self.food.getDomain(), 100)
+            timecount += time.time() - start
+        self.plot.closeAllFigures()
+        print("plotMF2 (IT2) average time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
+        for i in range(self.count):
+            start = time.time()
+            self.plotMFGT2("Test",[self.badFoodMF, self.greatFoodMF], self.food.getDomain(), 100,True,False)
+            timecount += time.time() - start
+        self.plot.closeAllFigures()
+        print("plotMFasLines (GT2) average time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
+        for i in range(self.count):
+            start = time.time()
+            self.plotMFGT2("Test",[self.badFoodMF, self.greatFoodMF], self.food.getDomain(), 100,False,True)
+            timecount += time.time() - start
+        self.plot.closeAllFigures()
+        print("plotMFasSurface (GT2) average time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
     
+    def getControlSurfaceTimes(self):
+        timecount = 0
+        for i in range(self.count):
+            start = time.time()
+            self.getControlSurfaceData(True,self.xDiscs,self.yDiscs)
+            timecount += time.time() - start
+        self.plot.closeAllFigures()
+        print("ControlSurfaceData GT2 Centroid average time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
+        timecount = 0
+        for i in range(self.count):
+            start = time.time()
+            self.getControlSurfaceData(False,self.xDiscs,self.yDiscs)
+            timecount += time.time() - start
+        self.plot.closeAllFigures()
+        print("ControlSurfaceData GT2 COS average time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
+        for i in range(self.count):
+            start = time.time()
+            self.getControlSurfaceDataMC(True,self.xDiscs,self.yDiscs)
+            timecount += time.time() - start
+        self.plot.closeAllFigures()
+        print("ControlSurfaceData GT2 Centroid Multicore average time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
+        for i in range(self.count):
+            start = time.time()
+            self.getControlSurfaceDataMC(False,self.xDiscs,self.yDiscs)
+            timecount += time.time() - start
+        self.plot.closeAllFigures()
+        print("ControlSurfaceData GT2 COS Multicore average time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
+
     def plotMFT1(self,name,sets,xAxisRange,discretizationLevel):
         """Plot the lines for each membership function of the sets"""
         self.plot.figure()
@@ -304,17 +350,69 @@ class TimeTester():
             for i in range(len(sets)):
                 self.plot.plotMFasSurface(sets[i].getName(),sets[i],xAxisRange,discretizationLevel,False)
 
+    def getControlSurfaceData(self,useCentroidDefuzz,input1Discs,input2Discs) -> None:
+        """Get the data to plot the control surface"""
+        FLC = FLCFactory(self.rulebaseGT2.getIT2Rulebases())
+        incrX = self.food.getDomain().getSize()/(input1Discs-1.0)
+        incrY = self.service.getDomain().getSize()/(input2Discs-1.0)
+        x = []
+        y = []
+        z = [ [0]*input1Discs for i in range(input2Discs)]
+        for i in range(input1Discs):
+            x.append(i*incrX)
+        for i in range(input2Discs):
+            y.append(i*incrY)
+        for x_ in range(input1Discs):
+            self.food.setInput(x[x_])
+            for y_ in range(input2Discs):
+                self.service.setInput(y[y_])
+                if useCentroidDefuzz:
+                    out = FLC.runFactory(1).get(self.tip)
+                else:
+                    out = FLC.runFactory(0).get(self.tip)
+                if out == None or math.isnan(out):
+                    z[y_][x_] = 0.0
+                else:
+                    z[y_][x_] = out
+    
+    def getControlSurfaceDataMC(self,useCentroidDefuzz,input1Discs,input2Discs) -> None:
+        """Get the data to plot the control surface"""
+        
+        incrX = self.food.getDomain().getSize()/(input1Discs-1.0)
+        incrY = self.service.getDomain().getSize()/(input2Discs-1.0)
+        x = []
+        y = []
+        z = [ [0]*input1Discs for i in range(input2Discs)]
+        for i in range(input1Discs):
+            x.append(i*incrX)
+        for i in range(input2Discs):
+            y.append(i*incrY)
+        for x_ in range(input1Discs):
+            self.food.setInput(x[x_])
+            for y_ in range(input2Discs):
+                self.service.setInput(y[y_])
+                if useCentroidDefuzz:
+                    out = self.rulebaseGT2.evaluate(1).get(self.tip)
+                else:
+                    out = self.rulebaseGT2.evaluate(0).get(self.tip)
+                if out == None or math.isnan(out):
+                    z[y_][x_] = 0.0
+                else:
+                    z[y_][x_] = out
+                 
 if __name__ == "__main__":
     t = TimeTester()
     t.setup()
     print("-------- GT2 Multicore --------")
-    #t.getRulebaseGT2MulticoreTimes()
+    t.getRulebaseGT2MulticoreTimes()
     print("------------- GT2 -------------")
-    #t.getRulebaseGT2Times()
+    t.getRulebaseGT2Times()
     print("------------- IT2 -------------")
-    #t.getRulebaseIT2Times()
+    t.getRulebaseIT2Times()
     print("------------- T1 --------------")
-    #t.getRulebaseT1Times()
+    t.getRulebaseT1Times()
     print("------------ Plot -------------")
     t.getPlotTimes()
+    print("------- Control Surface -------")
+    t.getControlSurfaceTimes()
 
