@@ -308,12 +308,14 @@ class TimeTester():
             timecount += time.time() - start
         self.plot.closeAllFigures()
         print("ControlSurfaceData GT2 COS average time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
+        timecount = 0
         for i in range(self.count):
             start = time.time()
             self.getControlSurfaceDataMC(True,self.xDiscs,self.yDiscs)
             timecount += time.time() - start
         self.plot.closeAllFigures()
         print("ControlSurfaceData GT2 Centroid Multicore average time over " + str(self.count) + " iterations is "+str(round(timecount/self.count,5)) + " seconds.")
+        timecount = 0
         for i in range(self.count):
             start = time.time()
             self.getControlSurfaceDataMC(False,self.xDiscs,self.yDiscs)
@@ -350,7 +352,7 @@ class TimeTester():
             for i in range(len(sets)):
                 self.plot.plotMFasSurface(sets[i].getName(),sets[i],xAxisRange,discretizationLevel,False)
 
-    def getControlSurfaceData(self,useCentroidDefuzz,input1Discs,input2Discs) -> None:
+    def getControlSurfaceDataMC(self,useCentroidDefuzz,input1Discs,input2Discs) -> None:
         """Get the data to plot the control surface"""
         FLC = FLCFactory(self.rulebaseGT2.getIT2Rulebases())
         incrX = self.food.getDomain().getSize()/(input1Discs-1.0)
@@ -375,9 +377,8 @@ class TimeTester():
                 else:
                     z[y_][x_] = out
     
-    def getControlSurfaceDataMC(self,useCentroidDefuzz,input1Discs,input2Discs) -> None:
+    def getControlSurfaceData(self,useCentroidDefuzz,input1Discs,input2Discs) -> None:
         """Get the data to plot the control surface"""
-        
         incrX = self.food.getDomain().getSize()/(input1Discs-1.0)
         incrY = self.service.getDomain().getSize()/(input2Discs-1.0)
         x = []
