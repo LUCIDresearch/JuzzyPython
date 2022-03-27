@@ -59,7 +59,7 @@ from juzzyPython.testing.timeRecorder import timeDecorator
 class TimeTester():
 
     def __init__(self) -> None:
-        self.count = 30
+        self.count = 200
         self.serviceIn = 5
         self.foodIn = 5
         self.numberOfzLevels = 4
