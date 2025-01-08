@@ -87,8 +87,8 @@ class T1_Antecedent:
             valxmax = 0
             domain = self.input.getDomain().getRight() - self.input.getDomain().getLeft()
             incr = domain/(domain*50)
-            x = 0
-            for i in range((domain*50)+1):
+            x = self.input.getDomain().getLeft()
+            for i in range((int(domain)*50)+1):
                 if tNorm == 0:
                     temp = self.input.getInputMF().getFS(x)*self.getMF().getFS(x)
                 else:
