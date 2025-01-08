@@ -2,6 +2,9 @@
 Plot.py
 Created 21/12/2021
 """
+from email.policy import default
+from itertools import cycle
+from cycler import cycler
 
 from juzzyPython.generic.Tuple import Tuple
 from juzzyPython.generalType2zSlices.sets.GenT2MF_Interface import GenT2MF_Interface
@@ -98,9 +101,20 @@ class Plot:
             y1 = y1b
             y2 = y2b
         ax = plt.gca()
-        color = next(ax._get_lines.prop_cycler)['color']
-        plt.plot(x,y1,label=name+"_upper", color = color)
-        plt.plot(x,y2,label=name+"_lower", color = color, alpha=0.5)
+        # original
+        # color = next(ax._get_lines.prop_cycler)['color']
+
+        # revised version
+        cmap = plt.get_cmap("tab20")
+        num_colors = 20
+        default_colors = [cmap(i) for i in range(num_colors)]
+        plt.rcParams["axes.prop_cycle"] = cycler(color=default_colors)
+
+        # plt.plot(x,y1,label=name+"_upper", color = color)
+        # plt.plot(x,y2,label=name+"_lower", color = color, alpha=0.5)
+        plt.plot(x, y1, label=name + "_upper")
+        plt.plot(x, y2, label=name + "_lower", alpha=0.5)
+
         #plt.xlim(xAxisRange.getLeft(),xAxisRange.getRight())
         #plt.ylim(yAxisRange.getLeft(),yAxisRange.getRight())
         plt.ylabel("μ")
